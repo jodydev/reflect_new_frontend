@@ -7,7 +7,6 @@ export default function AssetCarousel() {
   useEffect(() => {
     const fetchMarketData = async () => {
       try {
-        // Costruzione dell'URL con parametri query
         const url =
           "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=6&page=1";
 
@@ -21,7 +20,6 @@ export default function AssetCarousel() {
 
         const data = await response.json();
 
-        // Mappare i dati in base alla tua struttura
         const mappedAssets = data.map((asset) => ({
           name: asset.name,
           price: `$${asset.current_price} ${
@@ -38,27 +36,25 @@ export default function AssetCarousel() {
     fetchMarketData();
   }, []);
 
-  // Funzione per l'animazione dello scorrimento
   useEffect(() => {
     const interval = setInterval(() => {
       setScrollPosition((prevPosition) => prevPosition + 1);
-    }, 20); // Modifica la velocità cambiando il numero
+    }, 20); 
 
     return () => clearInterval(interval);
   }, []);
 
   useEffect(() => {
     if (scrollPosition >= assets.length * 200) {
-      setScrollPosition(0); // Resetta la posizione quando finisce la lista
+      setScrollPosition(0); 
     }
   }, [scrollPosition, assets.length]);
 
   return (
-    <div className="absolute top-[105%] left-0 w-full h-28 rounded-t-[40px] bg-white bg-opacity-20 border border-white/30 shadow-lg backdrop-filter backdrop-blur-[5px]">
+    <div className="absolute top-2/3 bottom-0 w-full h-28 rounded-t-[40px] bg-white bg-opacity-20 shadow-lg backdrop-filter backdrop-blur-[5px]">
       {" "}
       <div className="px-28">
         {" "}
-        {/* Maggior padding orizzontale */}
         <div
           className="flex my-12"
           style={{ transform: `translateX(-${scrollPosition}px)` }}
@@ -76,14 +72,13 @@ export default function AssetCarousel() {
                   } rounded-md shadow-md px-3 py-1`}
                 >
                   <p className="text-white text-sm whitespace-nowrap">
-                    {asset.price}
+                  {asset.price}
                   </p>
                 </div>
               </div>
             </div>
           ))}
 
-          {/* Duplicare per scorrimento infinito */}
           {assets.map((asset, index) => (
             <div
               key={index + assets.length}

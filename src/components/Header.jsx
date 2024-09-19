@@ -47,14 +47,8 @@ export default function Header() {
         <div className="container mx-auto flex items-center justify-between relative">
           {/* Logo a sinistra */}
           <div className="flex items-center py-4 px-6">
-            <img src={Logo} alt="logo" className="h-8 w-8" />
-            <Typography
-              variant="h6"
-              color="white"
-              className="text-white font-bold ml-2"
-            >
-              Reflect
-            </Typography>
+            <img src={Logo} alt="logo" className="h-10 w-10" />
+            <p className="text-white font-bold ml-2">Reflect</p>
           </div>
 
           {/* Menu centrato */}
