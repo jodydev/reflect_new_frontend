@@ -1,4 +1,4 @@
-const BackgroundAnimation = () => {
+const HeroBgAnimation = () => {
   return (
     <div className="glow-container">
       <div className="ball"></div>
@@ -8,4 +8,4 @@ const BackgroundAnimation = () => {
   );
 };
 
-export default BackgroundAnimation;
+export default HeroBgAnimation;

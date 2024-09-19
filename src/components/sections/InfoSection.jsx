@@ -1,15 +1,14 @@
 import Spline from "@splinetool/react-spline";
-import SwiperCards from "./SwiperCards";
+import SwiperCards from "../SwiperCards";
 import ScrollAnimation from "react-animate-on-scroll";
-import LineImage from "../assets/images/line_effect.png";
-import PrimaryButton from "./buttons/PrimaryButton";
-import AnimatedBackground from "./AnimatedBackground";
+import LineImage from "../../assets/images/line_effect.png";
+import AnimatedBackground from "../AnimatedBackground";
 
 export default function InfoSection() {
   return (
     <section className="min-h-screen bg-gray-900 py-12 bg-img relative">
       {/* Sfondo Animato */}
-        <AnimatedBackground numBalls={10} />
+      <AnimatedBackground numBalls={10} />
 
       {/* Contenuto principale con z-index più alto */}
       <div className="flex flex-col items-center justify-center min-h-screen relative z-10">

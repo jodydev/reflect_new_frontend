@@ -1,5 +1,5 @@
 
-import AnimatedBackground from "./AnimatedBackground";
+import AnimatedBackground from "../AnimatedBackground";
 
 export default function InfoSectionThree() {
   return (

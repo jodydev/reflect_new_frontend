@@ -2,9 +2,9 @@ import Main from "../components/Main";
 import ScrollProgressButton from "../components/buttons/ScrollProgressButton";
 // import InitCustomCursor from '../components/cursor/InitCustomCursor';
 import Animations from "../components/Animations";
-import InfoSection from "../components/InfoSection";
-import InfoSectionTwo from "../components/InfoSectionTwo";
-import InfoSectionThree from "../components/InfoSectionThree";
+import InfoSection from "../components/sections/InfoSection";
+import InfoSectionTwo from "../components/sections/InfoSectionTwo";
+import InfoSectionThree from "../components/sections/InfoSectionThree";
 
 const Home = () => {
   return (
@@ -14,16 +14,6 @@ const Home = () => {
         <InfoSection />
         <InfoSectionTwo />
         <InfoSectionThree />
-
-        {/* <TextSliderLargeTwo />
-        <CounterOne />
-        <GenerationThree />
-        <Partner />
-        <Easy />
-        <OverviewTwo />
-        <EasyTwo />
-        <Review />
-        <EasyThree /> */}
       </main>
       {/* <Footer /> */}
       {/* <InitCustomCursor /> */}

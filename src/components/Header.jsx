@@ -53,16 +53,16 @@ export default function Header() {
 
           {/* Menu centrato */}
           <ul className="hidden lg:flex items-center gap-16 absolute left-1/2 -translate-x-1/2 bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10 rounded-full py-4 xl:py-5 px-8 xl:px-10 shadow-md shadow-primary">
-            <li className="flex items-center gap-2 text-xs md:text-sm text-white hover:text-tertiary hover:cursor-pointer transition-colors duration-300">
+            <li className="flex items-center gap-2 text-xs md:text-sm text-white hover:text-gray-300 hover:-translate-y-0.5 hover:cursor-pointer transition-colors duration-300">
               Home
             </li>
-            <li className="flex items-center gap-2 text-xs md:text-sm text-white hover:text-tertiary hover:cursor-pointer transition-colors duration-300">
+            <li className="flex items-center gap-2 text-xs md:text-sm text-white hover:text-gray-300 hover:-translate-y-0.5 hover:cursor-pointer transition-colors duration-300">
               News
             </li>
-            <li className="flex items-center gap-2 text-xs md:text-sm text-white hover:text-tertiary hover:cursor-pointer transition-colors duration-300">
+            <li className="flex items-center gap-2 text-xs md:text-sm text-white hover:text-gray-300 hover:-translate-y-0.5 hover:cursor-pointer transition-colors duration-300">
               About
             </li>
-            <li className="flex items-center gap-2 text-xs md:text-sm text-white hover:text-tertiary hover:cursor-pointer transition-colors duration-300">
+            <li className="flex items-center gap-2 text-xs md:text-sm text-white hover:text-gray-300 hover:-translate-y-0.5 hover:cursor-pointer transition-colors duration-300">
               Contact
             </li>
           </ul>
