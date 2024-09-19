@@ -152,8 +152,13 @@ body {
 }
 
 .carousel-transition {
-  transition: transform 0.6s linear;
+  transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1);
 }
+
+.will-change-transform {
+  will-change: transform;
+}
+
 
 
 
