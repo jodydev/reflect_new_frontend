@@ -1,10 +1,12 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-
-// https://vitejs.dev/config/
+import { defineConfig } from 'vite';
+import vercel from 'vite-plugin-vercel';
+ 
 export default defineConfig({
-  plugins: [react()],
   build: {
-    sourcemap: true,
+    outDir: 'dist',  // La directory di output del build
   },
-})
+  ssr: {
+    noExternal: ['vite-plugin-vercel'],
+  },
+  plugins: [vercel()],
+});

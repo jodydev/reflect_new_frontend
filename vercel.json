@@ -1,12 +1,11 @@
 {
-    "version": 2,
-    "routes": [
-      {
-        "handle": "filesystem"
-      },
-      {
-        "src": "/assets/img/(.*)",
-        "dest": "/assets/img/$1"
+  "builds": [
+    {
+      "src": "vite.config.ts",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
       }
-    ]
-  }
+    }
+  ]
+}
