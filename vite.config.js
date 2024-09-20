@@ -4,7 +4,7 @@ import react from "@vitejs/plugin-react";
 export default defineConfig(() => {
   return {
     build: {
-      sourcemap: false,
+      sourcemap: false,  // Disabilita le sourcemap in produzione
       rollupOptions: {
         output: {
           manualChunks(id) {
@@ -20,5 +20,3 @@ export default defineConfig(() => {
     ],
   };
 });
-
-
