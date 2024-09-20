@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Navbar, Typography, IconButton } from "@material-tailwind/react";
+import { Navbar, IconButton } from "@material-tailwind/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Logo from "../assets/images/logo_min.png";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
@@ -10,7 +10,6 @@ export default function Header() {
   const [open, setOpen] = useState(false);
   const [dropdownTimeout, setDropdownTimeout] = useState(null);
 
-  const dropdownRef = useRef(null);
   const timeoutDuration = 3000;
 
   const handleOpen = () => setOpen((cur) => !cur);
@@ -45,76 +44,68 @@ export default function Header() {
         className="border-0 relative z-10 bg-transparent"
       >
         <div className="container mx-auto flex items-center justify-between relative">
-          {/* Logo a sinistra */}
+          {/* Logo */}
           <div className="flex items-center py-4 px-6">
-            <img src={Logo} alt="logo" className="h-10 w-10" />
-            <p className="text-white font-bold ml-2">Reflect</p>
+            <img src={Logo} alt="logo" className="h-8 w-8 md:h-10 md:w-10" />
+            <p className="text-white font-bold ml-2 text-sm md:text-lg">Reflect</p>
           </div>
 
-          {/* Menu centrato */}
-          <ul className="hidden lg:flex items-center gap-16 absolute left-1/2 -translate-x-1/2 bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10 rounded-full py-4 xl:py-5 px-8 xl:px-10 shadow-md shadow-primary">
-            <li className="flex items-center gap-2 text-xs md:text-sm text-white hover:text-gray-300 hover:-translate-y-0.5 hover:cursor-pointer transition-colors duration-300">
+          {/* Menu per desktop */}
+          <ul className="hidden lg:flex items-center gap-8 md:gap-16 absolute left-1/2 -translate-x-1/2 bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10 rounded-full py-2 md:py-4 px-6 md:px-8 shadow-md shadow-primary">
+            <li className="text-xs md:text-sm text-white hover:text-gray-300 transition-transform duration-300 hover:-translate-y-0.5">
               Home
             </li>
-            <li className="flex items-center gap-2 text-xs md:text-sm text-white hover:text-gray-300 hover:-translate-y-0.5 hover:cursor-pointer transition-colors duration-300">
+            <li className="text-xs md:text-sm text-white hover:text-gray-300 transition-transform duration-300 hover:-translate-y-0.5">
               News
             </li>
-            <li className="flex items-center gap-2 text-xs md:text-sm text-white hover:text-gray-300 hover:-translate-y-0.5 hover:cursor-pointer transition-colors duration-300">
+            <li className="text-xs md:text-sm text-white hover:text-gray-300 transition-transform duration-300 hover:-translate-y-0.5">
               About
             </li>
-            <li className="flex items-center gap-2 text-xs md:text-sm text-white hover:text-gray-300 hover:-translate-y-0.5 hover:cursor-pointer transition-colors duration-300">
+            <li className="text-xs md:text-sm text-white hover:text-gray-300 transition-transform duration-300 hover:-translate-y-0.5">
               Contact
             </li>
           </ul>
 
           {/* Dropdown Altro a destra */}
-          <Menu as="div" className="flex items-center relative">
-            <MenuButton className="inline-flex w-full justify-center gap-x-1.5 p-3 text-sm font-semibold text-gray-900 bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10 rounded-full shadow-md shadow-primary">
+          <Menu as="div" className="hidden lg:flex items-center relative">
+            <MenuButton className="inline-flex w-full justify-center gap-x-1.5 p-2 md:p-3 text-sm font-semibold text-gray-900 bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10 rounded-full shadow-md shadow-primary">
               <ChevronDownIcon
                 aria-hidden="true"
-                className="h-5 w-5 text-white"
+                className="h-4 w-4 md:h-5 md:w-5 text-white"
               />
             </MenuButton>
 
             <MenuItems
               transition
-              className="absolute top-12 right-0 z-10 mt-2 w-56 origin-top-right rounded-2xl g-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10 shadow-md shadow-primary transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
+              className="absolute top-12 right-0 z-10 mt-2 w-40 md:w-56 origin-top-right rounded-2xl bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10 shadow-md shadow-primary transition focus:outline-none"
             >
               <div className="py-1">
                 <MenuItem>
                   <a
                     href="#"
-                    className="block px-4 py-2 text-sm text-white data-[focus]:bg-primary rounded-2xl my-2 mx-2"
+                    className="block px-4 py-2 text-xs md:text-sm text-white hover:bg-primary rounded-2xl mx-2"
                   >
-                    Lorem
+                    Option 1
                   </a>
                 </MenuItem>
                 <MenuItem>
                   <a
                     href="#"
-                    className="block px-4 py-2 text-sm text-white data-[focus]:bg-primary rounded-2xl mb-2 mx-2"
+                    className="block px-4 py-2 text-xs md:text-sm text-white hover:bg-primary rounded-2xl mx-2"
                   >
-                    Lorem
-                  </a>
-                </MenuItem>
-                <MenuItem>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 text-sm text-white data-[focus]:bg-primary rounded-2xl mb-2 mx-2"
-                  >
-                    Lorem
+                    Option 2
                   </a>
                 </MenuItem>
               </div>
             </MenuItems>
           </Menu>
 
-          {/* Icona per il menu mobile a destra */}
+          {/* Icona per il menu mobile */}
           <IconButton
             variant="text"
             color="gray"
             onClick={handleOpen}
-            className="ml-auto inline-block lg:hidden"
+            className="lg:hidden"
           >
             {open ? (
               <XMarkIcon strokeWidth={2} className="h-6 w-6" />
@@ -122,6 +113,20 @@ export default function Header() {
               <Bars3Icon strokeWidth={2} className="h-6 w-6" />
             )}
           </IconButton>
+
+          {/* Menu mobile */}
+          <div
+            className={`${
+              open ? "block" : "hidden"
+            } lg:hidden absolute top-full right-0 w-full bg-primary`}
+          >
+            <ul className="flex flex-col items-center py-4 gap-6">
+              <li className="text-white">Home</li>
+              <li className="text-white">News</li>
+              <li className="text-white">About</li>
+              <li className="text-white">Contact</li>
+            </ul>
+          </div>
         </div>
       </Navbar>
     </>

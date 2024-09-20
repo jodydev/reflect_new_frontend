@@ -16,7 +16,7 @@ export default function InfoSection() {
             <h2 className="title-animation text-2xl lg:text-4xl font-bold text-white mb-6">
               Lorem <span className="text-secondary">Lorem ipsum</span>
             </h2>
-            <p className="title-animation text-white text-xs lg:text-sm mx-40 mb-5 max-w-4xl">
+            <p className="title-animation text-white text-xs lg:text-sm mx-10 md:mx-40 mb-5 max-w-4xl">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
               malesuada lorem maximus mauris scelerisque, at rutrum turpis
               porta. Nam a est in lacus tincidunt elementum. In hac habitasse

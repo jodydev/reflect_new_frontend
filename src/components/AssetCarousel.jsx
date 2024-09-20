@@ -51,55 +51,34 @@ export default function AssetCarousel() {
   }, [scrollPosition, assets.length]);
 
   return (
-    <div className="absolute top-2/3 bottom-0 w-full h-28 rounded-t-[40px] bg-white bg-opacity-20 shadow-lg backdrop-filter backdrop-blur-[5px]">
-      {" "}
-      <div className="px-28">
-        {" "}
+<div className="w-full h-28 mt-12 rounded-t-[40px] bg-white bg-opacity-20 shadow-lg backdrop-filter backdrop-blur-[5px] relative">
+  <div className="absolute left-1/2 transform -translate-x-1/2 h-full">
+    <div
+      className="flex items-center h-full"
+      style={{ transform: `translateX(-${scrollPosition}px)` }}
+    >
+      {assets.concat(assets).map((asset, index) => (
         <div
-          className="flex my-12"
-          style={{ transform: `translateX(-${scrollPosition}px)` }}
+          key={index}
+          className="flex-shrink-0 w-48 h-full flex items-center justify-center mx-5"
         >
-          {assets.map((asset, index) => (
+          <div className="flex items-center gap-3">
+            <h3 className="text-white italic">{asset.name}</h3>
             <div
-              key={index}
-              className="flex-shrink-0 w-48 h-full flex items-center justify-center mx-5"
+              className={`${
+                asset.trend === "up" ? "bg-green-600" : "bg-red-600"
+              } rounded-md shadow-md px-3 py-1`}
             >
-              <div className="flex items-center gap-3">
-                <h3 className="text-white italic">{asset.name}</h3>
-                <div
-                  className={`${
-                    asset.trend === "up" ? "bg-green-600" : "bg-red-600"
-                  } rounded-md shadow-md px-3 py-1`}
-                >
-                  <p className="text-white text-sm whitespace-nowrap">
-                  {asset.price}
-                  </p>
-                </div>
-              </div>
+              <p className="text-white text-sm whitespace-nowrap">
+                {asset.price}
+              </p>
             </div>
-          ))}
-
-          {assets.map((asset, index) => (
-            <div
-              key={index + assets.length}
-              className="flex-shrink-0 w-48 h-full flex items-center justify-center mx-5"
-            >
-              <div className="flex items-center gap-3">
-                <h3 className="text-white italic">{asset.name}</h3>
-                <div
-                  className={`${
-                    asset.trend === "up" ? "bg-green-600" : "bg-red-600"
-                  } rounded-md shadow-md px-3 py-1`}
-                >
-                  <p className="text-white text-sm whitespace-nowrap">
-                    {asset.price}
-                  </p>
-                </div>
-              </div>
-            </div>
-          ))}
+          </div>
         </div>
-      </div>
+      ))}
     </div>
+  </div>
+</div>
+
   );
 }
