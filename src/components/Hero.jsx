@@ -7,7 +7,7 @@ export default function Hero() {
 
   return (
     <section className="relative h-full flex items-center lg:items-start">
-      <div className="relative z-10 w-full h-[70vh] 2xl:h-full flex justify-center items-center">
+      <div className="relative z-10 w-full h-[65vh] xl:h-[70vh] 2xl:h-full flex justify-center items-center">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 xl:gap-40 items-center">
             {/* Text Content */}
@@ -33,13 +33,13 @@ export default function Hero() {
 
             {/* Spline 3D Element */}
             <div className="hidden md:block w-full relative z-0 justify-center">
-              {/* <Spline
+              <Spline
                 style={{
                   width: isBigScreen ? "700px" : isMediumScreen ? "500px" : "425px",
                   height: isBigScreen ? "700px" : isMediumScreen ? "500px" : "425px",
                 }}
                 scene="https://prod.spline.design/E4YD-HYnDoP6Ss86/scene.splinecode"
-              /> */}
+              />
             </div>
           </div>
         </div>
