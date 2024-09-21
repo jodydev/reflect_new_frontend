@@ -8,8 +8,8 @@ export default function Hero() {
   const isMediumScreen = window.matchMedia("(min-width: 1024px)").matches;
 
   return (
-    <section className="relative my-10 md:my-4 h-96 md:h-full flex items-center">
-      <div className="relative z-10 w-full flex justify-center lg:justify-center">
+    <section className="relative my-10 md:my-4 h-96 md:h-full flex items-center lg:items-start">
+      <div className="relative z-10 w-full flex justify-center">
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row items-center md:gap-x-0 xl:gap-40">
             <div className="w-full mb-8 lg:mb-0 xl:mb-48">
