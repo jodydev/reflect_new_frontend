@@ -140,7 +140,7 @@ const InfoSectionTwo = () => {
                 <div
                   key={item.id}
                   ref={(el) => (cardRefs.current[index] = el)}
-                  className={`absolute right-10 md:right-80 xl:right-[600px] top-14 xl:top-60 md:top-40 flex items-center justify-center text-white text-center rounded-2xl shadow-lg will-change-transform
+                  className={`absolute right-10 md:right-[400px] xl:right-[600px] top-14 xl:top-60 md:top-40 flex items-center justify-center text-white text-center rounded-2xl shadow-lg will-change-transform
                     ${
                       isSelected
                         ? "shadow-secondary border-secondary border-4 z-20 w-72 h-60"
