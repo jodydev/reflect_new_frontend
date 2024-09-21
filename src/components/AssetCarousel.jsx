@@ -51,7 +51,7 @@ export default function AssetCarousel() {
   }, [scrollPosition, assets.length]);
 
   return (
-    <div className="w-full h-28 mt-12 rounded-t-[40px] bg-white bg-opacity-20 shadow-lg backdrop-filter backdrop-blur-[5px] relative">
+    <div className="w-full h-28 mt-12 md:mt-0 xl:mt-7 rounded-t-[40px] bg-white bg-opacity-20 shadow-lg backdrop-filter backdrop-blur-[5px] relative">
       <div className="absolute left-1/2 transform -translate-x-1/2 h-full">
         <div
           className="flex items-center h-full"

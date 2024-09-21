@@ -9,7 +9,7 @@ export default function InfoSection() {
   const isBigScreen = window.matchMedia("(min-width: 1920px)").matches;
 
   return (
-    <section className="min-h-screen bg-gray-900 py-12 bg-img relative">
+    <section className=" py-12 bg-img relative">
       {/* Sfondo Animato */}
       <AnimatedBackground numBalls={10} />
 
@@ -18,13 +18,13 @@ export default function InfoSection() {
           <h2 className="title-animation text-3xl lg:text-5xl xl:text-7xl font-bold text-white mb-6 xl:mb-10">
             Lorem <span className="text-gray-500">Lorem ipsum</span>
           </h2>
-          <p className="title-animation text-white text-xs lg:text-sm xl:text-lg mx-10 md:mx-40 mb-5 max-w-4xl ">
+          <p className="title-animation text-white text-xs lg:text-sm xl:text-lg mx-10 md:mx-60 mb-5 max-w-4xl ">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
             malesuada lorem maximus mauris scelerisque, at rutrum turpis porta.
             Nam a est in lacus tincidunt elementum. In hac habitasse platea
             malesuada lorem maximus mauris scelerisque, at rutrum turpis porta.
           </p>
-          <div className="my-6 mx-20 lg:my-10 lg:mx-96">
+          <div className="my-6 mx-20 lg:my-10 lg:mx-96 ">
             <PrimaryButton text="Lorem" />
           </div>
         </div>

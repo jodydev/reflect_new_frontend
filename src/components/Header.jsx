@@ -51,7 +51,7 @@ export default function Header() {
           </div>
 
           {/* Menu per desktop */}
-          <ul className="hidden lg:flex items-center gap-8 md:gap-16 absolute left-1/2 -translate-x-1/2 bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10 rounded-full py-2 md:py-4 px-6 md:px-8 shadow-md shadow-primary">
+          <ul className="hidden lg:flex items-center gap-8 md:gap-16 absolute left-1/2 -translate-x-1/2 bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10 rounded-full py-2 md:py-4 px-6 md:px-8 shadow-md shadow-primary hover:cursor-pointer">
             <li className="text-xs md:text-sm text-white hover:text-gray-300 transition-transform duration-300 hover:-translate-y-0.5">
               Home
             </li>

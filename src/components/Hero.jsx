@@ -5,15 +5,16 @@ import ScrollAnimation from "react-animate-on-scroll";
 
 export default function Hero() {
   const isBigScreen = window.matchMedia("(min-width: 1920px)").matches;
+  const isMediumScreen = window.matchMedia("(min-width: 1024px)").matches;
 
   return (
-    <section className="relative my-10 h-96 md:h-full flex items-center">
+    <section className="relative my-10 md:my-4 h-96 md:h-full flex items-center">
       <div className="relative z-10 w-full flex justify-center lg:justify-center">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col lg:flex-row items-center lg:items-start">
+          <div className="flex flex-col lg:flex-row items-center lg:items-start md:gap-x-40">
             <div className="w-full lg:w-6/12 mb-8 lg:mb-0 xl:mb-48">
               <div className="text-center lg:text-left xl:mt-32">
-                <h1 className="text-3xl sm:text-4xl lg:text-6xl xl:text-8xl font-extrabold text-white mb-4 title-animation">
+                <h1 className="text-3xl md:text-4xl lg:text-6xl xl:text-8xl font-extrabold text-white mt-5 mb-4 title-animation">
                   <span className="block">Lorem</span> LoremLorem{" "}
                   <span className="relative">
                     Lorem Lorem
@@ -31,21 +32,14 @@ export default function Hero() {
               </div>
             </div>
             {/* Spline 3D Element */}
-            <div className="hidden lg:block w-full lg:w-1/2 relative z-0">
-              <ScrollAnimation duration={2} animateIn="fadeInLeft">
-                <img
-                  src={LineImage}
-                  className="absolute bottom-0 top-[55%] inset-0 -z-10 w-full object-cover"
-                  alt="Line Background"
-                />
+            <div className="hidden md:block w-full lg:w-1/2 relative z-0">
                 <Spline
                   style={{
-                    width: isBigScreen ? "600px" : "425px",
-                    height: isBigScreen ? "600px" : "425px",
+                    width: isBigScreen ? "700px" : isMediumScreen ? "400px" : "425px",
+                    height: isBigScreen ? "700px" : isMediumScreen ? "400px" : "425px",
                   }}
                   scene="https://prod.spline.design/E4YD-HYnDoP6Ss86/scene.splinecode"
                 />
-              </ScrollAnimation>
             </div>
           </div>
         </div>
