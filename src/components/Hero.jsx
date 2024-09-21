@@ -1,16 +1,20 @@
 import BannerElement from "../assets/images/banner_effect.png";
+import LineImage from "../assets/images/line_effect.png";
+import Spline from "@splinetool/react-spline";
+import ScrollAnimation from "react-animate-on-scroll";
 
 export default function Hero() {
+  const isBigScreen = window.matchMedia("(min-width: 1920px)").matches;
+
   return (
     <section className="relative my-10 h-96 md:h-full flex items-center">
-      <div className="relative z-10 w-full flex justify-center lg:justify-start">
+      <div className="relative z-10 w-full flex justify-center lg:justify-center">
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row items-center lg:items-start">
-            <div className="w-full lg:w-6/12 mb-8 lg:mb-0">
-              <div className="text-center lg:text-left">
+            <div className="w-full lg:w-6/12 mb-8 lg:mb-0 xl:mb-48">
+              <div className="text-center lg:text-left xl:mt-32">
                 <h1 className="text-3xl sm:text-4xl lg:text-6xl xl:text-8xl font-extrabold text-white mb-4 title-animation">
-                  <span className="block">Lorem</span>{" "}
-                  LoremLorem{" "}
+                  <span className="block">Lorem</span> LoremLorem{" "}
                   <span className="relative">
                     Lorem Lorem
                     <img
@@ -19,11 +23,29 @@ export default function Hero() {
                     />
                   </span>
                 </h1>
-                <p className="text-sm sm:text-lg lg:text-base xl:text-lg text-gray-300 mt-8 sm:mt-10 mb-10">
+                <p className="text-sm sm:text-lg lg:text-base xl:text-xl text-gray-300 mt-8 sm:mt-10 xl:mt-16 mb-10">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Dignissimos excepturi neque sunt, magni numquam sapiente veniam dolorum accusamus.
+                  Dignissimos excepturi neque sunt, magni numquam sapiente
+                  veniam dolorum accusamus.
                 </p>
               </div>
+            </div>
+            {/* Spline 3D Element */}
+            <div className="hidden lg:block w-full lg:w-1/2 relative z-0">
+              <ScrollAnimation duration={2} animateIn="fadeInLeft">
+                <img
+                  src={LineImage}
+                  className="absolute bottom-0 top-[55%] inset-0 -z-10 w-full object-cover"
+                  alt="Line Background"
+                />
+                <Spline
+                  style={{
+                    width: isBigScreen ? "600px" : "425px",
+                    height: isBigScreen ? "600px" : "425px",
+                  }}
+                  scene="https://prod.spline.design/E4YD-HYnDoP6Ss86/scene.splinecode"
+                />
+              </ScrollAnimation>
             </div>
           </div>
         </div>

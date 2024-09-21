@@ -39,46 +39,45 @@ export default function AssetCarousel() {
   useEffect(() => {
     const interval = setInterval(() => {
       setScrollPosition((prevPosition) => prevPosition + 1);
-    }, 20); 
+    }, 20);
 
     return () => clearInterval(interval);
   }, []);
 
   useEffect(() => {
     if (scrollPosition >= assets.length * 200) {
-      setScrollPosition(0); 
+      setScrollPosition(0);
     }
   }, [scrollPosition, assets.length]);
 
   return (
-<div className="w-full h-28 mt-12 rounded-t-[40px] bg-white bg-opacity-20 shadow-lg backdrop-filter backdrop-blur-[5px] relative">
-  <div className="absolute left-1/2 transform -translate-x-1/2 h-full">
-    <div
-      className="flex items-center h-full"
-      style={{ transform: `translateX(-${scrollPosition}px)` }}
-    >
-      {assets.concat(assets).map((asset, index) => (
+    <div className="w-full h-28 mt-12 rounded-t-[40px] bg-white bg-opacity-20 shadow-lg backdrop-filter backdrop-blur-[5px] relative">
+      <div className="absolute left-1/2 transform -translate-x-1/2 h-full">
         <div
-          key={index}
-          className="flex-shrink-0 w-48 h-full flex items-center justify-center mx-5"
+          className="flex items-center h-full"
+          style={{ transform: `translateX(-${scrollPosition}px)` }}
         >
-          <div className="flex items-center gap-3">
-            <h3 className="text-white italic">{asset.name}</h3>
+          {assets.concat(assets).map((asset, index) => (
             <div
-              className={`${
-                asset.trend === "up" ? "bg-green-600" : "bg-red-600"
-              } rounded-md shadow-md px-3 py-1`}
+              key={index}
+              className="flex-shrink-0 w-48 h-full flex items-center justify-center mx-5"
             >
-              <p className="text-white text-sm whitespace-nowrap">
-                {asset.price}
-              </p>
+              <div className="flex items-center gap-3">
+                <h3 className="text-white italic">{asset.name}</h3>
+                <div
+                  className={`${
+                    asset.trend === "up" ? "bg-green-600" : "bg-red-600"
+                  } rounded-md shadow-md px-3 py-1`}
+                >
+                  <p className="text-white text-sm whitespace-nowrap">
+                    {asset.price}
+                  </p>
+                </div>
+              </div>
             </div>
-          </div>
+          ))}
         </div>
-      ))}
+      </div>
     </div>
-  </div>
-</div>
-
   );
 }
