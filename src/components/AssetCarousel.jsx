@@ -51,7 +51,7 @@ export default function AssetCarousel() {
   }, [scrollPosition, assets.length]);
 
   return (
-    <div className="w-full h-28 mt-12 md:mt-0 xl:mt-7 rounded-t-[40px] bg-white bg-opacity-20 shadow-lg backdrop-filter backdrop-blur-[5px] relative">
+    <div className="w-full h-28 xl:h-36 2xl:h-40 rounded-t-[40px] bg-white bg-opacity-20 shadow-lg backdrop-filter backdrop-blur-[5px] relative">
       <div className="absolute left-1/2 transform -translate-x-1/2 h-full">
         <div
           className="flex items-center h-full"
@@ -60,16 +60,16 @@ export default function AssetCarousel() {
           {assets.concat(assets).map((asset, index) => (
             <div
               key={index}
-              className="flex-shrink-0 w-48 h-full flex items-center justify-center mx-5"
+              className="flex-shrink-0 w-48 h-full flex items-center justify-center mx-5 xl:mx-16"
             >
-              <div className="flex items-center gap-3">
-                <h3 className="text-white italic">{asset.name}</h3>
+              <div className="flex items-center gap-3 xl:gap-5">
+                <h3 className="text-white italic xl:text-xl">{asset.name}</h3>
                 <div
                   className={`${
                     asset.trend === "up" ? "bg-green-600" : "bg-red-600"
                   } rounded-md shadow-md px-3 py-1`}
                 >
-                  <p className="text-white text-sm whitespace-nowrap">
+                  <p className="text-white text-sm xl:text-lg whitespace-nowrap">
                     {asset.price}
                   </p>
                 </div>

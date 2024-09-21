@@ -1,20 +1,19 @@
 import BannerElement from "../assets/images/banner_effect.png";
-import LineImage from "../assets/images/line_effect.png";
 import Spline from "@splinetool/react-spline";
-import ScrollAnimation from "react-animate-on-scroll";
 
 export default function Hero() {
   const isBigScreen = window.matchMedia("(min-width: 1920px)").matches;
   const isMediumScreen = window.matchMedia("(min-width: 1024px)").matches;
 
   return (
-    <section className="relative my-10 md:my-4 h-96 md:h-full flex items-center lg:items-start">
-      <div className="relative z-10 w-full flex justify-center">
+    <section className="relative h-full flex items-center lg:items-start">
+      <div className="relative z-10 w-full h-[70vh] 2xl:h-full flex justify-center items-center">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col lg:flex-row items-center md:gap-x-0 xl:gap-40">
-            <div className="w-full mb-8 lg:mb-0 xl:mb-48">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 xl:gap-40 items-center">
+            {/* Text Content */}
+            <div className="w-full mb-8 lg:mb-0 xl:my-56">
               <div className="text-center lg:text-left xl:mt-32">
-                <h1 className="text-3xl xl:text-8xl font-extrabold text-white mt-5 mb-4 title-animation">
+                <h1 className="text-5xl xl:text-7xl 2xl:text-8xl font-extrabold text-white mt-5 mb-4 title-animation">
                   <span className="block">Lorem</span> LoremLorem{" "}
                   <span className="relative">
                     Lorem Lorem
@@ -31,15 +30,16 @@ export default function Hero() {
                 </p>
               </div>
             </div>
+
             {/* Spline 3D Element */}
-            <div className="hidden md:block w-full md:w-3/4 relative z-0">
-                <Spline
-                  style={{
-                    width: isBigScreen ? "700px" : isMediumScreen ? "500px" : "425px",
-                    height: isBigScreen ? "700px" : isMediumScreen ? "500px" : "425px",
-                  }}
-                  scene="https://prod.spline.design/E4YD-HYnDoP6Ss86/scene.splinecode"
-                />
+            <div className="hidden md:block w-full relative z-0 justify-center">
+              {/* <Spline
+                style={{
+                  width: isBigScreen ? "700px" : isMediumScreen ? "500px" : "425px",
+                  height: isBigScreen ? "700px" : isMediumScreen ? "500px" : "425px",
+                }}
+                scene="https://prod.spline.design/E4YD-HYnDoP6Ss86/scene.splinecode"
+              /> */}
             </div>
           </div>
         </div>

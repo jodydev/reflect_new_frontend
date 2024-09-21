@@ -45,7 +45,7 @@ export default function Header() {
       >
         <div className="container mx-auto flex items-center justify-between relative">
           {/* Logo */}
-          <div className="flex items-center py-4 px-6">
+          <div className="flex items-center mt-5 md:mt-0 md:py-4 px-6">
             <img src={Logo} alt="logo" className="h-8 w-8 md:h-10 md:w-10" />
             <p className="text-white font-bold ml-2 text-sm md:text-lg">Reflect</p>
           </div>
@@ -103,9 +103,9 @@ export default function Header() {
           {/* Icona per il menu mobile */}
           <IconButton
             variant="text"
-            color="gray"
+            color="white"
             onClick={handleOpen}
-            className="lg:hidden"
+            className="lg:hidden me-5"
           >
             {open ? (
               <XMarkIcon strokeWidth={2} className="h-6 w-6" />
