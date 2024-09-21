@@ -208,7 +208,7 @@ const InfoSectionTwo = () => {
 
           <div
             ref={backgroundRef}
-            className="hidden md:block absolute bottom-0 xl:bottom-[-150px] right-0 xl:left-[300px] left-0 -z-30 w-full h-screen bg-cover bg-no-repeat"
+            className="hidden md:block absolute bottom-0 xl:bottom-[-150px] right-0 md:left-[200px] xl:left-[300px] left-0 -z-30 w-full h-screen bg-cover bg-no-repeat"
             style={{
               backgroundImage: `url(${backgroundImages[selectedIndex]})`,
             }}
