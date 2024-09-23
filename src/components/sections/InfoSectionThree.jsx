@@ -11,15 +11,15 @@ import GoogleLogo from "../../assets/images/google_logo.png";
 
 const InfoSectionThree = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const [isBigScreen, setIsBigScreen] = useState(window.innerWidth > 1920);
+  const isMobile = window.innerWidth < 768;
   const isMediumScreen = window.innerWidth > 1024 && window.innerWidth < 1920;
+  const isBigScreen = window.innerWidth > 1920;
+  const backgroundImages = [NumberOne, NumberTwo, NumberThree];
   const itemsCount = 3;
   const containerRef = useRef(null);
   const cardRefs = useRef([]);
   const backgroundRef = useRef(null);
-  const isMobile = window.innerWidth < 768;
   const [isOpen, setIsOpen] = useState(false);
-  const backgroundImages = [NumberOne, NumberTwo, NumberThree];
   const [selectedOption, setSelectedOption] = useState({
     value: "option1",
     label: "gAMZN",
@@ -71,15 +71,6 @@ const InfoSectionThree = () => {
   }, [selectedIndex]);
 
   useEffect(() => {
-    const handleResize = () => {
-      setIsBigScreen(window.innerWidth > 1024);
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  useEffect(() => {
     const cards = cardRefs.current;
     const angleStep = 360 / itemsCount;
     const radius = isBigScreen ? 400 : isMediumScreen ? 330 : 270;
@@ -104,7 +95,7 @@ const InfoSectionThree = () => {
     return () => {
       gsap.killTweensOf(cards);
     };
-  }, [selectedIndex, itemsCount, isBigScreen]);
+  }, [selectedIndex, itemsCount]);
 
   useEffect(() => {
     if (cardRefs.current.length) {
@@ -115,12 +106,12 @@ const InfoSectionThree = () => {
         timeline.to(card, {
           width: isMobile
             ? isSelected
-              ? "200px"
-              : "150px"
+              ? "250px"
+              : "300px"
             : isBigScreen
             ? isSelected
-              ? "450px"
-              : "450px"
+              ? "500px"
+              : "500px"
             : isMediumScreen
             ? isSelected
               ? "400px"
@@ -130,12 +121,12 @@ const InfoSectionThree = () => {
             : "300px",
           height: isMobile
             ? isSelected
-              ? "250px"
-              : "200px"
+              ? "300px"
+              : "300px"
             : isBigScreen
             ? isSelected
-              ? "400px"
-              : "400px"
+              ? "450px"
+              : "450px"
             : isMediumScreen
             ? isSelected
               ? "350px"
@@ -181,7 +172,7 @@ const InfoSectionThree = () => {
                 <div
                   key={item.id}
                   ref={(el) => (cardRefs.current[index] = el)}
-                  className={`bg-white bg-opacity-10 absolute right-0 md:right-[100px] 2xl:right-[250px] top-24 md:top-20 2xl:top-60 flex items-center justify-center text-white text-center rounded-[35px] shadow-lg 
+                  className={`bg-white bg-opacity-10 absolute right-[-40px] md:right-[100px] 2xl:right-[250px] top-24 md:top-20 2xl:top-60 flex items-center justify-center text-white text-center rounded-[35px] shadow-lg 
                   ${
                     isSelected
                       ? "shadow-md z-20 w-72 h-60"
@@ -202,7 +193,7 @@ const InfoSectionThree = () => {
                         {item.subtitle}
                       </p>
                     </div>
-                    <div className="content px-12">
+                    <div className="content px-4 md:px-12 md:py-3">
                       <div className="flex justify-between">
                         <label
                           htmlFor="priceFrom"
@@ -224,11 +215,11 @@ const InfoSectionThree = () => {
                           name="priceFrom"
                           type="text"
                           placeholder="$0.00"
-                          className="block bg-white bg-opacity-20 w-full h-12 rounded-md border-0 py-1.5 pl-3 pr-20 text-gray-400 sm:text-sm focus:outline-none focus:ring-0"
+                          className="block bg-white bg-opacity-20 w-full h-10 md:h-12 rounded-md border-0 py-1.5 pl-3 pr-20 text-gray-400 sm:text-sm focus:outline-none focus:ring-0"
                         />
-                        <div className="relative inline-block ml-4">
+                        <div className="relative inline-block ml-1 md:ml-4">
                           <div
-                            className="flex items-center bg-white bg-opacity-20 h-12 rounded-md pl-3 pr-3 text-gray-400 sm:text-sm cursor-pointer"
+                            className="flex items-center bg-white bg-opacity-20 h-10 md:h-12 rounded-md pl-3 pr-3 text-gray-400 sm:text-sm cursor-pointer"
                             onClick={() => setIsOpen(!isOpen)}
                           >
                             <div className="flex items-center flex-grow">
@@ -266,8 +257,8 @@ const InfoSectionThree = () => {
                       </div>
                     </div>
 
-                    <p className="text-xs py-3 md:py-4 2xl:py-8">
-                      Account Balance: 42 {selectedOption.label}
+                    <p className="text-xs 2xl:text-base py-4 2xl:py-8">
+                      Account Balance: <span className="text-primary font-bold">42</span> {selectedOption.label}
                     </p>
                     <div className="mx-10">
                       <SecondaryButton text="Buy Now" />
@@ -300,15 +291,15 @@ const InfoSectionThree = () => {
         </div>
 
         {/* Button Section for mobile devices */}
-        <div className="block md:hidden absolute bottom-20">
+        <div className="block md:hidden absolute bottom-20 right-0 left-0 px-10">
           <div className="flex w-full flex-row gap-6">
             {[0, 1, 2].map((index) => (
               <div key={index} className="w-full">
                 <button
                   onClick={() => setSelectedIndex(index)}
                   className={`w-full ${
-                    selectedIndex === index ? "bg-gray-400 bg-opacity-40" : ""
-                  } hover:bg-gray-400 hover:bg-opacity-40 transition-colors duration-300 px-6 py-3 rounded-xl text-primary text-base font-base`}
+                    selectedIndex === index ? "bg-white bg-opacity-60 border-primary border-2" : "border-white border-opacity-0 border-2 "
+                  } bg-white bg-opacity-20 transition-colors duration-300 px-6 py-3 rounded-xl text-primary text-base font-base`}
                 >
                   Card{index + 1}
                 </button>
@@ -320,7 +311,7 @@ const InfoSectionThree = () => {
         {/* Background Image Section */}
         <div
           ref={backgroundRef}
-          className="absolute xl:top-[50px] 2xl:top-[-200px] xl:right-[-80px] xl:w-[400px] xl:h-[350px] 2xl:w-[600px] 2xl:h-[700px] bg-cover bg-no-repeat"
+          className="z-0 absolute xl:top-[50px] 2xl:top-[-200px] xl:right-[-80px] xl:w-[400px] xl:h-[350px] 2xl:w-[600px] 2xl:h-[700px] bg-cover bg-no-repeat"
           style={{
             backgroundImage: `url(${backgroundImages[selectedIndex]})`,
           }}

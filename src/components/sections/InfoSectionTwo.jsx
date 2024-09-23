@@ -41,7 +41,7 @@ const InfoSectionTwo = () => {
       </h2>
 
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-40 py-10 2xl:py-40">
-        <img src={Image} alt="Image description" />
+        <img className="hidden md:block" src={Image} alt="Image description" />
 
         <div className="flex justify-center items-center">
           <ProgressStepper
