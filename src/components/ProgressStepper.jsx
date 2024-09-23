@@ -22,7 +22,7 @@ export default function ProgressStepper({
   };
 
   const getStepClassNames = (isCurrent, isCompleted) => {
-    let baseClass = "flex items-center space-x-10 mb-2 xl:text-3xl 2xl:text-5xl font-bold";
+    let baseClass = "flex items-center space-x-10 mb-2 text-2xl xl:text-3xl 2xl:text-5xl font-bold";
     if (isCurrent) {
       return `${baseClass} text-primary underline`;
     } else if (isCompleted) {
@@ -42,7 +42,7 @@ export default function ProgressStepper({
           return (
             <li key={step.id} className="flex items-start">
               {/* Step Button */}
-              <div className="flex flex-col items-center mr-6">
+              <div className="flex flex-col items-center mr-6 animate-fadeInBottom">
                 <button
                   className={`w-10 h-10 flex justify-center items-center border-2 rounded-full transition-all duration-300 ${getButtonClassNames(
                     isCompleted,
@@ -79,11 +79,11 @@ export default function ProgressStepper({
               </div>
 
               {/* Step Title and Label */}
-              <div className="flex flex-col">
+              <div className="flex flex-col ms-3 title-animation">
                 <h4 className={getStepClassNames(isCurrent, isCompleted)}>
                   {step.title}
                 </h4>
-                <span>{step.label}</span>
+                <span className="text-sm md:text-xl title-animation">{step.label}</span>
               </div>
             </li>
           );

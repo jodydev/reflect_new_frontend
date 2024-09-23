@@ -39,15 +39,13 @@ const ScrollProgressButton = () => {
   return (
     <button
       ref={scrollRef}
-      className={`progress-wrap ${isActive ? "active-progress" : ""} fixed bottom-6 right-6`}
+      className={`z-50 progress-wrap ${isActive ? "active-progress" : ""} fixed bottom-6 right-6`}
       onClick={handleProgressClick}
       title="Go To Top"
     >
       <span></span>
       <svg
-        className="progress-circle svg-content"
-        width="60"
-        height="60"
+        className="progress-circle svg-content w-[40px] h-[40px] md:w-[60px] md:h-[60px]"
         viewBox="-1 -1 102 102"
       >
         <path

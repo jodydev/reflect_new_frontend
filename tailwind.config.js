@@ -3,10 +3,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "#FFBF55", // Giallo scuro
-        secondary: "#F0C889", // Giallo chiaro
-        tertiary: "#DFDDDD", // Grigio chiaro (sfondo)
-        dark: "#121212", // Testo nero
+        primary: "#FFBF55", 
+        secondary: "#F0C889",
+        tertiary: "#DFDDDD",
+        dark: "#121212",
       },
       fontFamily: {
         involve: ['Involve-Regular', 'sans-serif'],
@@ -21,6 +21,22 @@ module.exports = {
         glass: "0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06)",
       },
       keyframes: {
+        fadeInTop: {
+          '0%': { opacity: '0', transform: 'translateY(-20px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        fadeInBottom: {
+          '0%': { opacity: '0', transform: 'translateY(20px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        fadeInLeft: {
+          '0%': { opacity: '0', transform: 'translateX(-20px)' },
+          '100%': { opacity: '1', transform: 'translateX(0)' },
+        },
+        fadeInRight: {
+          '0%': { opacity: '0', transform: 'translateX(20px)' },
+          '100%': { opacity: '1', transform: 'translateX(0)' },
+        },
         spin: {
           from: { transform: 'rotate(0deg)' },
           to: { transform: 'rotate(360deg)' },
@@ -35,6 +51,10 @@ module.exports = {
         },
       },
       animation: {
+        fadeInTop: 'fadeInTop 1.5s ease-out',
+        fadeInBottom: 'fadeInBottom 1.5s ease-out',
+        fadeInLeft: 'fadeInLeft 1.5s ease-out',
+        fadeInRight: 'fadeInRight 1.5s ease-out',
         spin: 'spin 60s linear infinite',  
         ball1: 'moveX 6.45s ease-in-out infinite alternate, moveY 7.4s ease-in-out infinite alternate',
         ball2: 'moveX 11.45s ease-in-out infinite alternate, moveY 9.4s ease-in-out infinite alternate',

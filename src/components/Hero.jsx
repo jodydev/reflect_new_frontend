@@ -1,14 +1,10 @@
 import Image from "../assets/images/yellow_1.png";
 import Button from "../assets/images/button_hero.png";
-import PrimaryButton from "./buttons/PrimaryButton";
 
 export default function Hero() {
-  const isBigScreen = window.matchMedia("(min-width: 1920px)").matches;
-  const isMediumScreen = window.matchMedia("(min-width: 1024px)").matches;
-
   return (
     <section className="relative h-full flex items-center lg:items-start">
-      <div className="relative z-10 w-full h-[60vh] xl:h-[70vh] 2xl:h-[80vh] flex justify-center items-center">
+      <div className="relative z-0 w-full h-[60vh] xl:h-[70vh] 2xl:h-[80vh] flex justify-center items-center">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 xl:gap-0 items-center">
             <div className="w-full 2xl:my-56">
@@ -19,13 +15,21 @@ export default function Hero() {
                   </span>
                 </h1>
                 <div className="flex items-start justify-start">
-                  <img src={Button} alt="button" className=" my-10 px-10 md:px-0" />
+                    <img
+                      src={Button}
+                      alt="button"
+                      className=" my-10 px-10 md:px-0 animate-fadeInLeft"
+                    />
                 </div>
               </div>
             </div>
 
             <div className="hidden md:block w-full relative z-0 justify-center">
-              <img src={Image} alt="Yellow Element" className="w-full h-full" />
+                <img
+                  src={Image}
+                  alt="Yellow Element"
+                  className="w-full h-full animate-fadeInRight"
+                />
             </div>
           </div>
         </div>

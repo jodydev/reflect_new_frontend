@@ -152,7 +152,7 @@ const InfoSectionThree = () => {
 
   return (
     <div className="min-h-screen py-12 xl:py-20 px-4 sm:px-20 flex-col relative bg-img bg-trasparent">
-      <div className="ms-0 md:ms-60 2xl:ms-96">
+      <div className="ms-0 md:ms-60 2xl:ms-96 title-animation">
         <h2 className="text-2xl md:text-5xl 2xl:text-6xl font-bold text-primary md:text-white">
           Lorem ipsum dolor
         </h2>
@@ -185,8 +185,8 @@ const InfoSectionThree = () => {
                   }}
                 >
                   <div className="flex-col w-full h-full text-dark">
-                    <div className="title p-4 bg-white bg-opacity-20 rounded-t-[35px]">
-                      <h3 className=" text-lg md:text-2xl font-semibold flex items-center justify-center pt-3">
+                    <div className="title p-4 bg-white bg-opacity-20 rounded-t-[35px] title-animation">
+                      <h3 className=" text-lg md:text-2xl font-semibold flex items-center justify-center pt-3 2xl:mb-2">
                         {item.title}
                       </h3>
                       <p className="text-xs md:text-md 2xl:text-lg font-extralight pb-4">
@@ -197,13 +197,13 @@ const InfoSectionThree = () => {
                       <div className="flex justify-between">
                         <label
                           htmlFor="priceFrom"
-                          className="mt-4 block text-xs md:text-base font-medium text-start leading-6 text-dark"
+                          className="title-animation mt-4 block text-xs md:text-base font-medium text-start leading-6 text-dark"
                         >
                           From
                         </label>
                         <label
                           htmlFor="priceTo"
-                          className="mt-4 block text-xs md:text-base font-medium text-start leading-6 text-dark"
+                          className="title-animation mt-4 block text-xs md:text-base font-medium text-start leading-6 text-dark"
                         >
                           To
                         </label>
@@ -236,7 +236,7 @@ const InfoSectionThree = () => {
                           </div>
 
                           {isOpen && (
-                            <div className="absolute mt-1 bg-white rounded-md shadow-lg z-10">
+                            <div className="absolute mt-1 bg-white rounded-md shadow-lg z-10 title-animation">
                               {options.map((option) => (
                                 <div
                                   key={option.value}
@@ -257,7 +257,7 @@ const InfoSectionThree = () => {
                       </div>
                     </div>
 
-                    <p className="text-xs 2xl:text-base py-4 2xl:py-8">
+                    <p className="text-xs 2xl:text-base py-4 2xl:py-8 title-animation">
                       Account Balance: <span className="text-primary font-bold">42</span> {selectedOption.label}
                     </p>
                     <div className="mx-10">
@@ -275,12 +275,12 @@ const InfoSectionThree = () => {
           <div className="flex flex-col items-center w-full h-full p-4 xl:p-10 bg-trasparent">
             <div className="flex w-full flex-col gap-6 2xl:gap-10">
               {[0, 1, 2].map((index) => (
-                <div key={index} className={`w-full`}>
+                <div key={index} className=" w-full">
                   <button
                     onClick={() => setSelectedIndex(index)}
                     className={`w-full ${
                       selectedIndex === index ? "bg-white bg-opacity-40" : ""
-                    } hover:bg-white hover:bg-opacity-20 transition-colors duration-300 px-6 py-3 rounded-xl text-white text-base xl:text-2xl font-base`}
+                    } hover:bg-white hover:bg-opacity-20 transition-colors title-animation duration-300 px-6 py-3 rounded-xl text-white text-base xl:text-2xl font-base`}
                   >
                     Open Value {index + 1}
                   </button>
@@ -299,7 +299,7 @@ const InfoSectionThree = () => {
                   onClick={() => setSelectedIndex(index)}
                   className={`w-full ${
                     selectedIndex === index ? "bg-white bg-opacity-60 border-primary border-2" : "border-white border-opacity-0 border-2 "
-                  } bg-white bg-opacity-20 transition-colors duration-300 px-6 py-3 rounded-xl text-primary text-base font-base`}
+                  } bg-white bg-opacity-20 transition-colors title-animation duration-300 px-6 py-3 rounded-xl text-primary text-base font-base`}
                 >
                   Card{index + 1}
                 </button>
@@ -311,7 +311,7 @@ const InfoSectionThree = () => {
         {/* Background Image Section */}
         <div
           ref={backgroundRef}
-          className="z-0 absolute xl:top-[50px] 2xl:top-[-200px] xl:right-[-80px] xl:w-[400px] xl:h-[350px] 2xl:w-[600px] 2xl:h-[700px] bg-cover bg-no-repeat"
+          className="animate-fadeInRight z-0 absolute xl:top-[50px] 2xl:top-[-200px] xl:right-[-50px] xl:w-[400px] xl:h-[350px] 2xl:w-[600px] 2xl:h-[700px] bg-cover bg-no-repeat"
           style={{
             backgroundImage: `url(${backgroundImages[selectedIndex]})`,
           }}

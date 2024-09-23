@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function AssetCarousel() {
   const [assets, setAssets] = useState([]);
@@ -51,7 +51,7 @@ export default function AssetCarousel() {
   }, [scrollPosition, assets.length]);
 
   return (
-    <div className="mx-20 overflow-hidden">
+    <div className="mx-4 md:mx-20 overflow-hidden animate-fadeInBottom">
       <div className="w-full h-28 xl:h-30 2xl:h-32 rounded-3xl border-dark border-2 bg-white bg-opacity-20 backdrop-filter backdrop-blur-[5px] relative">
         <div className="absolute left-1/2 transform -translate-x-1/2 h-full">
           <div

@@ -23,9 +23,9 @@ export default function Header() {
         fullWidth
         className="border-0 relative z-10 bg-transparent"
       >
-        <div className="container mx-auto flex items-center justify-between relative">
+        <div className="container mx-auto flex items-start justify-between relative">
           {/* Logo */}
-          <div className="flex items-center mt-5 md:mt-0 md:py-4 px-6">
+          <div className="flex items-center justify-center ms-2 mt-1 md:mt-2">
             <img src={Logo} alt="logo" className="h-8 w-8 md:h-10 md:w-10" />
             <p className="text-dark font-bold ml-3 mt-1 text-sm md:text-lg">
               Reflect
@@ -98,7 +98,7 @@ export default function Header() {
             variant="text"
             color="white"
             onClick={handleOpen}
-            className="lg:hidden me-5"
+            className="lg:hidden me-5 flex items-center justify-center"
           >
             {open ? (
               <XMarkIcon strokeWidth={2} className="h-6 w-6" />
@@ -111,13 +111,13 @@ export default function Header() {
           <div
             className={`${
               open ? "block" : "hidden"
-            } lg:hidden absolute top-full right-0 w-full bg-primary`}
+            } lg:hidden absolute top-full right-0 w-full bg-tertiary z-50 rounded-3xl shadow-lg`}
           >
-            <ul className="flex flex-col items-center py-4 gap-6 text-dark">
-              <li>Home</li>
-              <li>News</li>
-              <li>About</li>
-              <li>Contact</li>
+            <ul className="flex flex-col items-center py-12 gap-6 text-dark">
+              <li className="hover:underline hover:text-primary">Home</li>
+              <li className="hover:underline hover:text-primary">News</li>
+              <li className="hover:underline hover:text-primary">About</li>
+              <li className="hover:underline hover:text-primary">Contact</li>
             </ul>
           </div>
         </div>

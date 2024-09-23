@@ -1,4 +1,5 @@
 import { useState } from "react";
+import ScrollAnimation from "react-animate-on-scroll";
 import ProgressStepper from "../ProgressStepper";
 import Image from "../../assets/images/yellow_1.png";
 
@@ -41,7 +42,13 @@ const InfoSectionTwo = () => {
       </h2>
 
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-40 py-10 2xl:py-40">
-        <img className="hidden md:block" src={Image} alt="Image description" />
+        <ScrollAnimation duration={2} animateIn="fadeInLeft">
+          <img
+            className="hidden md:block"
+            src={Image}
+            alt="Image description"
+          />
+        </ScrollAnimation>
 
         <div className="flex justify-center items-center">
           <ProgressStepper
