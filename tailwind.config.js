@@ -3,20 +3,22 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "#203356", // Blue medio
-        secondary: "#07244d", // Blue scuro
-        tertiary: "#021d43", // Blue scuro 2
-        text: "#111827", // Colore del testo scuro
+        primary: "#FFBF55", // Giallo scuro
+        secondary: "#F0C889", // Giallo chiaro
+        tertiary: "#DFDDDD", // Grigio chiaro (sfondo)
+        dark: "#121212", // Testo nero
       },
       fontFamily: {
-        sans: ["Inter", "sans-serif"],
+        involve: ['Involve-Regular', 'sans-serif'],
+      },
+      fontWeight: {
+        regular: '400',
+        medium: '500',
+        semibold: '600',
+        bold: '700',
       },
       boxShadow: {
         glass: "0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06)",
-      },
-
-      fontFamily: {
-        ubuntu: ["Ubuntu", "sans-serif"],
       },
       keyframes: {
         spin: {

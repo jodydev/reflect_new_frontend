@@ -2,7 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom CSS */
+@font-face {
+  font-family: 'Involve-Regular';
+  src: url('./fonts/Involve-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Involve-Medium';
+  src: url('./fonts/Involve-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Involve-SemiBold';
+  src: url('./fonts/Involve-SemiBold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Involve-Bold';
+  src: url('./fonts/Involve-Bold.ttf') format('truetype');
+}
+
+
 /* BALLS ANIMATION */
 
 @keyframes move-ball1 {
@@ -49,11 +69,6 @@
 *::before,
 *::after {
   box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  background: #0d0d0d;
 }
 
 .ball {
@@ -152,21 +167,19 @@ body {
   min-height: 100vh;
 }
 
-/* Custom CSS */
+/* ALL CSS */
+
+body {
+  font-family: 'Involve-Medium', sans-serif;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
 
 html {
   scroll-behavior: unset !important;
   min-height: 100vh;
   height: 100%;
-  overflow-x: hidden !important;
-}
-
-body {
-  font-family: "Roboto", sans-serif;
-  font-size: 16px;
-  line-height: 0px;
-  font-weight: 400;
-  background-color: white;
   overflow-x: hidden !important;
 }
 
@@ -185,12 +198,13 @@ body {
   color: #fff;
 }
 
-.bg-img {
-  background-image: url("/src/assets/images/blue_shadow.png");
-  background-size: cover;
+main {
+  background-image: url("/src/assets/images/yellow_shadow.png");
+  background-size: contain;
   background-repeat: no-repeat;
-  background-position: left;
+  background-position: right top;
   background-attachment: fixed;
+  z-index: 1;
 }
 
 .carousel-item {
@@ -215,4 +229,17 @@ body {
 
 .background-fade {
   opacity: 1;
+}
+
+/* InfoSection */
+.line{
+  line-height: 1;
+}
+
+.bg-info-section{
+  background-image: url("/src/assets/images/yellow_2.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: left;
+  z-index: 1;
 }

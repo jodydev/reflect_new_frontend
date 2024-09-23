@@ -1,37 +1,23 @@
-import Spline from "@splinetool/react-spline";
-import SwiperCards from "../SwiperCards";
-import ScrollAnimation from "react-animate-on-scroll";
-import LineImage from "../../assets/images/line_effect.png";
-import AnimatedBackground from "../AnimatedBackground";
-import PrimaryButton from "../buttons/PrimaryButton";
+import SecondaryButton from "../buttons/SecondaryButton";
+import Cards from "../Cards";
 
 export default function InfoSection() {
-  const isBigScreen = window.matchMedia("(min-width: 1920px)").matches;
 
   return (
-    <section className=" py-12 bg-img relative">
-      {/* Sfondo Animato */}
-      <AnimatedBackground numBalls={10} />
-
+    <section className="py-10 bg-info-section relative">
       <div className="flex flex-col items-center justify-start min-h-screen relative z-10 ">
-        <div className=" text-center my-5 px-6 xl:my-20">
-          <h2 className="title-animation text-3xl lg:text-5xl xl:text-7xl font-bold text-white mb-6 xl:mb-10">
-            Lorem <span className="text-gray-500">Lorem ipsum</span>
+        <div className="text-center px-4 my-5 lg:px-10 2xl:px-[30%] 2xl:my-20">
+          <h2 className="title-animation text-3xl md:text-6xl font-bold md:leading-loose text-dark mb-6 xl:mb-10">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias.
           </h2>
-          <p className="title-animation text-white text-xs lg:text-sm xl:text-lg mx-10 md:mx-60 mb-5 max-w-4xl ">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-            malesuada lorem maximus mauris scelerisque, at rutrum turpis porta.
-            Nam a est in lacus tincidunt elementum. In hac habitasse platea
-            malesuada lorem maximus mauris scelerisque, at rutrum turpis porta.
-          </p>
-          <div className="my-6 mx-20 lg:my-10 lg:mx-96 ">
-            <PrimaryButton text="Lorem" />
+          <div className="xl:mx-60 2xl:my-20 2xl:mx-72">
+            <SecondaryButton text="Dapp Access" />
           </div>
         </div>
 
-        <div className="container mx-auto flex flex-col lg:flex-row items-center justify-between gap-20 px-6 relative">
-          {/* Spline 3D Element */}
-          <div className="w-full lg:w-1/2 flex justify-center items-center relative z-0">
+          <Cards/>
+          {/* Spline 3D Element and Swiper Cards */}
+          {/* <div className="w-full lg:w-1/2 flex justify-center items-center relative z-0">
             <ScrollAnimation duration={2} animateIn="fadeInLeft">
               <img
                 src={LineImage}
@@ -48,13 +34,12 @@ export default function InfoSection() {
             </ScrollAnimation>
           </div>
 
-          {/* Swiper Cards */}
+       
           <div className="w-full lg:w-1/2 max-w-lg relative z-10">
             <ScrollAnimation duration={2} animateIn="fadeInRight">
               <SwiperCards />
             </ScrollAnimation>
-          </div>
-        </div>
+          </div> */}
       </div>
     </section>
   );

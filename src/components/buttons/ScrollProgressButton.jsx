@@ -1,7 +1,8 @@
+"use client";
 import { useState, useEffect, useRef } from "react";
 import { IoMdArrowRoundUp } from "react-icons/io";
 
-export default function ScrollProgressButton() {
+const ScrollProgressButton = () => {
   useEffect(() => {
     window.scroll(0, 0);
   }, []);
@@ -26,7 +27,7 @@ export default function ScrollProgressButton() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-
+    
     window.addEventListener("scroll", handleScroll);
     handleScroll();
 
@@ -36,23 +37,33 @@ export default function ScrollProgressButton() {
   }, []);
 
   return (
-<div className="z-50 fixed bottom-6 right-6">
-      {/* Cerchio esterno rotante */}
-      {isActive && (
-        <div className="animate-spin rounded-full border-4 border-transparent border-t-primary w-16 h-16 absolute -top-2 -left-2"></div>
-      )}
-      
-      {/* Pulsante */}
-      <button
-        ref={scrollRef}
-        className={`p-3 text-white rounded-full shadow-lg transition-transform duration-300 ${
-          isActive ? "transform scale-115" : "opacity-0"
-        }`}
-        onClick={handleProgressClick}
+    <button
+      ref={scrollRef}
+      className={`progress-wrap ${isActive ? "active-progress" : ""} fixed bottom-6 right-6`}
+      onClick={handleProgressClick}
+      title="Go To Top"
+    >
+      <span></span>
+      <svg
+        className="progress-circle svg-content"
+        width="60"
+        height="60"
+        viewBox="-1 -1 102 102"
       >
-        <IoMdArrowRoundUp className="text-2xl text-white" />
-      </button>
-    </div>
-
+        <path
+          d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"
+          stroke="#FFBF55"
+          strokeWidth="4"
+          fill="none"
+          style={{
+            strokeDasharray: "308.66px",
+            strokeDashoffset: `${308.66 - scrollProgress * 3.0866}px`,
+          }}
+        />
+      </svg>
+      <IoMdArrowRoundUp className="text-white text-2xl absolute inset-0 m-auto" />
+    </button>
   );
-}
+};
+
+export default ScrollProgressButton;

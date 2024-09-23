@@ -1,5 +1,6 @@
-import BannerElement from "../assets/images/banner_effect.png";
-import Spline from "@splinetool/react-spline";
+import Image from "../assets/images/yellow_1.png";
+import Button from "../assets/images/button_hero.png";
+import PrimaryButton from "./buttons/PrimaryButton";
 
 export default function Hero() {
   const isBigScreen = window.matchMedia("(min-width: 1920px)").matches;
@@ -7,39 +8,24 @@ export default function Hero() {
 
   return (
     <section className="relative h-full flex items-center lg:items-start">
-      <div className="relative z-10 w-full h-[65vh] xl:h-[70vh] 2xl:h-full flex justify-center items-center">
+      <div className="relative z-10 w-full h-[60vh] xl:h-[70vh] 2xl:h-[80vh] flex justify-center items-center">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 xl:gap-40 items-center">
-            {/* Text Content */}
-            <div className="w-full mb-8 lg:mb-0 xl:my-56">
-              <div className="text-center lg:text-left xl:mt-32">
-                <h1 className="text-5xl xl:text-7xl 2xl:text-8xl font-extrabold text-white mt-5 mb-4 title-animation">
-                  <span className="block">Lorem</span> LoremLorem{" "}
-                  <span className="relative">
-                    Lorem Lorem
-                    <img
-                      src={BannerElement}
-                      className="absolute w-full h-full top-0 bottom-0 -z-10 transition-transform"
-                    />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 xl:gap-0 items-center">
+            <div className="w-full 2xl:my-56">
+              <div className="text-center lg:text-left ">
+                <h1 className="text-4xl xl:text-7xl 2xl:text-8xl font-involve text-dark mt-5 mb-4 title-animation">
+                  <span className="block ">
+                    RWA simplified through test sunthetics bla bla bla
                   </span>
                 </h1>
-                <p className="text-sm xl:text-xl text-gray-300 mt-8 sm:mt-10 xl:mt-16 mb-10">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Dignissimos excepturi neque sunt, magni numquam sapiente
-                  veniam dolorum accusamus.
-                </p>
+                <div className="flex items-start justify-start">
+                  <img src={Button} alt="button" className=" my-10 px-10 md:px-0" />
+                </div>
               </div>
             </div>
 
-            {/* Spline 3D Element */}
             <div className="hidden md:block w-full relative z-0 justify-center">
-              <Spline
-                style={{
-                  width: isBigScreen ? "700px" : isMediumScreen ? "500px" : "425px",
-                  height: isBigScreen ? "700px" : isMediumScreen ? "500px" : "425px",
-                }}
-                scene="https://prod.spline.design/E4YD-HYnDoP6Ss86/scene.splinecode"
-              />
+              <img src={Image} alt="Yellow Element" className="w-full h-full" />
             </div>
           </div>
         </div>
