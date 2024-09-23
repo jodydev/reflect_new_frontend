@@ -8,6 +8,7 @@ import NumberThree from "../../assets/images/number_3.png";
 import AmazonLogo from "../../assets/images/amazon_logo.png";
 import AppleLogo from "../../assets/images/apple_logo.png";
 import GoogleLogo from "../../assets/images/google_logo.png";
+import ScrollAnimation from "react-animate-on-scroll";
 
 const InfoSectionThree = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -152,12 +153,14 @@ const InfoSectionThree = () => {
 
   return (
     <div className="min-h-screen py-12 xl:py-20 px-4 sm:px-20 flex-col relative bg-img bg-trasparent">
-      <div className="ms-0 md:ms-60 2xl:ms-96 title-animation">
-        <h2 className="text-2xl md:text-5xl 2xl:text-6xl font-bold text-primary md:text-white">
+      <div className="ms-0 md:ms-60 2xl:ms-96">
+        <h2 className="text-2xl md:text-5xl 2xl:text-6xl font-bold text-dark title-animation">
           Lorem ipsum dolor
         </h2>
-        <div className="h-1 bg-gray-400 md:bg-primary mx-32 w-full xl:w-1/2 mt-3"></div>
-        <h2 className="text-2xl md:text-5xl 2xl:text-6xl font-bold text-primary md:text-white ms-32 md:ms-96 mt-2">
+        <ScrollAnimation duration={2} animateIn="fadeInRight">
+          <div className="h-1 rounded-3xl bg-primary mx-32 w-full xl:w-1/2 mt-3"></div>
+        </ScrollAnimation>
+        <h2 className="text-2xl md:text-5xl 2xl:text-6xl font-bold text-dark ms-32 md:ms-96 mt-2 title-animation">
           Lorem ipsum dolor
         </h2>
       </div>
@@ -258,7 +261,9 @@ const InfoSectionThree = () => {
                     </div>
 
                     <p className="text-xs 2xl:text-base py-4 2xl:py-8 title-animation">
-                      Account Balance: <span className="text-primary font-bold">42</span> {selectedOption.label}
+                      Account Balance:{" "}
+                      <span className="text-primary font-bold">42</span>{" "}
+                      {selectedOption.label}
                     </p>
                     <div className="mx-10">
                       <SecondaryButton text="Buy Now" />
@@ -298,8 +303,10 @@ const InfoSectionThree = () => {
                 <button
                   onClick={() => setSelectedIndex(index)}
                   className={`w-full ${
-                    selectedIndex === index ? "bg-white bg-opacity-60 border-primary border-2" : "border-white border-opacity-0 border-2 "
-                  } bg-white bg-opacity-20 transition-colors title-animation duration-300 px-6 py-3 rounded-xl text-primary text-base font-base`}
+                    selectedIndex === index
+                      ? "bg-white bg-opacity-60 border-primary border-2"
+                      : "border-white border-opacity-0 border-2 "
+                  } bg-white bg-opacity-20 transition-colors title-animation duration-300 px-6 py-3 rounded-xl text-dark text-base font-base`}
                 >
                   Card{index + 1}
                 </button>
