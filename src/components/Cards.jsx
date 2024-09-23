@@ -24,7 +24,7 @@ export default function Cards() {
 
   return (
     <div className="flex flex-col items-center 2xl:py-10">
-      <div className="flex flex-wrap justify-center items-center space-x-4 md:space-x-8 lg:space-x-20 space-y-10 md:space-y-0 py-10">
+      <div className="flex flex-wrap justify-center items-center space-x-0 md:space-x-4 lg:space-x-20 space-y-10 md:space-y-0 py-10">
         <Card
           number="1"
           isSelected={isSelected}
@@ -74,7 +74,7 @@ function Card({ number, isSelected, setIsSelected }) {
             : "bg-white text-dark bg-opacity-20"
         } group relative flex flex-col items-center justify-start px-10 py-10 w-[350px] h-[300px] md:w-[400px] md:h-[400px] border-2 border-dark backdrop-blur-lg rounded-[35px] shadow-xl transition-all duration-500 ease-in-out transform hover:cursor-pointer ${
           isHovered
-            ? "w-[450px] 2xl:w-[600px] border-primary z-10 opacity-100"
+            ? "w-[380px] 2xl:w-[600px] border-primary z-10 opacity-100"
             : "w-[300px] 2xl:hover:w-[600px] hover:border-white hover:z-10 hover:cursor-pointer group-hover:opacity-50 hover:opacity-100"
         }`}
         onMouseEnter={() => setIsSelected(number)}
