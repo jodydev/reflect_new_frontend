@@ -9,9 +9,9 @@ import AmazonLogo from "../../assets/images/amazon_logo.png";
 import AppleLogo from "../../assets/images/apple_logo.png";
 import GoogleLogo from "../../assets/images/google_logo.png";
 import ScrollAnimation from "react-animate-on-scroll";
+import { Squircle } from "react-ios-corners";
 
-export default function InfoSectionThree () {
-
+export default function InfoSectionThree() {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const isMobile = window.innerWidth < 768;
   const isMediumScreen = window.innerWidth > 1024 && window.innerWidth < 1920;
@@ -106,36 +106,6 @@ export default function InfoSectionThree () {
         const isSelected = index === selectedIndex;
 
         timeline.to(card, {
-          width: isMobile
-            ? isSelected
-              ? "250px"
-              : "300px"
-            : isBigScreen
-            ? isSelected
-              ? "500px"
-              : "500px"
-            : isMediumScreen
-            ? isSelected
-              ? "400px"
-              : "400px"
-            : isSelected
-            ? "350px"
-            : "300px",
-          height: isMobile
-            ? isSelected
-              ? "300px"
-              : "300px"
-            : isBigScreen
-            ? isSelected
-              ? "450px"
-              : "450px"
-            : isMediumScreen
-            ? isSelected
-              ? "350px"
-              : "350px"
-            : isSelected
-            ? "300px"
-            : "300px",
           duration: 0.3,
           scale: isSelected ? 1.1 : 1,
           opacity: isSelected ? 1 : 0.6,
@@ -176,10 +146,10 @@ export default function InfoSectionThree () {
                 <div
                   key={item.id}
                   ref={(el) => (cardRefs.current[index] = el)}
-                  className={`bg-white bg-opacity-10 absolute right-[-40px] md:right-[100px] 2xl:right-[250px] top-24 md:top-20 2xl:top-60 flex items-center justify-center text-white text-center rounded-[35px] shadow-lg 
+                  className={` absolute right-[-40px] md:right-[100px] 2xl:right-[250px] top-24 md:top-40 2xl:top-60 flex items-center justify-center text-white text-center
                   ${
                     isSelected
-                      ? "shadow-md z-20 w-72 h-60"
+                      ? "z-20 w-72 h-60"
                       : "opacity-50 scale-75 h-60 w-56"
                   }
                 `}
@@ -188,88 +158,90 @@ export default function InfoSectionThree () {
                     transition: "transform 0.5s ease-in-out",
                   }}
                 >
-                  <div className="flex-col w-full h-full text-dark">
-                    <div className="title p-4 bg-white bg-opacity-20 rounded-t-[35px] title-animation">
-                      <h3 className=" text-lg md:text-2xl font-semibold flex items-center justify-center pt-3 2xl:mb-2">
-                        {item.title}
-                      </h3>
-                      <p className="text-xs md:text-md 2xl:text-lg font-extralight pb-4">
-                        {item.subtitle}
-                      </p>
-                    </div>
-                    <div className="content px-4 md:px-12 md:py-3">
-                      <div className="flex justify-between">
-                        <label
-                          htmlFor="priceFrom"
-                          className="title-animation mt-4 block text-xs md:text-base font-medium text-start leading-6 text-dark"
-                        >
-                          From
-                        </label>
-                        <label
-                          htmlFor="priceTo"
-                          className="title-animation mt-4 block text-xs md:text-base font-medium text-start leading-6 text-dark"
-                        >
-                          To
-                        </label>
+                  <Squircle className="bg-white bg-opacity-10 " radius={90}>
+                    <div className="flex-col w-full h-full min-h-[300px] md:w-[400px] md:h-[350px] 2xl:w-[450px] 2xl:h-[400px] text-dark">
+                      <div className="title p-4 bg-white bg-opacity-20 rounded-t-[35px] title-animation">
+                        <h3 className=" text-lg md:text-2xl font-semibold flex items-center justify-center pt-3 2xl:mb-2">
+                          {item.title}
+                        </h3>
+                        <p className="text-xs md:text-md 2xl:text-lg font-extralight pb-4">
+                          {item.subtitle}
+                        </p>
                       </div>
-
-                      <div className="flex items-center mt-2">
-                        <input
-                          id="priceFrom"
-                          name="priceFrom"
-                          type="text"
-                          placeholder="$0.00"
-                          className="block bg-white bg-opacity-20 w-full h-10 md:h-12 rounded-md border-0 py-1.5 pl-3 pr-20 text-gray-400 sm:text-sm focus:outline-none focus:ring-0"
-                        />
-                        <div className="relative inline-block ml-1 md:ml-4">
-                          <div
-                            className="flex items-center bg-white bg-opacity-20 h-10 md:h-12 rounded-md pl-3 pr-3 text-gray-400 sm:text-sm cursor-pointer"
-                            onClick={() => setIsOpen(!isOpen)}
+                      <div className="content px-4 md:px-12 md:py-3">
+                        <div className="flex justify-between">
+                          <label
+                            htmlFor="priceFrom"
+                            className="title-animation mt-4 block text-xs md:text-base font-medium text-start leading-6 text-dark"
                           >
-                            <div className="flex items-center flex-grow">
-                              <img
-                                src={selectedOption.img}
-                                alt={selectedOption.label}
-                                className="w-4 h-4 mr-2"
-                              />
-                              <span>{selectedOption.label}</span>
-                            </div>
-                            <div className="flex items-center ms-6">
-                              <IoIosArrowDown className="text-gray-400" />
-                            </div>
-                          </div>
+                            From
+                          </label>
+                          <label
+                            htmlFor="priceTo"
+                            className="title-animation mt-4 block text-xs md:text-base font-medium text-start leading-6 text-dark"
+                          >
+                            To
+                          </label>
+                        </div>
 
-                          {isOpen && (
-                            <div className="absolute mt-1 bg-white rounded-md shadow-lg z-10 title-animation">
-                              {options.map((option) => (
-                                <div
-                                  key={option.value}
-                                  className="flex items-center p-2 cursor-pointer hover:bg-gray-200"
-                                  onClick={() => handleSelect(option)}
-                                >
-                                  <img
-                                    src={option.img}
-                                    alt={option.label}
-                                    className="w-4 h-4 mr-2"
-                                  />
-                                  <span>{option.label}</span>
-                                </div>
-                              ))}
+                        <div className="flex items-center mt-2">
+                          <input
+                            id="priceFrom"
+                            name="priceFrom"
+                            type="text"
+                            placeholder="$0.00"
+                            className="block bg-white bg-opacity-20 w-full h-10 md:h-12 rounded-md border-0 py-1.5 pl-3 pr-20 text-gray-400 sm:text-sm focus:outline-none focus:ring-0"
+                          />
+                          <div className="relative inline-block ml-1 md:ml-4">
+                            <div
+                              className="flex items-center bg-white bg-opacity-20 h-10 md:h-12 rounded-md pl-3 pr-3 text-gray-400 sm:text-sm cursor-pointer"
+                              onClick={() => setIsOpen(!isOpen)}
+                            >
+                              <div className="flex items-center flex-grow">
+                                <img
+                                  src={selectedOption.img}
+                                  alt={selectedOption.label}
+                                  className="w-4 h-4 mr-2"
+                                />
+                                <span>{selectedOption.label}</span>
+                              </div>
+                              <div className="flex items-center ms-6">
+                                <IoIosArrowDown className="text-gray-400" />
+                              </div>
                             </div>
-                          )}
+
+                            {isOpen && (
+                              <div className="absolute mt-1 bg-white rounded-md shadow-lg z-10 title-animation">
+                                {options.map((option) => (
+                                  <div
+                                    key={option.value}
+                                    className="flex items-center p-2 cursor-pointer hover:bg-gray-200"
+                                    onClick={() => handleSelect(option)}
+                                  >
+                                    <img
+                                      src={option.img}
+                                      alt={option.label}
+                                      className="w-4 h-4 mr-2"
+                                    />
+                                    <span>{option.label}</span>
+                                  </div>
+                                ))}
+                              </div>
+                            )}
+                          </div>
                         </div>
                       </div>
-                    </div>
 
-                    <p className="text-xs 2xl:text-base py-4 2xl:py-8 title-animation">
-                      Account Balance:{" "}
-                      <span className="text-primary font-bold">42</span>{" "}
-                      {selectedOption.label}
-                    </p>
-                    <div className="mx-10">
-                      <SecondaryButton text="Buy Now" />
+                      <p className="text-xs 2xl:text-base py-4 2xl:py-8 title-animation">
+                        Account Balance:{" "}
+                        <span className="text-primary font-bold">42</span>{" "}
+                        {selectedOption.label}
+                      </p>
+                      <div className="mx-10">
+                        <SecondaryButton text="Buy Now" />
+                      </div>
                     </div>
-                  </div>
+                  </Squircle>
                 </div>
               );
             })}
@@ -280,17 +252,23 @@ export default function InfoSectionThree () {
         <div className="hidden md:block relative z-10 py-12 md:py-32 2xl:py-72 px-4 md:px-20 xl:px-40 2xl:px-60">
           <div className="flex flex-col items-center w-full h-full p-4 xl:p-10 bg-trasparent">
             <div className="flex w-full flex-col gap-6 2xl:gap-10">
-              {[0, 1, 2].map((index) => (
-                <div key={index} className=" w-full">
-                  <button
-                    onClick={() => setSelectedIndex(index)}
-                    className={`w-full ${
-                      selectedIndex === index ? "bg-white bg-opacity-40" : ""
-                    } hover:bg-white hover:bg-opacity-20 transition-colors title-animation duration-300 px-6 py-3 rounded-xl text-white text-base xl:text-2xl font-base`}
-                  >
-                    Open Value {index + 1}
-                  </button>
-                </div>
+              {cardData.map((index) => (
+                <>
+                  <Squircle radius={90}>
+                    <button
+                      onClick={() => setSelectedIndex(index)}
+                      className={`w-full rounded-lg shadow-md transition-all duration-300 px-6 py-3 text-base xl:text-2xl font-medium
+                      ${
+                        selectedIndex === index
+                          ? "bg-white bg-opacity-60 text-primary ring-2 ring-primary ring-opacity-50 scale-105 hover:text-primary"
+                          : "bg-white bg-opacity-20 text-white hover:bg-white hover:bg-opacity-60"
+                      }
+                       hover:shadow-lg hover:scale-105`}
+                    >
+                      Open Value {index + 1}
+                    </button>
+                  </Squircle>
+                </>
               ))}
             </div>
           </div>
@@ -327,5 +305,4 @@ export default function InfoSectionThree () {
       </div>
     </div>
   );
-};
-
+}

@@ -18,6 +18,7 @@ export default function SectionOne() {
         </div>
 
         <Cards />
+        
         {/* Spline 3D Element and Swiper Cards */}
         {/* <div className="w-full lg:w-1/2 flex justify-center items-center relative z-0">
             <ScrollAnimation duration={2} animateIn="fadeInLeft">

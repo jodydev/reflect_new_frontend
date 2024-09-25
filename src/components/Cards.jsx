@@ -66,14 +66,14 @@ export default function Cards({ isSectionFour }) {
     backgroundImage: "absolute inset-0 -z-10",
   };
 
-  const cardBaseStyle = `group relative flex flex-col items-center justify-start px-10 py-10 w-[350px] h-[300px] md:w-[400px] md:h-[450px] transition-all duration-500 ease-in-out transform`;
+  const cardBaseStyle = `bg-group relative flex flex-col items-center justify-start px-10 py-10 w-[350px] h-[300px] md:w-[300px] md:h-[350px] 2xl:w-[400px] 2xl:h-[450px] transition-all duration-500 ease-in-out transform`;
 
   const getCardStyles = (isHovered) => {
     return `${cardBaseStyle} ${
       isHovered
         ? isSectionFour
-          ? "w-[350px] h-[300px] md:w-[400px] md:h-[400px] cursor-pointer"
-          : "opacity-100 bg-dark text-white md:w-[600px] md:h-[400px]"
+          ? "w-[350px] h-[300px] cursor-pointer"
+          : "opacity-100 bg-dark text-white md:w-[400px] 2xl:w-[600px] 2xl:h-[400px]"
         : "w-[300px] hover:cursor-pointer group-hover:opacity-50 hover:opacity-100 bg-white text-dark bg-opacity-20"
     } ${
       isSectionFour
@@ -136,17 +136,14 @@ function Card({
   const isHovered = isSelected === number;
 
   return (
-    <ScrollAnimation
-      duration={2}
-      animateIn={"fadeInLeft"}
-    >
+    <ScrollAnimation duration={2} animateIn={"fadeInLeft"}>
       <Squircle
         className={`${
           isSectionFour
             ? "hover:scale-110 transition-all duration-500 ease-in-out transform"
             : ""
         }`}
-        radius={120}
+        radius={90}
       >
         <div
           className={getCardStyles(isHovered)}
@@ -179,11 +176,11 @@ function Card({
             </div>
           </div>
 
-          <div className="py-4 md:py-10 title-animation">
-            <h2 className="text-2xl md:text-4xl font-bold text-start mb-5 2xl:mb-10 mx-10">
+          <div className="py-4 md:py-10 mx-4 2xl:mx-10 title-animation">
+            <h2 className="text-2xl 2xl:text-4xl font-bold text-start mb-5 2xl:mb-10">
               {title}
             </h2>
-            <p className="text-start mx-10 text-sm md:text-base">{subtitle}</p>
+            <p className="text-start text-sm 2xl:text-base">{subtitle}</p>
           </div>
         </div>
       </Squircle>
