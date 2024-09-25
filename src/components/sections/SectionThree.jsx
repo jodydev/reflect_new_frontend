@@ -10,7 +10,8 @@ import AppleLogo from "../../assets/images/apple_logo.png";
 import GoogleLogo from "../../assets/images/google_logo.png";
 import ScrollAnimation from "react-animate-on-scroll";
 
-const InfoSectionThree = () => {
+export default function InfoSectionThree () {
+
   const [selectedIndex, setSelectedIndex] = useState(0);
   const isMobile = window.innerWidth < 768;
   const isMediumScreen = window.innerWidth > 1024 && window.innerWidth < 1920;
@@ -328,4 +329,3 @@ const InfoSectionThree = () => {
   );
 };
 
-export default InfoSectionThree;

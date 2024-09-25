@@ -24,7 +24,7 @@ export default function ProgressStepper({
   const getStepClassNames = (isCurrent, isCompleted) => {
     let baseClass = "flex items-center space-x-10 mb-2 text-2xl xl:text-3xl 2xl:text-5xl font-bold";
     if (isCurrent) {
-      return `${baseClass} text-primary underline`;
+      return `${baseClass} text-primary`;
     } else if (isCompleted) {
       return `${baseClass} text-primary underline`;
     } else {

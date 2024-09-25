@@ -243,3 +243,54 @@ main {
   background-position: left;
   z-index: 1;
 }
+
+/* Carousel Cards */
+.slider-section {
+  position: relative; /* Mantieni la posizione relativa */
+  height: 22vh; /* Mantieni l'altezza fissa per il carousel */
+  overflow: hidden; /* Nasconde eventuali elementi che escono dai bordi */
+}
+
+.wheel {
+  position: sticky; /* Usa sticky per mantenere la ruota in posizione mentre scorre */
+  top: 0; /* Imposta la parte superiore per rimanere visibile */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 300vw; /* Mantieni la larghezza originale */
+  height: 300vw; /* Mantieni l'altezza originale */
+  max-width: 2000px; /* Limite massimo */
+  max-height: 2000px; /* Limite massimo */
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.wheel__card {
+  position: absolute; /* Mantieni il posizionamento assoluto per le card */
+  top: 0; /* Mantieni la posizione */
+  left: 0; /* Mantieni la posizione */
+  width: 6%;
+  max-width: 200px;
+  aspect-ratio: 1 / 1;
+  cursor: pointer;
+}
+
+.header img {
+  width: 40vw;
+  height: auto; /* Mantieni le proporzioni */
+  max-height: 350px;
+  max-width: 350px;
+}
+
+/* SCROLL DOWN */
+.scroll-down {
+  position: relative; /* Cambia a relative */
+  margin-top: 20px; /* Spazio sopra */
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 14px;
+  overflow: visible;
+}

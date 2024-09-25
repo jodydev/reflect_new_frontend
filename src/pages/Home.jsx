@@ -1,14 +1,15 @@
-import ScrollProgressButton from "../components/buttons/ScrollProgressButton";
-// import InitCustomCursor from '../components/cursor/InitCustomCursor';
-import Animations from "../components/Animations";
-import InfoSection from "../components/sections/InfoSection";
-import InfoSectionTwo from "../components/sections/InfoSectionTwo";
-import InfoSectionThree from "../components/sections/InfoSectionThree";
 import Header from "../components/Header";
 import Hero from "../components/Hero";
 import AssetCarousel from "../components/AssetCarousel";
-import InfoSectionFour from "../components/sections/InfoSectionFour";
+import SectionOne from "../components/sections/SectionOne";
+import SectionTwo from "../components/sections/SectionTwo";
+import SectionThree from "../components/sections/SectionThree";
+import SectionFour from "../components/sections/SectionFour";
+import SectionFive from "../components/sections/SectionFive";
 // import Footer from '../components/Footer';
+import ScrollProgressButton from "../components/buttons/ScrollProgressButton";
+import Animations from "../components/Animations";
+// import InitCustomCursor from '../components/cursor/InitCustomCursor';
 
 const Home = () => {
   return (
@@ -17,10 +18,11 @@ const Home = () => {
         <Header />
         <Hero />
         <AssetCarousel />
-        <InfoSection />
-        <InfoSectionTwo />
-        <InfoSectionThree />
-        <InfoSectionFour />
+        <SectionOne />
+        <SectionTwo />
+        <SectionThree />
+        <SectionFour />
+        <SectionFive />
       </main>
       {/* <Footer /> */}
       {/* <InitCustomCursor /> */}

@@ -3,7 +3,7 @@ import ScrollAnimation from "react-animate-on-scroll";
 import ProgressStepper from "../ProgressStepper";
 import Image from "../../assets/images/yellow_1.png";
 
-const InfoSectionTwo = () => {
+export default function SectionTwo () {
   const [currentStep, setCurrentStep] = useState(1);
   const [completedStep, setCompletedStep] = useState(0);
 
@@ -63,5 +63,3 @@ const InfoSectionTwo = () => {
     </section>
   );
 };
-
-export default InfoSectionTwo;

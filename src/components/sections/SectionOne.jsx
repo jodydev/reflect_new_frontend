@@ -2,7 +2,7 @@ import SecondaryButton from "../buttons/SecondaryButton";
 import Cards from "../Cards";
 import ScrollAnimation from "react-animate-on-scroll";
 
-export default function InfoSection() {
+export default function SectionOne() {
   return (
     <section className="py-10 bg-info-section relative">
       <div className="flex flex-col items-center justify-start min-h-screen relative z-10 ">
