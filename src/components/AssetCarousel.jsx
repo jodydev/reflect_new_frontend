@@ -53,9 +53,8 @@ export default function AssetCarousel() {
 
   return (
     <div className="mx-4 md:mx-20 overflow-hidden animate-fadeInBottom">
-      <Squircle className="bg-dark" radius={90}>
-        <Squircle className="bg-white p-1" radius={90}>
-          <div className="w-full h-28 xl:h-30 2xl:h-32  bg-white bg-opacity-20 backdrop-filter backdrop-blur-[5px] relative">
+      <Squircle radius={90}>
+          <div className="w-full h-28 xl:h-30 2xl:h-32  bg-white bg-opacity-40  relative">
             <div className="absolute left-1/2 transform -translate-x-1/2 h-full">
               <div
                 className="flex items-center h-full"
@@ -85,7 +84,6 @@ export default function AssetCarousel() {
               </div>
             </div>
           </div>
-        </Squircle>
       </Squircle>
     </div>
   );

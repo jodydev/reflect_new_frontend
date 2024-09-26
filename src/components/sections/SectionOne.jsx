@@ -10,7 +10,7 @@ export default function SectionOne() {
           <h2 className="title-animation text-3xl md:text-6xl font-bold md:leading-loose text-dark mb-6 xl:mb-10">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias.
           </h2>
-          <div className="xl:mx-60 2xl:my-20 2xl:mx-72">
+          <div className="mt-10 xl:my-10 mx-20 xl:mx-96">
             <ScrollAnimation duration={2} animateIn="fadeInUp">
               <SecondaryButton text="Dapp Access" />
             </ScrollAnimation>

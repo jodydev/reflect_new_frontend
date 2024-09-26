@@ -146,11 +146,11 @@ export default function InfoSectionThree() {
                 <div
                   key={item.id}
                   ref={(el) => (cardRefs.current[index] = el)}
-                  className={` absolute right-[-40px] md:right-[100px] 2xl:right-[250px] top-24 md:top-40 2xl:top-60 flex items-center justify-center text-white text-center
+                  className={` absolute right-[-55px] md:right-[100px] 2xl:right-[250px] top-24 md:top-40 2xl:top-60 flex items-center justify-center text-white text-center
                   ${
                     isSelected
                       ? "z-20 w-72 h-60"
-                      : "opacity-50 scale-75 h-60 w-56"
+                      : "opacity-50 scale-75 w-72 h-60"
                   }
                 `}
                   style={{
@@ -253,19 +253,20 @@ export default function InfoSectionThree() {
           <div className="flex flex-col items-center w-full h-full p-4 xl:p-10 bg-trasparent">
             <div className="flex w-full flex-col gap-6 2xl:gap-10">
               {cardData.map((index) => (
+                console.log(index),
                 <>
                   <Squircle radius={90}>
                     <button
-                      onClick={() => setSelectedIndex(index)}
+                      onClick={() => setSelectedIndex(index.id)}
                       className={`w-full rounded-lg shadow-md transition-all duration-300 px-6 py-3 text-base xl:text-2xl font-medium
                       ${
-                        selectedIndex === index
+                        selectedIndex === index.id
                           ? "bg-white bg-opacity-60 text-primary ring-2 ring-primary ring-opacity-50 scale-105 hover:text-primary"
                           : "bg-white bg-opacity-20 text-white hover:bg-white hover:bg-opacity-60"
                       }
                        hover:shadow-lg hover:scale-105`}
                     >
-                      Open Value {index + 1}
+                      Open Value {index.id + 1}
                     </button>
                   </Squircle>
                 </>
@@ -275,7 +276,7 @@ export default function InfoSectionThree() {
         </div>
 
         {/* Button Section for mobile devices */}
-        <div className="block md:hidden absolute bottom-20 right-0 left-0 px-10">
+        <div className="block md:hidden absolute bottom-20 right-0 left-0 px-5">
           <div className="flex w-full flex-row gap-6">
             {[0, 1, 2].map((index) => (
               <div key={index} className="w-full">

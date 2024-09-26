@@ -1,3 +1,6 @@
+import { FaCheck } from "react-icons/fa6";
+import { useState, useEffect } from "react";
+
 export default function ProgressStepper({
   steps,
   currentStep,
@@ -5,85 +8,65 @@ export default function ProgressStepper({
   disableNavigation,
   handleStepClicked,
 }) {
-  const isStepCurrent = (index) => index + 1 === currentStep;
+  const [showIcon, setShowIcon] = useState(null); 
 
-  const isStepCompleted = (index) => index + 1 < currentStep;
-
-  const isStepNavigable = (index) => completedStep >= index;
-
-  const getButtonClassNames = (isCompleted, isCurrent) => {
-    if (isCompleted) {
-      return "bg-primary text-white border-primary";
-    } else if (isCurrent) {
-      return "bg-primary text-white border-primary scale-125 shadow-md";
-    } else {
-      return "bg-transparent border-dark";
-    }
-  };
-
-  const getStepClassNames = (isCurrent, isCompleted) => {
-    let baseClass = "flex items-center space-x-10 mb-2 text-2xl xl:text-3xl 2xl:text-5xl font-bold";
-    if (isCurrent) {
-      return `${baseClass} text-primary`;
-    } else if (isCompleted) {
-      return `${baseClass} text-primary underline`;
-    } else {
-      return `${baseClass} text-dark`;
-    }
+  const handleClick = (stepIndex) => {
+    handleStepClicked(stepIndex + 1);
+    setShowIcon(stepIndex); 
   };
 
   return (
     <div className="flex flex-col items-start space-y-4 mx-20">
       <ol className="flex flex-col items-start">
         {steps.map((step, index) => {
-          const isCurrent = isStepCurrent(index);
-          const isCompleted = isStepCompleted(index);
+          const isCurrent = index + 1 === currentStep;
+          const isCompleted = index + 1 < currentStep;
+          const isNavigable = completedStep >= index;
 
           return (
             <li key={step.id} className="flex items-start">
               {/* Step Button */}
               <div className="flex flex-col items-center mr-6 animate-fadeInBottom">
                 <button
-                  className={`w-10 h-10 flex justify-center items-center border-2 rounded-full transition-all duration-300 ${getButtonClassNames(
-                    isCompleted,
-                    isCurrent
-                  )}`}
+                  className={`w-10 h-10 flex justify-center items-center border-2 rounded-full transition-all duration-300 ${
+                    isCompleted
+                      ? "bg-primary text-white border-primary"
+                      : isCurrent
+                      ? "bg-primary text-white border-primary scale-125 shadow-md"
+                      : "bg-transparent border-dark opacity-50 blur-sm"
+                  }`}
                   type="button"
-                  disabled={disableNavigation && !isStepNavigable(index)}
-                  onClick={() => handleStepClicked(index + 1)}
+                  disabled={disableNavigation && !isNavigable}
+                  onClick={() => handleClick(index)}
                 >
-                  {isCompleted ? (
-                    <svg
+                  {isCompleted || (showIcon === index && currentStep === index + 1) ? (
+                    <FaCheck
                       className="w-5 h-5 text-white"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M5 13l4 4L19 7"
-                      ></path>
-                    </svg>
+                    />
                   ) : (
-                    <span>{index + 1}</span>
+                    <span>{index + 1}</span> 
                   )}
                 </button>
 
                 {/* Line between steps */}
                 {index < steps.length - 1 && (
-                  <div className="flex-grow h-32 w-px bg-dark"></div>
+                  <div className="flex-grow h-32 w-px bg-dark bg-opacity-20"></div>
                 )}
               </div>
 
               {/* Step Title and Label */}
-              <div className="flex flex-col ms-3 title-animation">
-                <h4 className={getStepClassNames(isCurrent, isCompleted)}>
+              <div
+                className={`flex flex-col ms-3 title-animation transition-all duration-300 
+                  ${index === 0 ? "blur-none opacity-100" : ""} 
+                  ${isCurrent && !isCompleted ? "blur-none opacity-100" : ""} 
+                  ${isCompleted ? "blur-none opacity-100" : "opacity-100 blur-sm"}`}
+              >
+                <h4 className="flex items-center space-x-10 mb-2 text-2xl xl:text-3xl 2xl:text-5xl font-bold">
                   {step.title}
                 </h4>
-                <span className="text-sm md:text-xl title-animation">{step.label}</span>
+                <span className="text-sm md:text-xl title-animation">
+                  {step.label}
+                </span>
               </div>
             </li>
           );
@@ -92,4 +75,3 @@ export default function ProgressStepper({
     </div>
   );
 }
-

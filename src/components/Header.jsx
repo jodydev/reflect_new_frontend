@@ -4,11 +4,14 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Logo from "../assets/images/logo.png";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
+import { Squircle } from "react-ios-corners";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState(false);
 
   const handleOpen = () => setOpen((cur) => !cur);
+  const handleOpenDropdown = () => setOpenDropdown((cur) => !cur);
 
   useEffect(() => {
     const handleResize = () => window.innerWidth >= 960 && setOpen(false);
@@ -23,9 +26,9 @@ export default function Header() {
         fullWidth
         className="border-0 relative z-10 bg-transparent"
       >
-        <div className="container mx-auto flex items-start justify-between relative">
+        <div className="container mx-auto flex items-start justify-between relative my-2">
           {/* Logo */}
-          <div className="flex items-center justify-center ms-2 mt-1 md:mt-2">
+          <div className="flex items-center justify-center ms-2">
             <img src={Logo} alt="logo" className="h-8 w-8 md:h-10 md:w-10" />
             <p className="text-dark font-bold ml-3 mt-1 text-sm md:text-lg">
               Reflect
@@ -33,63 +36,76 @@ export default function Header() {
           </div>
 
           {/* Menu per desktop */}
-          <ul className="hidden lg:flex items-center gap-8 md:gap-16 absolute left-1/2 -translate-x-1/2 bg-white bg-opacity-20 text-dark rounded-full py-2 md:py-4 px-6 md:px-8 border-2 border-dark">
-            {["Home", "News", "About", "Contact"].map((item) => (
-              <li
-                key={item}
-                className="text-xs md:text-sm 2xl:text-base 
-                 hover:text-gray-600 
-                 transition-all duration-300 ease-in-out
-                 hover:-translate-y-1 
-                  hover:scale-110
-                  hover:cursor-pointer
-                 "
-              >
-                {item}
-              </li>
-            ))}
-          </ul>
+          <Squircle
+            className="hidden md:block absolute left-1/2 -translate-x-1/2 bg-white bg-opacity-40 text-dark shadow-lg w-[370px] h-[50px]"
+            radius={90}
+          >
+            <div className="hidden lg:flex w-full items-center justify-center gap-6 absolute left-1/2 -translate-x-1/2 py-4 px-8">
+              <ul className="flex space-x-8">
+                {["Home", "News", "About", "Contact"].map((item) => (
+                  <li
+                    key={item}
+                    className="text-sm xl:text-md text-gray-800 
+                    hover:text-gray-600 transition-all 
+                    duration-300 ease-in-out hover:translate-y-0.5 
+                    hover:scale-105 hover:cursor-pointer"
+                  >
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </Squircle>
 
           {/* Dropdown Altro a destra */}
           <Menu as="div" className="hidden lg:flex items-center relative">
-            <MenuButton className="inline-flex w-full justify-center items-center gap-x-1.5 p-2 md:p-3 text-sm text-gray-900 bg-primary rounded-full py-2 md:py-4 px-6 md:px-8 hover:cursor-pointer">
-              <p>Launch App</p>
-              <ChevronDownIcon
-                aria-hidden="true"
-                className="h-4 w-4 md:h-5 md:w-5 text-dark"
-              />
-            </MenuButton>
+            <Squircle className="md:w-[180px] md:h-[50px]" radius={90}>
+              <MenuButton
+                onClick={handleOpenDropdown}
+                className="inline-flex w-full justify-center items-center gap-x-1.5 p-2 md:p-3 text-sm text-gray-900 bg-primary py-2 md:py-4 px-6 md:px-8 hover:cursor-pointer"
+              >
+                <p className="text-sm xl:text-md">Launch App</p>
+                <ChevronDownIcon
+                  aria-hidden="true"
+                  className={`h-4 w-4 md:h-5 md:w-5 text-dark hover:cursor-pointer transition-transform duration-300 ${
+                    openDropdown ? "rotate-180" : ""
+                  }`}
+                />
+              </MenuButton>
+            </Squircle>
 
-            <MenuItems
-              transition
-              className="absolute top-12 right-0 z-10 mt-2 2xl:mt-4 w-40 md:w-56 origin-top-right rounded-3xl bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10 border-2 border-dark transition focus:outline-none"
-            >
-              <div className="py-1 text-dark">
-                <MenuItem>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 text-xs md:text-sm hover:bg-primary rounded-2xl mx-2"
-                  >
-                    Option 1
-                  </a>
-                </MenuItem>
-                <MenuItem>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 text-xs md:text-sm hover:bg-primary rounded-2xl mx-2"
-                  >
-                    Option 2
-                  </a>
-                </MenuItem>
-                <MenuItem>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 text-xs md:text-sm hover:bg-primary rounded-2xl mx-2"
-                  >
-                    Option 3
-                  </a>
-                </MenuItem>
-              </div>
+            <MenuItems transition>
+              <Squircle
+                className="md:h-[130px] absolute top-12 right-0 z-10 mt-2 2xl:mt-4 w-40 md:w-56 origin-top-right bg-clip-padding backdrop-filter backdrop-blur-md bg-white bg-opacity-40 transition focus:outline-none"
+                radius={90}
+              >
+                <div className="p-3 text-dark">
+                  <MenuItem>
+                    <a
+                      href="#"
+                      className="block px-4 py-2 text-xs md:text-sm rounded-xl hover:bg-primary mx-2"
+                    >
+                      Option 1
+                    </a>
+                  </MenuItem>
+                  <MenuItem>
+                    <a
+                      href="#"
+                      className="block px-4 py-2 text-xs md:text-sm hover:bg-primary rounded-xl mx-2"
+                    >
+                      Option 2
+                    </a>
+                  </MenuItem>
+                  <MenuItem>
+                    <a
+                      href="#"
+                      className="block px-4 py-2 text-xs md:text-sm hover:bg-primary rounded-xl mx-2"
+                    >
+                      Option 3
+                    </a>
+                  </MenuItem>
+                </div>
+              </Squircle>
             </MenuItems>
           </Menu>
 
@@ -111,14 +127,16 @@ export default function Header() {
           <div
             className={`${
               open ? "block" : "hidden"
-            } lg:hidden absolute top-full right-0 w-full bg-tertiary z-50 rounded-3xl shadow-lg`}
+            } lg:hidden absolute top-full right-0 w-full z-50 my-5`}
           >
-            <ul className="flex flex-col items-center py-12 gap-6 text-dark">
-              <li className="hover:underline hover:text-primary">Home</li>
-              <li className="hover:underline hover:text-primary">News</li>
-              <li className="hover:underline hover:text-primary">About</li>
-              <li className="hover:underline hover:text-primary">Contact</li>
-            </ul>
+            <Squircle radius={90}>
+              <ul className="bg-white bg-opacity-100 flex flex-col items-center py-10 gap-6 text-dark">
+                <li className="hover:underline hover:text-primary">Home</li>
+                <li className="hover:underline hover:text-primary">News</li>
+                <li className="hover:underline hover:text-primary">About</li>
+                <li className="hover:underline hover:text-primary">Contact</li>
+              </ul>
+            </Squircle>
           </div>
         </div>
       </Navbar>

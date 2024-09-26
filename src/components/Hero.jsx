@@ -11,7 +11,7 @@ export default function Hero() {
               <div className="text-center lg:text-left ">
                 <h1 className="text-4xl xl:text-7xl 2xl:text-8xl font-involve text-dark mt-5 mb-4 title-animation">
                   <span className="block ">
-                    RWA simplified through test sunthetics bla bla bla
+                    RWA simplified through test sunthetics bla bla
                   </span>
                 </h1>
                 <div className="flex items-start justify-start">
