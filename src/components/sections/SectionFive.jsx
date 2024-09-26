@@ -31,7 +31,7 @@ const cards = [
 
 export default function SectionFive() {
   return (
-    <section className="flex-col justify-center items-center">
+    <section className="flex-col justify-center items-center py-20">
       <div className="flex flex-col items-center justify-start min-h-screen relative z-10">
         <div className="text-center px-4 my-5 lg:px-10 xl:my-20">
           <h2 className="title-animation text-3xl lg:text-5xl xl:text-6xl font-bold text-center leading-loose text-dark mb-6 xl:mb-10">
@@ -44,17 +44,11 @@ export default function SectionFive() {
         </div>
 
         <div className="flex gap-10">
-          {" "}
-          {/* Contenitore flessibile per le card */}
           {cards.map((card) => {
             return (
-              <ScrollAnimation
-                key={card.id}
-                duration={2}
-                animateIn="fadeInRight"
-              >
+              <div key={card.id}>
                 <CardNews card={card} />
-              </ScrollAnimation>
+              </div>
             );
           })}
         </div>

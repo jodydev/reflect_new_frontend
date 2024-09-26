@@ -59,7 +59,7 @@ export default function ProgressStepper({
                 className={`flex flex-col ms-3 title-animation transition-all duration-300 
                   ${index === 0 ? "blur-none opacity-100" : ""} 
                   ${isCurrent && !isCompleted ? "blur-none opacity-100" : ""} 
-                  ${isCompleted ? "blur-none opacity-100" : "opacity-100 blur-sm"}`}
+                  ${isCompleted || isCurrent ? "blur-none opacity-100" : "opacity-100 blur-sm"}`}
               >
                 <h4 className="flex items-center space-x-10 mb-2 text-2xl xl:text-3xl 2xl:text-5xl font-bold">
                   {step.title}

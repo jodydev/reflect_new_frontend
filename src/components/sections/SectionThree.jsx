@@ -5,57 +5,74 @@ import SecondaryButton from "../buttons/SecondaryButton";
 import NumberOne from "../../assets/images/number_1.png";
 import NumberTwo from "../../assets/images/number_2.png";
 import NumberThree from "../../assets/images/number_3.png";
-import AmazonLogo from "../../assets/images/amazon_logo.png";
-import AppleLogo from "../../assets/images/apple_logo.png";
-import GoogleLogo from "../../assets/images/google_logo.png";
 import ScrollAnimation from "react-animate-on-scroll";
 import { Squircle } from "react-ios-corners";
+import { options, cardData } from "../../data/card_section_three";
 
 export default function InfoSectionThree() {
+  const [openCards, setOpenCards] = useState([false, false, false]);
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const isMobile = window.innerWidth < 768;
-  const isMediumScreen = window.innerWidth > 1024 && window.innerWidth < 1920;
-  const isBigScreen = window.innerWidth > 1920;
-  const backgroundImages = [NumberOne, NumberTwo, NumberThree];
-  const itemsCount = 3;
-  const containerRef = useRef(null);
+  const [inputValue, setInputValue] = useState("");
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [selectedOption, setSelectedOption] = useState(options[0]);
+  const [selectedOptions, setSelectedOptions] = useState(Array(options.length).fill(options[0]));
   const cardRefs = useRef([]);
   const backgroundRef = useRef(null);
-  const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState({
-    value: "option1",
-    label: "gAMZN",
-    img: AmazonLogo,
-  });
+  const backgroundImages = [NumberOne, NumberTwo, NumberThree];
+  const totalCards = cardData.length;
 
-  const options = [
-    { value: "option1", label: "gAMZN", img: AmazonLogo },
-    { value: "option2", label: "gAAPL", img: AppleLogo },
-    { value: "option3", label: "gGOOGL", img: GoogleLogo },
-  ];
+  useEffect(() => {
 
-  const cardData = [
-    {
-      id: 0,
-      title: "Open Value 1",
-      subtitle: "Deposit collateral and mint gAsset 1",
-    },
-    {
-      id: 1,
-      title: "Open Value 2",
-      subtitle: "Deposit collateral and mint gAsset 2",
-    },
-    {
-      id: 2,
-      title: "Open Value 3",
-      subtitle: "Deposit collateral and mint gAsset 3",
-    },
-  ];
+    // 1. Genera un valore casuale per l'input subito
+    setTimeout(() => {
+      gsap.to(
+        { val: 0 },
+        {
+          val: 1,
+          duration: 2,
+          onUpdate: function () {
+            const currentVal = this.targets()[0].val;
+            setInputValue(`$${(currentVal * 100).toFixed(2)}`);
+          },
+        }
+      );
+    }, 1000);
 
-  const handleSelect = (option) => {
-    setSelectedOption(option);
-    setIsOpen(false);
-  };
+    const intervalId = setInterval(() => {
+      // 2. Apro il dropdown
+      setTimeout(() => {
+        setDropdownOpen(true);
+      }, 0);
+
+      // 3. Seleziona l'opzione in base all'indice attuale
+      setTimeout(() => {
+        setSelectedOptions((prevOptions) => {
+          const newOptions = [...prevOptions];
+    
+          let newOption;
+          do {
+            const currentOptionIndex = Math.floor(Math.random() * options.length); 
+            newOption = options[currentOptionIndex];
+          } while (newOption.value === newOptions[selectedIndex]?.value);
+      
+          newOptions[selectedIndex] = newOption;
+          return newOptions; 
+        });
+      }, 1500);
+      
+      // 4. Chiudo il dropdown
+      setTimeout(() => {
+        setDropdownOpen(false);
+      }, 2500);
+
+      // 5. Cambio indice della card
+      setTimeout(() => {
+        setSelectedIndex((prevIndex) => (prevIndex + 1) % totalCards);
+      }, 4000);
+    }, 5000); // Ripeti ogni 5 secondi
+
+    return () => clearInterval(intervalId);
+  }, [options, selectedIndex, totalCards]);
 
   useEffect(() => {
     const bg = backgroundRef.current;
@@ -74,8 +91,8 @@ export default function InfoSectionThree() {
 
   useEffect(() => {
     const cards = cardRefs.current;
-    const angleStep = 360 / itemsCount;
-    const radius = isBigScreen ? 400 : isMediumScreen ? 330 : 270;
+    const angleStep = 360 / totalCards;
+    const radius = 300;
 
     cards.forEach((card, index) => {
       const isSelected = index === selectedIndex;
@@ -85,42 +102,18 @@ export default function InfoSectionThree() {
       const y = radius * Math.sin(radians);
 
       gsap.to(card, {
-        duration: 0.5,
-        ease: "power1.inOut",
+        duration: 0.1,
+        ease: "none",
         x: x,
         y: y,
-        zIndex: isSelected ? 20 : 0,
-        rotation: index === 0 && !isSelected ? 360 : angle,
+        zIndex: isSelected ? 50 : -50,
       });
     });
 
     return () => {
       gsap.killTweensOf(cards);
     };
-  }, [selectedIndex, itemsCount]);
-
-  useEffect(() => {
-    if (cardRefs.current.length) {
-      const timeline = gsap.timeline();
-      cardRefs.current.forEach((card, index) => {
-        const isSelected = index === selectedIndex;
-
-        timeline.to(card, {
-          duration: 0.3,
-          scale: isSelected ? 1.1 : 1,
-          opacity: isSelected ? 1 : 0.6,
-          rotation: 0,
-          rotationX: 0,
-          rotationY: 0,
-          transformOrigin: "center center",
-          ease: "power1.out",
-          stagger: 0.05,
-        });
-      });
-
-      return () => timeline.kill();
-    }
-  }, [selectedIndex, itemsCount, isBigScreen, isMobile]);
+  }, [selectedIndex]);
 
   return (
     <div className="min-h-screen py-12 xl:py-20 px-4 sm:px-20 flex-col relative bg-img bg-trasparent">
@@ -138,7 +131,7 @@ export default function InfoSectionThree() {
 
       <div className="flex flex-col md:grid md:grid-cols-2 justify-center items-start space-y-8 md:space-y-0 md:space-x-8">
         <div className="flex-1 flex items-center justify-center relative z-10">
-          <div className="relative" ref={containerRef}>
+          <div className="relative">
             {cardData.map((item, index) => {
               const isSelected = index === selectedIndex;
 
@@ -146,28 +139,27 @@ export default function InfoSectionThree() {
                 <div
                   key={item.id}
                   ref={(el) => (cardRefs.current[index] = el)}
-                  className={` absolute right-[-55px] md:right-[100px] 2xl:right-[250px] top-24 md:top-40 2xl:top-60 flex items-center justify-center text-white text-center
-                  ${
+                  className={`absolute right-[-55px] md:right-[100px] 2xl:right-[250px] top-24 md:top-40 2xl:top-60 flex items-center justify-center text-white text-center ${
                     isSelected
                       ? "z-20 w-72 h-60"
                       : "opacity-50 scale-75 w-72 h-60"
-                  }
-                `}
+                  }`}
                   style={{
-                    transform: `translateX(0) translateY(0)`,
+                    transform: "translateX(0) translateY(0)",
                     transition: "transform 0.5s ease-in-out",
                   }}
                 >
-                  <Squircle className="bg-white bg-opacity-10 " radius={90}>
-                    <div className="flex-col w-full h-full min-h-[300px] md:w-[400px] md:h-[350px] 2xl:w-[450px] 2xl:h-[400px] text-dark">
+                  <Squircle className="bg-white bg-opacity-10" radius={90}>
+                    <div className="cursor-not-allowed flex-col w-full h-full min-h-[300px] md:w-[400px] md:h-[350px] 2xl:w-[450px] 2xl:h-[400px] text-dark">
                       <div className="title p-4 bg-white bg-opacity-20 rounded-t-[35px] title-animation">
-                        <h3 className=" text-lg md:text-2xl font-semibold flex items-center justify-center pt-3 2xl:mb-2">
+                        <h3 className="text-lg md:text-2xl font-semibold flex items-center justify-center pt-3 2xl:mb-2">
                           {item.title}
                         </h3>
                         <p className="text-xs md:text-md 2xl:text-lg font-extralight pb-4">
                           {item.subtitle}
                         </p>
                       </div>
+
                       <div className="content px-4 md:px-12 md:py-3">
                         <div className="flex justify-between">
                           <label
@@ -190,40 +182,41 @@ export default function InfoSectionThree() {
                             name="priceFrom"
                             type="text"
                             placeholder="$0.00"
-                            className="block bg-white bg-opacity-20 w-full h-10 md:h-12 rounded-md border-0 py-1.5 pl-3 pr-20 text-gray-400 sm:text-sm focus:outline-none focus:ring-0"
+                            value={inputValue}
+                            className="block bg-white bg-opacity-20 w-full h-10 md:h-12 rounded-md border-0 py-1.5 pl-3 pr-20 text-primary font-bold text-sm md:text-base focus:outline-none focus:ring-0 cursor-not-allowed"
                           />
                           <div className="relative inline-block ml-1 md:ml-4">
                             <div
-                              className="flex items-center bg-white bg-opacity-20 h-10 md:h-12 rounded-md pl-3 pr-3 text-gray-400 sm:text-sm cursor-pointer"
-                              onClick={() => setIsOpen(!isOpen)}
+                              className="flex items-center bg-white bg-opacity-20 h-10 md:h-12 rounded-md pl-3 pr-3 text-gray-400 sm:text-sm cursor-not-allowed"
                             >
-                              <div className="flex items-center flex-grow">
+                               <div className="flex items-center flex-grow">
                                 <img
-                                  src={selectedOption.img}
-                                  alt={selectedOption.label}
+                                  src={selectedOptions[index]?.img} 
+                                  alt={selectedOptions[index]?.label}
                                   className="w-4 h-4 mr-2"
                                 />
-                                <span>{selectedOption.label}</span>
+                                <span>{selectedOptions[index]?.label}</span>
                               </div>
                               <div className="flex items-center ms-6">
                                 <IoIosArrowDown className="text-gray-400" />
                               </div>
                             </div>
 
-                            {isOpen && (
-                              <div className="absolute mt-1 bg-white rounded-md shadow-lg z-10 title-animation">
-                                {options.map((option) => (
+                            {dropdownOpen && index === selectedIndex && (
+                              <div className="absolute mt-1 bg-white backdrop-blur-md rounded-lg shadow-lg z-10 title-animation">
+                                  {options.map((option) => (
                                   <div
                                     key={option.value}
-                                    className="flex items-center p-2 cursor-pointer hover:bg-gray-200"
-                                    onClick={() => handleSelect(option)}
+                                    className="cursor-pointer hover:bg-gray-100 p-2"
                                   >
-                                    <img
-                                      src={option.img}
-                                      alt={option.label}
-                                      className="w-4 h-4 mr-2"
-                                    />
-                                    <span>{option.label}</span>
+                                    <div className="flex items-center">
+                                      <img
+                                        src={option.img} 
+                                        alt={option.label}
+                                        className="w-4 h-4 mr-2"
+                                      />
+                                      <span>{option.label}</span>
+                                    </div>
                                   </div>
                                 ))}
                               </div>
@@ -238,7 +231,7 @@ export default function InfoSectionThree() {
                         {selectedOption.label}
                       </p>
                       <div className="mx-10">
-                        <SecondaryButton text="Buy Now" />
+                        <SecondaryButton bol={true} text="Buy Now" />
                       </div>
                     </div>
                   </Squircle>
@@ -271,6 +264,7 @@ export default function InfoSectionThree() {
             </div>
           </div>
         </div>
+
 
         {/* Button Section for mobile devices */}
         <div className="block md:hidden absolute bottom-20 right-0 left-0 px-5">

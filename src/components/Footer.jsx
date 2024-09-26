@@ -1,21 +1,20 @@
-import React, { useRef } from "react";
-import SecondaryButton from "../components/buttons/SecondaryButton";
+import PrimaryButton from "../components/buttons/PrimaryButton";
+import Logo from "../assets/images/logo.png"
 
 export default function Footer() {
   return (
-    <footer className="flex-col justify-center items-center">
-      <div className="flex flex-col items-center justify-start min-h-screen relative z-10">
-        <div className="text-center px-4 my-5 lg:px-10 2xl:my-20">
-          <h2 className="title-animation text-3xl lg:text-5xl xl:text-6xl font-bold text-center leading-loose text-dark mb-6 xl:mb-10">
-            FOOTER
-          </h2>
+    <footer className="bg-black text-white h-full py-40">
+      <div className="container mx-auto flex flex-col items-center justify-center">
+        <div className="flex flex-col items-center mb-8">
+          <h2 className="title-animation text-4xl lg:text-6xl font-bold mb-4">Footer Section</h2>
+          <p className="title-aniamtion text-gray-400 mb-6">
+            © {new Date().getFullYear()} Reflect. Tutti i diritti riservati.
+          </p>
         </div>
+        <div className="w-1/3 "> 
+        <PrimaryButton text="Contattaci" />
 
-        <div className="xl:mx-60 mb-10 2xl:mb-20 2xl:mx-72">
-          <SecondaryButton text="Dapp Access" />
         </div>
-
-
       </div>
     </footer>
   );
