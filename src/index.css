@@ -245,3 +245,10 @@ main {
 }
 
 
+.bg-news{
+  background-image: url("/src/assets/images/yellow_1.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  z-index: 1;
+}

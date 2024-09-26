@@ -253,23 +253,20 @@ export default function InfoSectionThree() {
           <div className="flex flex-col items-center w-full h-full p-4 xl:p-10 bg-trasparent">
             <div className="flex w-full flex-col gap-6 2xl:gap-10">
               {cardData.map((index) => (
-                console.log(index),
-                <>
-                  <Squircle radius={90}>
-                    <button
-                      onClick={() => setSelectedIndex(index.id)}
-                      className={`w-full rounded-lg shadow-md transition-all duration-300 px-6 py-3 text-base xl:text-2xl font-medium
+                <Squircle key={index.id} radius={90}>
+                  <button
+                    onClick={() => setSelectedIndex(index.id)}
+                    className={`w-full rounded-lg shadow-md transition-all duration-300 px-6 py-3 text-base xl:text-2xl font-medium
                       ${
                         selectedIndex === index.id
                           ? "bg-white bg-opacity-60 text-primary ring-2 ring-primary ring-opacity-50 scale-105 hover:text-primary"
                           : "bg-white bg-opacity-20 text-white hover:bg-white hover:bg-opacity-60"
                       }
                        hover:shadow-lg hover:scale-105`}
-                    >
-                      Open Value {index.id + 1}
-                    </button>
-                  </Squircle>
-                </>
+                  >
+                    Open Value {index.id + 1}
+                  </button>
+                </Squircle>
               ))}
             </div>
           </div>

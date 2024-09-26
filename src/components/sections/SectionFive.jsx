@@ -8,21 +8,24 @@ const cards = [
     url: Image,
     tag: "Finance",
     title: "Title 1",
-    subtitle: "Understanding the future of digital currencies and blockchain.",
+    subtitle:
+      "Understanding the future of digital currencies and blockchain. But also the future of digital currencies and blockchain.",
   },
   {
     id: 2,
     url: Image,
     tag: "Features",
     title: "Title 2",
-    subtitle: "Understanding the future of digital currencies and blockchain.",
+    subtitle:
+      "Understanding the future of digital currencies and blockchain. But also the future of digital currencies and blockchain.",
   },
   {
     id: 3,
     url: Image,
-    tag: "Technology",
+    tag: "Finance",
     title: "Title 3",
-    subtitle: "Understanding the future of digital currencies and blockchain.",
+    subtitle:
+      "Understanding the future of digital currencies and blockchain. But also the future of digital currencies and blockchain.",
   },
 ];
 
@@ -39,16 +42,21 @@ export default function SectionFive() {
             technology and features.
           </p>
         </div>
-        <div className="flex gap-10">
-         
-              {cards.map((card) => {
-                return (
-                  <ScrollAnimation duration={2} animateIn="fadeInRight">
-                    <CardNews card={card} key={card.id} />{" "}
-                  </ScrollAnimation>
-                );
-              })}
 
+        <div className="flex gap-10">
+          {" "}
+          {/* Contenitore flessibile per le card */}
+          {cards.map((card) => {
+            return (
+              <ScrollAnimation
+                key={card.id}
+                duration={2}
+                animateIn="fadeInRight"
+              >
+                <CardNews card={card} />
+              </ScrollAnimation>
+            );
+          })}
         </div>
       </div>
     </section>
