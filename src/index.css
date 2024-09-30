@@ -25,7 +25,7 @@
 
 /* BALLS ANIMATION */
 
-@keyframes move-ball1 {
+/* @keyframes move-ball1 {
   0% {
     transform: translateX(0) translateY(0);
   }
@@ -62,7 +62,7 @@
 
 .animate-ball3 {
   animation: move-ball3 5s linear infinite;
-}
+} */
 
 /* BACKGROUND ANIMATION */
 *,

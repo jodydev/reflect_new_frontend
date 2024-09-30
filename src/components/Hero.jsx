@@ -3,7 +3,7 @@ import Button from "../assets/images/button_hero.png";
 
 export default function Hero() {
   return (
-    <section className="relative h-full flex items-center lg:items-start">
+    <section id="hero" className="relative h-full flex items-center lg:items-start">
       <div className="relative z-0 w-full h-[60vh] xl:h-[70vh] 2xl:h-[80vh] flex justify-center items-center">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 xl:gap-0 items-center">
