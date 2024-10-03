@@ -1,27 +1,4 @@
-import Image from "../../assets/images/yellow_1.png";
 import CardNews from "../CardNews";
-import ScrollAnimation from "react-animate-on-scroll";
-
-const cards = [
-  {
-    id: 1,
-    url: Image,
-    tag: "Finance",
-    title: "Lorem Ipsum is simply dummy text of the",
-  },
-  {
-    id: 2,
-    url: Image,
-    tag: "Features",
-    title: "Lorem Ipsum is simply dummy text of the",
-  },
-  {
-    id: 3,
-    url: Image,
-    tag: "Finance",
-    title: "Lorem Ipsum is simply dummy text of the",
-  },
-];
 
 export default function SectionFive() {
   return (
@@ -37,13 +14,9 @@ export default function SectionFive() {
         </div>
 
         <div className="flex flex-col md:flex-row gap-20 mx-10 mt-20 md:mt-0 2xl:mt-20 md:mx-0">
-          {cards.map((card) => {
-            return (
-              <div key={card.id}>
-                <CardNews card={card} />
-              </div>
-            );
-          })}
+          <div>
+            <CardNews />
+          </div>
         </div>
       </div>
     </section>
