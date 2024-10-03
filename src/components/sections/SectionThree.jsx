@@ -90,9 +90,10 @@ export default function InfoSectionThree() {
   }, [selectedIndex]);
 
   useEffect(() => {
+    const isMobile = window.innerWidth < 768;
     const cards = cardRefs.current;
     const angleStep = 360 / totalCards;
-    const radius = 360;
+    const radius = isMobile ? 275 : 360;
 
     cards.forEach((card, index) => {
       const isSelected = index === selectedIndex;
@@ -150,7 +151,7 @@ export default function InfoSectionThree() {
                   }}
                 >
                   <Squircle className="bg-white bg-opacity-10" radius={90}>
-                    <div className="cursor-not-allowed flex-col w-full h-full min-h-[300px] md:w-[400px] md:h-[350px] 2xl:w-[450px] 2xl:h-[400px] text-dark">
+                    <div className="cursor-not-allowed flex-col w-full h-full min-h-[320px] md:w-[400px] md:h-[350px] 2xl:w-[450px] 2xl:h-[400px] text-dark">
                       <div className="title p-4 bg-white bg-opacity-20 rounded-t-[35px] title-animation">
                         <h3 className="text-lg md:text-2xl font-semibold flex items-center justify-center pt-3 2xl:mb-2">
                           {item.title}

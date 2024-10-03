@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Navbar, IconButton } from "@material-tailwind/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import Logo from "../assets/images/logo_black.png";
+import Logo from "../assets/images/logo.png";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { Squircle } from "react-ios-corners";
@@ -28,8 +28,9 @@ export default function Header() {
       >
         <div className="container mx-auto flex items-start justify-between relative my-2">
           {/* Logo */}
-          <div className="flex items-center justify-center">
-            <img src={Logo} alt="logo" className="h-10 w-full md:h-12" />
+          <div className="flex items-center justify-start">
+            <img src={Logo} alt="logo" className="h-10 md:h-12 w-full" />
+            <p className="text-dark text-xl md:text-2xl font-bold ml-3">Reflect</p>
           </div>
 
           {/* Menu per desktop */}

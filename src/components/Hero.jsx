@@ -11,9 +11,9 @@ export default function Hero() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 xl:gap-0 items-center">
             <div className="w-full 2xl:my-56">
-              <div className="text-center lg:text-left ">
-                <h1 className="text-4xl xl:text-7xl 2xl:text-8xl font-involve text-dark mt-5 mb-4 title-animation">
-                  <span className="block ">
+              <div className="text-left mx-5">
+                <h1 className="text-4xl xl:text-7xl 2xl:text-8xl font-involve text-dark mt-5 mb-4">
+                  <span className="title-animation">
                     Empowering Base with abundant assets
                   </span>
                 </h1>
@@ -21,7 +21,7 @@ export default function Hero() {
                   <img
                     src={Button}
                     alt="button"
-                    className=" my-10 px-10 md:px-0 animate-fadeInLeft"
+                    className="my-10 animate-fadeInLeft"
                   />
                 </div>
               </div>

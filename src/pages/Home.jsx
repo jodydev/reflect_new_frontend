@@ -6,10 +6,10 @@ import SectionTwo from "../components/sections/SectionTwo";
 import SectionThree from "../components/sections/SectionThree";
 import SectionFour from "../components/sections/SectionFour";
 import SectionFive from "../components/sections/SectionFive";
-import SectionSix from "../components/sections/SectionSix";
 import Footer from '../components/Footer';
 import ScrollProgressButton from "../components/buttons/ScrollProgressButton";
 import Animations from "../components/Animations";
+import SectionSix from "../components/sections/SectionSix";
 // import InitCustomCursor from '../components/cursor/InitCustomCursor';
 
 const Home = () => {
@@ -24,7 +24,7 @@ const Home = () => {
         <SectionThree />
         <SectionFour />
         <SectionFive />
-        {/* <SectionSix /> */}
+        <SectionSix />
       </main>
       <Footer />
       {/* <InitCustomCursor /> */}
