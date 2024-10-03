@@ -38,8 +38,7 @@ export default function SectionFive() {
             Section News
           </h2>
           <p className="text-dark text-lg lg:text-xl 2xl:text-2xl">
-            Stay updated with the latest news in the world of finance,
-            technology and features.
+            Stay tuned with latest updates
           </p>
         </div>
 

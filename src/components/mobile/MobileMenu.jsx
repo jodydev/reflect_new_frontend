@@ -1,7 +1,7 @@
 import { Fragment, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import NavbarData from '../../data/navbar-data';
-import Logo from '../../assets/images/logo.png'; 
+import Logo from '../../assets/images/logo_black.png'; 
 import MenuItem from '../MenuItem';
 
 const MobileMenu = ({ isMenuOpen, setIsMenuOpen }) => {

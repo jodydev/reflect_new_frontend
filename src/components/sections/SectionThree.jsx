@@ -92,7 +92,7 @@ export default function InfoSectionThree() {
   useEffect(() => {
     const cards = cardRefs.current;
     const angleStep = 360 / totalCards;
-    const radius = 300;
+    const radius = 360;
 
     cards.forEach((card, index) => {
       const isSelected = index === selectedIndex;

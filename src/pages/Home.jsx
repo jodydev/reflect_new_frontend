@@ -24,7 +24,7 @@ const Home = () => {
         <SectionThree />
         <SectionFour />
         <SectionFive />
-        <SectionSix />
+        {/* <SectionSix /> */}
       </main>
       <Footer />
       {/* <InitCustomCursor /> */}

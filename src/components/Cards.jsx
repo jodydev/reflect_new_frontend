@@ -2,46 +2,13 @@ import { useState, useEffect } from "react";
 import { Squircle } from "react-ios-corners";
 import { BsRobot } from "react-icons/bs";
 import { TbClick } from "react-icons/tb";
+import { cardDataSectionFour, cardDataSectionOne } from "../data/card_section_one_and_four";
 import ScrollAnimation from "react-animate-on-scroll";
 import Image from "../assets/images/yellow_3.png";
 
 export default function Cards({ isSectionFour }) {
   const [isSelected, setIsSelected] = useState(null);
-
-  const cardData = [
-    {
-      title: "Monitor and Manage",
-      subtitle:
-        "Oversee all aspects of your business from a single control center.",
-    },
-    {
-      title: "Automate Tasks",
-      subtitle:
-        "Let AI handle the routine tasks so you can focus on what matters.",
-    },
-    {
-      title: "Optimize Resources",
-      subtitle: "Ensure maximum efficiency in all aspects of your workflow.",
-    },
-  ];
-
-  const cardDataSectionFour = [
-    {
-      title: "AI Integration Technology",
-      subtitle: "Leverage AI for more intelligent decision-making. Bla bla bla",
-    },
-    {
-      title: "Blockchain Security",
-      subtitle:
-        "Enhance your security with decentralized blockchain solutions.",
-    },
-    {
-      title: "Next-Gen Analytics",
-      subtitle: "Unlock insights with advanced data analytics and forecasting.",
-    },
-  ];
-
-  const currentData = isSectionFour ? cardDataSectionFour : cardData;
+  const currentData = isSectionFour ? cardDataSectionFour : cardDataSectionOne;
 
   useEffect(() => {
     const handleScroll = () => {

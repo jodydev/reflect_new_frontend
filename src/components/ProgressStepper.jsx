@@ -1,5 +1,5 @@
 import { FaCheck } from "react-icons/fa6";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export default function ProgressStepper({
   steps,
@@ -25,7 +25,6 @@ export default function ProgressStepper({
 
           return (
             <li key={step.id} className="flex items-start">
-              {/* Step Button */}
               <div className="flex flex-col items-center mr-6 animate-fadeInBottom">
                 <button
                   className={`w-10 h-10 flex justify-center items-center border-2 rounded-full transition-all duration-300 ${
@@ -48,13 +47,11 @@ export default function ProgressStepper({
                   )}
                 </button>
 
-                {/* Line between steps */}
                 {index < steps.length - 1 && (
                   <div className="flex-grow h-32 w-px bg-dark bg-opacity-20"></div>
                 )}
               </div>
 
-              {/* Step Title and Label */}
               <div
                 className={`flex flex-col ms-3 title-animation transition-all duration-300 
                   ${index === 0 ? "blur-none opacity-100" : ""} 
@@ -65,7 +62,7 @@ export default function ProgressStepper({
                   {step.title}
                 </h4>
                 <span className="text-sm md:text-xl title-animation">
-                  {step.label}
+                  {step.subtitle}
                 </span>
               </div>
             </li>

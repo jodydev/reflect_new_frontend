@@ -1,7 +1,7 @@
 import { Squircle } from "react-ios-corners";
 
 export default function SecondaryButton({ bol, text, action }) {
-  console.log(bol);
+
   return (
     <Squircle radius={90}>
       <button

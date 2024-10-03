@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Navbar, IconButton } from "@material-tailwind/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import Logo from "../assets/images/logo.png";
+import Logo from "../assets/images/logo_black.png";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { Squircle } from "react-ios-corners";
@@ -28,11 +28,8 @@ export default function Header() {
       >
         <div className="container mx-auto flex items-start justify-between relative my-2">
           {/* Logo */}
-          <div className="flex items-center justify-center ms-2">
-            <img src={Logo} alt="logo" className="h-8 w-8 md:h-10 md:w-10" />
-            <p className="text-dark font-bold ml-3 mt-1 text-sm md:text-lg">
-              Reflect
-            </p>
+          <div className="flex items-center justify-center">
+            <img src={Logo} alt="logo" className="h-10 w-full md:h-12" />
           </div>
 
           {/* Menu per desktop */}
@@ -110,18 +107,23 @@ export default function Header() {
           </Menu>
 
           {/* Icona per il menu mobile */}
-          <IconButton
-            variant="text"
-            color="white"
-            onClick={handleOpen}
-            className="lg:hidden me-5 flex items-center justify-center"
+          <Squircle
+            className="block lg:hidden origin-top-right bg-clip-padding backdrop-filter backdrop-blur-md bg-white bg-opacity-40 transition focus:outline-none"
+            radius={90}
           >
-            {open ? (
-              <XMarkIcon strokeWidth={2} className="h-6 w-6" />
-            ) : (
-              <Bars3Icon strokeWidth={2} className="h-6 w-6" />
-            )}
-          </IconButton>
+            <IconButton
+              variant="text"
+              color="black"
+              onClick={handleOpen}
+              className="lg:hidden flex items-center justify-center"
+            >
+              {open ? (
+                <XMarkIcon strokeWidth={2} className="h-6 w-6" />
+              ) : (
+                <Bars3Icon strokeWidth={2} className="h-6 w-6" />
+              )}
+            </IconButton>
+          </Squircle>
 
           {/* Menu mobile */}
           <div
