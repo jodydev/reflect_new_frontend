@@ -8,8 +8,8 @@ import Rwax from "../assets/images/partners/rwax.png";
 
 export default function Partners() {
   return (
-    <div className="flex flex-col items-center justify-start relative z-10 py-10 md:pb-30 ">
-      <div className="text-center px-4 mb-10 lg:px-10 lg:mb-20">
+    <div className="flex flex-col items-center justify-start relative z-10 py-10 2xl:pb-30 ">
+      <div className="text-center px-4 mb-10 lg:px-10 2xl:mb-20">
         <h2 className="title-animation text-3xl md:text-6xl font-bold md:leading-loose text-dark mb-6">
           Partners
         </h2>
