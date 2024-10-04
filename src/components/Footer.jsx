@@ -47,14 +47,14 @@ export default function Footer() {
                 >
                   Gitbook <FiArrowUpRight className="h-6 w-6" />
                 </Link>
-                <Link
-                  to={"#hero"}
+                <a
+                  href="https://medium.com/@RFLOnBase"
                   className="text-md flex cursor-pointer text-gray-600 transition-all 
                 duration-300 ease-in-out hover:translate-y-0.5 
                 hover:scale-105 hover:text-white"
                 >
                   Medium <FiArrowUpRight className="h-6 w-6" />
-                </Link>
+                </a>
               </div>
             </ScrollAnimation>
 
