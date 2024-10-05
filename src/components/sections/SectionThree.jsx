@@ -1,16 +1,15 @@
 import { useState, useRef, useEffect } from "react";
 import { gsap } from "gsap";
-import { IoIosArrowDown } from "react-icons/io";
+import { IoIosArrowDown } from "../../utils/icons";
+import { Squircle } from "react-ios-corners";
+import { options, cardData } from "../../data/cardDataSectionThree";
 import SecondaryButton from "../buttons/SecondaryButton";
 import NumberOne from "../../assets/images/number_1.png";
 import NumberTwo from "../../assets/images/number_2.png";
 import NumberThree from "../../assets/images/number_3.png";
 import ScrollAnimation from "react-animate-on-scroll";
-import { Squircle } from "react-ios-corners";
-import { options, cardData } from "../../data/card_section_three";
 
 export default function InfoSectionThree() {
-  const [openCards, setOpenCards] = useState([false, false, false]);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [inputValue, setInputValue] = useState("");
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -22,102 +21,118 @@ export default function InfoSectionThree() {
   const totalCards = cardData.length;
 
   useEffect(() => {
-
-    // 1. Genera un valore casuale per l'input subito
-    setTimeout(() => {
-      gsap.to(
-        { val: 0 },
-        {
-          val: 1,
-          duration: 2,
-          onUpdate: function () {
-            const currentVal = this.targets()[0].val;
-            setInputValue(`$${(currentVal * 100).toFixed(2)}`);
-          },
-        }
-      );
-    }, 1000);
-
-    const intervalId = setInterval(() => {
-      // 2. Apro il dropdown
+    try {
+      // 1. Genera un valore casuale per l'input subito
       setTimeout(() => {
-        setDropdownOpen(true);
-      }, 0);
+        gsap.to(
+          { val: 0 },
+          {
+            val: 1,
+            duration: 2,
+            onUpdate: function () {
+              const currentVal = this.targets()[0].val;
+              setInputValue(`$${(currentVal * 100).toFixed(2)}`);
+            },
+          }
+        );
+      }, 1000);
 
-      // 3. Seleziona l'opzione in base all'indice attuale
-      setTimeout(() => {
-        setSelectedOptions((prevOptions) => {
-          const newOptions = [...prevOptions];
-    
-          let newOption;
-          do {
-            const currentOptionIndex = Math.floor(Math.random() * options.length); 
-            newOption = options[currentOptionIndex];
-          } while (newOption.value === newOptions[selectedIndex]?.value);
-      
-          newOptions[selectedIndex] = newOption;
-          return newOptions; 
-        });
-      }, 1500);
-      
-      // 4. Chiudo il dropdown
-      setTimeout(() => {
-        setDropdownOpen(false);
-      }, 2500);
+      const intervalId = setInterval(() => {
+        // 2. Apro il dropdown
+        setTimeout(() => {
+          setDropdownOpen(true);
+        }, 0);
 
-      // 5. Cambio indice della card
-      setTimeout(() => {
-        setSelectedIndex((prevIndex) => (prevIndex + 1) % totalCards);
-      }, 4000);
-    }, 5000); // Ripeti ogni 5 secondi
+        // 3. Seleziona l'opzione in base all'indice attuale
+        setTimeout(() => {
+          setSelectedOptions((prevOptions) => {
+            const newOptions = [...prevOptions];
 
-    return () => clearInterval(intervalId);
+            let newOption;
+            do {
+              const currentOptionIndex = Math.floor(
+                Math.random() * options.length
+              );
+              newOption = options[currentOptionIndex];
+            } while (newOption.value === newOptions[selectedIndex]?.value);
+
+            newOptions[selectedIndex] = newOption;
+            return newOptions;
+          });
+        }, 1500);
+
+        // 4. Chiudo il dropdown
+        setTimeout(() => {
+          setDropdownOpen(false);
+        }, 2500);
+
+        // 5. Cambio indice della card
+        setTimeout(() => {
+          setSelectedIndex((prevIndex) => (prevIndex + 1) % totalCards);
+        }, 4000);
+      }, 5000); // Ripeti ogni 5 secondi
+
+      return () => clearInterval(intervalId);
+    } catch (error) {
+      console.error(error);
+    }
   }, [options, selectedIndex, totalCards]);
 
   useEffect(() => {
-    const bg = backgroundRef.current;
-    gsap.fromTo(
-      bg,
-      { opacity: 0, scale: 1.5, x: 100 },
-      {
-        opacity: 1,
-        scale: 1,
-        x: 0,
-        duration: 1.5,
-        ease: "power1.out",
-      }
-    );
+    try {
+      const bg = backgroundRef.current;
+      gsap.fromTo(
+        bg,
+        { opacity: 0, scale: 1.5, x: 100 },
+        {
+          opacity: 1,
+          scale: 1,
+          x: 0,
+          duration: 1.5,
+          ease: "power1.out",
+        }
+      );
+    } catch (error) {
+      console.error(error);
+    }
   }, [selectedIndex]);
 
   useEffect(() => {
-    const isMobile = window.innerWidth < 768;
-    const cards = cardRefs.current;
-    const angleStep = 360 / totalCards;
-    const radius = isMobile ? 275 : 360;
+    try {
+      const isMobile = window.innerWidth < 768;
+      const cards = cardRefs.current;
+      const angleStep = 360 / totalCards;
+      const radius = isMobile ? 275 : 360;
 
-    cards.forEach((card, index) => {
-      const isSelected = index === selectedIndex;
-      const angle = (index - selectedIndex) * angleStep;
-      const radians = angle * (Math.PI / 180);
-      const x = radius * Math.cos(radians);
-      const y = radius * Math.sin(radians);
+      cards.forEach((card, index) => {
+        const isSelected = index === selectedIndex;
+        const angle = (index - selectedIndex) * angleStep;
+        const radians = angle * (Math.PI / 180);
+        const x = radius * Math.cos(radians);
+        const y = radius * Math.sin(radians);
 
-      gsap.to(card, {
-        duration: 0.1,
-        ease: "none",
-        x: x,
-        y: y,
-        zIndex: isSelected ? 50 : -50,
+        gsap.to(card, {
+          duration: 0.1,
+          ease: "none",
+          x: x,
+          y: y,
+          zIndex: isSelected ? 50 : -50,
+        });
       });
-    });
 
-    return () => {
-      gsap.killTweensOf(cards);
-    };
+      return () => {
+        gsap.killTweensOf(cards);
+      };
+    } catch (error) {
+      console.error(error);
+    }
   }, [selectedIndex]);
 
   return (
-    <div className="min-h-screen py-12 xl:py-20 px-4 sm:px-20 flex-col relative bg-img bg-trasparent">
+    <section
+      id="section_three"
+      className="min-h-screen py-12 xl:py-20 px-4 sm:px-20 flex-col relative bg-img bg-trasparent"
+    >
       <div className="ms-0 md:ms-60 2xl:ms-96">
         <h2 className="text-2xl md:text-5xl 2xl:text-6xl font-bold text-dark title-animation">
           Lorem ipsum dolor
@@ -184,15 +199,15 @@ export default function InfoSectionThree() {
                             type="text"
                             placeholder="$0.00"
                             value={inputValue}
-                            className="block bg-white bg-opacity-20 w-full h-10 md:h-12 rounded-md border-0 py-1.5 pl-3 pr-20 text-primary font-bold text-sm md:text-base focus:outline-none focus:ring-0 cursor-not-allowed"
+                            className="block bg-white bg-opacity-20 w-full h-10 md:h-12 rounded-md border-0 py-1.5 pl-3 pr-20 text-primary font-bold text-sm md:text-base focus:outline-none focus:ring-0"
+                            readOnly
                           />
+
                           <div className="relative inline-block ml-1 md:ml-4">
-                            <div
-                              className="flex items-center bg-white bg-opacity-20 h-10 md:h-12 rounded-md pl-3 pr-3 text-gray-400 sm:text-sm cursor-not-allowed"
-                            >
-                               <div className="flex items-center flex-grow">
+                            <div className="flex items-center bg-white bg-opacity-20 h-10 md:h-12 rounded-md pl-3 pr-3 text-gray-400 sm:text-sm cursor-not-allowed">
+                              <div className="flex items-center flex-grow">
                                 <img
-                                  src={selectedOptions[index]?.img} 
+                                  src={selectedOptions[index]?.img}
                                   alt={selectedOptions[index]?.label}
                                   className="w-4 h-4 mr-2"
                                 />
@@ -205,14 +220,14 @@ export default function InfoSectionThree() {
 
                             {dropdownOpen && index === selectedIndex && (
                               <div className="absolute mt-1 bg-white backdrop-blur-md rounded-lg shadow-lg z-10 title-animation">
-                                  {options.map((option) => (
+                                {options.map((option) => (
                                   <div
                                     key={option.value}
                                     className="cursor-pointer hover:bg-gray-100 p-2"
                                   >
                                     <div className="flex items-center">
                                       <img
-                                        src={option.img} 
+                                        src={option.img}
                                         alt={option.label}
                                         className="w-4 h-4 mr-2"
                                       />
@@ -266,7 +281,6 @@ export default function InfoSectionThree() {
           </div>
         </div>
 
-
         {/* Button Section for mobile devices */}
         <div className="block md:hidden absolute bottom-20 right-0 left-0 px-5">
           <div className="flex w-full flex-row gap-6">
@@ -296,6 +310,6 @@ export default function InfoSectionThree() {
           }}
         ></div>
       </div>
-    </div>
+    </section>
   );
 }

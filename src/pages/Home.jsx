@@ -10,7 +10,6 @@ import Footer from '../components/Footer';
 import ScrollProgressButton from "../components/buttons/ScrollProgressButton";
 import Animations from "../components/Animations";
 import SectionSix from "../components/sections/SectionSix";
-// import InitCustomCursor from '../components/cursor/InitCustomCursor';
 
 const Home = () => {
   return (
@@ -27,7 +26,6 @@ const Home = () => {
         <SectionSix />
       </main>
       <Footer />
-      {/* <InitCustomCursor /> */}
       <ScrollProgressButton />
       <Animations />
     </div>

@@ -3,7 +3,6 @@ import { lazy, Suspense } from "react";
 
 const SmoothScroll = lazy(() => import("../animations/SmoothScroll"));
 const SubTitle = lazy(() => import("../animations/SubTitleAnimations"));
-const RevealImage = lazy(() => import("../animations/RevealImages"));
 const ParallaxImage = lazy(() => import("../animations/ParallaxImage"));
 const FadeAnimations = lazy(() => import("../animations/FadeAnimations"));
 const AppearDown = lazy(() => import("../animations/AppearDown"));
@@ -16,7 +15,6 @@ const Animations = () => {
     <Suspense fallback={<div>Loading...</div>}>
       <SmoothScroll />
       <SubTitle />
-      <RevealImage />
       <ParallaxImage />
       <FadeAnimations />
       <AppearDown />

@@ -8,9 +8,7 @@ export const getDataFromMedium = (url) => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await fetch(
-          `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`
-        );
+        const response = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(url)}`);
         const data = await response.json();
         const xmlText = data.contents;
 

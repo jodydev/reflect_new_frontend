@@ -2,6 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 
 export default function SubDropdown(subItem) {
   const location = useLocation();
+  
   return (
     <li className="navbar__item navbar__item--has-children">
       <button

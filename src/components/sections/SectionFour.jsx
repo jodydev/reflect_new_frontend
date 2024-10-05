@@ -11,24 +11,28 @@ export default function SectionFour() {
   gsap.registerPlugin(ScrollTrigger);
 
   useEffect(() => {
-    gsap.fromTo(
-      spanRef.current,
-      { width: "0px" },
-      {
-        width: isMobile ? "50px" : "500px",
-        duration: 1,
-        scrollTrigger: {
-          trigger: spanRef.current,
-          start: "top 90%",
-          end: "top 40%",
-          scrub: true,
-        },
-      }
-    );
+    try {
+      gsap.fromTo(
+        spanRef.current,
+        { width: "0px" },
+        {
+          width: isMobile ? "50px" : "500px",
+          duration: 1,
+          scrollTrigger: {
+            trigger: spanRef.current,
+            start: "top 90%",
+            end: "top 40%",
+            scrub: true,
+          },
+        }
+      );
+    } catch (error) {
+      console.log(error); 
+    }
   }, []);
 
   return (
-    <section>
+    <section id="section_four">
       <div className="flex flex-col items-center justify-start relative z-10">
         <div className="text-center px-4 my-5 lg:px-10 2xl:my-10">
           <h2 className="z-50 text-3xl md:text-6xl font-bold md:leading-loose text-dark">
@@ -56,7 +60,7 @@ export default function SectionFour() {
           <ScrollAnimation animateIn="fadeInUp" duration={2}>
             <img
               src={Dashboard}
-              alt="dashboard image"
+              alt="Dashboard Image"
               className="rounded-3xl -z-50 max-w-[350px] md:max-w-full h-auto"
             />
           </ScrollAnimation>

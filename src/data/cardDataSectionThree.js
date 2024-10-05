@@ -1,6 +1,3 @@
-// import AppleLogo from "../assets/images/apple_logo.png";
-// import GoogleLogo from "../assets/images/google_logo.png";
-// import AmazonLogo from "../assets/images/amazon_logo.png";
 import Logo from "../assets/images/logo.png";
 import Bitcoin from "../assets/images/bitcoin.png";
 import Ethereum from "../assets/images/ethereum.png";

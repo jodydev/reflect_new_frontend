@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
-import Image from "../assets/images/yellow_1.png";
-import { Squircle } from "react-ios-corners";
-import ScrollAnimation from "react-animate-on-scroll";
-import { ArrowRightIcon } from "@heroicons/react/20/solid";
 import { getDataFromMedium } from "../hooks/getDataFromMedium";
+import { ArrowRightIcon } from "../utils/icons";
+import { Squircle } from "react-ios-corners";
+import Image from "../assets/images/yellow_1.png";
+import ScrollAnimation from "react-animate-on-scroll";
 
 export default function CardNews() {
   const isMobile = window.innerWidth < 768;
