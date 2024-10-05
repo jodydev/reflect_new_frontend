@@ -18,31 +18,7 @@ export default function SectionOne() {
         </div>
 
         <Cards />
-        
-        {/* Spline 3D Element and Swiper Cards */}
-        {/* <div className="w-full lg:w-1/2 flex justify-center items-center relative z-0">
-            <ScrollAnimation duration={2} animateIn="fadeInLeft">
-              <img
-                src={LineImage}
-                className="absolute bottom-0 top-[50%] inset-0 -z-10 w-full object-cover"
-                alt="Line Background"
-              />
-              <Spline
-                style={{
-                  width: isBigScreen ? "600px" : "425px",
-                  height: isBigScreen ? "600px" : "425px",
-                }}
-                scene="https://prod.spline.design/E4YD-HYnDoP6Ss86/scene.splinecode"
-              />
-            </ScrollAnimation>
-          </div>
 
-       
-          <div className="w-full lg:w-1/2 max-w-lg relative z-10">
-            <ScrollAnimation duration={2} animateIn="fadeInRight">
-              <SwiperCards />
-            </ScrollAnimation>
-          </div> */}
       </div>
     </section>
   );

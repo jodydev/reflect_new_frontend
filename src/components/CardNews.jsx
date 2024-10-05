@@ -3,68 +3,18 @@ import Image from "../assets/images/yellow_1.png";
 import { Squircle } from "react-ios-corners";
 import ScrollAnimation from "react-animate-on-scroll";
 import { ArrowRightIcon } from "@heroicons/react/20/solid";
+import { getDataFromMedium } from "../hooks/getDataFromMedium";
 
 export default function CardNews() {
   const isMobile = window.innerWidth < 768;
 
-  const [posts, setPosts] = useState([]);
-  useEffect(() => {
-    fetch(
-      "https://api.allorigins.win/get?url=https://medium.com/feed/@RFLOnBase"
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        const xmlText = data.contents;
-        const parser = new DOMParser();
-        const xmlDoc = parser.parseFromString(xmlText, "application/xml");
+  const { posts, loading, error } = getDataFromMedium("https://medium.com/feed/@RFLOnBase");
 
-        const items = Array.from(xmlDoc.querySelectorAll("item"));
+  if (loading) return <p>Loading...</p>;
 
-        const posts = items.slice(0, 3).map((item) => {
-          const contentEncoded = item.getElementsByTagNameNS(
-            "http://purl.org/rss/1.0/modules/content/",
-            "encoded"
-          )[0]?.textContent;
-          let imgSrc = null;
-          let content = ""; // Variabile per il contenuto del post
-          if (contentEncoded) {
-            // Crea un nuovo documento HTML dal contenuto
-            const contentDoc = new DOMParser().parseFromString(
-              contentEncoded,
-              "text/html"
-            );
-            // Trova l'immagine
-            const imgElement = contentDoc.querySelector("img");
-            if (imgElement) {
-              imgSrc = imgElement.getAttribute("src");
-            }
-            // Estrai solo il testo all'interno dei tag <p>
-            const pElements = contentDoc.querySelectorAll("p");
-            const paragraphs = Array.from(pElements)
-              .map((p) => p.innerText)
-              .join(" "); // Unisci i paragrafi con un <br> tra di loro
-            content = paragraphs; // Assegna il contenuto
-          }
-
-          return {
-            title: item.querySelector("title").textContent,
-            link: item.querySelector("link").textContent,
-            categories: Array.from(item.querySelectorAll("category")).map(
-              (cat) => cat.textContent
-            ),
-            pubDate: item.querySelector("pubDate").textContent,
-            img: imgSrc,
-            content: content, // Aggiungi il contenuto del post
-          };
-        });
-
-        console.log(posts);
-        setPosts(posts);
-      })
-      .catch((err) => console.error("Errore nel recupero dei dati:", err));
-  }, []);
-
-  return (
+  if (error) return <p>Error: {error.message}</p>;
+  
+  return (    
     <div className="flex flex-col md:flex-row gap-20 mx-10 mt-0 md:mt-0 2xl:mt-20 md:mx-0">
       {posts.map((post, index) => (
         <ScrollAnimation

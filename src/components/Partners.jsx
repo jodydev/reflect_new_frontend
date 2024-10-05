@@ -26,35 +26,35 @@ export default function Partners() {
                     <div className="slide ">
                       <img
                         src={Aerodrome}
-                        className=" w-[100px] h-[40px] md:w-[250px] md:h-[80px] 2xl:w-[350px] 2xl:h-[100px]"
+                        className=" w-[100px] h-[40px] md:w-[250px] md:h-[70px] 2xl:w-[350px] 2xl:h-[100px]"
                         alt="Partner Logo"
                       />
                     </div>
                     <div className="slide ">
                       <img
                         src={Dia}
-                        className="w-[100px] h-[40px] md:w-[250px] md:h-[80px] 2xl:w-[350px] 2xl:h-[100px]"
+                        className="w-[100px] h-[40px] md:w-[250px] md:h-[70px] 2xl:w-[350px] 2xl:h-[100px]"
                         alt="Partner Logo"
                       />
                     </div>
                     <div className="slide ">
                       <img
                         src={Paladin}
-                        className="w-[100px] h-[40px] md:w-[250px] md:h-[80px] 2xl:w-[350px] 2xl:h-[100px]"
+                        className="w-[100px] h-[40px] md:w-[250px] md:h-[70px] 2xl:w-[350px] 2xl:h-[100px]"
                         alt="Partner Logo"
                       />
                     </div>
                     <div className="slide ">
                       <img
                         src={Pyth}
-                        className="w-[100px] h-[40px] md:w-[250px] md:h-[80px] 2xl:w-[350px] 2xl:h-[100px]"
+                        className="w-[100px] h-[40px] md:w-[250px] md:h-[70px] 2xl:w-[350px] 2xl:h-[100px]"
                         alt="Partner Logo"
                       />
                     </div>
                     <div className="slide ">
                       <img
                         src={Rwax}
-                        className="w-[100px] h-[40px] md:w-[250px] md:h-[80px] 2xl:w-[350px] 2xl:h-[100px]"
+                        className="w-[100px] h-[40px] md:w-[250px] md:h-[70px] 2xl:w-[350px] 2xl:h-[100px]"
                         alt="Partner Logo"
                       />
                     </div>
@@ -62,28 +62,28 @@ export default function Partners() {
                     <div className="slide ">
                       <img
                         src={Aerodrome}
-                        className="w-[100px] h-[40px] md:w-[250px] md:h-[80px] 2xl:w-[350px] 2xl:h-[100px]"
+                        className="w-[100px] h-[40px] md:w-[250px] md:h-[70px] 2xl:w-[350px] 2xl:h-[100px]"
                         alt="Partner Logo"
                       />
                     </div>
                     <div className="slide ">
                       <img
                         src={Dia}
-                        className="w-[100px] h-[40px] md:w-[250px] md:h-[80px] 2xl:w-[350px] 2xl:h-[100px]"
+                        className="w-[100px] h-[40px] md:w-[250px] md:h-[70px] 2xl:w-[350px] 2xl:h-[100px]"
                         alt="Partner Logo"
                       />
                     </div>
                     <div className="slide ">
                       <img
                         src={Paladin}
-                        className="w-[100px] h-[40px] md:w-[250px] md:h-[80px] 2xl:w-[350px] 2xl:h-[100px]"
+                        className="w-[100px] h-[40px] md:w-[250px] md:h-[70px] 2xl:w-[350px] 2xl:h-[100px]"
                         alt="Partner Logo"
                       />
                     </div>
                     <div className="slide ">
                       <img
                         src={Pyth}
-                        className="w-[100px] h-[40px] md:w-[250px] md:h-[80px] 2xl:w-[350px] 2xl:h-[100px]"
+                        className="w-[100px] h-[40px] md:w-[250px] md:h-[70px] 2xl:w-[350px] 2xl:h-[100px]"
                         alt="Partner Logo"
                       />
                     </div>

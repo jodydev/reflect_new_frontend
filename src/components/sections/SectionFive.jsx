@@ -2,7 +2,7 @@ import CardNews from "../CardNews";
 
 export default function SectionFive() {
   return (
-    <section className="flex-col justify-center items-center pt-20 pb-20 md:pt-40 md:pb-60">
+    <section className="flex-col justify-center items-center pt-20 pb-20 md:pt-40 md:pb-40 2xl:md:pb-60">
       <div className="flex flex-col items-center justify-start relative z-10">
         <div className="text-center px-4 my-5 lg:px-10 md:my-20">
           <h2 className="title-animation text-3xl lg:text-5xl xl:text-6xl font-bold text-center leading-loose text-dark md:mb-5">

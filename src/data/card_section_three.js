@@ -1,29 +1,33 @@
-import AppleLogo from "../assets/images/apple_logo.png";
-import GoogleLogo from "../assets/images/google_logo.png";
-import AmazonLogo from "../assets/images/amazon_logo.png";
+// import AppleLogo from "../assets/images/apple_logo.png";
+// import GoogleLogo from "../assets/images/google_logo.png";
+// import AmazonLogo from "../assets/images/amazon_logo.png";
+import Logo from "../assets/images/logo.png";
+import Bitcoin from "../assets/images/bitcoin.png";
+import Ethereum from "../assets/images/ethereum.png";
 
 const options = [
-  { id: 0, value: "option1", label: "gAMZN", img: AmazonLogo },
-  { id: 1, value: "option2", label: "gAAPL", img: AppleLogo },
-  { id: 2, value: "option3", label: "gGOOGL", img: GoogleLogo },
+  { id: 0, value: "Reflect", label: "Reflect", img: Logo },
+  { id: 1, value: "Bitcoin", label: "Bitcoin", img: Bitcoin },
+  { id: 2, value: "Ethereum", label: "Ethereum", img: Ethereum },
 ];
 
 const cardData = [
   {
     id: 0,
-    title: "Open Value 1",
-    subtitle: "Deposit collateral and mint gAsset 1",
+    title: "Swap",
+    subtitle: "Effortlessly exchange assets with minimal fees",
   },
   {
     id: 1,
-    title: "Open Value 2",
-    subtitle: "Deposit collateral and mint gAsset 2",
+    title: "Create",
+    subtitle: "Mint new assets by depositing collateral securely",
   },
   {
     id: 2,
-    title: "Open Value 3",
-    subtitle: "Deposit collateral and mint gAsset 3",
+    title: "Stake",
+    subtitle: "Stake your tokens to earn rewards and passive income",
   },
 ];
+
 
 export { options, cardData };

@@ -258,7 +258,7 @@ export default function InfoSectionThree() {
                       }
                        hover:shadow-lg hover:scale-105`}
                   >
-                    Open Value {index.id + 1}
+                    {index.title}
                   </button>
                 </Squircle>
               ))}
