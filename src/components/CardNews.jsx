@@ -1,7 +1,7 @@
 import { getDataFromMedium } from "../hooks/getDataFromMedium";
 import { ArrowRightIcon } from "../utils/icons";
 import { Squircle } from "react-ios-corners";
-import Image from "../assets/images/yellow_1.png";
+import Image from "../assets/images/yellow_1.webp";
 import ScrollAnimation from "react-animate-on-scroll";
 
 export default function CardNews() {

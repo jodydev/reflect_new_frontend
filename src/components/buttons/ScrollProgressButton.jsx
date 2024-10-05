@@ -37,6 +37,8 @@ const ScrollProgressButton = () => {
 
   return (
     <button
+      id="scroll_progress"
+      aria-label="scroll progress"
       ref={scrollRef}
       className={`z-50 progress-wrap ${isActive ? "active-progress" : ""} fixed bottom-6 right-6`}
       onClick={handleProgressClick}

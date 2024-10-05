@@ -1,7 +1,7 @@
 import { Fragment, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import NavbarData from '../../data/navbar-data';
-import Logo from '../../assets/images/logo_black.png'; 
+import Logo from '../../assets/images/logo_black.webp'; 
 import MenuItem from '../MenuItem';
 
 const MobileMenu = ({ isMenuOpen, setIsMenuOpen }) => {
@@ -44,6 +44,7 @@ const MobileMenu = ({ isMenuOpen, setIsMenuOpen }) => {
               </Link>
             </div>
             <button
+              id='close-mobile-menu'
               aria-label="close mobile menu"
               className="close-mobile-menu"
               onClick={() => setIsMenuOpen(false)}

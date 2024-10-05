@@ -6,12 +6,12 @@ import SectionTwo from "../components/sections/SectionTwo";
 import SectionThree from "../components/sections/SectionThree";
 import SectionFour from "../components/sections/SectionFour";
 import SectionFive from "../components/sections/SectionFive";
-import Footer from '../components/Footer';
+import SectionSix from "../components/sections/SectionSix";
+import Footer from "../components/Footer";
 import ScrollProgressButton from "../components/buttons/ScrollProgressButton";
 import Animations from "../components/Animations";
-import SectionSix from "../components/sections/SectionSix";
 
-const Home = () => {
+export default function Home() {
   return (
     <div className="my-app bg-tertiary">
       <main>
@@ -30,6 +30,4 @@ const Home = () => {
       <Animations />
     </div>
   );
-};
-
-export default Home;
+}

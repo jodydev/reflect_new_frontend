@@ -1,7 +1,7 @@
-import Aerodrome from "../assets/images/partners/aerodrome.png";
-import Dia from "../assets/images/partners/dia.png";
-import Paladin from "../assets/images/partners/paladin.png";
-import Pyth from "../assets/images/partners/pyth.png";
+import Aerodrome from "../assets/images/partners/aerodrome.webp";
+import Dia from "../assets/images/partners/dia.webp";
+import Paladin from "../assets/images/partners/paladin.webp";
+import Pyth from "../assets/images/partners/pyth.webp";
 import Rwax from "../assets/images/partners/rwax.png";
 
 const partners = [

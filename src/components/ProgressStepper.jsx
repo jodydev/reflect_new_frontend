@@ -8,11 +8,11 @@ export default function ProgressStepper({
   disableNavigation,
   handleStepClicked,
 }) {
-  const [completedIconIndex, setCompletedIconIndex] = useState(null); 
+  const [completedIconIndex, setCompletedIconIndex] = useState(null);
 
   const handleClick = (stepIndex) => {
     handleStepClicked(stepIndex + 1);
-    setCompletedIconIndex(stepIndex); 
+    setCompletedIconIndex(stepIndex);
   };
 
   return (
@@ -26,26 +26,38 @@ export default function ProgressStepper({
 
           const buttonClasses = `
             w-10 h-10 flex justify-center items-center border-2 rounded-full transition-all duration-300 
-            ${isCompleted ? "bg-primary text-white border-primary" : 
-              isCurrent ? "bg-primary text-white border-primary scale-125 shadow-md" : 
-              "bg-transparent border-dark opacity-50 blur-sm"}
+            ${
+              isCompleted
+                ? "bg-primary text-white border-primary"
+                : isCurrent
+                ? "bg-primary text-white border-primary scale-125 shadow-md"
+                : "bg-transparent border-dark opacity-50 blur-sm"
+            }
           `;
 
           const titleClasses = `
             flex flex-col ms-3 title-animation transition-all duration-300 
-            ${isCompleted || isCurrent ? "blur-none opacity-100" : "opacity-100 blur-sm"}
+            ${
+              isCompleted || isCurrent
+                ? "blur-none opacity-100"
+                : "opacity-100 blur-sm"
+            }
           `;
 
           return (
             <li key={step.id} className="flex items-start">
               <div className="flex flex-col items-center mr-6 animate-fadeInBottom">
                 <button
+                  id="steps_button"
+                  aria-label="steps button"
                   className={buttonClasses}
                   type="button"
                   disabled={disableNavigation && !isNavigable}
                   onClick={() => handleClick(index)}
                 >
-                  {isCompleted || (completedIconIndex === index && currentStep === stepNumber) ? (
+                  {isCompleted ||
+                  (completedIconIndex === index &&
+                    currentStep === stepNumber) ? (
                     <FaCheck className="w-5 h-5 text-white" />
                   ) : (
                     <span>{stepNumber}</span>

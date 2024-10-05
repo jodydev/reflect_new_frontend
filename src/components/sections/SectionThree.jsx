@@ -4,9 +4,9 @@ import { IoIosArrowDown } from "../../utils/icons";
 import { Squircle } from "react-ios-corners";
 import { options, cardData } from "../../data/cardDataSectionThree";
 import SecondaryButton from "../buttons/SecondaryButton";
-import NumberOne from "../../assets/images/number_1.png";
-import NumberTwo from "../../assets/images/number_2.png";
-import NumberThree from "../../assets/images/number_3.png";
+import NumberOne from "../../assets/images/number_1.webp";
+import NumberTwo from "../../assets/images/number_2.webp";
+import NumberThree from "../../assets/images/number_3.webp";
 import ScrollAnimation from "react-animate-on-scroll";
 
 export default function InfoSectionThree() {
@@ -264,6 +264,8 @@ export default function InfoSectionThree() {
               {cardData.map((index) => (
                 <Squircle key={index.id} radius={90}>
                   <button
+                    id="card_button"
+                    aria-label="card button"
                     onClick={() => setSelectedIndex(index.id)}
                     className={`w-full rounded-lg shadow-md transition-all duration-300 px-6 py-3 text-base xl:text-2xl font-medium
                       ${
@@ -287,6 +289,8 @@ export default function InfoSectionThree() {
             {[0, 1, 2].map((index) => (
               <div key={index} className="w-full">
                 <button
+                  id="card_button"
+                  aria-label="card button"
                   onClick={() => setSelectedIndex(index)}
                   className={`w-full ${
                     selectedIndex === index

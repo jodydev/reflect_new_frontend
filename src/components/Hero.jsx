@@ -1,5 +1,5 @@
-import Image from "../assets/images/yellow_1.png";
-import Button from "../assets/images/button_hero.png";
+import Image from "../assets/images/yellow_1.webp";
+import Button from "../assets/images/button_hero.webp";
 
 export default function Hero() {
   return (
@@ -21,7 +21,7 @@ export default function Hero() {
                   <img
                     src={Button}
                     alt="button"
-                    className="my-10 animate-fadeInLeft"
+                    className="w-full h-full my-10 animate-fadeInLeft"
                   />
                 </div>
               </div>

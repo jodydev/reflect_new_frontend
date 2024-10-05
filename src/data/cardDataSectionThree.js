@@ -1,6 +1,6 @@
-import Logo from "../assets/images/logo.png";
-import Bitcoin from "../assets/images/bitcoin.png";
-import Ethereum from "../assets/images/ethereum.png";
+import Logo from "../assets/images/logo.webp";
+import Bitcoin from "../assets/images/bitcoin.webp";
+import Ethereum from "../assets/images/ethereum.webp";
 
 const options = [
   { id: 0, value: "Reflect", label: "Reflect", img: Logo },

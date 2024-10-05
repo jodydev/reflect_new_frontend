@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { socialLinks } from "../data/socialLinks";
 import { FiArrowUpRight } from "../utils/icons";
-import Logo from "../assets/images/logo_white.png";
+import Logo from "../assets/images/logo_white.webp";
 import ScrollAnimation from "react-animate-on-scroll";
 
 export default function Footer() {
@@ -24,11 +24,17 @@ export default function Footer() {
         <div className="flex flex-col">
           <div className="flex my-10 md:my-20 flex-col md:flex-row justify-between items-start space-y-10 md:space-y-0">
             <ScrollAnimation duration={2} animateIn="fadeInUp">
-              <img
-                src={Logo}
-                alt="Reflect Logo"
-                className="h-8 md:h-10 2xl:w-3/4 2xl:h-14"
-              />
+              <div className="flex flex-row items-center justify-start">
+                <img
+                  src={Logo}
+                  alt="Reflect Logo"
+                  className="h-8 w-8 md:h-10 2xl:w-3/4 2xl:h-14"
+                />
+                <p className="text-white text-xl md:text-2xl font-bold ml-3">
+                  Reflect
+                </p>
+              </div>
+
               <p className="w-full text-center mt-4 md:mt-10 text-gray-600">
                 © {new Date().getFullYear()} Reflect. All rights reserved.
               </p>

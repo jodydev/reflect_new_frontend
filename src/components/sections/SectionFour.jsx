@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SecondaryButton from "../buttons/SecondaryButton";
-import Dashboard from "../../assets/images/dashboard.png";
+import Dashboard from "../../assets/images/dashboard.webp";
 import ScrollAnimation from "react-animate-on-scroll";
 
 export default function SectionFour() {
@@ -61,7 +61,7 @@ export default function SectionFour() {
             <img
               src={Dashboard}
               alt="Dashboard Image"
-              className="rounded-3xl -z-50 max-w-[350px] md:max-w-full h-auto"
+              className="rounded-3xl -z-50 max-w-[350px] w-[350px] md:max-w-full md:w-full h-auto"
             />
           </ScrollAnimation>
         </div>

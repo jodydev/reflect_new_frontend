@@ -9,6 +9,7 @@ export default function MenuItem({ title, path, submenu }) {
       {submenu ? (
         <>
           <button
+            id="dropdown menu"
             aria-label="dropdown menu"
             className="navbar__dropdown-label"
           >

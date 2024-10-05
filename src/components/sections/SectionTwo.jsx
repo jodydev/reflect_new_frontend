@@ -2,7 +2,7 @@ import { useState, useCallback } from "react";
 import { steps } from "../../data/steps";
 import ScrollAnimation from "react-animate-on-scroll";
 import ProgressStepper from "../ProgressStepper";
-import Image from "../../assets/images/yellow_1.png";
+import Image from "../../assets/images/yellow_1.webp";
 
 export default function SectionTwo() {
   const [currentStep, setCurrentStep] = useState(1);

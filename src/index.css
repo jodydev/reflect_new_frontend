@@ -58,7 +58,7 @@ html {
 } */
 
 main {
-  background-image: url("/src/assets/images/yellow_shadow.png");
+  background-image: url("/src/assets/images/yellow_shadow.webp");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: right top;
@@ -95,7 +95,7 @@ main {
 }
 
 .bg-info-section{
-  background-image: url("/src/assets/images/yellow_2.png");
+  background-image: url("/src/assets/images/yellow_2.webp");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: left;
@@ -103,7 +103,7 @@ main {
 }
 
 .bg-news{
-  background-image: url("/src/assets/images/yellow_1.png");
+  background-image: url("/src/assets/images/yellow_1.webp");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
