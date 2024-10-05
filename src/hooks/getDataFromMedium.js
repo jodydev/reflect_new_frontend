@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import axios from "axios"; // Importa Axios
 
 export const getDataFromMedium = (url) => {
   const [posts, setPosts] = useState([]);
@@ -8,9 +9,8 @@ export const getDataFromMedium = (url) => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(url)}`);
-        const data = await response.json();
-        const xmlText = data.contents;
+        const response = await axios.get(`https://api.allorigins.win/get?url=${encodeURIComponent(url)}`);
+        const xmlText = response.data.contents; // Accedi ai dati direttamente da response.data
 
         const parser = new DOMParser();
         const xmlDoc = parser.parseFromString(xmlText, "application/xml");
