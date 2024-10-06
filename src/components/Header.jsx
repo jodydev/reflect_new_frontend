@@ -26,8 +26,8 @@ export default function Header() {
     >
       <div className="container mx-auto flex items-start justify-between relative my-2">
         {/* Logo */}
-        <div className="flex items-center justify-start">
-          <img src={Logo} alt="logo" className="h-10 md:h-12 w-full" />
+        <div className="flex items-center justify-start ml-2 md:ml-0">
+          <img src={Logo} alt="logo" className="h-10 w-7 md:h-12 md:w-full" />
           <p className="text-dark text-xl md:text-2xl font-bold ml-3">
             Reflect
           </p>

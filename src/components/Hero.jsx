@@ -12,7 +12,7 @@ export default function Hero() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 xl:gap-0 items-center">
             <div className="w-full 2xl:my-56">
               <div className="text-left mx-5">
-                <h1 className="text-4xl xl:text-7xl 2xl:text-8xl font-involve font-bold text-dark mt-5 mb-4">
+                <h1 className="text-5xl md:text-7xl 2xl:text-8xl text-dark mt-5 mb-4">
                   <span className="title-animation">
                     Empowering Base with abundant assets
                   </span>

@@ -42,30 +42,6 @@ html {
   overflow-x: hidden !important;
 }
 
-/* .swiper {
-  width: 240px;
-  height: 320px;
-} */
-
-/* .swiper-slide {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 18px;
-  font-size: 22px;
-  font-weight: bold;
-  color: #fff;
-} */
-
-main {
-  background-image: url("/src/assets/images/yellow_shadow.webp");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: right top;
-  background-attachment: fixed;
-  z-index: 1;
-}
-
 .carousel-item {
   position: absolute;
   top: 50%;

@@ -13,8 +13,8 @@ import Animations from "../components/Animations";
 
 export default function Home() {
   return (
-    <div className="my-app bg-tertiary">
-      <main>
+    <div className="bg-tertiary">
+      <main className="md:bg-[url('/src/assets/images/yellow_shadow.webp')] bg-contain bg-no-repeat bg-right-top bg-fixed z-10">
         <Header />
         <Hero />
         <AssetCarousel />

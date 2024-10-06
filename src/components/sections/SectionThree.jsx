@@ -155,7 +155,7 @@ export default function InfoSectionThree() {
                 <div
                   key={item.id}
                   ref={(el) => (cardRefs.current[index] = el)}
-                  className={`absolute right-[-55px] md:right-[100px] 2xl:right-[250px] top-24 md:top-40 2xl:top-60 flex items-center justify-center text-white text-center ${
+                  className={`absolute right-[-50px] md:right-[100px] 2xl:right-[250px] top-32 md:top-40 2xl:top-60 flex items-center justify-center text-white text-center ${
                     isSelected
                       ? "z-20 w-72 h-60"
                       : "opacity-50 scale-75 w-72 h-60"
@@ -166,7 +166,7 @@ export default function InfoSectionThree() {
                   }}
                 >
                   <Squircle className="bg-white bg-opacity-10" radius={90}>
-                    <div className="cursor-not-allowed flex-col w-full h-full min-h-[320px] md:w-[400px] md:h-[350px] 2xl:w-[450px] 2xl:h-[400px] text-dark">
+                    <div className="cursor-not-allowed flex-col w-full h-full min-h-[340px] md:w-[400px] md:h-[350px] 2xl:w-[450px] 2xl:h-[400px] text-dark">
                       <div className="title p-4 bg-white bg-opacity-20 rounded-t-[35px] title-animation">
                         <h3 className="text-lg md:text-2xl font-semibold flex items-center justify-center pt-3 2xl:mb-2">
                           {item.title}
@@ -286,19 +286,19 @@ export default function InfoSectionThree() {
         {/* Button Section for mobile devices */}
         <div className="block md:hidden absolute bottom-20 right-0 left-0 px-5">
           <div className="flex w-full flex-row gap-6">
-            {[0, 1, 2].map((index) => (
-              <div key={index} className="w-full">
+            {cardData.map((index) => (
+              <div key={index.id} className="w-full">
                 <button
                   id="card_button"
                   aria-label="card button"
-                  onClick={() => setSelectedIndex(index)}
+                  onClick={() => setSelectedIndex(index.id)}
                   className={`w-full ${
-                    selectedIndex === index
+                    selectedIndex === index.id
                       ? "bg-white bg-opacity-60 border-primary border-2"
                       : "border-white border-opacity-0 border-2 "
                   } bg-white bg-opacity-20 transition-colors title-animation duration-300 px-6 py-3 rounded-xl text-dark text-base font-base`}
                 >
-                  Card{index + 1}
+                  {index.title}
                 </button>
               </div>
             ))}
