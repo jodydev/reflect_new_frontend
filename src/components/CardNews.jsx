@@ -12,8 +12,8 @@ export default function CardNews() {
   if (loading) return <p>Loading...</p>;
 
   if (error) return <p>Error: {error.message}</p>;
-  
-  return (    
+
+  return (
     <div className="flex flex-col md:flex-row gap-20 mx-10 mt-0 md:mt-0 2xl:mt-20 md:mx-0">
       {posts.map((post, index) => (
         <ScrollAnimation
@@ -33,7 +33,7 @@ export default function CardNews() {
         >
           <Squircle radius={90}>
             <div className=" w-[320px] h-[400px] md:w-[350px] md:h-[450px] 2xl:w-[400px]  2xl:h-[500px] bg-white bg-opacity-40">
-              <Squircle radius={90}>
+              <div className="news">
                 <a
                   href={post.link}
                   target="_blank"
@@ -43,7 +43,7 @@ export default function CardNews() {
                   <img
                     src={post.img || Image}
                     alt="Image Post"
-                    className="relative w-96 h-full md:w-full md:2xl-h-52 object-cover hover:cursor-pointer hover:scale-110 transition-transform duration-500 ease-in-out"
+                    className="relative w-96 h-1/2 md:w-full md:2xl-h-52 object-cover hover:cursor-pointer hover:scale-110 transition-transform duration-500 ease-in-out"
                   />
                 </a>
                 <div className="absolute top-5 right-8">
@@ -57,8 +57,9 @@ export default function CardNews() {
                     </span>
                   </Squircle>
                 </div>
-              </Squircle>
-              <div className="py-5 px-8 md:py-5 md:px-10">
+              </div>
+
+              <div className="absolute bottom-0 py-5 px-8 md:py-5 md:px-10 w-full">
                 <ScrollAnimation duration={1} animateIn="fadeInRight">
                   <div className="separator h-1 w-1/2 px-20 bg-primary mb-3"></div>
                 </ScrollAnimation>

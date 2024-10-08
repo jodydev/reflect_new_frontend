@@ -2,7 +2,12 @@ import { useState, useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { IoIosArrowDown } from "../../utils/icons";
 import { Squircle } from "react-ios-corners";
-import { options, cardData } from "../../data/cardDataSectionThree";
+import {
+  options,
+  optionsDate,
+  optionsLogo,
+  cardData,
+} from "../../data/cardDataSectionThree";
 import SecondaryButton from "../buttons/SecondaryButton";
 import NumberOne from "../../assets/images/number_1.webp";
 import NumberTwo from "../../assets/images/number_2.webp";
@@ -13,17 +18,23 @@ export default function InfoSectionThree() {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [inputValue, setInputValue] = useState("");
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(options[0]);
-  const [selectedOptions, setSelectedOptions] = useState(Array(options.length).fill(options[0]));
+  const [secondDropdownOpen, setSecondDropdownOpen] = useState(false);
+  const [selectedOptions, setSelectedOptions] = useState(
+    Array(options.length).fill(options[0])
+  );
+  const [selectedOptionsDate, setSelectedOptionsDate] = useState(
+    Array(options.length).fill(optionsDate[0])
+  );
+  const [selectedOptionsLogo, setSelectedOptionsLogo] = useState(
+    Array(optionsLogo.length).fill(optionsLogo[0])
+  );
   const cardRefs = useRef([]);
   const backgroundRef = useRef(null);
   const backgroundImages = [NumberOne, NumberTwo, NumberThree];
   const totalCards = cardData.length;
 
   const isCreate = selectedIndex === 1;
-  const isStake = selectedIndex === 2;  
-
-  console.log(isStake);
+  const isStake = selectedIndex === 2;
 
   useEffect(() => {
     try {
@@ -35,8 +46,16 @@ export default function InfoSectionThree() {
             val: 1,
             duration: 2,
             onUpdate: function () {
-              const currentVal = this.targets()[0].val;                         //!todo QUI GENERALE IL VALORE CASUALE PER L'INPUT DEL TOKEN NAME
-              setInputValue(`${isStake ? `${(currentVal * 100).toFixed(0)}GB` : isCreate ? `Xylo` : `$${(currentVal * 100).toFixed(2)}`}`);
+              const currentVal = this.targets()[0].val;
+              setInputValue(
+                `${
+                  isStake
+                    ? `${(currentVal * 100).toFixed(0)}GB`
+                    : isCreate
+                    ? `Xylo`
+                    : `$${(currentVal * 100).toFixed(2)}`
+                }`
+              );
             },
           }
         );
@@ -46,7 +65,14 @@ export default function InfoSectionThree() {
         // 2. Apro il dropdown
         setTimeout(() => {
           setDropdownOpen(true);
-        }, 0);
+        }, -1000);
+
+        // 2.1 Apro il secondo dropdown solo per opzione create
+        if (isCreate) {
+          setTimeout(() => {
+            setSecondDropdownOpen(true);
+          }, 1000);
+        }
 
         // 3. Seleziona l'opzione in base all'indice attuale
         setTimeout(() => {
@@ -66,10 +92,55 @@ export default function InfoSectionThree() {
           });
         }, 1500);
 
+        // 3.1 Seleziona l'opzione delle date in base all'indice attuale solo per opzione create
+        if (isCreate) {
+          setTimeout(() => {
+            setSelectedOptionsDate((prevOptions) => {
+              const newOptions = [...prevOptions];
+
+              let newOption;
+              do {
+                const currentOptionIndex = Math.floor(
+                  Math.random() * optionsDate.length
+                );
+                newOption = optionsDate[currentOptionIndex];
+              } while (newOption.value === newOptions[selectedIndex]?.value);
+
+              newOptions[selectedIndex] = newOption;
+              return newOptions;
+            });
+          }, 1500);
+
+          // 3.2 Seleziona l'opzione del logo in base all'indice attuale solo per opzione create
+          setTimeout(() => {
+            setSelectedOptionsLogo((prevOptions) => {
+              const newOptions = [...prevOptions];
+
+              let newOption;
+              do {
+                const currentOptionIndex = Math.floor(
+                  Math.random() * optionsLogo.length
+                );
+                newOption = optionsLogo[currentOptionIndex];
+              } while (newOption.img === newOptions[selectedIndex]?.img);
+
+              newOptions[selectedIndex] = newOption;
+              return newOptions;
+            });
+          }, 1500);
+        }
+
         // 4. Chiudo il dropdown
         setTimeout(() => {
           setDropdownOpen(false);
-        }, 2500);
+        }, 1500);
+
+        // 4.1 Chiudo il secondo dropdown solo per opzione create
+        if (isCreate) {
+          setTimeout(() => {
+            setSecondDropdownOpen(false);
+          }, 3000);
+        }
 
         // 5. Cambio indice della card
         setTimeout(() => {
@@ -163,16 +234,16 @@ export default function InfoSectionThree() {
                   key={item.id}
                   ref={(el) => (cardRefs.current[index] = el)}
                   className={`absolute right-[-50px] md:right-[100px] 2xl:right-[350px] top-32 md:top-40 2xl:top-80 flex items-center justify-center text-white text-center ${
-                    isSelected
-                      ? "z-20 w-72 h-60"
-                      : "opacity-50 scale-75 w-72 h-60"
+                    isSelected 
+                      ? "w-72 h-60"
+                      : "opacity-50 scale-75 w-72 h-60 blur-[3px]"
                   }`}
                   style={{
                     transform: "translateX(0) translateY(0)",
                     transition: "transform 0.5s ease-in-out",
                   }}
                 >
-                  <Squircle className="bg-white bg-opacity-10" radius={90}>
+                  <Squircle className="bg-white bg-opacity-10 " radius={90}>
                     <div className="cursor-not-allowed flex-col w-full h-full min-h-[340px] md:w-[400px] md:h-[350px] 2xl:w-[500px] 2xl:h-[450px] text-dark">
                       <div className="title p-4 bg-white bg-opacity-20 rounded-t-[35px] title-animation">
                         <h3 className="text-lg md:text-2xl font-semibold flex items-center justify-center pt-3 2xl:mb-2">
@@ -184,86 +255,205 @@ export default function InfoSectionThree() {
                       </div>
 
                       <div className="content px-4 md:px-12 md:py-3">
-                        <div className="flex justify-between">
-                          <label
-                            htmlFor="priceFrom"
-                            className="title-animation mt-4 block text-xs md:text-base font-medium text-start leading-6 text-dark"
-                          >
-                            {isStake ? "Send" : isCreate ? "Token Name" : "From"}
-                          </label>
-                          <label
-                            htmlFor="priceTo"
-                            className="title-animation mt-4 block text-xs md:text-base font-medium text-start leading-6 text-dark"
-                          >
-                            {isStake ? "Duration" : isCreate ? "Inital Supply" : "To"}
-                          </label>
-                        </div>
+                        {!isCreate ? (
+                          <div className="flex justify-between">
+                            <label
+                              htmlFor="priceFrom"
+                              className="title-animation mt-4 block text-xs md:text-base font-medium text-start leading-6 text-dark"
+                            >
+                              {isStake
+                                ? "Stake"
+                                : isCreate
+                                ? "Token Name"
+                                : "From"}
+                            </label>
+                            <label
+                              htmlFor="priceTo"
+                              className="title-animation mt-4 block text-xs md:text-base font-medium text-start leading-6 text-dark"
+                            >
+                              {isStake ? "Duration" : !isCreate ? "To" : ""}
+                            </label>
+                          </div>
+                        ) : (
+                          <div className="flex justify-between text-start">
+                            <label
+                              htmlFor="priceFrom"
+                              className="title-animation mt-4 block text-xs md:text-base font-medium text-start leading-6 text-dark"
+                            >
+                              Token Name
+                            </label>
+                            <label
+                              htmlFor="priceTo"
+                              className="title-animation mt-4 block text-xs md:text-base font-medium text-start leading-6 text-dark"
+                            >
+                              Duration
+                            </label>
+                            <label
+                              htmlFor="priceTo"
+                              className="title-animation mt-4 block text-xs md:text-base font-medium text-start leading-6 text-dark"
+                            >
+                              Option
+                            </label>
+                          </div>
+                        )}
 
-                        <div className="flex items-center mt-2">
-                          <input
-                            id="priceFrom"
-                            name="priceFrom"
-                            type="text"
-                            placeholder={isStake ? "0GB" : isCreate ? "Xylo" : "$0.00"}
-                            value={inputValue}
-                            className="block bg-white bg-opacity-20 w-full h-10 md:h-12 rounded-md border-0 py-1.5 pl-3 pr-20 text-primary font-bold text-sm md:text-base focus:outline-none focus:ring-0"
-                            readOnly
-                          />
+                        <div className="flex items-center justify-between mt-2 space-x-10">
+                          {!isCreate ? (
+                            <>
+                              <input
+                                id="swapForm"
+                                name="swapForm"
+                                type="text"
+                                placeholder={isStake ? "0GB" : "$0.00"}
+                                value={inputValue}
+                                className={`w-full block bg-white bg-opacity-20 h-10 md:h-12 rounded-md border-0 py-1.5 pl-3 text-primary font-bold text-sm md:text-base focus:outline-none focus:ring-0`}
+                                readOnly
+                              />
+                              <div className="relative inline-block">
+                                <div className="flex items-center bg-white bg-opacity-20 h-10 md:h-12 rounded-md pl-3 pr-3 text-gray-400 sm:text-sm cursor-not-allowed">
+                                  <div className="flex items-center flex-grow">
+                                    <img
+                                      src={selectedOptions[index]?.img}
+                                      alt={selectedOptions[index]?.label}
+                                      className="w-4 h-4 mr-2"
+                                    />
+                                    <span>{selectedOptions[index]?.label}</span>
+                                  </div>
+                                  <div className="flex items-center ms-6">
+                                    <IoIosArrowDown className="text-gray-400" />
+                                  </div>
+                                </div>
 
-                          {!isCreate ? ( <div className="relative inline-block ml-1 md:ml-4">
-                            <div className="flex items-center bg-white bg-opacity-20 h-10 md:h-12 rounded-md pl-3 pr-3 text-gray-400 sm:text-sm cursor-not-allowed">
-                              <div className="flex items-center flex-grow">
-                                <img
-                                  src={selectedOptions[index]?.img}
-                                  alt={selectedOptions[index]?.label}
-                                  className="w-4 h-4 mr-2"
-                                />
-                                <span>{selectedOptions[index]?.label}</span>
+                                {dropdownOpen && index === selectedIndex && (
+                                  <div className="absolute mt-1 bg-white backdrop-blur-md rounded-lg shadow-lg z-10 title-animation">
+                                    {options.map((option) => (
+                                      <div
+                                        key={option.id}
+                                        className="cursor-pointer hover:bg-gray-100 p-2"
+                                      >
+                                        <div className="flex items-center">
+                                          <img
+                                            src={option.img}
+                                            alt={option.label}
+                                            className="w-4 h-4 mr-2"
+                                          />
+                                          <span>{option.label}</span>
+                                        </div>
+                                      </div>
+                                    ))}
+                                  </div>
+                                )}
                               </div>
-                              <div className="flex items-center ms-6">
-                                <IoIosArrowDown className="text-gray-400" />
+                            </>
+                          ) : (
+                            <div className="relative flex flex-row items-center justify-between space-x-3">
+                              <input
+                                id="tokenName"
+                                name="tokenName"
+                                type="text"
+                                placeholder="Xylo"
+                                value={inputValue}
+                                className={`w-full block bg-white bg-opacity-20 h-10 md:h-12 rounded-md border-0 py-1.5 pl-3 text-primary font-bold text-sm md:text-base focus:outline-none focus:ring-0`}
+                                readOnly
+                              />
+
+                              {/* Dropdown Options Date */}
+                              <div className="flex items-center bg-white bg-opacity-20 h-10 md:h-12 rounded-md pl-3 pr-3 text-gray-400 sm:text-sm cursor-not-allowed">
+                                <div className="flex items-center flex-grow text-nowrap">
+                                  <span>
+                                    {selectedOptionsDate[index]?.label}
+                                  </span>
+                                </div>
+                                <div className="flex items-center ms-2 ">
+                                  <IoIosArrowDown className="text-gray-400" />
+                                </div>
+                              </div>
+
+                              {dropdownOpen && index === selectedIndex && (
+                                <div className="absolute top-[40px] left-[85px] md:top-[48px] md:left-[135px] mt-1 bg-white backdrop-blur-md rounded-lg shadow-lg z-10 title-animation">
+                                  {optionsDate.map((option) => (
+                                    <div
+                                      key={option.id}
+                                      className="cursor-pointer hover:bg-gray-100 p-2"
+                                    >
+                                      <div className="flex items-center text-nowrap">
+                                        <span>{option.label}</span>
+                                      </div>
+                                    </div>
+                                  ))}
+                                </div>
+                              )}
+
+                              {/* Dropdown Options Logo */}
+                              <div className="relative inline-block">
+                                <div className="w-full flex items-center justify-center bg-white bg-opacity-20 h-10 md:h-12 rounded-md pl-3 pr-3 text-gray-400 sm:text-sm cursor-not-allowed">
+                                  <div className="flex items-center flex-grow">
+                                    <img
+                                      src={selectedOptionsLogo[index]?.img}
+                                      alt={selectedOptionsLogo[index]?.label}
+                                      className="w-4 h-4 me-5"
+                                    />
+                                  </div>
+                                  <div className="flex items-center">
+                                    <IoIosArrowDown className="text-gray-400" />
+                                  </div>
+                                </div>
+
+                                {secondDropdownOpen &&
+                                  index === selectedIndex && (
+                                    <div className="absolute 2xl:top-[48px] left-[20px] mt-1 bg-white backdrop-blur-md rounded-lg shadow-lg z-10 title-animation">
+                                      {optionsLogo.map((option) => (
+                                        <div
+                                          key={option.id}
+                                          className="cursor-pointer hover:bg-gray-100 p-2"
+                                        >
+                                          <div className="flex items-center">
+                                            <img
+                                              src={option.img}
+                                              alt={option.label}
+                                              className="w-4 h-4 mr-2"
+                                            />
+                                          </div>
+                                        </div>
+                                      ))}
+                                    </div>
+                                  )}
                               </div>
                             </div>
-
-                            {/* //todo PER FUNZIONE CREATE RIMUOVERE DROPDOWN E 3 INPUT [TOKEN NAME, INITIAL SUPPLY, ] */}
-                            {dropdownOpen && index === selectedIndex && (
-                              <div className="absolute mt-1 bg-white backdrop-blur-md rounded-lg shadow-lg z-10 title-animation">
-                                {options.map((option) => (
-                                  <div
-                                    key={option.value}
-                                    className="cursor-pointer hover:bg-gray-100 p-2"
-                                  >
-                                    <div className="flex items-center">
-                                      <img
-                                        src={option.img}
-                                        alt={option.label}
-                                        className="w-4 h-4 mr-2"
-                                      />
-                                      <span>{option.label}</span>
-                                    </div>
-                                  </div>
-                                ))}
-                              </div>
-                            )}
-                          </div>) 
-                          : (
-                          <>
-                          {/* //todo PER FUNZIONE CREATE RIMUOVERE DROPDOWN E 3 INPUT [TOKEN NAME, INITIAL SUPPLY, ] */}
-                          </>
-                          )
-                          }
-                         
-
+                          )}
                         </div>
                       </div>
 
                       <p className="text-xs 2xl:text-base py-4 2xl:py-8">
-                        {isStake ? "Estimated Reward:" : "Account Balance:"}
-                        <span className="text-primary font-bold">{isStake ? " 12%" : " 42"}</span>{" "}
-                        {isStake ? "x Month" :`${selectedOption.label}` }
+                        {isStake
+                          ? "Estimated Reward: "
+                          : isCreate
+                          ? "New Asset: "
+                          : "Account Balance: "}
+                        <span className="text-primary font-bold">
+                          {isStake
+                            ? "12%"
+                            : isCreate
+                            ? `${inputValue} x ${selectedOptionsDate[index]?.label}`
+                            : inputValue}
+                        </span>
+                        {isStake
+                          ? " x Month"
+                          : isCreate
+                          ? ""
+                          : ` ${selectedOptions[index].value}`}
                       </p>
                       <div className="mx-10">
-                        <SecondaryButton bol={true} text= {isStake ? "Stake" : isCreate ? "Start Create" : "Buy Now"} />
+                        <SecondaryButton
+                          bol={true}
+                          text={
+                            isStake
+                              ? "Stake"
+                              : isCreate
+                              ? "Start Create"
+                              : "Buy Now"
+                          }
+                        />
                       </div>
                     </div>
                   </Squircle>
