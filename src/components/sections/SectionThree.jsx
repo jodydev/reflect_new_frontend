@@ -20,6 +20,11 @@ export default function InfoSectionThree() {
   const backgroundImages = [NumberOne, NumberTwo, NumberThree];
   const totalCards = cardData.length;
 
+  const isCreate = selectedIndex === 1;
+  const isStake = selectedIndex === 2;  
+
+  console.log(isStake);
+
   useEffect(() => {
     try {
       // 1. Genera un valore casuale per l'input subito
@@ -30,8 +35,8 @@ export default function InfoSectionThree() {
             val: 1,
             duration: 2,
             onUpdate: function () {
-              const currentVal = this.targets()[0].val;
-              setInputValue(`$${(currentVal * 100).toFixed(2)}`);
+              const currentVal = this.targets()[0].val;                         //!todo QUI GENERALE IL VALORE CASUALE PER L'INPUT DEL TOKEN NAME
+              setInputValue(`${isStake ? `${(currentVal * 100).toFixed(0)}GB` : isCreate ? `Xylo` : `$${(currentVal * 100).toFixed(2)}`}`);
             },
           }
         );
@@ -100,9 +105,10 @@ export default function InfoSectionThree() {
   useEffect(() => {
     try {
       const isMobile = window.innerWidth < 768;
+      const isBigScreen = window.innerWidth > 1920;
       const cards = cardRefs.current;
       const angleStep = 360 / totalCards;
-      const radius = isMobile ? 275 : 360;
+      const radius = isMobile ? 275 : isBigScreen ? 450 : 350;
 
       cards.forEach((card, index) => {
         const isSelected = index === selectedIndex;
@@ -133,16 +139,16 @@ export default function InfoSectionThree() {
       id="section_three"
       className="min-h-screen py-12 xl:py-20 px-4 sm:px-20 flex-col relative bg-img bg-trasparent"
     >
-      <div className="ms-0 md:ms-60 2xl:ms-96">
+      <div className="ms-0 md:ms-60 2xl:ms-[600px]">
         <h2 className="text-2xl md:text-5xl 2xl:text-6xl font-bold text-dark title-animation">
-          Lorem ipsum dolor
+          How it works
         </h2>
         <ScrollAnimation duration={2} animateIn="fadeInRight">
           <div className="h-1 rounded-3xl bg-primary mx-32 w-full xl:w-1/2 mt-3"></div>
         </ScrollAnimation>
-        <h2 className="text-2xl md:text-5xl 2xl:text-6xl font-bold text-dark ms-32 md:ms-96 mt-2 title-animation">
-          Lorem ipsum dolor
-        </h2>
+        <h3 className="text-2xl md:text-5xl 2xl:text-6xl font-bold text-dark ms-32 md:ms-96 mt-2 title-animation">
+          in three steps
+        </h3>
       </div>
 
       <div className="flex flex-col md:grid md:grid-cols-2 justify-center items-start space-y-8 md:space-y-0 md:space-x-8">
@@ -150,12 +156,13 @@ export default function InfoSectionThree() {
           <div className="relative">
             {cardData.map((item, index) => {
               const isSelected = index === selectedIndex;
+              const isStake = selectedIndex === 2;
 
               return (
                 <div
                   key={item.id}
                   ref={(el) => (cardRefs.current[index] = el)}
-                  className={`absolute right-[-50px] md:right-[100px] 2xl:right-[250px] top-32 md:top-40 2xl:top-60 flex items-center justify-center text-white text-center ${
+                  className={`absolute right-[-50px] md:right-[100px] 2xl:right-[350px] top-32 md:top-40 2xl:top-80 flex items-center justify-center text-white text-center ${
                     isSelected
                       ? "z-20 w-72 h-60"
                       : "opacity-50 scale-75 w-72 h-60"
@@ -166,7 +173,7 @@ export default function InfoSectionThree() {
                   }}
                 >
                   <Squircle className="bg-white bg-opacity-10" radius={90}>
-                    <div className="cursor-not-allowed flex-col w-full h-full min-h-[340px] md:w-[400px] md:h-[350px] 2xl:w-[450px] 2xl:h-[400px] text-dark">
+                    <div className="cursor-not-allowed flex-col w-full h-full min-h-[340px] md:w-[400px] md:h-[350px] 2xl:w-[500px] 2xl:h-[450px] text-dark">
                       <div className="title p-4 bg-white bg-opacity-20 rounded-t-[35px] title-animation">
                         <h3 className="text-lg md:text-2xl font-semibold flex items-center justify-center pt-3 2xl:mb-2">
                           {item.title}
@@ -182,13 +189,13 @@ export default function InfoSectionThree() {
                             htmlFor="priceFrom"
                             className="title-animation mt-4 block text-xs md:text-base font-medium text-start leading-6 text-dark"
                           >
-                            From
+                            {isStake ? "Send" : isCreate ? "Token Name" : "From"}
                           </label>
                           <label
                             htmlFor="priceTo"
                             className="title-animation mt-4 block text-xs md:text-base font-medium text-start leading-6 text-dark"
                           >
-                            To
+                            {isStake ? "Duration" : isCreate ? "Inital Supply" : "To"}
                           </label>
                         </div>
 
@@ -197,13 +204,13 @@ export default function InfoSectionThree() {
                             id="priceFrom"
                             name="priceFrom"
                             type="text"
-                            placeholder="$0.00"
+                            placeholder={isStake ? "0GB" : isCreate ? "Xylo" : "$0.00"}
                             value={inputValue}
                             className="block bg-white bg-opacity-20 w-full h-10 md:h-12 rounded-md border-0 py-1.5 pl-3 pr-20 text-primary font-bold text-sm md:text-base focus:outline-none focus:ring-0"
                             readOnly
                           />
 
-                          <div className="relative inline-block ml-1 md:ml-4">
+                          {!isCreate ? ( <div className="relative inline-block ml-1 md:ml-4">
                             <div className="flex items-center bg-white bg-opacity-20 h-10 md:h-12 rounded-md pl-3 pr-3 text-gray-400 sm:text-sm cursor-not-allowed">
                               <div className="flex items-center flex-grow">
                                 <img
@@ -218,6 +225,7 @@ export default function InfoSectionThree() {
                               </div>
                             </div>
 
+                            {/* //todo PER FUNZIONE CREATE RIMUOVERE DROPDOWN E 3 INPUT [TOKEN NAME, INITIAL SUPPLY, ] */}
                             {dropdownOpen && index === selectedIndex && (
                               <div className="absolute mt-1 bg-white backdrop-blur-md rounded-lg shadow-lg z-10 title-animation">
                                 {options.map((option) => (
@@ -237,17 +245,25 @@ export default function InfoSectionThree() {
                                 ))}
                               </div>
                             )}
-                          </div>
+                          </div>) 
+                          : (
+                          <>
+                          {/* //todo PER FUNZIONE CREATE RIMUOVERE DROPDOWN E 3 INPUT [TOKEN NAME, INITIAL SUPPLY, ] */}
+                          </>
+                          )
+                          }
+                         
+
                         </div>
                       </div>
 
-                      <p className="text-xs 2xl:text-base py-4 2xl:py-8 title-animation">
-                        Account Balance:{" "}
-                        <span className="text-primary font-bold">42</span>{" "}
-                        {selectedOption.label}
+                      <p className="text-xs 2xl:text-base py-4 2xl:py-8">
+                        {isStake ? "Estimated Reward:" : "Account Balance:"}
+                        <span className="text-primary font-bold">{isStake ? " 12%" : " 42"}</span>{" "}
+                        {isStake ? "x Month" :`${selectedOption.label}` }
                       </p>
                       <div className="mx-10">
-                        <SecondaryButton bol={true} text="Buy Now" />
+                        <SecondaryButton bol={true} text= {isStake ? "Stake" : isCreate ? "Start Create" : "Buy Now"} />
                       </div>
                     </div>
                   </Squircle>

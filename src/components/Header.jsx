@@ -74,22 +74,24 @@ export default function Header() {
 
           <MenuItems transition>
             <Squircle
-              className="md:h-[130px] absolute top-12 right-0 z-10 mt-2 2xl:mt-4 w-40 md:w-56 origin-top-right bg-clip-padding backdrop-filter backdrop-blur-md bg-white bg-opacity-40 transition focus:outline-none"
-              radius={90}
+              className="md:h-[130px] absolute top-12 right-0 z-10 mt-2 2xl:mt-4 w-full origin-top-right bg-clip-padding backdrop-filter backdrop-blur-md bg-white bg-opacity-40 transition focus:outline-none"
+              radius={30}
             >
-              <div className="p-3 text-dark">
+              <div className="py-3 px-1 text-dark">
                 <MenuItem>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 text-xs md:text-sm rounded-xl hover:bg-primary mx-2"
-                  >
-                    Option 1
-                  </a>
+                  <Squircle radius={90}>
+                    <a
+                      href="#"
+                      className="block text-center px-4 py-2 text-xs md:text-sm rounded-xl hover:bg-primary mx-2"
+                    >
+                      Option 1
+                    </a>
+                  </Squircle>
                 </MenuItem>
                 <MenuItem>
                   <a
                     href="#"
-                    className="block px-4 py-2 text-xs md:text-sm hover:bg-primary rounded-xl mx-2"
+                    className="block text-center px-4 py-2 text-xs md:text-sm hover:bg-primary rounded-xl mx-2"
                   >
                     Option 2
                   </a>
@@ -97,7 +99,7 @@ export default function Header() {
                 <MenuItem>
                   <a
                     href="#"
-                    className="block px-4 py-2 text-xs md:text-sm hover:bg-primary rounded-xl mx-2"
+                    className="block text-center px-4 py-2 text-xs md:text-sm hover:bg-primary rounded-xl mx-2"
                   >
                     Option 3
                   </a>

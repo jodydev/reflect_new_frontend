@@ -32,7 +32,7 @@ export default function CardNews() {
           }
         >
           <Squircle radius={90}>
-            <div className="w-[320px] h-[400px] md:w-[350px] md:h-[450px] 2xl:w-[400px]  2xl:h-[500px] bg-white bg-opacity-40">
+            <div className=" w-[320px] h-[400px] md:w-[350px] md:h-[450px] 2xl:w-[400px]  2xl:h-[500px] bg-white bg-opacity-40">
               <Squircle radius={90}>
                 <a
                   href={post.link}

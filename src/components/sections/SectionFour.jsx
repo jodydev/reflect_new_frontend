@@ -35,13 +35,13 @@ export default function SectionFour() {
     <section id="section_four">
       <div className="flex flex-col items-center justify-start relative z-10">
         <div className="text-center px-4 my-5 lg:px-10 2xl:my-10">
-          <h2 className="z-50 text-3xl md:text-6xl font-bold md:leading-loose text-dark">
+          <h2 className="z-50 text-3xl md:text-6xl font-bold md:leading-loose text-primary">
             Simplified
             <span
               ref={spanRef}
-              className="inline-block mx-4 h-[15px] w-[0px] bg-gradient-to-r from-secondary via-primary to-primary align-middle"
+              className="inline-block mx-4 h-[15px] w-[0px] bg-gradient-to-r from-primary via-primary to-secondary align-middle"
             ></span>
-            <span className="text-primary">trading</span>
+            <span className="text-dark">trading</span>
           </h2>
           <div className="flex items-center justify-center w-full mt-5 md:px-40 2xl:px-96">
             <p className="text-dark md:text-lg lg:text-xl 2xl:text-2xl md:px-40 2xl:px-96">
