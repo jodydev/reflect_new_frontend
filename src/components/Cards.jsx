@@ -21,7 +21,7 @@ export default function Cards() {
                 radius={90}
               >
                 <div
-                  className={`${isHovered ? " bg-dark text-white md:w-[400px] 2xl:w-[500px]" : "filter blur-[3px] backdrop-blur-md bg-gray-100/30" }  relative flex flex-col items-center justify-start px-10 py-10 w-[350px] h-[300px] md:w-[300px] md:h-[350px] 2xl:w-[400px] 2xl:h-[400px] transition-all duration-500 ease-in-out transform hover:cursor-pointer hover:opacity-100 hover:bg-dark hover:text-white hover:md:w-[400px] hover:2xl:w-[500px]`}
+                  className={`${isHovered ? " bg-dark text-white md:w-[400px] 2xl:w-[500px]" : "filter backdrop-blur-md bg-gray-100/30" }  relative flex flex-col items-center justify-start px-10 py-10 w-[350px] h-[300px] md:w-[300px] md:h-[350px] 2xl:w-[400px] 2xl:h-[400px] transition-all duration-500 ease-in-out transform hover:cursor-pointer hover:opacity-100 hover:bg-dark hover:text-white hover:md:w-[400px] hover:2xl:w-[500px]`}
                   onMouseEnter={() => setIsSelected(number)}
                   onMouseLeave={() => setIsSelected("1")}
                   onClick={() => setIsSelected(number)}
@@ -39,10 +39,10 @@ export default function Cards() {
                     </div>
                   </div>
                   <div className="py-4 md:py-10">
-                    <h2 className="text-center text-2xl 2xl:text-4xl font-bold mb-5 2xl:mb-10 title-animation">
+                    <h2 className="text-center text-2xl 2xl:text-4xl font-bold mb-5 2xl:mb-10 title-animation text-no-wrap">
                       {data.title}
                     </h2>
-                    <p className={`leading-10 tracking-normal text-center text-sm 2xl:text-lg text-no-wrap ${isHovered ? "block" : "hidden"}`}>
+                    <p className={`leading-4 tracking-normal text-center text-sm 2xl:text-lg text-no-wrap ${isHovered ? "block" : "hidden"}`}>
                       {data.subtitle}
                     </p>
                   </div>

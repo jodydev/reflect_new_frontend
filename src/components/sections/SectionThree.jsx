@@ -17,6 +17,7 @@ import ScrollAnimation from "react-animate-on-scroll";
 export default function InfoSectionThree() {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [inputValue, setInputValue] = useState("");
+  const [inputValueInitialSupply, setInputValueInitialSupply] = useState("");
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [secondDropdownOpen, setSecondDropdownOpen] = useState(false);
   const [selectedOptions, setSelectedOptions] = useState(
@@ -55,6 +56,9 @@ export default function InfoSectionThree() {
                     ? `Xylo`
                     : `$${(currentVal * 100).toFixed(2)}`
                 }`
+              );
+              setInputValueInitialSupply(
+                `$${`${(currentVal * 100).toFixed(4)}`}`
               );
             },
           }
@@ -286,7 +290,7 @@ export default function InfoSectionThree() {
                               htmlFor="priceTo"
                               className="title-animation mt-4 block text-xs md:text-base font-medium text-start leading-6 text-dark"
                             >
-                              Duration
+                              Initial Supply
                             </label>
                             <label
                               htmlFor="priceTo"
@@ -298,7 +302,9 @@ export default function InfoSectionThree() {
                         )}
 
                         <div className="flex items-center justify-between mt-2 space-x-10">
-                          {!isCreate ? (
+                          {!isCreate && !isStake 
+                          ?
+                          (
                             <>
                               <input
                                 id="swapForm"
@@ -310,6 +316,8 @@ export default function InfoSectionThree() {
                                 readOnly
                               />
                               <div className="relative inline-block">
+
+                                {/* Dropdown Options */}
                                 <div className="flex items-center bg-white bg-opacity-20 h-10 md:h-12 rounded-md pl-3 pr-3 text-gray-400 sm:text-sm cursor-not-allowed">
                                   <div className="flex items-center flex-grow">
                                     <img
@@ -345,7 +353,9 @@ export default function InfoSectionThree() {
                                 )}
                               </div>
                             </>
-                          ) : (
+                          ) 
+                          : isCreate ? 
+                          (
                             <div className="relative flex flex-row items-center justify-between space-x-3">
                               <input
                                 id="tokenName"
@@ -358,31 +368,15 @@ export default function InfoSectionThree() {
                               />
 
                               {/* Dropdown Options Date */}
-                              <div className="flex items-center bg-white bg-opacity-20 h-10 md:h-12 rounded-md pl-3 pr-3 text-gray-400 sm:text-sm cursor-not-allowed">
-                                <div className="flex items-center flex-grow text-nowrap">
-                                  <span>
-                                    {selectedOptionsDate[index]?.label}
-                                  </span>
-                                </div>
-                                <div className="flex items-center ms-2 ">
-                                  <IoIosArrowDown className="text-gray-400" />
-                                </div>
-                              </div>
-
-                              {dropdownOpen && index === selectedIndex && (
-                                <div className="absolute top-[40px] left-[85px] md:top-[48px] md:left-[135px] mt-1 bg-white backdrop-blur-md rounded-lg shadow-lg z-10 title-animation">
-                                  {optionsDate.map((option) => (
-                                    <div
-                                      key={option.id}
-                                      className="cursor-pointer hover:bg-gray-100 p-2"
-                                    >
-                                      <div className="flex items-center text-nowrap">
-                                        <span>{option.label}</span>
-                                      </div>
-                                    </div>
-                                  ))}
-                                </div>
-                              )}
+                              <input
+                                id="initialSupply"
+                                name="initialSupply"
+                                type="text"
+                                placeholder={isStake ? "0GB" : "$0.00"}
+                                value={inputValueInitialSupply}
+                                className={`w-full block bg-white bg-opacity-20 h-10 md:h-12 rounded-md border-0 py-1.5 pl-3 text-primary font-bold text-sm md:text-base focus:outline-none focus:ring-0`}
+                                readOnly
+                              />
 
                               {/* Dropdown Options Logo */}
                               <div className="relative inline-block">
@@ -420,6 +414,48 @@ export default function InfoSectionThree() {
                                   )}
                               </div>
                             </div>
+                          ) 
+                          :
+                          (
+                            <div className="relative flex flex-row items-center justify-between space-x-10">
+                              <input
+                                id="tokenName"
+                                name="tokenName"
+                                type="text"
+                                placeholder="Xylo"
+                                value={inputValue}
+                                className={`w-full block bg-white bg-opacity-20 h-10 md:h-12 rounded-md border-0 py-1.5 pl-3 text-primary font-bold text-sm md:text-base focus:outline-none focus:ring-0`}
+                                readOnly
+                              />
+
+                              {/* Dropdown Options Date */}
+                              <div className="flex items-center bg-white bg-opacity-20 h-10 md:h-12 rounded-md pl-3 pr-3 text-gray-400 sm:text-sm cursor-not-allowed">
+                                <div className="flex items-center flex-grow text-nowrap">
+                                  <span>
+                                    {selectedOptionsDate[index]?.label}
+                                  </span>
+                                </div>
+                                <div className="flex items-center ms-2 ">
+                                  <IoIosArrowDown className="text-gray-400" />
+                                </div>
+                              </div>
+
+                              {dropdownOpen && index === selectedIndex && (
+                                <div className="absolute top-[40px] left-[85px] md:top-[50px] md:left-[170px] mt-1 bg-gray-100/ backdrop-blur-md rounded-lg shadow-lg z-10 title-animation">
+                                  {optionsDate.map((option) => (
+                                    <div
+                                      key={option.id}
+                                      className="cursor-pointer hover:bg-gray-100 p-2"
+                                    >
+                                      <div className="flex items-center text-nowrap">
+                                        <span>{option.label}</span>
+                                      </div>
+                                    </div>
+                                  ))}
+                                </div>
+                              )}
+                      
+                            </div>
                           )}
                         </div>
                       </div>
@@ -434,7 +470,7 @@ export default function InfoSectionThree() {
                           {isStake
                             ? "12%"
                             : isCreate
-                            ? `${inputValue} x ${selectedOptionsDate[index]?.label}`
+                            ? `${inputValue} ${inputValueInitialSupply}`
                             : inputValue}
                         </span>
                         {isStake
