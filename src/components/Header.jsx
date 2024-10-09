@@ -1,8 +1,14 @@
 import { useState, useEffect } from "react";
 import { Navbar, IconButton } from "@material-tailwind/react";
-import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
+import {
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuItems,
+} from "@headlessui/react";
 import { ChevronDownIcon, XMarkIcon, Bars3Icon } from "../utils/icons";
 import { Squircle } from "react-ios-corners";
+import { headerOptions, headerDropdownOptions } from "../data/headerData";
 import Logo from "../assets/images/logo.webp";
 
 export default function Header() {
@@ -40,16 +46,16 @@ export default function Header() {
         >
           <div className="hidden lg:flex w-full items-center justify-center gap-6 absolute left-1/2 -translate-x-1/2 py-4 px-8">
             <ul className="flex space-x-8">
-              {["Home", "News", "About", "Contact"].map((item) => (
-                <li
-                  key={item}
-                  className="text-sm xl:text-md text-gray-800 
-                    hover:text-gray-600 transition-all 
+              {headerOptions.map((item) => (
+                  <li
+                    key={item}
+                    className="text-sm xl:text-md text-gray-800 
+                    hover:text-primary transition-all 
                     duration-300 ease-in-out hover:translate-y-0.5 
-                    hover:scale-105 hover:cursor-pointer"
-                >
-                  {item}
-                </li>
+                    hover:scale-105 hover:cursor-pointer text-nowrap"
+                  >
+                    {item}
+                  </li>
               ))}
             </ul>
           </div>
@@ -78,38 +84,22 @@ export default function Header() {
               radius={30}
             >
               <div className="py-3 px-1 text-dark">
-                <MenuItem>
-                  <Squircle radius={90}>
-                    <a
-                      href="#"
-                      className="block text-center px-4 py-2 text-xs md:text-sm rounded-xl hover:bg-primary mx-2"
-                    >
-                      Option 1
-                    </a>
-                  </Squircle>
-                </MenuItem>
-                <MenuItem>
-                  <a
-                    href="#"
-                    className="block text-center px-4 py-2 text-xs md:text-sm hover:bg-primary rounded-xl mx-2"
-                  >
-                    Option 2
-                  </a>
-                </MenuItem>
-                <MenuItem>
-                  <a
-                    href="#"
-                    className="block text-center px-4 py-2 text-xs md:text-sm hover:bg-primary rounded-xl mx-2"
-                  >
-                    Option 3
-                  </a>
-                </MenuItem>
+                {headerDropdownOptions.map((option, index) => (
+                  <MenuItem key={index}>
+                    <Squircle radius={90}>
+                      <a
+                        href="#"
+                        className="block text-center px-4 py-2 text-xs md:text-sm rounded-xl hover:bg-primary hover:text-white mx-2 transition-all duration-300 ease-in-out"
+                      >
+                        {option}
+                      </a>
+                    </Squircle>
+                  </MenuItem>
+                ))}
               </div>
             </Squircle>
           </MenuItems>
         </Menu>
-
-        {/* Icona per il menu mobile */}
         <Squircle
           className="block lg:hidden origin-top-right bg-clip-padding backdrop-filter backdrop-blur-md bg-white bg-opacity-40 transition focus:outline-none"
           radius={90}
