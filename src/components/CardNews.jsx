@@ -3,11 +3,14 @@ import { ArrowRightIcon } from "../utils/icons";
 import { Squircle } from "react-ios-corners";
 import Image from "../assets/images/yellow_1.webp";
 import ScrollAnimation from "react-animate-on-scroll";
+import SquircleBox from "../assets/images/squircle_box.png";
 
 export default function CardNews() {
   const isMobile = window.innerWidth < 768;
 
-  const { posts, loading, error } = getDataFromMedium("https://medium.com/feed/@RFLOnBase");
+  const { posts, loading, error } = getDataFromMedium(
+    "https://medium.com/feed/@RFLOnBase"
+  );
 
   if (loading) return <p>Loading...</p>;
 
@@ -32,18 +35,23 @@ export default function CardNews() {
           }
         >
           <Squircle radius={90}>
-            <div className=" w-[320px] h-[400px] md:w-[350px] md:h-[450px] 2xl:w-[400px]  2xl:h-[500px] bg-white bg-opacity-40">
-              <div className="news">
+            <div className="w-[320px] h-[400px] md:w-[350px] md:h-[450px] 2xl:w-[400px]  2xl:h-[500px] bg-white bg-opacity-40">
+              <div
+                className="news"
+                style={{
+                  maskImage: `url(${SquircleBox})`,
+                }}
+              >
                 <a
                   href={post.link}
                   target="_blank"
                   rel="noreferrer"
-                  className="text-xs text-primary hover:cursor-pointer"
+                  className="text-xs text-primary hover:cursor-pointer p-0 m-0"
                 >
                   <img
                     src={post.img || Image}
                     alt="Image Post"
-                    className="relative w-96 h-1/2 md:w-full md:2xl-h-52 object-cover hover:cursor-pointer hover:scale-110 transition-transform duration-500 ease-in-out"
+                    className="relative h-1/2 w-full object-cover hover:cursor-pointer hover:scale-110 transition-transform duration-500 ease-in-out"
                   />
                 </a>
                 <div className="absolute top-5 right-8">
