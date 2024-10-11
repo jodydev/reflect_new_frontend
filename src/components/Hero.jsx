@@ -2,11 +2,13 @@ import Image from "../assets/images/cubo_prova.png";
 import Button from "../assets/images/button_hero.webp";
 import { SwipeableButton } from "react-swipeable-button";
 import Video from "../assets/images/video.webm";
+import { Squircle } from "react-ios-corners";
 
 export default function Hero() {
   const onSuccess = () => {
     try {
       window.location.href = "https://www.google.com";
+      console.log("Success");
     } catch (error) {
       console.log(error);
     }
@@ -27,18 +29,19 @@ export default function Hero() {
                     Empowering Base with abundant assets
                   </span>
                 </h1>
-                <div className="flex items-start justify-start">
-                  <img
+                <div className="flex items-start justify-start py-10">
+                  {/* <img
                     src={Button}
                     alt="button"
                     className="w-full h-full my-10 animate-fadeInLeft"
-                  />
-                  {/* <SwipeableButton
-                    onSuccess={onSuccess}
-                    text="Swipe me!"
-                    text_unlocked="yeee"
-                    color="#16362d"
                   /> */}
+                  <Squircle className="w-full" radius={90}>
+                    <SwipeableButton
+                      onSuccess={onSuccess}
+                      text="Dapp Access"
+                      // text_unlocked="yeee"
+                    />
+                  </Squircle>
                 </div>
               </div>
             </div>
