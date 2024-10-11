@@ -1,7 +1,17 @@
-import Image from "../assets/images/yellow_1.webp";
+import Image from "../assets/images/cubo_prova.png";
 import Button from "../assets/images/button_hero.webp";
+import { SwipeableButton } from "react-swipeable-button";
+import Video from "../assets/images/video.webm";
 
 export default function Hero() {
+  const onSuccess = () => {
+    try {
+      window.location.href = "https://www.google.com";
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <section
       id="hero"
@@ -23,6 +33,12 @@ export default function Hero() {
                     alt="button"
                     className="w-full h-full my-10 animate-fadeInLeft"
                   />
+                  {/* <SwipeableButton
+                    onSuccess={onSuccess}
+                    text="Swipe me!"
+                    text_unlocked="yeee"
+                    color="#16362d"
+                  /> */}
                 </div>
               </div>
             </div>
@@ -31,8 +47,17 @@ export default function Hero() {
               <img
                 src={Image}
                 alt="Hero Image"
-                className="w-full h-full animate-fadeInRight"
+                className="ms-[100px] w-full h-full animate-fadeInRight"
               />
+              {/* <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="ms-[50px] w-[800px] h-[800px] animate-fadeInRight"
+              >
+                <source src={Video} type="video/webm" />
+              </video> */}
             </div>
           </div>
         </div>

@@ -26,6 +26,7 @@
     "react-lazyload": "^3.2.1",
     "react-loader-spinner": "^6.1.6",
     "react-router-dom": "^6.26.2",
+    "react-swipeable-button": "^1.0.11",
     "split-type": "^0.3.4",
     "vanilla-tilt": "^1.8.1"
   },

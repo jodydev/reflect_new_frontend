@@ -9,7 +9,7 @@ export default function Footer() {
     "text-md flex cursor-pointer text-gray-600 transition-all duration-300 ease-in-out hover:translate-y-0.5 hover:scale-105 hover:text-white";
 
   return (
-    <footer className="bg-dark text-white h-full py-10 md:py-20 z-50 flex items-center justify-center">
+    <footer id="footer" className="bg-dark text-white h-full py-10 md:py-20 z-50 flex items-center justify-center">
       <div className="w-full px-8 md:px-40 flex flex-col mt-10 md:mt-20">
         <div className="w-full md:w-2/4">
           <h3 className="title-animation w-full text-3xl md:text-5xl 2xl:text-7xl font-bold">

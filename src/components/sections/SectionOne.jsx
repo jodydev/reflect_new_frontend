@@ -1,4 +1,4 @@
-import SecondaryButton from "../buttons/SecondaryButton";
+import PrimaryButton from "../buttons/PrimaryButton";
 import Cards from "../Cards";
 import ScrollAnimation from "react-animate-on-scroll";
 
@@ -19,7 +19,7 @@ export default function SectionOne() {
 
           <div className="mt-10 xl:my-10 mx-20 xl:mx-96">
             <ScrollAnimation duration={2} animateIn="fadeInUp">
-              <SecondaryButton text="Dapp Access" />
+              <PrimaryButton text="Dapp Access" />
             </ScrollAnimation>
           </div>
         </div>

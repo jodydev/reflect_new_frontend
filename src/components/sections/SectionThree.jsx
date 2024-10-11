@@ -9,10 +9,11 @@ import {
   cardData,
 } from "../../data/cardDataSectionThree";
 import SecondaryButton from "../buttons/SecondaryButton";
-import NumberOne from "../../assets/images/number_1.webp";
-import NumberTwo from "../../assets/images/number_2.webp";
-import NumberThree from "../../assets/images/number_3.webp";
+import NumberOne from "../../assets/images/1.png";
+import NumberTwo from "../../assets/images/2.png";
+import NumberThree from "../../assets/images/3.png";
 import ScrollAnimation from "react-animate-on-scroll";
+import { MdOutlineDriveFolderUpload } from "react-icons/md";
 
 export default function InfoSectionThree() {
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -266,7 +267,7 @@ export default function InfoSectionThree() {
                               className="title-animation mt-4 block text-xs md:text-base font-medium text-start leading-6 text-dark"
                             >
                               {isStake
-                                ? "Stake"
+                                ? "Quantity"
                                 : isCreate
                                 ? "Token Name"
                                 : "From"}
@@ -296,7 +297,7 @@ export default function InfoSectionThree() {
                               htmlFor="priceTo"
                               className="title-animation mt-4 block text-xs md:text-base font-medium text-start leading-6 text-dark"
                             >
-                              Option
+                              Icon
                             </label>
                           </div>
                         )}
@@ -380,20 +381,13 @@ export default function InfoSectionThree() {
 
                               {/* Dropdown Options Logo */}
                               <div className="relative inline-block">
-                                <div className="w-full flex items-center justify-center bg-white bg-opacity-20 h-10 md:h-12 rounded-md pl-3 pr-3 text-gray-400 sm:text-sm cursor-not-allowed">
-                                  <div className="flex items-center flex-grow">
-                                    <img
-                                      src={selectedOptionsLogo[index]?.img}
-                                      alt={selectedOptionsLogo[index]?.label}
-                                      className="w-4 h-4 me-5"
-                                    />
-                                  </div>
-                                  <div className="flex items-center">
-                                    <IoIosArrowDown className="text-gray-400" />
-                                  </div>
+                                <div className="w-full flex items-center justify-center bg-white bg-opacity-20 h-10 md:h-12 rounded-md pl-3 pr-3 text-dark sm:text-sm cursor-not-allowed">
+                                    <MdOutlineDriveFolderUpload  className="w-6 h-6"/>
                                 </div>
 
-                                {secondDropdownOpen &&
+                                
+
+                                {/* {secondDropdownOpen &&
                                   index === selectedIndex && (
                                     <div className="absolute 2xl:top-[48px] left-[20px] mt-1 bg-white backdrop-blur-md rounded-lg shadow-lg z-10 title-animation">
                                       {optionsLogo.map((option) => (
@@ -411,7 +405,7 @@ export default function InfoSectionThree() {
                                         </div>
                                       ))}
                                     </div>
-                                  )}
+                                  )} */}
                               </div>
                             </div>
                           ) 
@@ -441,7 +435,7 @@ export default function InfoSectionThree() {
                               </div>
 
                               {dropdownOpen && index === selectedIndex && (
-                                <div className="absolute top-[40px] left-[85px] md:top-[50px] md:left-[170px] mt-1 bg-gray-100/ backdrop-blur-md rounded-lg shadow-lg z-10 title-animation">
+                                <div className="absolute top-[40px] left-[85px] md:top-[50px] md:left-[170px] mt-1 bg-white backdrop-blur-md rounded-lg shadow-lg z-10 title-animation">
                                   {optionsDate.map((option) => (
                                     <div
                                       key={option.id}

@@ -2,6 +2,7 @@ import Logo from "../assets/images/logo.webp";
 import Bitcoin from "../assets/images/bitcoin.webp";
 import Ethereum from "../assets/images/ethereum.webp";
 
+//TODO sostituire con immagini corrette
 const options = [
   { id: 0, value: "Reflect", label: "Reflect", img: Logo },
   { id: 1, value: "Bitcoin", label: "Bitcoin", img: Bitcoin },

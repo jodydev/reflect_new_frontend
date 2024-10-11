@@ -15,6 +15,7 @@ export default function ProgressStepper({
     setCompletedIconIndex(stepIndex);
   };
 
+  //todo IMPLEMENTARE ANIMAZIONE ALLO SCROLL
   return (
     <div className="flex flex-col items-start space-y-4 mx-20">
       <ol className="flex flex-col items-start">

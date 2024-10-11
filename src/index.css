@@ -138,7 +138,7 @@ body {
 .slide-track {
   animation: scroll 30s linear infinite;
   display: flex;
-  width: calc(250px * 14);
+  width: calc(300px * 14);
 }
 
 /* Filtro colore nero  */
@@ -160,4 +160,6 @@ body {
   clip-path: inset(0 0 50% 0);
   position: absolute;
 }
+
+
 

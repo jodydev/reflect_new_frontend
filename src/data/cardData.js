@@ -1,4 +1,4 @@
-import { FaVault, RiDashboard2Fill, FaMoneyBillTrendUp } from "../utils/icons";
+import { FaVault, VscGraph, FaMoneyBillTrendUp } from "../utils/icons";
 
 const cardData = [
   {
@@ -9,7 +9,7 @@ const cardData = [
   {
     title: "Manage your position",
     subtitle: "Your dashboard to manage all your positions",
-    icon: RiDashboard2Fill,
+    icon: VscGraph,
   },
   {
     title: "Trade and earn",

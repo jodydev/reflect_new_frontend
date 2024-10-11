@@ -17,6 +17,10 @@ export default function Header() {
 
   const handleOpen = () => setOpen((cur) => !cur);
   const handleOpenDropdown = () => setOpenDropdown((cur) => !cur);
+  
+  const openDapp = () => {
+    window.location.href = "https://www.google.com";
+  };
 
   useEffect(() => {
     const handleResize = () => window.innerWidth >= 960 && setOpen(false);
@@ -45,19 +49,20 @@ export default function Header() {
           radius={90}
         >
           <div className="hidden lg:flex w-full items-center justify-center gap-6 absolute left-1/2 -translate-x-1/2 py-4 px-8">
-            <ul className="flex space-x-8">
+            <div className="flex space-x-8">
               {headerOptions.map((item) => (
-                  <li
-                    key={item}
+                  <a
+                    key={item.name}
+                    href={item.link}
                     className="text-sm xl:text-md text-gray-800 
                     hover:text-primary transition-all 
                     duration-300 ease-in-out hover:translate-y-0.5 
                     hover:scale-105 hover:cursor-pointer text-nowrap"
                   >
-                    {item}
-                  </li>
+                    {item.name}
+                  </a>
               ))}
-            </ul>
+            </div>
           </div>
         </Squircle>
 
@@ -65,20 +70,21 @@ export default function Header() {
         <Menu as="div" className="hidden lg:flex items-center relative">
           <Squircle className="md:w-[180px] md:h-[50px]" radius={90}>
             <MenuButton
-              onClick={handleOpenDropdown}
+              onClick={openDapp}
+              // onMouseEnter={handleOpenDropdown}
               className="inline-flex w-full justify-center items-center gap-x-1.5 p-2 md:p-3 text-sm text-gray-900 bg-primary py-2 md:py-4 px-6 md:px-8 hover:cursor-pointer"
             >
               <p className="text-sm xl:text-md">Launch App</p>
-              <ChevronDownIcon
+              {/* <ChevronDownIcon
                 aria-hidden="true"
                 className={`h-4 w-4 md:h-5 md:w-5 text-dark hover:cursor-pointer transition-transform duration-300 ${
                   openDropdown ? "rotate-180" : ""
                 }`}
-              />
+              /> */}
             </MenuButton>
           </Squircle>
 
-          <MenuItems transition>
+          {/* <MenuItems transition>
             <Squircle
               className="md:h-[130px] absolute top-12 right-0 z-10 mt-2 2xl:mt-4 w-full origin-top-right bg-clip-padding backdrop-filter backdrop-blur-md bg-white bg-opacity-40 transition focus:outline-none"
               radius={30}
@@ -98,7 +104,7 @@ export default function Header() {
                 ))}
               </div>
             </Squircle>
-          </MenuItems>
+          </MenuItems> */}
         </Menu>
         <Squircle
           className="block lg:hidden origin-top-right bg-clip-padding backdrop-filter backdrop-blur-md bg-white bg-opacity-40 transition focus:outline-none"

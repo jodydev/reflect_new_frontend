@@ -8,10 +8,9 @@ import { BsRobot } from "react-icons/bs";
 import { TbClick } from "react-icons/tb";
 import { ArrowRightIcon } from "@heroicons/react/20/solid";
 import { IoIosArrowDown } from "react-icons/io";
-import { RiDashboard2Fill } from "react-icons/ri";
 import { FaMoneyBillTrendUp } from "react-icons/fa6";
 import { FaVault } from "react-icons/fa6";
-
+import { VscGraph } from "react-icons/vsc";
 export {
   FaFacebook,
   FaTwitter,
@@ -29,6 +28,6 @@ export {
   ArrowRightIcon,
   IoIosArrowDown,
   FaVault,
-  RiDashboard2Fill,
-  FaMoneyBillTrendUp
+  FaMoneyBillTrendUp,
+  VscGraph
 };

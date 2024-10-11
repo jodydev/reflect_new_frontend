@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import SecondaryButton from "../buttons/SecondaryButton";
+import PrimaryButton from "../buttons/PrimaryButton";
 import Dashboard from "../../assets/images/dashboard.webp";
 import ScrollAnimation from "react-animate-on-scroll";
 
@@ -53,7 +53,7 @@ export default function SectionFour() {
         </div>
 
         <div className="xl:mx-60 mb-10 2xl:mb-16 2xl:mx-72">
-          <SecondaryButton text="Dapp Access" />
+          <PrimaryButton text="Dapp Access" />
         </div>
 
         <div className="flex items-center justify-center mx-60">
