@@ -143,11 +143,12 @@ body {
 
 /* Filtro colore nero  */
 .slider img {
-  filter: brightness(0) grayscale(100%);
-  -webkit-filter: brightness(0) grayscale(100%);
-  -moz-filter: brightness(0) grayscale(100%);
-  -ms-filter: brightness(0) grayscale(100%);
-  -o-filter: brightness(0) grayscale(100%);
+  filter: brightness(0) sepia(1) hue-rotate(0deg) saturate(0) contrast(1.2);
+  -webkit-filter: brightness(0) sepia(1) hue-rotate(0deg) saturate(0) contrast(1.2);
+  -moz-filter: brightness(0) sepia(1) hue-rotate(0deg) saturate(0) contrast(1.2);
+  -ms-filter: brightness(0) sepia(1) hue-rotate(0deg) saturate(0) contrast(1.2);
+  -o-filter: brightness(0) sepia(1) hue-rotate(0deg) saturate(0) contrast(1.2);
+  opacity: 0.6;
 }
 
 /* Modifica bordo Squircle card news */
@@ -181,7 +182,7 @@ body {
   float: left;
   position: absolute;
   top: 0;
-  left: 0;
+  left: 100px;
   right: 0;
   height: 80px !important;
   font-family: 'Involve-Medium', sans-serif;
@@ -195,19 +196,28 @@ body {
 
 .rsbcSliderCircle {
   position: absolute;
-  right: -55px !important;
+  right: -52px !important;
   background: #FFBF55 !important;
   top: 10px !important;
   height: 60px !important;
   width: 150px !important;
   border-radius: 20px !important;
+
+  /* mask: url("https://dex.m20chain.com/images/logo.png");
+  mask-position: center center;
+  mask-repeat: no-repeat;
+  mask-size: cover;
+  width: 100% !important;
+  height: 100% !important;
+  clip-path: inset(0 0 50% 0); */
+
 }
 
 .rsbcSliderText {
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
+  right:70;
   line-height: 80px !important;
   text-align: center;
   font-family: 'Involve-Medium', sans-serif;

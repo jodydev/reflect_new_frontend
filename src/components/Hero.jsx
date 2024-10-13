@@ -35,10 +35,11 @@ export default function Hero() {
                     alt="button"
                     className="w-full h-full my-10 animate-fadeInLeft"
                   /> */}
+                  {/* //todo CREARE IL COMPONENTE CUSTOM E FERMARE LO SWIPE DEL BOTTONE POCO PRIMA DELLA FINE DELLA LUNGHEZZA DEL PADRE */}
                   <Squircle className="w-full" radius={90}>
                     <SwipeableButton
                       onSuccess={onSuccess}
-                      text="Dapp Access"
+                      text="Swipe to connect"
                       // text_unlocked="yeee"
                     />
                   </Squircle>

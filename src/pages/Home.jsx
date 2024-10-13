@@ -13,6 +13,7 @@ import Animations from "../components/Animations";
 
 export default function Home() {
   return (
+    //TODO RIVEDERE TUTTI I PADDING DELLE VARIE SEZIONI ED IMPOSTARNE UNO STANDARD COME SECONDA E TERZA SEZIONE DI RIFERIMENTO
     <div className="bg-tertiary">
       <main className="md:bg-[url('/src/assets/images/yellow_shadow.webp')] bg-contain bg-no-repeat bg-right-top bg-fixed z-10">
         <Header />

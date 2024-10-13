@@ -54,9 +54,21 @@ export default function CardNews() {
                     className="relative h-1/2 w-full object-cover hover:cursor-pointer hover:scale-110 transition-transform duration-500 ease-in-out"
                   />
                 </a>
-                <div className="absolute top-5 right-8">
-                  <Squircle radius={90}>
-                    <span className="bg-primary w-[5000px] h-[500px] p-3 text-white text-xs font-semibold ">
+     
+              </div>
+
+              <div className="absolute bottom-0 py-5 px-7 2xl:py-5 2xl:px-10 w-full">
+                <ScrollAnimation duration={1} animateIn="fadeInRight">
+                  <div className="separator h-1 w-1/2 px-20 bg-primary mb-3"></div>
+                </ScrollAnimation>
+                {/* <Squircle className="bg-primary w-[25%] md:w-[20%]" radius={90}>
+                  <span className="w-10 p-1 text-white ms-2 text-xs font-semibold line-clamp-1">
+                    {post.categories[0] || "News"}
+                  </span>
+                </Squircle> */}
+                {/* //todo CATEGORIA DA METTERE A DESTRA E DATA A SINISTRA */}
+                    <Squircle className="w-[100%]" radius={90}>
+                    <span className="bg-primary p-3 text-white text-xs font-semibold ">
                       {new Date(post.pubDate)
                         .toUTCString()
                         .split(" ")
@@ -64,18 +76,6 @@ export default function CardNews() {
                         .join(" ")}
                     </span>
                   </Squircle>
-                </div>
-              </div>
-
-              <div className="absolute bottom-0 py-5 px-7 2xl:py-5 2xl:px-10 w-full">
-                <ScrollAnimation duration={1} animateIn="fadeInRight">
-                  <div className="separator h-1 w-1/2 px-20 bg-primary mb-3"></div>
-                </ScrollAnimation>
-                <Squircle className="bg-primary w-[25%] md:w-[20%]" radius={90}>
-                  <span className="w-10 p-1 text-white ms-2 text-xs font-semibold line-clamp-1">
-                    {post.categories[0] || "News"}
-                  </span>
-                </Squircle>
 
                 <h3 className="title-animation text-2xl 2xl:text-3xl font-bold text-gray-900 mt-3 2xl:mt-5 line-clamp-1">
                   {post.title}

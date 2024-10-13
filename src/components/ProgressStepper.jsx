@@ -1,5 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaCheck } from "../utils/icons";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function ProgressStepper({
   steps,
@@ -7,17 +11,45 @@ export default function ProgressStepper({
   completedStep,
   disableNavigation,
   handleStepClicked,
+  debug = true, // Add debug prop with default value false
 }) {
   const [completedIconIndex, setCompletedIconIndex] = useState(null);
 
   const handleClick = (stepIndex) => {
+    if (debug) {
+      console.log(`Step ${stepIndex + 1} clicked`);
+    }
     handleStepClicked(stepIndex + 1);
     setCompletedIconIndex(stepIndex);
   };
 
-  //todo IMPLEMENTARE ANIMAZIONE ALLO SCROLL
+  useEffect(() => {
+    const breakpoints = [2.5, 3.5, 4.5]; // Define breakpoints for the second and third steps
+
+    breakpoints.forEach((breakpoint, index) => {
+      ScrollTrigger.create({
+        trigger: "#progress-stepper",
+        start: `top ${breakpoint * 50}%`,
+        onEnter: () => handleClick(index), // Adjust index to match the step
+        markers: debug, // Enable markers if debug is true
+      });
+    });
+
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
+  }, [debug]);
+
+  useEffect(() => {
+    if (debug) {
+      console.log("Current Step:", currentStep);
+      console.log("Completed Step:", completedStep);
+      console.log("Completed Icon Index:", completedIconIndex);
+    }
+  }, [currentStep, completedStep, completedIconIndex, debug]);
+
   return (
-    <div className="flex flex-col items-start space-y-4 mx-20">
+    <div id="progress-stepper" className="flex flex-col items-start space-y-4 mx-20">
       <ol className="flex flex-col items-start">
         {steps.map((step, index) => {
           const stepNumber = index + 1;
@@ -46,7 +78,7 @@ export default function ProgressStepper({
           `;
 
           return (
-            <li key={step.id} className="flex items-start">
+            <li key={step.id} id={`step-${index}`} className="flex items-start">
               <div className="flex flex-col items-center mr-6 animate-fadeInBottom">
                 <button
                   id="steps_button"

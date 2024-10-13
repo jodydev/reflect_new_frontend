@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import PrimaryButton from "../buttons/PrimaryButton";
-import Dashboard from "../../assets/images/dashboard.webp";
+import Dashboard from "../../assets/images/dashboard.png";
 import ScrollAnimation from "react-animate-on-scroll";
 
 export default function SectionFour() {

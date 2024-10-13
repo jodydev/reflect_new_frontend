@@ -1,12 +1,14 @@
 import Logo from "../assets/images/logo.webp";
 import Bitcoin from "../assets/images/bitcoin.webp";
 import Ethereum from "../assets/images/ethereum.webp";
+import Amazon from "../assets/images/amazon.png";
+import Apple from "../assets/images/apple.png";
+import Google from "../assets/images/google.png";
 
-//TODO sostituire con immagini corrette
 const options = [
-  { id: 0, value: "Reflect", label: "Reflect", img: Logo },
-  { id: 1, value: "Bitcoin", label: "Bitcoin", img: Bitcoin },
-  { id: 2, value: "Ethereum", label: "Ethereum", img: Ethereum },
+  { id: 0, value: "gAMZN", label: "gAMZN", img: Amazon },
+  { id: 1, value: "gAAPL", label: "gAAPL", img: Apple },
+  { id: 2, value: "gGOOGL", label: "gGOOGL", img: Google },
 ];
 
 const optionsDate = [

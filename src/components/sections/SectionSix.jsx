@@ -24,7 +24,7 @@ export default function SectionSix() {
                         <div className="slide" key={partner.id}>
                           <img
                             src={partner.src}
-                            className="w-full h-full"
+                            className="w-full h-full object-contain"
                             alt={partner.alt}
                           />
                         </div>
