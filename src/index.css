@@ -148,7 +148,6 @@ body {
   -moz-filter: brightness(0) sepia(1) hue-rotate(0deg) saturate(0) contrast(1.2);
   -ms-filter: brightness(0) sepia(1) hue-rotate(0deg) saturate(0) contrast(1.2);
   -o-filter: brightness(0) sepia(1) hue-rotate(0deg) saturate(0) contrast(1.2);
-  opacity: 0.6;
 }
 
 /* Modifica bordo Squircle card news */
