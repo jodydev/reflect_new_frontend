@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { FaCheck } from "../utils/icons";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -11,45 +11,41 @@ export default function ProgressStepper({
   completedStep,
   disableNavigation,
   handleStepClicked,
-  debug = true, // Add debug prop with default value false
+  debug = false,
 }) {
   const [completedIconIndex, setCompletedIconIndex] = useState(null);
+  const stepperRef = useRef(null); 
 
   const handleClick = (stepIndex) => {
-    if (debug) {
-      console.log(`Step ${stepIndex + 1} clicked`);
-    }
     handleStepClicked(stepIndex + 1);
     setCompletedIconIndex(stepIndex);
   };
 
   useEffect(() => {
-    const breakpoints = [2.5, 3.5, 4.5]; // Define breakpoints for the second and third steps
+    ScrollTrigger.getAll().forEach(trigger => trigger.kill());
 
-    breakpoints.forEach((breakpoint, index) => {
+    steps.forEach((step, index) => {
       ScrollTrigger.create({
-        trigger: "#progress-stepper",
-        start: `top ${breakpoint * 50}%`,
-        onEnter: () => handleClick(index), // Adjust index to match the step
-        markers: debug, // Enable markers if debug is true
+        trigger: `#step-${index}`, // Step trigger based on id
+        start: "top center", // Trigger when top of step reaches center of viewport
+        end: "bottom center", // Keep active until bottom of step reaches center
+        onEnter: () => handleClick(index), // Move to the next step when entering the viewport
+        markers: debug, // Show markers if debug is true
+        toggleActions: "play none none none", // Control the animation actions
       });
     });
 
     return () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
-  }, [debug]);
-
-  useEffect(() => {
-    if (debug) {
-      console.log("Current Step:", currentStep);
-      console.log("Completed Step:", completedStep);
-      console.log("Completed Icon Index:", completedIconIndex);
-    }
-  }, [currentStep, completedStep, completedIconIndex, debug]);
+  }, [steps, debug]);
 
   return (
-    <div id="progress-stepper" className="flex flex-col items-start space-y-4 mx-20">
+    <div
+      id="progress-stepper"
+      ref={stepperRef} 
+      className="flex flex-col items-start space-y-4 mx-20"
+    >
       <ol className="flex flex-col items-start">
         {steps.map((step, index) => {
           const stepNumber = index + 1;

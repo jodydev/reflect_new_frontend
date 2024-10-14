@@ -48,20 +48,15 @@ export default function Hero() {
             </div>
 
             <div className="hidden md:block w-full relative z-0 justify-center">
-              <img
-                src={Image}
-                alt="Hero Image"
-                className="ms-[100px] w-full h-full animate-fadeInRight"
-              />
-              {/* <video
+              <video
                 autoPlay
                 loop
                 muted
                 playsInline
-                className="ms-[50px] w-[800px] h-[800px] animate-fadeInRight"
+                className="ms-[50px] w-full h-full animate-fadeInRight"
               >
                 <source src={Video} type="video/webm" />
-              </video> */}
+              </video>
             </div>
           </div>
         </div>

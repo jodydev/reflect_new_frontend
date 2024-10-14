@@ -2,8 +2,7 @@ import { useState, useCallback } from "react";
 import { steps } from "../../data/steps";
 import ScrollAnimation from "react-animate-on-scroll";
 import ProgressStepper from "../ProgressStepper";
-import Image from "../../assets/images/yellow_1.webp";
-import Video from "../../assets/images/video.webm";
+import Video from "../../assets/images/video_2.webm";
 
 export default function SectionTwo() {
   const [currentStep, setCurrentStep] = useState(1);
@@ -30,17 +29,12 @@ export default function SectionTwo() {
 
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 md:gap-40 py-10 2xl:py-40">
         <ScrollAnimation duration={2} animateIn="fadeInLeft">
-          {/* <img
-            className="hidden md:block"
-            src={Image}
-            alt="Image description"
-          /> */}
           <video
             autoPlay
             loop
             muted
             playsInline
-            className="w-full h-full animate-fadeInRight"
+            className="w-full h-[400px] animate-fadeInRight"
           >
             <source src={Video} type="video/webm" />
           </video>

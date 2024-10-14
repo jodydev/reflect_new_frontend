@@ -54,28 +54,39 @@ export default function CardNews() {
                     className="relative h-1/2 w-full object-cover hover:cursor-pointer hover:scale-110 transition-transform duration-500 ease-in-out"
                   />
                 </a>
-     
               </div>
 
               <div className="absolute bottom-0 py-5 px-7 2xl:py-5 2xl:px-10 w-full">
                 <ScrollAnimation duration={1} animateIn="fadeInRight">
                   <div className="separator h-1 w-1/2 px-20 bg-primary mb-3"></div>
                 </ScrollAnimation>
-                {/* <Squircle className="bg-primary w-[25%] md:w-[20%]" radius={90}>
-                  <span className="w-10 p-1 text-white ms-2 text-xs font-semibold line-clamp-1">
-                    {post.categories[0] || "News"}
-                  </span>
-                </Squircle> */}
-                {/* //todo CATEGORIA DA METTERE A DESTRA E DATA A SINISTRA */}
-                    <Squircle className="w-[100%]" radius={90}>
-                    <span className="bg-primary p-3 text-white text-xs font-semibold ">
-                      {new Date(post.pubDate)
-                        .toUTCString()
-                        .split(" ")
-                        .slice(0, 4)
-                        .join(" ")}
-                    </span>
-                  </Squircle>
+                <div className="flex justify-between items-center space-x-10">
+                  <div className="w-1/2 text-dark text-xs font-semibold ">
+                    <Squircle
+                      className="w-full h-full bg-primary text-white text-xs font-semibold"
+                      radius={90}
+                    >
+                      <p className="px-3 py-1 text-center">
+                        {new Date(post.pubDate)
+                          .toUTCString()
+                          .split(" ")
+                          .slice(0, 4)
+                          .join(" ")}
+                      </p>
+                    </Squircle>
+                  </div>
+
+                  <div className="w-1/2 text-dark text-xs font-semibold ">
+                    <Squircle
+                      className="w-full h-full bg-dark text-xs font-semibold"
+                      radius={90}
+                    >
+                      <p className="px-3 py-1 text-center text-white">
+                        {post.categories[0] || "News"}
+                      </p>
+                    </Squircle>
+                  </div>
+                </div>
 
                 <h3 className="title-animation text-2xl 2xl:text-3xl font-bold text-gray-900 mt-3 2xl:mt-5 line-clamp-1">
                   {post.title}
