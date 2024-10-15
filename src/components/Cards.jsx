@@ -8,7 +8,7 @@ export default function Cards() {
 
   return (
     <div className="flex flex-col items-center relative w-3/4 py-10">
-      <div className="flex flex-wrap justify-center items-center space-x-0 md:space-x-10 2xl:space-x-20 space-y-10 md:space-y-0">
+      <div className="flex flex-wrap justify-center items-center space-x-0 md:space-x-5 2xl:space-x-10 space-y-10 md:space-y-0">
         {cardData.map((data, index) => {
           const number = (index + 1).toString();
           const isHovered = isSelected === number;
@@ -17,6 +17,7 @@ export default function Cards() {
           return (
             // <ScrollAnimation id="card" key={index} duration={2} animateIn="fadeInLeft">
               <Squircle
+                key={index} // Add key prop here
                 className="hover:scale-105 transition-all duration-500 ease-in-out transform bg-gray bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-40 saturate-100 backdrop-contrast-100"
                 radius={90}
               >
@@ -57,7 +58,7 @@ export default function Cards() {
         <div className="flex space-x-2 mt-5">
           {[1, 2, 3].map((num) => (
             <div
-              key={num}
+              key={num} // Add key prop here
               className={`w-3 h-3 rounded-full cursor-pointer my-10 ${
                 isSelected === num.toString()
                   ? "bg-dark w-[30px]"

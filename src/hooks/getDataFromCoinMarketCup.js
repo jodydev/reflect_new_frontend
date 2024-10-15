@@ -12,7 +12,6 @@ const getDataFromCoinMarketCup = () => {
         const response = await axios.get(url, {
           headers: {
             Accept: "application/json",
-            "Accept-Encoding": "deflate, gzip",
           },
         });
 

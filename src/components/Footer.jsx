@@ -28,7 +28,7 @@ export default function Footer() {
                 <img
                   src={Logo}
                   alt="Reflect Logo"
-                  className="h-8 w-8 md:h-10 2xl:w-3/4 2xl:h-14"
+                  className="h-8 w-8 md:h-10 md:w-10"
                 />
                 <p className="text-white text-xl md:text-2xl font-bold ml-3">
                   Reflect

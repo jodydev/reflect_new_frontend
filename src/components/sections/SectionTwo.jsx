@@ -34,7 +34,7 @@ export default function SectionTwo() {
             loop
             muted
             playsInline
-            className="w-full h-[90%] mb-20 md:scale-150 animate-fadeInRight"
+            className="w-full h-[90%] mb-20 xl:scale-125 2xl:scale-150 animate-fadeInRight"
           >
             <source src={Video} type="video/webm" />
           </video>

@@ -215,7 +215,7 @@ export default function InfoSectionThree() {
       id="section_three"
       className="min-h-screen py-12 xl:py-20 px-4 sm:px-20 flex-col relative bg-img bg-trasparent"
     >
-      <div className="ms-0 md:ms-60 2xl:ms-[600px]">
+      <div className="ms-0 md:ms-72 2xl:ms-[600px]">
         <h2 className="text-2xl md:text-5xl 2xl:text-6xl font-bold text-dark title-animation">
           How it works
         </h2>
@@ -384,28 +384,6 @@ export default function InfoSectionThree() {
                                 <div className="w-full flex items-center justify-center bg-white bg-opacity-20 h-10 md:h-12 rounded-md pl-3 pr-3 text-dark sm:text-sm cursor-not-allowed">
                                     <MdOutlineDriveFolderUpload  className="w-6 h-6"/>
                                 </div>
-
-                                
-
-                                {/* {secondDropdownOpen &&
-                                  index === selectedIndex && (
-                                    <div className="absolute 2xl:top-[48px] left-[20px] mt-1 bg-white backdrop-blur-md rounded-lg shadow-lg z-10 title-animation">
-                                      {optionsLogo.map((option) => (
-                                        <div
-                                          key={option.id}
-                                          className="cursor-pointer hover:bg-gray-100 p-2"
-                                        >
-                                          <div className="flex items-center">
-                                            <img
-                                              src={option.img}
-                                              alt={option.label}
-                                              className="w-4 h-4 mr-2"
-                                            />
-                                          </div>
-                                        </div>
-                                      ))}
-                                    </div>
-                                  )} */}
                               </div>
                             </div>
                           ) 
@@ -496,7 +474,7 @@ export default function InfoSectionThree() {
         {/* Button Section for larger screens */}
         <div className="hidden md:block relative z-10 py-12 md:py-32 2xl:py-72 px-4 md:px-20 xl:px-40 2xl:px-60">
           <div className="flex flex-col items-center w-full h-full p-4 xl:p-10 bg-trasparent">
-            <div className="flex w-full flex-col gap-6 2xl:gap-10">
+            <div className="flex w-full flex-col gap-6 xl:gap-10">
               {cardData.map((index) => (
                 <Squircle key={index.id} radius={90}>
                   <button
@@ -544,7 +522,7 @@ export default function InfoSectionThree() {
         {/* Background Image Section */}
         <div
           ref={backgroundRef}
-          className="animate-fadeInRight z-0 absolute xl:top-[50px] 2xl:top-[-200px] xl:right-[-50px] xl:w-[400px] xl:h-[350px] 2xl:w-[600px] 2xl:h-[700px] bg-cover bg-no-repeat"
+          className="animate-fadeInRight z-0 absolute xl:top-[0px] 2xl:top-[-200px] xl:right-[-50px] xl:w-[400px] xl:h-[350px] 2xl:w-[600px] 2xl:h-[700px] bg-cover bg-no-repeat"
           style={{
             backgroundImage: `url(${backgroundImages[selectedIndex]})`,
           }}

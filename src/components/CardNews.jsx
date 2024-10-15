@@ -56,7 +56,7 @@ export default function CardNews() {
                 </a>
               </div>
 
-              <div className="absolute bottom-0 py-5 px-7 2xl:py-5 2xl:px-10 w-full">
+              <div className="absolute bottom-0 py-5 xl:py-10 px-7 2xl:py-10 2xl:px-10 w-full">
                 <ScrollAnimation duration={1} animateIn="fadeInRight">
                   <div className="separator h-1 w-1/2 px-20 bg-primary mb-3"></div>
                 </ScrollAnimation>
@@ -91,7 +91,7 @@ export default function CardNews() {
                 <h3 className="title-animation text-2xl 2xl:text-3xl font-bold text-gray-900 mt-3 2xl:mt-5 line-clamp-1">
                   {post.title}
                 </h3>
-                <p className="title-animation text-gray-700 md:mt-2 line-clamp-3">
+                <p className="text-gray-700 md:mt-2 line-clamp-3">
                   {post.content}
                 </p>
                 <a

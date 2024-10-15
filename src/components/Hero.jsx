@@ -19,7 +19,7 @@ export default function Hero() {
       id="hero"
       className="relative h-full flex items-center lg:items-start"
     >
-      <div className="relative z-0 w-full h-[60vh] xl:h-[70vh] 2xl:h-[80vh] flex justify-center items-center">
+      <div className="relative z-0 w-full h-[60vh] xl:h-[75vh] 2xl:h-[80vh] flex justify-center items-center">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 xl:gap-0 items-center">
             <div className="w-full 2xl:my-56">
