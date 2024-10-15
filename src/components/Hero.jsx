@@ -30,12 +30,6 @@ export default function Hero() {
                   </span>
                 </h1>
                 <div className="flex items-start justify-start py-10">
-                  {/* <img
-                    src={Button}
-                    alt="button"
-                    className="w-full h-full my-10 animate-fadeInLeft"
-                  /> */}
-                  {/* //todo CREARE IL COMPONENTE CUSTOM E FERMARE LO SWIPE DEL BOTTONE POCO PRIMA DELLA FINE DELLA LUNGHEZZA DEL PADRE */}
                   <Squircle className="w-full" radius={90}>
                     <SwipeableButton
                       onSuccess={onSuccess}
@@ -53,7 +47,7 @@ export default function Hero() {
                 loop
                 muted
                 playsInline
-                className="ms-[50px] w-full h-full animate-fadeInRight"
+                className="ms-[50px] w-full h-full animate-fadeInRight scale-150"
               >
                 <source src={Video} type="video/webm" />
               </video>
