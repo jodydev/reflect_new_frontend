@@ -22,6 +22,36 @@
   src: url('./fonts/Involve-Bold.ttf') format('truetype');
 }
 
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+    overflow-y: auto;
+  }
+
+  .rsbcText {
+    font-size: 18px !important;
+    right: 10px !important;
+  }
+
+  .rsbcSliderCircle {
+    right: -8px !important;
+    width: 80px !important;
+  }
+
+  .rsbcSliderText {
+    font-size: 12px;
+    right: 10px !important;
+  }
+
+  .rsbcSlider {
+    height: 60px !important;
+  }
+
+  .rsbcSliderArrow {
+    right: 25px !important;
+  }
+}
+
 *,
 *::before,
 *::after {
@@ -195,28 +225,19 @@ body {
 
 .rsbcSliderCircle {
   position: absolute;
-  right: -52px !important;
-  background: #FFBF55 !important;
-  top: 10px !important;
-  height: 60px !important;
-  width: 150px !important;
-  border-radius: 20px !important;
-
-  /* mask: url("https://dex.m20chain.com/images/logo.png");
-  mask-position: center center;
-  mask-repeat: no-repeat;
-  mask-size: cover;
-  width: 100% !important;
-  height: 100% !important;
-  clip-path: inset(0 0 50% 0); */
-
+  right: -52px;
+  background: #FFBF55;
+  top: 10px;
+  height: 60px;
+  width: 150px;
+  border-radius: 20px;
 }
 
 .rsbcSliderText {
   position: absolute;
   top: 0;
   left: 0;
-  right:70;
+  right:70px;
   line-height: 80px !important;
   text-align: center;
   font-family: 'Involve-Medium', sans-serif;
