@@ -15,16 +15,17 @@ export default function SectionSix() {
           </ScrollAnimation>
 
           <ScrollAnimation duration={2} animateIn="fadeIn">
-            <div className="my-10 lg:my-40 overflow-hidden animate-fadeInBottom">
+            <div className="my-20 lg:my-40 overflow-hidden animate-fadeInBottom">
               <Squircle radius={90}>
-                {/* <div className="w-[350px] md:w-[1200px] 2xl:w-[1800px] py-6 md:py-12 bg-white bg-opacity-40 relative mx-auto"> */}
+                <div className="slider"></div>
                   <div className="slider">
                     <div className="slide-track gap-[50px] md:gap-[100px]">
                       {partners.map((partner, index) => (
+                        
                         <div className="slide" key={partner.id}>
                           <img
                             src={partner.src}
-                            className="w-full h-full object-contain"
+                            className="w-full h-[50px] md:w-full md:h-full object-contain"
                             alt={partner.alt}
                           />
                         </div>

@@ -1,7 +1,9 @@
+/* Import Tailwind CSS base, components, and utilities */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Custom Fonts */
 @font-face {
   font-family: 'Involve-Regular';
   src: url('./fonts/Involve-Regular.ttf') format('truetype');
@@ -22,6 +24,7 @@
   src: url('./fonts/Involve-Bold.ttf') format('truetype');
 }
 
+/* Responsive styles for screens smaller than 768px */
 @media (max-width: 768px) {
   body {
     font-size: 14px;
@@ -52,18 +55,19 @@
   }
 }
 
+/* Global box-sizing rule */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
+/* Base styles for body and html */
 body {
   font-family: 'Involve-Medium', sans-serif;
   overflow-x: hidden;
   overflow-y: hidden;
 }
-
 
 html {
   scroll-behavior: unset !important;
@@ -72,6 +76,7 @@ html {
   overflow-x: hidden !important;
 }
 
+/* Carousel styles */
 .carousel-item {
   position: absolute;
   top: 50%;
@@ -87,6 +92,7 @@ html {
   will-change: transform;
 }
 
+/* Background fade animation */
 .background-fade {
   opacity: 0;
   transition: opacity 1s ease-in-out;
@@ -96,11 +102,13 @@ html {
   opacity: 1;
 }
 
-.line{
+/* Line height reset */
+.line {
   line-height: 1;
 }
 
-.bg-info-section{
+/* Background styles for specific sections */
+.bg-info-section {
   background-image: url("/src/assets/images/yellow_2.webp");
   background-size: contain;
   background-repeat: no-repeat;
@@ -108,7 +116,7 @@ html {
   z-index: 1;
 }
 
-.bg-news{
+.bg-news {
   background-image: url("/src/assets/images/yellow_1.webp");
   background-size: contain;
   background-repeat: no-repeat;
@@ -116,44 +124,41 @@ html {
   z-index: 1;
 }
 
-/* UI per scroolbar */
-
-/* Per i browser basati su WebKit (Chrome, Safari) */
+/* Custom scrollbar styles */
 ::-webkit-scrollbar {
-  width: 8px !important; /* Larghezza della scrollbar */
+  width: 8px !important;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #FFBF55; 
+  background-color: #FFBF55;
   border-radius: 12px;
 }
 
 ::-webkit-scrollbar-track {
-  background: black; 
+  background: black;
 }
 
-/* Per Firefox */
 html {
   scrollbar-width: thin;
   scrollbar-color: #FFBF55 black;
 }
 
-/* Per Edge */
 body {
   scrollbar-width: thin;
   scrollbar-color: #FFBF55 black;
 }
 
+/* Keyframes for scrolling animation */
 @keyframes scroll {
-  0% { 
-      transform: translateX(0); 
+  0% {
+    transform: translateX(0);
   }
-  100% { 
-      transform: translateX(calc(-250px * 7)); 
+  100% {
+    transform: translateX(calc(-250px * 7));
   }
 }
 
-/* Slider Partners*/
+/* Slider Partners */
 .slider::after {
   right: 0;
   top: 0;
@@ -171,16 +176,12 @@ body {
   width: calc(300px * 50);
 }
 
-/* Filtro colore nero  */
+/* Image filter for slider */
 .slider img {
   filter: brightness(0) sepia(1) hue-rotate(0deg) saturate(0) contrast(1.2);
-  -webkit-filter: brightness(0) sepia(1) hue-rotate(0deg) saturate(0) contrast(1.2);
-  -moz-filter: brightness(0) sepia(1) hue-rotate(0deg) saturate(0) contrast(1.2);
-  -ms-filter: brightness(0) sepia(1) hue-rotate(0deg) saturate(0) contrast(1.2);
-  -o-filter: brightness(0) sepia(1) hue-rotate(0deg) saturate(0) contrast(1.2);
 }
 
-/* Modifica bordo Squircle card news */
+/* News card styles */
 .news {
   mask-position: center center;
   mask-repeat: no-repeat;
@@ -203,7 +204,6 @@ body {
   background: #121212 !important;
   border-radius: 25px !important;
   position: relative;
-  /* box-shadow: inset 1px 1px 4px rgba(0, 0, 0, 0.1); */
   overflow: hidden;
 }
 
@@ -237,7 +237,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  right:70px;
+  right: 70px;
   line-height: 80px !important;
   text-align: center;
   font-family: 'Involve-Medium', sans-serif;
@@ -258,10 +258,8 @@ body {
   background: #121212 !important;
   border-radius: 25px;
   z-index: 10;
-  /* box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3); */
   cursor: pointer;
 }
-
 
 .rsbcSliderArrow {
   float: left;

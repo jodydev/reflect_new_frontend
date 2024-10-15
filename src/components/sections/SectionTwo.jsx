@@ -27,14 +27,14 @@ export default function SectionTwo() {
         Why Reflect on Base?
       </h2>
 
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 md:gap-40 py-10 2xl:py-40">
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 md:gap-40 py-0 md:py-10 2xl:py-40">
         <ScrollAnimation duration={2} animateIn="fadeInLeft">
           <video
             autoPlay
             loop
             muted
             playsInline
-            className="w-full h-full scale-150 animate-fadeInRight"
+            className="w-full h-[90%] mb-20 md:scale-150 animate-fadeInRight"
           >
             <source src={Video} type="video/webm" />
           </video>

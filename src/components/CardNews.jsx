@@ -35,7 +35,7 @@ export default function CardNews() {
           }
         >
           <Squircle radius={90}>
-            <div className="w-[320px] h-[400px] md:w-[350px] md:h-[450px] 2xl:w-[400px]  2xl:h-[500px] bg-white bg-opacity-40">
+            <div className="w-[320px] h-[420px] md:w-[350px] md:h-[450px] 2xl:w-[400px]  2xl:h-[500px] bg-white bg-opacity-40">
               <div
                 className="news"
                 style={{
@@ -66,7 +66,7 @@ export default function CardNews() {
                       className="w-full h-full bg-primary text-white text-xs font-semibold"
                       radius={90}
                     >
-                      <p className="px-3 py-1 text-center">
+                      <p className="px-1 md:px-3 py-1 text-center">
                         {new Date(post.pubDate)
                           .toUTCString()
                           .split(" ")
@@ -91,14 +91,14 @@ export default function CardNews() {
                 <h3 className="title-animation text-2xl 2xl:text-3xl font-bold text-gray-900 mt-3 2xl:mt-5 line-clamp-1">
                   {post.title}
                 </h3>
-                <p className="text-gray-700 md:mt-2 line-clamp-3">
+                <p className="title-animation text-gray-700 md:mt-2 line-clamp-3">
                   {post.content}
                 </p>
                 <a
                   href={post.link}
                   target="_blank"
                   rel="noreferrer"
-                  className="text-xs text-primary hover:underline"
+                  className="title-animation text-xs text-primary hover:underline"
                 >
                   Read more <ArrowRightIcon className="w-4 h-4 inline-block" />
                 </a>

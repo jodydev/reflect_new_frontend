@@ -21,7 +21,7 @@ export default function Cards() {
                 radius={90}
               >
                 <div
-                  className={`${isHovered ? " bg-dark text-white md:w-[400px] 2xl:w-[500px]" : "bg-gray-100 bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-40 saturate-100 backdrop-contrast-100" }  relative flex flex-col items-center justify-start px-10 py-16 w-[350px] h-[300px] md:w-[300px] md:h-[350px] 2xl:w-[400px] 2xl:h-[400px] transition-all duration-500 ease-in-out transform hover:cursor-pointer`}
+                  className={`${isHovered ? " bg-dark text-white md:w-[400px] 2xl:w-[500px]" : "bg-gray-100 bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-40 saturate-100 backdrop-contrast-100" }  relative flex flex-col items-center justify-start px-10 py-16 w-[320px] h-[340px] md:w-[300px] md:h-[350px] 2xl:w-[400px] 2xl:h-[400px] transition-all duration-500 ease-in-out transform hover:cursor-pointer`}
                   onMouseEnter={() => setIsSelected(number)}
                   onMouseLeave={() => setIsSelected("1")}
                   onClick={() => setIsSelected(number)}
