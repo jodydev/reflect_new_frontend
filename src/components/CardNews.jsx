@@ -1,4 +1,5 @@
 import { getDataFromMedium } from "../hooks/getDataFromMedium";
+import { useMemo } from "react";
 import { ArrowRightIcon } from "../utils/icons";
 import { Squircle } from "react-ios-corners";
 import Image from "../assets/images/yellow_1.webp";
@@ -8,16 +9,19 @@ import SquircleBox from "../assets/images/squircle_box.png";
 export default function CardNews() {
   const isMobile = window.innerWidth < 768;
 
-  const { posts, loading, error } = getDataFromMedium(
-    "https://medium.com/feed/@RFLOnBase"
-  );
+  const urls = useMemo(() => [
+    "https://medium.com/feed/@RFLOnBase",
+    "https://medium.com/feed/@clearpool"
+  ], []);
+
+  const { posts, loading, error } = getDataFromMedium(urls);
 
   if (loading) return <p>Loading...</p>;
 
   if (error) return <p>Error: {error.message}</p>;
 
   return (
-    <div className="flex flex-col md:flex-row gap-20 mx-10 mt-0 md:mt-0 2xl:mt-20 md:mx-0">
+    <div className="flex flex-col md:flex-row gap-20 xl:gap-32 mx-10 mt-0 md:mt-0 2xl:mt-20 md:mx-0">
       {posts.map((post, index) => (
         <ScrollAnimation
           key={index}
@@ -35,7 +39,7 @@ export default function CardNews() {
           }
         >
           <Squircle radius={90}>
-            <div className="w-[320px] h-[420px] md:w-[350px] md:h-[450px] 2xl:w-[400px]  2xl:h-[500px] bg-white bg-opacity-40">
+            <div className="w-[320px] h-[420px] md:w-[350px] md:h-[450px] 2xl:w-[500px] 2xl:h-[600px] bg-white bg-opacity-40">
               <div
                 className="news"
                 style={{
@@ -56,7 +60,7 @@ export default function CardNews() {
                 </a>
               </div>
 
-              <div className="absolute bottom-0 py-5 xl:py-10 px-7 2xl:py-10 2xl:px-10 w-full">
+              <div className="absolute bottom-0 2xl:bottom-[10px] py-5 xl:py-8 px-7 2xl:px-10 w-full">
                 <ScrollAnimation duration={1} animateIn="fadeInRight">
                   <div className="separator h-1 w-1/2 px-20 bg-primary mb-3"></div>
                 </ScrollAnimation>
@@ -66,7 +70,7 @@ export default function CardNews() {
                       className="w-full h-full bg-primary text-white text-xs font-semibold"
                       radius={90}
                     >
-                      <p className="px-1 md:px-3 py-1 text-center">
+                      <p className="px-1 md:px-3 2xl:text-lg py-1 text-center">
                         {new Date(post.pubDate)
                           .toUTCString()
                           .split(" ")
@@ -81,7 +85,7 @@ export default function CardNews() {
                       className="w-full h-full bg-dark text-xs font-semibold"
                       radius={90}
                     >
-                      <p className="px-3 py-1 text-center text-white">
+                      <p className="px-3 py-1 2xl:text-lg text-center text-white">
                         {post.categories[0] || "News"}
                       </p>
                     </Squircle>
@@ -91,14 +95,14 @@ export default function CardNews() {
                 <h3 className="title-animation text-2xl 2xl:text-3xl font-bold text-gray-900 mt-3 2xl:mt-5 line-clamp-1">
                   {post.title}
                 </h3>
-                <p className="text-gray-700 md:mt-2 line-clamp-3">
+                <p className="text-gray-700 md:my-2 2xl:text-lg line-clamp-3">
                   {post.content}
                 </p>
                 <a
                   href={post.link}
                   target="_blank"
                   rel="noreferrer"
-                  className="title-animation text-xs text-primary hover:underline"
+                  className="title-animation text-xs 2xl:text-base text-primary hover:underline"
                 >
                   Read more <ArrowRightIcon className="w-4 h-4 inline-block" />
                 </a>

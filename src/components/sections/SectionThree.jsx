@@ -52,7 +52,7 @@ export default function InfoSectionThree() {
               setInputValue(
                 `${
                   isStake
-                    ? `${(currentVal * 100).toFixed(0)}GB`
+                    ? `${(currentVal * 100).toFixed(0)}RLF`
                     : isCreate
                     ? `Xylo`
                     : `$${(currentVal * 100).toFixed(2)}`
@@ -213,17 +213,17 @@ export default function InfoSectionThree() {
   return (
     <section
       id="section_three"
-      className="min-h-screen py-12 xl:py-20 px-4 sm:px-20 flex-col relative bg-img bg-trasparent"
+      className="min-h-screen py-12 xl:py-20 2xl:py-40 px-4 sm:px-20 flex-col relative bg-img bg-trasparent"
     >
-      <div className="ms-0 md:ms-72 2xl:ms-[600px]">
+      <div className="ms-0 md:ms-72 2xl:ms-[700px]"> 
         <h2 className="text-2xl md:text-5xl 2xl:text-6xl font-bold text-dark title-animation">
-          How it works
+          Create your favourite rAsset 
         </h2>
         <ScrollAnimation duration={2} animateIn="fadeInRight">
-          <div className="h-1 rounded-3xl bg-primary mx-32 w-full xl:w-1/2 mt-3"></div>
+          <div className="h-1 rounded-3xl bg-primary mx-32 w-full xl:w-1/2 mt-3 xl:mt-5"></div>
         </ScrollAnimation>
-        <h3 className="text-2xl md:text-5xl 2xl:text-6xl font-bold text-dark ms-32 md:ms-96 mt-2 title-animation">
-          in three steps
+        <h3 className="text-2xl md:text-5xl 2xl:text-6xl font-bold text-dark ms-32 md:ms-[400px] 2xl:ms-[700px] mt-3 xl:mt-5 title-animation">
+          in three simple steps
         </h3>
       </div>
 
@@ -311,7 +311,7 @@ export default function InfoSectionThree() {
                                 id="swapForm"
                                 name="swapForm"
                                 type="text"
-                                placeholder={isStake ? "0GB" : "$0.00"}
+                                placeholder={isStake ? "0RFL" : "$0.00"}
                                 value={inputValue}
                                 className={`w-full block bg-white bg-opacity-20 h-10 md:h-12 rounded-md border-0 py-1.5 pl-3 text-primary font-bold text-sm md:text-base focus:outline-none focus:ring-0`}
                                 readOnly
@@ -373,7 +373,7 @@ export default function InfoSectionThree() {
                                 id="initialSupply"
                                 name="initialSupply"
                                 type="text"
-                                placeholder={isStake ? "0GB" : "$0.00"}
+                                placeholder={isStake ? "0RFL" : "$0.00"}
                                 value={inputValueInitialSupply}
                                 className={`w-full block bg-white bg-opacity-20 h-10 md:h-12 rounded-md border-0 py-1.5 pl-3 text-primary font-bold text-sm md:text-base focus:outline-none focus:ring-0`}
                                 readOnly
@@ -472,16 +472,16 @@ export default function InfoSectionThree() {
         </div>
 
         {/* Button Section for larger screens */}
-        <div className="hidden md:block relative z-10 py-12 md:py-32 2xl:py-72 px-4 md:px-20 xl:px-40 2xl:px-60">
+        <div className="hidden md:block relative z-10 py-12 md:py-32 2xl:py-60 px-4 md:px-20 xl:px-40 2xl:px-96">
           <div className="flex flex-col items-center w-full h-full p-4 xl:p-10 bg-trasparent">
-            <div className="flex w-full flex-col gap-6 xl:gap-10">
+            <div className="flex w-full flex-col gap-6 xl:gap-14">
               {cardData.map((index) => (
                 <Squircle key={index.id} radius={90}>
                   <button
                     id="card_button"
                     aria-label="card button"
                     onClick={() => setSelectedIndex(index.id)}
-                    className={`w-full rounded-lg shadow-md transition-all duration-300 px-6 py-3 text-base xl:text-2xl font-medium
+                    className={`title-animation w-full 2xl:h-20 rounded-lg shadow-md transition-all duration-300 px-6 py-3 text-base xl:text-2xl font-medium
                       ${
                         selectedIndex === index.id
                           ? "bg-white bg-opacity-60 text-primary ring-2 ring-primary ring-opacity-50 scale-105 hover:text-primary"
@@ -498,7 +498,7 @@ export default function InfoSectionThree() {
         </div>
 
         {/* Button Section for mobile devices */}
-        <div className="block md:hidden absolute bottom-20 right-0 left-0 px-5">
+        <div className="block md:hidden absolute bottom-40 right-0 left-0 px-5">
           <div className="flex w-full flex-row gap-6">
             {cardData.map((index) => (
               <div key={index.id} className="w-full">

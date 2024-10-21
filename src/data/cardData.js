@@ -3,7 +3,7 @@ import { FaVault, VscGraph, FaMoneyBillTrendUp } from "../utils/icons";
 const cardData = [
   {
     title: "Open a vault",
-    subtitle: "Deposit your collateral and mint your favorite Asset",
+    subtitle: "Deposit your collateral and mint your favorite rAsset",
     icon: FaVault,
   },
   {

@@ -13,7 +13,7 @@ export default function Footer() {
       <div className="w-full px-8 md:px-40 flex flex-col mt-10 md:mt-20">
         <div className="w-full md:w-2/4">
           <h3 className="title-animation w-full text-3xl md:text-5xl 2xl:text-7xl font-bold">
-            Empowering everyone with maximum assets on Base with Reflect
+            Empowering everyone with maximum assets on Base, with Reflect
           </h3>
         </div>
         <div className="flex mt-8 flex-col md:flex-row md:justify-between">

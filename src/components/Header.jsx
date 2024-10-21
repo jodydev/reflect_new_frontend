@@ -30,25 +30,25 @@ export default function Header() {
     >
       <div className="container mx-auto flex items-start justify-between relative my-2">
         {/* Logo */}
-        <div className="flex items-center justify-start ml-2 md:ml-0">
-          <img src={Logo} alt="logo" className="h-10 w-7 md:h-12 md:w-full" />
-          <p className="text-dark text-xl md:text-2xl font-bold ml-3">
+        <div className="flex items-center justify-start ml-2 md:ml-0 animate-fadeInLeft">
+          <img src={Logo} alt="logo" className="h-10 w-7 md:h-12 md:w-full 2xl:h-14 2xl:w-full" />
+          <p className="text-dark text-xl md:text-2xl xl:text-3xl font-bold ml-3 xl:ml-5">
             Reflect
           </p>
         </div>
 
         {/* Menu per desktop */}
         <Squircle
-          className="hidden md:block absolute left-1/2 -translate-x-1/2 bg-white bg-opacity-40 text-dark shadow-lg w-[370px] h-[50px]"
+          className="hidden md:block bg-white bg-opacity-40 text-dark shadow-lg w-[370px] h-[50px] 2xl:w-[500px] 2xl:h-[70px] animate-fadeInTop"
           radius={90}
         >
-          <div className="hidden lg:flex w-full items-center justify-center gap-6 absolute left-1/2 -translate-x-1/2 py-4 px-8">
+          <div className="hidden lg:flex w-full items-center justify-center gap-6 py-4 px-8 2xl:py-6">
             <div className="flex space-x-8">
               {headerOptions.map((item) => (
                 <a
                   key={item.name}
                   href={item.link}
-                  className="text-sm xl:text-md text-gray-800 
+                  className="text-sm 2xl:text-lg text-gray-800 
                     hover:text-primary transition-all 
                     duration-300 ease-in-out hover:translate-y-0.5 
                     hover:scale-105 hover:cursor-pointer text-nowrap"
@@ -60,17 +60,17 @@ export default function Header() {
           </div>
         </Squircle>
 
-        {/* Dropdown Altro a destra */}
-        <Menu as="div" className="hidden lg:flex items-center relative">
-          <Squircle className="md:w-[180px] md:h-[50px]" radius={90}>
-            <MenuButton
+        {/* Button a destra */}
+        <div className="hidden lg:flex items-center relative animate-fadeInRight">
+          <Squircle className="md:w-[200px] md:h-[50px] 2xl:h-[70px]" radius={90}>
+            <button
               onClick={openDapp}
-              className="inline-flex w-full justify-center items-center gap-x-1.5 p-2 md:p-3 text-sm text-gray-900 bg-primary py-2 md:py-4 px-6 md:px-8 hover:cursor-pointer"
+              className="inline-flex w-full 2xl:h-[70px] justify-center items-center gap-x-1.5 p-2 md:p-3 text-sm text-gray-900 bg-primary py-2 md:py-4 px-6 md:px-8 hover:cursor-pointer"
             >
-              <p className="text-sm xl:text-md">Launch App</p>
-            </MenuButton>
+              <p className="text-sm 2xl:text-lg ">Launch dApp</p>
+            </button>
           </Squircle>
-        </Menu>
+        </div>
         <Squircle
           className="block lg:hidden origin-top-right bg-clip-padding backdrop-filter backdrop-blur-md bg-white bg-opacity-40 transition focus:outline-none"
           radius={90}

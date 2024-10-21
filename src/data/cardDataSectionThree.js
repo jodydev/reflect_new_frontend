@@ -27,7 +27,7 @@ const cardData = [
   {
     id: 0,
     title: "Swap",
-    subtitle: "Effortlessly exchange assets with minimal fees",
+    subtitle: "Effortlessly exchange unique assets with minimal fees",
   },
   {
     id: 1,

@@ -55,6 +55,70 @@
   }
 }
 
+@media screen and (min-width: 1900px) {
+  .ReactSwipeButton {
+    height: 120px !important;
+  }
+
+  .rsbContainer {
+    height: 120px !important;
+  }
+
+  .rsbcSliderCircle {
+    right: -140px !important;
+    top: 20px !important;
+    height: 80px !important;
+    width: 250px !important;
+  }
+  .rsbcSliderArrow {
+    height: 25px !important;
+    width: 25px !important;
+    top: 65% !important;
+    right: 0px !important;
+  }
+
+  .rsbcText {
+    float: left;
+    position: absolute;
+    left: 200px !important;
+    top: 20px !important;
+    font-size: 40px !important;
+  }
+  
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1920px) {
+  .ReactSwipeButton {
+    height: 100px !important;
+  }
+
+  .rsbContainer {
+    height: 100px !important;
+  }
+
+  .rsbcSliderCircle {
+    right: -115px !important;
+    top: 20px !important;
+    height: 60px !important;
+    width: 200px !important;
+  }
+  .rsbcSliderArrow {
+    height: 25px !important;
+    width: 25px !important;
+    top: 65% !important;
+    right: 0px !important;
+  }
+
+  .rsbcText {
+    float: left;
+    position: absolute;
+    left: 200px !important;
+    top: 15px !important;
+    font-size: 30px !important;
+  }
+  
+}
+
 /* Global box-sizing rule */
 *,
 *::before,
@@ -70,7 +134,6 @@ body {
 }
 
 html {
-  scroll-behavior: unset !important;
   min-height: 100vh;
   height: 100%;
   overflow-x: hidden !important;
@@ -194,13 +257,13 @@ body {
 
 /* Swipe Button */
 .ReactSwipeButton {
-  height: 80px !important;
+  height: 80px;
 }
 
 .rsbContainer {
   float: left;
   width: 100%;
-  height: 100%;
+  height: 80px;
   background: #121212 !important;
   border-radius: 25px !important;
   position: relative;
@@ -231,6 +294,23 @@ body {
   height: 60px;
   width: 150px;
   border-radius: 20px;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.rsbcSliderCircle::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/src/assets/images/arrow.gif");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  filter: brightness(0) sepia(1) hue-rotate(0deg) saturate(0) contrast(1.2); /* Apply black color filter */
 }
 
 .rsbcSliderText {
@@ -265,7 +345,7 @@ body {
   float: left;
   position: absolute;
   transform: rotate(45deg);
-  border: 3px solid #fff;
+  border: 4px solid #fff;
   height: 15px;
   width: 15px;
   top: 50%;
@@ -274,4 +354,5 @@ body {
   border-bottom-color: transparent;
   transform-origin: center;
   z-index: 10;
+  display: none !important;
 }
