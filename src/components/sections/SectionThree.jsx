@@ -1,4 +1,6 @@
 import { useState, useRef, useEffect } from "react";
+import EthereumLogo from "../../assets/images/ethereum.png";
+import TaoLogo from "../../assets/images/tao.svg";
 import { gsap } from "gsap";
 import { IoIosArrowDown } from "../../utils/icons";
 import { Squircle } from "react-ios-corners";
@@ -18,6 +20,7 @@ import { MdOutlineDriveFolderUpload } from "react-icons/md";
 export default function InfoSectionThree() {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [inputValue, setInputValue] = useState("");
+  const [inputValueSwap, setInputValueSwap] = useState("");
   const [inputValueInitialSupply, setInputValueInitialSupply] = useState("");
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [secondDropdownOpen, setSecondDropdownOpen] = useState(false);
@@ -55,9 +58,14 @@ export default function InfoSectionThree() {
                     ? `${(currentVal * 100).toFixed(0)}RFL`
                     : isCreate
                     ? `Xylo`
-                    : `$${(currentVal * 100).toFixed(2)}`
+                    : `${(currentVal * 3).toFixed(2)}ETH`
                 }`
               );
+              setInputValueSwap(
+                `${(currentVal * 168).toFixed(3)} TAO`
+                 
+              );
+              
               setInputValueInitialSupply(
                 `$${`${(currentVal * 100).toFixed(4)}`}`
               );
@@ -215,9 +223,9 @@ export default function InfoSectionThree() {
       id="section_three"
       className="min-h-screen py-12 xl:py-20 2xl:py-40 px-4 sm:px-20 flex-col relative bg-img bg-trasparent"
     >
-      <div className="ms-0 md:ms-72 2xl:ms-[700px]"> 
+      <div className="ms-0 md:ms-72 2xl:ms-[700px]">
         <h2 className="text-2xl md:text-5xl 2xl:text-6xl font-bold text-dark title-animation">
-          Create your favourite rAsset 
+          Create your favourite rAsset
         </h2>
         <ScrollAnimation duration={2} animateIn="fadeInRight">
           <div className="h-1 rounded-3xl bg-primary mx-32 w-full xl:w-1/2 mt-3 xl:mt-5"></div>
@@ -239,7 +247,7 @@ export default function InfoSectionThree() {
                   key={item.id}
                   ref={(el) => (cardRefs.current[index] = el)}
                   className={`absolute right-[-50px] md:right-[100px] 2xl:right-[350px] top-32 md:top-40 2xl:top-80 flex items-center justify-center text-white text-center ${
-                    isSelected 
+                    isSelected
                       ? "w-72 h-60"
                       : "opacity-50 scale-75 w-72 h-60 blur-[3px]"
                   }`}
@@ -303,60 +311,43 @@ export default function InfoSectionThree() {
                         )}
 
                         <div className="flex items-center justify-between mt-2 space-x-10">
-                          {!isCreate && !isStake 
-                          ?
-                          (
+                          {!isCreate && !isStake ? (
                             <>
-                              <input
-                                id="swapForm"
-                                name="swapForm"
-                                type="text"
-                                placeholder={isStake ? "0RFL" : "$0.00"}
-                                value={inputValue}
-                                className={`w-full block bg-white bg-opacity-20 h-10 md:h-12 rounded-md border-0 py-1.5 pl-3 text-primary font-bold text-sm md:text-base focus:outline-none focus:ring-0`}
-                                readOnly
-                              />
-                              <div className="relative inline-block">
+                              <div className="w-1/2 flex items-center bg-white bg-opacity-20 rounded-md">
+                                <img
+                                  src={EthereumLogo}
+                                  alt="Etherium Logo"
+                                  className="w-4 h-4 ms-2"
+                                />
+                                <input
+                                  id="swapForm"
+                                  name="swapForm"
+                                  type="text"
+                                  placeholder={isStake ? "0RFL" : "$0.00"}
+                                  value={inputValue}
+                                  className={`w-full block bg-transparent h-10 md:h-12 border-0 py-1.5 pl-3 text-primary font-bold text-sm md:text-base focus:outline-none focus:ring-0`}
+                                  readOnly
+                                />
+                              </div>
 
-                                {/* Dropdown Options */}
-                                <div className="flex items-center bg-white bg-opacity-20 h-10 md:h-12 rounded-md pl-3 pr-3 text-gray-400 sm:text-sm cursor-not-allowed">
-                                  <div className="flex items-center flex-grow">
-                                    <img
-                                      src={selectedOptions[index]?.img}
-                                      alt={selectedOptions[index]?.label}
-                                      className="w-4 h-4 mr-2"
-                                    />
-                                    <span>{selectedOptions[index]?.label}</span>
-                                  </div>
-                                  <div className="flex items-center ms-6">
-                                    <IoIosArrowDown className="text-gray-400" />
-                                  </div>
-                                </div>
-
-                                {dropdownOpen && index === selectedIndex && (
-                                  <div className="absolute mt-1 bg-white backdrop-blur-md rounded-lg shadow-lg z-10 title-animation">
-                                    {options.map((option) => (
-                                      <div
-                                        key={option.id}
-                                        className="cursor-pointer hover:bg-gray-100 p-2"
-                                      >
-                                        <div className="flex items-center">
-                                          <img
-                                            src={option.img}
-                                            alt={option.label}
-                                            className="w-4 h-4 mr-2"
-                                          />
-                                          <span>{option.label}</span>
-                                        </div>
-                                      </div>
-                                    ))}
-                                  </div>
-                                )}
+                              <div className="w-1/2 flex items-center bg-white bg-opacity-20 rounded-md">
+                                <img
+                                  src={TaoLogo}
+                                  alt="Tao Logo"
+                                  className="w-4 h-4 ms-2"
+                                />
+                                <input
+                                  id="swapForm"
+                                  name="swapForm"
+                                  type="text"
+                                  placeholder={isStake ? "0RFL" : "$0.00"}
+                                  value={inputValueSwap}
+                                  className={`w-full block bg-transparent h-10 md:h-12 border-0 py-1.5 pl-3 text-primary font-bold text-sm md:text-base focus:outline-none focus:ring-0`}
+                                  readOnly
+                                />
                               </div>
                             </>
-                          ) 
-                          : isCreate ? 
-                          (
+                          ) : isCreate ? (
                             <div className="relative flex flex-row items-center justify-between space-x-3">
                               <input
                                 id="tokenName"
@@ -382,13 +373,11 @@ export default function InfoSectionThree() {
                               {/* Dropdown Options Logo */}
                               <div className="relative inline-block">
                                 <div className="w-full flex items-center justify-center bg-white bg-opacity-20 h-10 md:h-12 rounded-md pl-3 pr-3 text-dark sm:text-sm cursor-not-allowed">
-                                    <MdOutlineDriveFolderUpload  className="w-6 h-6"/>
+                                  <MdOutlineDriveFolderUpload className="w-6 h-6" />
                                 </div>
                               </div>
                             </div>
-                          ) 
-                          :
-                          (
+                          ) : (
                             <div className="relative flex flex-row items-center justify-between space-x-10">
                               <input
                                 id="tokenName"
@@ -426,7 +415,6 @@ export default function InfoSectionThree() {
                                   ))}
                                 </div>
                               )}
-                      
                             </div>
                           )}
                         </div>
