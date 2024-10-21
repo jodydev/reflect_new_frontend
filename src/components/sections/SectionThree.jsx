@@ -52,7 +52,7 @@ export default function InfoSectionThree() {
               setInputValue(
                 `${
                   isStake
-                    ? `${(currentVal * 100).toFixed(0)}RLF`
+                    ? `${(currentVal * 100).toFixed(0)}RFL`
                     : isCreate
                     ? `Xylo`
                     : `$${(currentVal * 100).toFixed(2)}`

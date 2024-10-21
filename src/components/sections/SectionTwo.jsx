@@ -21,7 +21,7 @@ export default function SectionTwo() {
                 <img
                   src={step.img}
                   alt="Image"
-                  className="w-1/3 object-cover rounded-3xl absolute md:top-[290%] xl:top-[250%] 2xl:top-[260%] left-[30%]"
+                  className="w-1/3 object-cover rounded-3xl absolute md:top-[290%] xl:top-[290%] 2xl:top-[260%] left-[30%]"
                 />
               </div>
             ) : (
