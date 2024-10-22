@@ -21,7 +21,7 @@ export default function AssetCarousel() {
   }, [scrollPosition, assets.length]);
 
   return (
-    <div className="mx-4 md:mx-20 overflow-hidden animate-fadeInBottom">
+    <div className="mx-4 z md:mx-20 overflow-hidden animate-fadeInBottom">
       <Squircle radius={90}>
         <div className="w-full h-28 xl:h-30 2xl:h-32  bg-white bg-opacity-40  relative">
           <div className="absolute left-1/2 transform -translate-x-1/2 h-full">

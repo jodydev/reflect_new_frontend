@@ -17,9 +17,9 @@ export default function Hero() {
       id="hero"
       className="relative h-full flex items-center lg:items-start"
     >
-      <div className="relative z-0 w-full h-[60vh] xl:h-[70vh] 2xl:h-[80vh] flex justify-center items-center">
-        <div className="container mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 2xl:gap-60 items-center">
+      <div className="relative z-0 w-full h-[60vh] fh:h-[75vh] 2xl:h-[80vh] flex justify-center items-center">
+        <div className="container mx-auto fh:mx-32">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 fh:gap-96 items-center">
             <div className="w-full 2xl:my-56">
               <div className="text-left mx-5">
                 <h1 className="text-5xl md:text-6xl 2xl:text-8xl text-dark mt-5 mb-4">
