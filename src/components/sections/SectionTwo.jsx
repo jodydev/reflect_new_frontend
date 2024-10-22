@@ -29,7 +29,7 @@ export default function SectionTwo() {
                     loop
                     muted
                     playsInline
-                    className="w-full h-full absolute md:top-[260%] fh:top-[230%] 2xl:top-[230%] md:scale-105 fh:scale-110"
+                    className="w-full h-full absolute md:top-[260%] fh:top-[215%] 2xl:top-[230%] md:scale-105 fh:scale-[120%] 2xl:scale-[125%]"
                   >
                 <source src={Video} type="video/webm" />
               </video>
