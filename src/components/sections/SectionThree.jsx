@@ -230,7 +230,7 @@ export default function InfoSectionThree() {
   return (
     <section
       id="section_three"
-      className="min-h-screen py-12 mt-20 md:mt-0 xl:py-20 2xl:py-40 px-4 sm:px-20 flex-col relative bg-img bg-trasparent"
+      className="min-h-screen py-12 mt-20 md:mt-0 fh:py-32 2xl:py-40 px-4 sm:px-20 flex-col relative bg-img bg-trasparent"
     >
       <div className="ms-0 md:ms-60 fh:ms-[500px] 2xl:ms-[700px]">
         <p className="text-xl md:text-5xl 2xl:text-6xl font-bold text-dark title-animation">
