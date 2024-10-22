@@ -31,6 +31,10 @@
     overflow-y: auto;
   }
 
+  .bg-info-section {
+    background-size: cover !important;
+  }
+
   .rsbcText {
     font-size: 18px !important;
     right: 10px !important;
