@@ -59,6 +59,38 @@
   }
 }
 
+@media screen and (min-width: 2200px) {
+  .ReactSwipeButton {
+    height: 120px !important;
+  }
+
+  .rsbContainer {
+    height: 120px !important;
+  }
+
+  .rsbcSliderCircle {
+    right: -170px !important;
+    top: 20px !important;
+    height: 80px !important;
+    width: 250px !important;
+  }
+  .rsbcSliderArrow {
+    height: 25px !important;
+    width: 25px !important;
+    top: 65% !important;
+    right: 0px !important;
+  }
+
+  .rsbcText {
+    float: left;
+    position: absolute;
+    left: 200px !important;
+    top: 25px !important;
+    font-size: 40px !important;
+  }
+  
+}
+
 @media screen and (min-width: 1900px) {
   .ReactSwipeButton {
     height: 120px !important;
@@ -69,7 +101,7 @@
   }
 
   .rsbcSliderCircle {
-    right: -140px !important;
+    right: -150px !important;
     top: 20px !important;
     height: 80px !important;
     width: 250px !important;
@@ -314,7 +346,7 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  filter: brightness(0) sepia(1) hue-rotate(0deg) saturate(0) contrast(1.2); /* Apply black color filter */
+  filter: brightness(0) sepia(1) hue-rotate(0deg) saturate(0) contrast(1.2); 
 }
 
 .rsbcSliderText {
