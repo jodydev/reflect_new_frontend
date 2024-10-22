@@ -1,14 +1,19 @@
+import { useState } from "react";
 import { SwipeableButton } from "react-swipeable-button";
 import Video from "../assets/video/hero.webm";
 import { Squircle } from "react-ios-corners";
 
 export default function Hero() {
+  const [buttonKey, setButtonKey] = useState(0);
+
   const onSuccess = () => {
     try {
       window.location.href = "https://www.google.com";
       console.log("Success");
     } catch (error) {
       console.log(error);
+    } finally {
+      setButtonKey(prevKey => prevKey + 1);
     }
   };
 
@@ -30,6 +35,7 @@ export default function Hero() {
                 <div className="flex items-start justify-start py-10 xl:mt-10 animate-fadeInLeft">
                   <Squircle className="w-full 2xl:w-[80%]" radius={90}>
                     <SwipeableButton
+                      key={buttonKey}
                       onSuccess={onSuccess}
                       text="Connect Wallet"
                     />
@@ -38,7 +44,7 @@ export default function Hero() {
               </div>
             </div>
 
-            <div className="hidden md:block w-full relative z-0 justify-center  animate-fadeInRight">
+            <div className="hidden md:block w-full relative z-0 justify-center animate-fadeInRight">
               <video
                 autoPlay
                 loop
