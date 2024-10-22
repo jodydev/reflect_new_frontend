@@ -232,7 +232,7 @@ export default function InfoSectionThree() {
       id="section_three"
       className="min-h-screen py-12 mt-20 md:mt-0 xl:py-20 2xl:py-40 px-4 sm:px-20 flex-col relative bg-img bg-trasparent"
     >
-      <div className="ms-0 md:ms-60 fh:ms-[600px] 2xl:ms-[700px]">
+      <div className="ms-0 md:ms-60 fh:ms-[500px] 2xl:ms-[700px]">
         <p className="text-xl md:text-5xl 2xl:text-6xl font-bold text-dark title-animation">
           Create your favourite rAsset
         </p>
@@ -509,7 +509,7 @@ export default function InfoSectionThree() {
         </div>
 
         {/* Button Section for larger screens */}
-        <div className="hidden md:block relative z-10 py-12 md:py-24 2xl:py-60 px-4 md:px-20 xl:px-40 2xl:px-96">
+        <div className="hidden md:block relative z-10 py-12 md:py-24 2xl:py-60 px-4 md:px-20 fh:px-52 2xl:px-96">
           <div className="flex flex-col items-center w-full h-full p-4 xl:p-10 bg-trasparent">
             <div className="flex w-full flex-col gap-6 xl:gap-14">
               {cardData.map((index) => (
