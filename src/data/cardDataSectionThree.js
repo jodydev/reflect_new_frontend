@@ -38,12 +38,12 @@ const cardData = [
   {
     id: 1,
     title: "Create",
-    subtitle: "Mint new assets by depositing collateral securely",
+    subtitle: "Earn investing in new assets by depositing collateral securely",
   },
   {
     id: 2,
     title: "Stake",
-    subtitle: "Earn investing in new assets by depositing collateral securely",
+    subtitle: "Stake your tokens to earn rewards and passive income",
   },
 ];
 
