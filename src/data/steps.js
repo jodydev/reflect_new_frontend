@@ -1,5 +1,4 @@
 import Image from "../assets/images/yellow_1.webp";
-import Video from "../assets/images/video_2.webm";
 
 const steps = [
   {
@@ -20,7 +19,6 @@ const steps = [
   {
     id: "4",
     img: Image,
-    video: Video
   },
 ];
 

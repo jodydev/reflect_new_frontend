@@ -1,7 +1,5 @@
-import Image from "../assets/images/cubo_prova.png";
-import Button from "../assets/images/button_hero.webp";
 import { SwipeableButton } from "react-swipeable-button";
-import Video from "../assets/images/video_hero.webm";
+import Video from "../assets/video/hero.webm";
 import { Squircle } from "react-ios-corners";
 
 export default function Hero() {
@@ -19,7 +17,7 @@ export default function Hero() {
       id="hero"
       className="relative h-full flex items-center lg:items-start"
     >
-      <div className="relative z-0 w-full h-[60vh] xl:h-[75vh] 2xl:h-[80vh] flex justify-center items-center">
+      <div className="relative z-0 w-full h-[60vh] xl:h-[70vh] 2xl:h-[80vh] flex justify-center items-center">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 2xl:gap-60 items-center">
             <div className="w-full 2xl:my-56">
@@ -33,7 +31,7 @@ export default function Hero() {
                   <Squircle className="w-full 2xl:w-[80%]" radius={90}>
                     <SwipeableButton
                       onSuccess={onSuccess}
-                      text="Swipe to connect"
+                      text="Connect Wallet"
                     />
                   </Squircle>
                 </div>

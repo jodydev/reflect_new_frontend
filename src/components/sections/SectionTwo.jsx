@@ -1,18 +1,18 @@
 import { steps } from "../../data/steps";
-import Video from "../../assets/images/cubo_big.webm";
+import Video from "../../assets/video/section_two.webm";
 
 export default function SectionTwo() {
   return (
     <section
       id="section_two"
-      className="flex-col justify-center items-center md:h-screen mb-40 md:mb-0"
+      className="flex-col justify-center items-center md:h-screen"
     >
-      <h2 className="title-animation text-3xl lg:text-5xl xl:text-6xl font-bold text-center  leading-loose text-dark mb-6 xl:mb-10">
+      <h2 className="title-animation text-3xl lg:text-5xl xl:text-6xl font-bold text-center  leading-loose text-dark">
         Why Reflect on Base?
       </h2>
 
-      <div className="container mx-auto flex items-center justify-center py-0 md:py-10 2xl:py-40 px-5 md:px-0 mt-20 md:mt-0">
-        <div className="md:grid md:grid-cols-3 md:grid-rows-3 gap-0 2xl:gap-40 justify-center items-center space-y-10 space--10">
+      <div className="container mx-auto flex items-center justify-center py-0 md:py-10 2xl:py-40 px-5 md:px-0 mt-10">
+        <div className="md:grid md:grid-cols-3 md:grid-rows-3 gap-0 xl:gap-10 justify-center items-center space-y-10 space--10">
           {steps.slice(0, 4).map((step, index) =>
             step.id === "4" ? (
               <div
@@ -29,7 +29,7 @@ export default function SectionTwo() {
                     loop
                     muted
                     playsInline
-                    className="w-full h-full absolute top-[250%] left-0"
+                    className="w-full h-full absolute lg:top-[260%] 2xl:top-[220%] left- lg:scale-105 2xl:scale-110"
                   >
                 <source src={Video} type="video/webm" />
               </video>
@@ -42,13 +42,13 @@ export default function SectionTwo() {
                 } row-start-${
                   index === 0 ? 1 : index === 1 ? 2 : index === 2 ? 2 : 3
                 }
-                w-full h-32 xl:h-24 2xl:h-48 bg-gray-100 bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-40 saturate-100 backdrop-contrast-100 flex items-center justify-center p-6 2xl:p-10 rounded-3xl border-l-8 rounded-bl-sm border-primary`}
+                w-full h-32 xl:h-24 2xl:h-32 bg-gray-100 bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-40 saturate-100 backdrop-contrast-100 flex items-center justify-center p-6 2xl:p-10 rounded-3xl border-l-8 rounded-bl-sm border-primary`}
               >
                 <div className="text-center">
-                  <h3 className="text-2xl md:text-3xl 2xl:text-5xl font-bold mb-2 2xl:mb-5 text-start title-animation">
+                  <h3 className="text-2xl md:text-3xl 2xl:text-4xl font-bold mb-2 2xl:mb-5 text-start title-animation">
                     {step.title}
                   </h3>
-                  <p className="text-xs md:text-sm 2xl:text-xl text-start title-animation">
+                  <p className="text-xs md:text-sm 2xl:text-lg text-start title-animation">
                     {step.subtitle}
                   </p>
                 </div>

@@ -230,16 +230,16 @@ export default function InfoSectionThree() {
   return (
     <section
       id="section_three"
-      className="min-h-screen py-12 xl:py-20 2xl:py-40 px-4 sm:px-20 flex-col relative bg-img bg-trasparent"
+      className="min-h-screen py-12 mt-20 md:mt-0 xl:py-20 2xl:py-40 px-4 sm:px-20 flex-col relative bg-img bg-trasparent"
     >
       <div className="ms-0 md:ms-60 2xl:ms-[700px]">
-        <p className="text-2xl md:text-5xl 2xl:text-6xl font-bold text-dark title-animation">
+        <p className="text-xl md:text-5xl 2xl:text-6xl font-bold text-dark title-animation">
           Create your favourite rAsset
         </p>
         <ScrollAnimation duration={2} animateIn="fadeInRight">
           <div className="h-1 rounded-3xl bg-primary mx-32 w-full xl:w-1/2 mt-3 xl:mt-5"></div>
         </ScrollAnimation>
-        <p className="text-2xl md:text-5xl 2xl:text-6xl font-bold text-dark ms-32 xl:ms-[300px] 2xl:ms-[700px] mt-3 xl:mt-5 title-animation">
+        <p className="text-xl md:text-5xl 2xl:text-6xl font-bold text-dark ms-32 xl:ms-[300px] 2xl:ms-[700px] mt-3 xl:mt-5 title-animation">
           in three simple steps
         </p>
       </div>
@@ -326,7 +326,7 @@ export default function InfoSectionThree() {
                                 <img
                                   src={EthereumLogo}
                                   alt="Etherium Logo"
-                                  className="w-5 h-5 ms-2"
+                                  className="w-4 h-4 md:w-5 md:h-5 ms-2"
                                 />
                                 <input
                                   id="swapForm"
@@ -343,7 +343,7 @@ export default function InfoSectionThree() {
                                 <img
                                   src={TaoLogo}
                                   alt="Tao Logo"
-                                  className="w-5 h-5 ms-2"
+                                  className="w-4 h-4 md:w-5 md:h-5 ms-2"
                                 />
                                 <input
                                   id="swapForm"
@@ -362,7 +362,7 @@ export default function InfoSectionThree() {
                                 <img
                                   src={EthereumLogo}
                                   alt="Etherium Logo"
-                                  className="w-5 h-5 ms-2"
+                                  className="w-4 h-4 md:w-5 md:h-5 ms-2"
                                 />
                                 <input
                                   id="swapForm"
@@ -379,7 +379,7 @@ export default function InfoSectionThree() {
                                 <img
                                   src={BitcoinLogo}
                                   alt="Bitcoin Logo"
-                                  className="w-5 h-5 ms-2"
+                                  className="w-4 h-4 md:w-5 md:h-5 ms-2"
                                 />
                                 <input
                                   id="swapForm"
@@ -395,17 +395,17 @@ export default function InfoSectionThree() {
                               {/* Dropdown Options Logo */}
                               <div className="w-1/5 flex items-center bg-white bg-opacity-20 h-10 md:h-12 rounded-md pl-2 pr-2 text-gray-400 sm:text-sm cursor-not-allowed">
                                 <div className="flex items-center flex-grow text-nowrap">
-                                  <span>
+                                  <span className="text-xs">
                                     {selectedOptionsRatio[index]?.label}
                                   </span>
                                 </div>
-                                <div className="flex items-center">
+                                <div className="flex items-center hidden md:block">
                                   <IoIosArrowDown className="text-gray-400" />
                                 </div>
                               </div>
 
                               {dropdownOpen && index === selectedIndex && (
-                                <div className="absolute top-[40px] left-[85px] md:top-[50px] md:left-[240px] mt-1 bg-white backdrop-blur-md rounded-lg shadow-lg z-10 title-animation">
+                                <div className="absolute top-[40px] left-[200px] md:top-[50px] md:left-[240px] mt-1 bg-white backdrop-blur-md rounded-lg shadow-lg z-10 title-animation">
                                   {optionsRatio.map((option) => (
                                     <div
                                       key={option.id}
@@ -425,7 +425,7 @@ export default function InfoSectionThree() {
                                 <img
                                   src={ReflectLogo}
                                   alt="Reflect Logo"
-                                  className="w-5 h-5 mx-2"
+                                  className="w-4 h-4 md:w-5 md:h-5 mx-2"
                                 />
                                 <input
                                   id="swapForm"

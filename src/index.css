@@ -172,7 +172,7 @@ html {
 
 /* Background styles for specific sections */
 .bg-info-section {
-  background-image: url("/src/assets/images/yellow_2.webp");
+  background-image: url("/src/assets/images/section_one.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: left;
