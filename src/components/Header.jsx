@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Navbar, IconButton } from "@material-tailwind/react";
-import { Menu, MenuButton } from "@headlessui/react";
 import { XMarkIcon, Bars3Icon } from "../utils/icons";
 import { Squircle } from "react-ios-corners";
 import { headerOptions } from "../data/headerData";
@@ -8,7 +7,6 @@ import Logo from "../assets/images/logo.webp";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState(false);
 
   const handleOpen = () => setOpen((cur) => !cur);
 
