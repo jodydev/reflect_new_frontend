@@ -44,7 +44,7 @@ export default function Hero() {
                 loop
                 muted
                 playsInline
-                className="w-full h-full scale-125"
+                className="w-full h-full fh:scale-110 2xl:scale-125"
               >
                 <source src={Video} type="video/webm" />
               </video>
