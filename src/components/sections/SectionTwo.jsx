@@ -17,7 +17,7 @@ export default function SectionTwo() {
             step.id === "4" ? (
               <div
                 key={index}
-                className="hidden md:block col-start-2 row-start-2 w-full h-full flex items-center justify-center"
+                className="hidden col-start-2 row-start-2 w-full h-full md:flex items-center justify-center"
               >
                 {/* <img
                   src={step.img}
