@@ -22,7 +22,7 @@ export default function Hero() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 fh:gap-96 items-center">
             <div className="w-full 2xl:my-56">
               <div className="text-left mx-5">
-                <h1 className="text-5xl md:text-6xl 2xl:text-8xl text-dark mt-5 mb-4">
+                <h1 className="text-5xl md:text-6xl fh:text-7xl 2xl:text-8xl text-dark mt-5 mb-4">
                   <span className="title-animation">
                     Empowering Base with a whole new crop of assets
                   </span>
@@ -44,7 +44,7 @@ export default function Hero() {
                 loop
                 muted
                 playsInline
-                className="w-full h-full fh:scale-110 2xl:scale-125"
+                className="w-full h-full fh:scale-125"
               >
                 <source src={Video} type="video/webm" />
               </video>
