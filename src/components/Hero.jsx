@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { SwipeableButton } from "react-swipeable-button";
 import Video from "../assets/video/hero.webm";
+import VideoHEVC from "../assets/video/hero.mp4";
 import { Squircle } from "react-ios-corners";
 
 export default function Hero() {
@@ -45,15 +46,18 @@ export default function Hero() {
             </div>
 
             <div className="hidden md:block w-full relative z-0 justify-center animate-fadeInRight">
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-full fh:scale-125"
-              >
-                <source src={Video} type="video/webm" />
-              </video>
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full fh:scale-125"
+            >
+              {/* Video WebM per browser che supportano la trasparenza nei video WebM */}
+              <source src={Video} type="video/webm" />
+              {/* Video HEVC con canale alfa per Safari */}
+              <source src={VideoHEVC} type="video/mp4; codecs=hevc" />
+            </video>
             </div>
           </div>
         </div>
