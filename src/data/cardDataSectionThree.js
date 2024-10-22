@@ -43,7 +43,7 @@ const cardData = [
   {
     id: 2,
     title: "Stake",
-    subtitle: "Stake your tokens to earn rewards and passive income",
+    subtitle: "Earn investing in new assets by depositing collateral securely",
   },
 ];
 

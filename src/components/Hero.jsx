@@ -1,24 +1,10 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState } from "react";
 import { SwipeableButton } from "react-swipeable-button";
-import Video from "../assets/video/hero.webm";
-import VideoHEVC from "../assets/video/hero.mp4";
+import Video from "../assets/video/hero_cube.webm";
 import { Squircle } from "react-ios-corners";
-
-// Funzione per rilevare se il browser è Safari
-const isSafari = () => {
-  const ua = navigator.userAgent.toLowerCase();
-  return ua.includes('safari') && !ua.includes('chrome');
-};
 
 export default function Hero() {
   const [buttonKey, setButtonKey] = useState(0);
-  const [videoSrc, setVideoSrc] = useState(Video);
-
-  useEffect(() => {
-    if (isSafari()) {
-      setVideoSrc(VideoHEVC);
-    }
-  }, []);
 
   const onSuccess = () => {
     try {
@@ -59,15 +45,16 @@ export default function Hero() {
             </div>
 
             <div className="hidden md:block w-full relative z-0 justify-center animate-fadeInRight">
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-full fh:scale-125"
-              >
-                <source src={videoSrc} type={isSafari() ? "video/mp4; codecs=hevc" : "video/webm"} />
-              </video>
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full fh:scale-125"
+            >
+              {/* Video WebM per browser che supportano la trasparenza nei video WebM */}
+              <source src={Video} type="video/webm" />
+            </video>
             </div>
           </div>
         </div>

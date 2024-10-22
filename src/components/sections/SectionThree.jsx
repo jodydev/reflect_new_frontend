@@ -74,7 +74,7 @@ export default function InfoSectionThree() {
                   ? `${(currentVal * 0.1).toFixed(1)} rBTC`
                   : `${(currentVal * 168).toFixed(3)} TAO`
               );
-              
+
               setInputValueInitialSupply(
                 `$${`${(currentVal * 100).toFixed(4)}`}`
               );
@@ -358,7 +358,7 @@ export default function InfoSectionThree() {
                             </>
                           ) : isCreate ? (
                             <div className="relative flex flex-row items-center justify-between space-x-3">
-                               <div className="w-1/3 flex items-center bg-white bg-opacity-20 rounded-md">
+                              <div className="w-1/3 flex items-center bg-white bg-opacity-20 rounded-md">
                                 <img
                                   src={EthereumLogo}
                                   alt="Etherium Logo"
@@ -420,7 +420,7 @@ export default function InfoSectionThree() {
                               )}
                             </div>
                           ) : (
-                            <div className="relative flex flex-row items-center justify-between space-x-10">
+                            <div className="relative w-full flex flex-row items-center justify-between space-x-10">
                               <div className="w-1/2 flex items-center bg-white bg-opacity-20 rounded-md">
                                 <img
                                   src={ReflectLogo}
@@ -439,7 +439,7 @@ export default function InfoSectionThree() {
                               </div>
 
                               {/* Dropdown Options Date */}
-                              <div className="flex items-center bg-white bg-opacity-20 h-10 md:h-12 rounded-md pl-3 pr-3 text-gray-400 sm:text-sm cursor-not-allowed">
+                              <div className="w-1/2 flex items-center justify-end bg-white bg-opacity-20 h-10 md:h-12 rounded-md pl-3 pr-3 text-gray-400 sm:text-sm cursor-not-allowed">
                                 <div className="flex items-center flex-grow text-nowrap">
                                   <span>
                                     {selectedOptionsDate[index]?.label}
@@ -482,11 +482,7 @@ export default function InfoSectionThree() {
                             ? ``
                             : `${inputValueSwap}`}
                         </span>
-                        {isStake
-                          ? " x Month"
-                          : isCreate
-                          ? ""
-                          : ``}
+                        {isStake ? " x Month" : isCreate ? "" : ``}
                       </p>
                       <div className="mx-10">
                         <SecondaryButton
