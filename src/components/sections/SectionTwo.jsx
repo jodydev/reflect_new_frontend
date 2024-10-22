@@ -12,7 +12,7 @@ export default function SectionTwo() {
       </h2>
 
       <div className="container mx-auto flex items-center justify-center py-0 md:py-10 2xl:py-40 px-5 md:px-0 mt-10">
-        <div className="md:grid md:grid-cols-3 md:grid-rows-3 gap-0 xl:gap-10 justify-center items-center space-y-10 space--10">
+        <div className="md:grid md:grid-cols-3 md:grid-rows-3 gap-0 justify-center items-center space-y-10 space--10">
           {steps.slice(0, 4).map((step, index) =>
             step.id === "4" ? (
               <div
@@ -29,7 +29,7 @@ export default function SectionTwo() {
                     loop
                     muted
                     playsInline
-                    className="w-full h-full absolute md:top-[250%] fh:top-[240%] 2xl:top-[230%] md:scale-105 fh:scale-[125%] 2xl:scale-125"
+                    className="w-full h-full absolute md:top-[250%] fh:top-[250%] 2xl:top-[230%] md:scale-105 fh:scale-[125%] 2xl:scale-125"
                   >
                 <source src={Video} type="video/webm" />
               </video>
