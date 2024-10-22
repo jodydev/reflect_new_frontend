@@ -1,12 +1,15 @@
 import { useState, useRef, useEffect } from "react";
+import ReflectLogo from "../../assets/images/logo.webp";
 import EthereumLogo from "../../assets/images/ethereum.png";
 import TaoLogo from "../../assets/images/tao.svg";
+import BitcoinLogo from "../../assets/images/bitcoin.webp";
 import { gsap } from "gsap";
 import { IoIosArrowDown } from "../../utils/icons";
 import { Squircle } from "react-ios-corners";
 import {
   options,
   optionsDate,
+  optionsRatio,
   optionsLogo,
   cardData,
 } from "../../data/cardDataSectionThree";
@@ -24,6 +27,9 @@ export default function InfoSectionThree() {
   const [inputValueInitialSupply, setInputValueInitialSupply] = useState("");
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [secondDropdownOpen, setSecondDropdownOpen] = useState(false);
+  const [selectedOptionsRatio, setSelectedOptionsRatio] = useState(
+    Array(optionsRatio.length).fill(optionsRatio[0])
+  );
   const [selectedOptions, setSelectedOptions] = useState(
     Array(options.length).fill(options[0])
   );
@@ -55,15 +61,18 @@ export default function InfoSectionThree() {
               setInputValue(
                 `${
                   isStake
-                    ? `${(currentVal * 100).toFixed(0)}RFL`
+                    ? `${(currentVal * 100).toFixed(0)} RFL`
                     : isCreate
-                    ? `Xylo`
-                    : `${(currentVal * 3).toFixed(2)}ETH`
+                    ? `${(currentVal * 3).toFixed(2)} ETH`
+                    : `${(currentVal * 3).toFixed(2)} ETH`
                 }`
               );
               setInputValueSwap(
-                `${(currentVal * 168).toFixed(3)} TAO`
-                 
+                isStake
+                  ? `${(currentVal * 168).toFixed(3)} TAO`
+                  : isCreate
+                  ? `${(currentVal * 0.1).toFixed(1)} rBTC`
+                  : `${(currentVal * 168).toFixed(3)} TAO`
               );
               
               setInputValueInitialSupply(
@@ -223,16 +232,16 @@ export default function InfoSectionThree() {
       id="section_three"
       className="min-h-screen py-12 xl:py-20 2xl:py-40 px-4 sm:px-20 flex-col relative bg-img bg-trasparent"
     >
-      <div className="ms-0 md:ms-72 2xl:ms-[700px]">
-        <h2 className="text-2xl md:text-5xl 2xl:text-6xl font-bold text-dark title-animation">
+      <div className="ms-0 md:ms-60 2xl:ms-[700px]">
+        <p className="text-2xl md:text-5xl 2xl:text-6xl font-bold text-dark title-animation">
           Create your favourite rAsset
-        </h2>
+        </p>
         <ScrollAnimation duration={2} animateIn="fadeInRight">
           <div className="h-1 rounded-3xl bg-primary mx-32 w-full xl:w-1/2 mt-3 xl:mt-5"></div>
         </ScrollAnimation>
-        <h3 className="text-2xl md:text-5xl 2xl:text-6xl font-bold text-dark ms-32 md:ms-[400px] 2xl:ms-[700px] mt-3 xl:mt-5 title-animation">
+        <p className="text-2xl md:text-5xl 2xl:text-6xl font-bold text-dark ms-32 xl:ms-[300px] 2xl:ms-[700px] mt-3 xl:mt-5 title-animation">
           in three simple steps
-        </h3>
+        </p>
       </div>
 
       <div className="flex flex-col md:grid md:grid-cols-2 justify-center items-start space-y-8 md:space-y-0 md:space-x-8">
@@ -277,7 +286,7 @@ export default function InfoSectionThree() {
                               {isStake
                                 ? "Quantity"
                                 : isCreate
-                                ? "Token Name"
+                                ? "Collateral"
                                 : "From"}
                             </label>
                             <label
@@ -293,19 +302,19 @@ export default function InfoSectionThree() {
                               htmlFor="priceFrom"
                               className="title-animation mt-4 block text-xs md:text-base font-medium text-start leading-6 text-dark"
                             >
-                              Token Name
+                              Collateral
                             </label>
                             <label
                               htmlFor="priceTo"
                               className="title-animation mt-4 block text-xs md:text-base font-medium text-start leading-6 text-dark"
                             >
-                              Initial Supply
+                              Minted
                             </label>
                             <label
                               htmlFor="priceTo"
                               className="title-animation mt-4 block text-xs md:text-base font-medium text-start leading-6 text-dark"
                             >
-                              Icon
+                              Ratio
                             </label>
                           </div>
                         )}
@@ -317,7 +326,7 @@ export default function InfoSectionThree() {
                                 <img
                                   src={EthereumLogo}
                                   alt="Etherium Logo"
-                                  className="w-4 h-4 ms-2"
+                                  className="w-5 h-5 ms-2"
                                 />
                                 <input
                                   id="swapForm"
@@ -325,7 +334,7 @@ export default function InfoSectionThree() {
                                   type="text"
                                   placeholder={isStake ? "0RFL" : "$0.00"}
                                   value={inputValue}
-                                  className={`w-full block bg-transparent h-10 md:h-12 border-0 py-1.5 pl-3 text-primary font-bold text-sm md:text-base focus:outline-none focus:ring-0`}
+                                  className={`w-full block bg-transparent h-10 md:h-12 border-0 py-1.5 pl-1 text-primary font-bold text-sm md:text-base focus:outline-none focus:ring-0`}
                                   readOnly
                                 />
                               </div>
@@ -334,7 +343,7 @@ export default function InfoSectionThree() {
                                 <img
                                   src={TaoLogo}
                                   alt="Tao Logo"
-                                  className="w-4 h-4 ms-2"
+                                  className="w-5 h-5 ms-2"
                                 />
                                 <input
                                   id="swapForm"
@@ -342,52 +351,92 @@ export default function InfoSectionThree() {
                                   type="text"
                                   placeholder={isStake ? "0RFL" : "$0.00"}
                                   value={inputValueSwap}
-                                  className={`w-full block bg-transparent h-10 md:h-12 border-0 py-1.5 pl-3 text-primary font-bold text-sm md:text-base focus:outline-none focus:ring-0`}
+                                  className={`w-full block bg-transparent h-10 md:h-12 border-0 py-1.5 pl-1 text-primary font-bold text-sm md:text-base focus:outline-none focus:ring-0`}
                                   readOnly
                                 />
                               </div>
                             </>
                           ) : isCreate ? (
                             <div className="relative flex flex-row items-center justify-between space-x-3">
-                              <input
-                                id="tokenName"
-                                name="tokenName"
-                                type="text"
-                                placeholder="Xylo"
-                                value={inputValue}
-                                className={`w-full block bg-white bg-opacity-20 h-10 md:h-12 rounded-md border-0 py-1.5 pl-3 text-primary font-bold text-sm md:text-base focus:outline-none focus:ring-0`}
-                                readOnly
-                              />
+                               <div className="w-1/3 flex items-center bg-white bg-opacity-20 rounded-md">
+                                <img
+                                  src={EthereumLogo}
+                                  alt="Etherium Logo"
+                                  className="w-5 h-5 ms-2"
+                                />
+                                <input
+                                  id="swapForm"
+                                  name="swapForm"
+                                  type="text"
+                                  placeholder={isStake ? "0RFL" : "$0.00"}
+                                  value={inputValue}
+                                  className={`w-full block bg-transparent h-10 md:h-12 border-0 py-1.5 pl-1 text-primary font-bold text-sm md:text-base focus:outline-none focus:ring-0`}
+                                  readOnly
+                                />
+                              </div>
 
-                              {/* Dropdown Options Date */}
-                              <input
-                                id="initialSupply"
-                                name="initialSupply"
-                                type="text"
-                                placeholder={isStake ? "0RFL" : "$0.00"}
-                                value={inputValueInitialSupply}
-                                className={`w-full block bg-white bg-opacity-20 h-10 md:h-12 rounded-md border-0 py-1.5 pl-3 text-primary font-bold text-sm md:text-base focus:outline-none focus:ring-0`}
-                                readOnly
-                              />
+                              <div className="w-1/3 flex items-center bg-white bg-opacity-20 rounded-md">
+                                <img
+                                  src={BitcoinLogo}
+                                  alt="Bitcoin Logo"
+                                  className="w-5 h-5 ms-2"
+                                />
+                                <input
+                                  id="swapForm"
+                                  name="swapForm"
+                                  type="text"
+                                  placeholder={isStake ? "0RFL" : "$0.00"}
+                                  value={inputValueSwap}
+                                  className={`w-full block bg-transparent h-10 md:h-12 border-0 py-1.5 pl-1 text-primary font-bold text-sm md:text-base focus:outline-none focus:ring-0`}
+                                  readOnly
+                                />
+                              </div>
 
                               {/* Dropdown Options Logo */}
-                              <div className="relative inline-block">
-                                <div className="w-full flex items-center justify-center bg-white bg-opacity-20 h-10 md:h-12 rounded-md pl-3 pr-3 text-dark sm:text-sm cursor-not-allowed">
-                                  <MdOutlineDriveFolderUpload className="w-6 h-6" />
+                              <div className="w-1/5 flex items-center bg-white bg-opacity-20 h-10 md:h-12 rounded-md pl-2 pr-2 text-gray-400 sm:text-sm cursor-not-allowed">
+                                <div className="flex items-center flex-grow text-nowrap">
+                                  <span>
+                                    {selectedOptionsRatio[index]?.label}
+                                  </span>
+                                </div>
+                                <div className="flex items-center">
+                                  <IoIosArrowDown className="text-gray-400" />
                                 </div>
                               </div>
+
+                              {dropdownOpen && index === selectedIndex && (
+                                <div className="absolute top-[40px] left-[85px] md:top-[50px] md:left-[240px] mt-1 bg-white backdrop-blur-md rounded-lg shadow-lg z-10 title-animation">
+                                  {optionsRatio.map((option) => (
+                                    <div
+                                      key={option.id}
+                                      className="cursor-pointer hover:bg-gray-100 p-2"
+                                    >
+                                      <div className="flex items-center text-nowrap">
+                                        <span>{option.label}</span>
+                                      </div>
+                                    </div>
+                                  ))}
+                                </div>
+                              )}
                             </div>
                           ) : (
                             <div className="relative flex flex-row items-center justify-between space-x-10">
-                              <input
-                                id="tokenName"
-                                name="tokenName"
-                                type="text"
-                                placeholder="Xylo"
-                                value={inputValue}
-                                className={`w-full block bg-white bg-opacity-20 h-10 md:h-12 rounded-md border-0 py-1.5 pl-3 text-primary font-bold text-sm md:text-base focus:outline-none focus:ring-0`}
-                                readOnly
-                              />
+                              <div className="w-1/2 flex items-center bg-white bg-opacity-20 rounded-md">
+                                <img
+                                  src={ReflectLogo}
+                                  alt="Reflect Logo"
+                                  className="w-5 h-5 mx-2"
+                                />
+                                <input
+                                  id="swapForm"
+                                  name="swapForm"
+                                  type="text"
+                                  placeholder={isStake ? "0RFL" : "$0.00"}
+                                  value={inputValue}
+                                  className={`w-full block bg-transparent h-10 md:h-12 border-0 py-1.5 pl-1 text-primary font-bold text-sm md:text-base focus:outline-none focus:ring-0`}
+                                  readOnly
+                                />
+                              </div>
 
                               {/* Dropdown Options Date */}
                               <div className="flex items-center bg-white bg-opacity-20 h-10 md:h-12 rounded-md pl-3 pr-3 text-gray-400 sm:text-sm cursor-not-allowed">
@@ -424,20 +473,20 @@ export default function InfoSectionThree() {
                         {isStake
                           ? "Estimated Reward: "
                           : isCreate
-                          ? "New Asset: "
+                          ? ""
                           : "Account Balance: "}
                         <span className="text-primary font-bold">
                           {isStake
                             ? "12%"
                             : isCreate
-                            ? `${inputValue} ${inputValueInitialSupply}`
-                            : inputValue}
+                            ? ``
+                            : `${inputValueSwap}`}
                         </span>
                         {isStake
                           ? " x Month"
                           : isCreate
                           ? ""
-                          : ` ${selectedOptions[index].value}`}
+                          : ``}
                       </p>
                       <div className="mx-10">
                         <SecondaryButton
@@ -447,7 +496,7 @@ export default function InfoSectionThree() {
                               ? "Stake"
                               : isCreate
                               ? "Start Create"
-                              : "Buy Now"
+                              : "Swap"
                           }
                         />
                       </div>
@@ -460,7 +509,7 @@ export default function InfoSectionThree() {
         </div>
 
         {/* Button Section for larger screens */}
-        <div className="hidden md:block relative z-10 py-12 md:py-32 2xl:py-60 px-4 md:px-20 xl:px-40 2xl:px-96">
+        <div className="hidden md:block relative z-10 py-12 md:py-24 2xl:py-60 px-4 md:px-20 xl:px-40 2xl:px-96">
           <div className="flex flex-col items-center w-full h-full p-4 xl:p-10 bg-trasparent">
             <div className="flex w-full flex-col gap-6 xl:gap-14">
               {cardData.map((index) => (

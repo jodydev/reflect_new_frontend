@@ -11,6 +11,12 @@ const options = [
   { id: 2, value: "gGOOGL", label: "gGOOGL", img: Google },
 ];
 
+const optionsRatio = [
+  { id: 0, value: "120%", label: "120%" },
+  { id: 1, value: "150%", label: "150%" },
+  { id: 2, value: "200%", label: "200%" },
+]
+
 const optionsDate = [
   { id: 0, value: "3 month", label: "3 month" },
   { id: 1, value: "6 month", label: "6 month" },
@@ -42,4 +48,4 @@ const cardData = [
 ];
 
 
-export { options, optionsDate, optionsLogo, cardData };
+export { options, optionsDate, optionsRatio, optionsLogo, cardData };

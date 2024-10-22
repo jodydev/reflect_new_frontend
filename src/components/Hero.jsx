@@ -1,7 +1,7 @@
 import Image from "../assets/images/cubo_prova.png";
 import Button from "../assets/images/button_hero.webp";
 import { SwipeableButton } from "react-swipeable-button";
-import Video from "../assets/images/video.webm";
+import Video from "../assets/images/video_hero.webm";
 import { Squircle } from "react-ios-corners";
 
 export default function Hero() {
@@ -46,7 +46,7 @@ export default function Hero() {
                 loop
                 muted
                 playsInline
-                className="w-full h-full scale-150"
+                className="w-full h-full scale-125"
               >
                 <source src={Video} type="video/webm" />
               </video>
