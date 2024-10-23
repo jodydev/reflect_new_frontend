@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { SwipeableButton } from "react-swipeable-button";
-import Video from "../assets/video/hero_cube.webm";
+import Video from "../assets/images/video2.webm";
 import { Squircle } from "react-ios-corners";
 
 export default function Hero() {
