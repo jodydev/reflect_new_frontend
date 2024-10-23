@@ -44,7 +44,7 @@ export default function Hero() {
               </div>
             </div>
 
-            <div className="hidden md:block w-full relative z-0 justify-center animate-fadeInRight">
+            <div className="hidden md:block w-full relative z-0 justify-center animate-fadeInRight 2xl:-ms-40">
             <video
               autoPlay
               loop
@@ -52,7 +52,6 @@ export default function Hero() {
               playsInline
               className="w-full h-full fh:scale-125"
             >
-              {/* Video WebM per browser che supportano la trasparenza nei video WebM */}
               <source src={Video} type="video/webm" />
             </video>
             </div>
