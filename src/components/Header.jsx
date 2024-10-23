@@ -54,7 +54,7 @@ export default function Header() {
     // onScroll={onScrollCallback}
     shadow={false}
     fullWidth
-    className="border-0 z-50 bg-transparent px-20"
+    className="border-0 z-50 bg-transparent md:px-20"
   >
       <div className="z-50 w-full mx-auto flex items-start justify-between relative my-2">
         {/* Logo */}
@@ -124,7 +124,7 @@ export default function Header() {
             open ? "block" : "hidden"
           } lg:hidden absolute top-full right-0 w-full z-50 my-5`}
         >
-          <Squircle radius={90}>
+          <Squircle radius={60}>
             <ul className="bg-white bg-opacity-100 flex flex-col items-center py-10 gap-6 text-dark">
               {headerOptions.map((item) => (
                 <li

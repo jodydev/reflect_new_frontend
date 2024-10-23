@@ -3,6 +3,17 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Custom animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-250px * 7));
+  }
+}
+
+
 /* Custom Fonts */
 @font-face {
   font-family: 'Involve-Regular';
@@ -24,41 +35,26 @@
   src: url('./fonts/Involve-Bold.ttf') format('truetype');
 }
 
-/* Responsive styles for screens smaller than 768px */
+/* MOBILE */
 @media (max-width: 768px) {
-  body {
-    font-size: 14px;
-    overflow-y: auto;
-  }
 
   .bg-info-section {
     background-image: none !important;
   }
 
   .rsbcText {
-    font-size: 18px !important;
+    font-size: 22px !important;
     right: 10px !important;
   }
 
   .rsbcSliderCircle {
-    right: -8px !important;
-    width: 80px !important;
+    right: -25px !important;
+    width: 100px !important;
   }
 
-  .rsbcSliderText {
-    font-size: 12px;
-    right: 10px !important;
-  }
-
-  .rsbcSlider {
-    height: 60px !important;
-  }
-
-  .rsbcSliderArrow {
-    right: 25px !important;
-  }
 }
 
+/* FULL HD */
 @media screen and (min-width: 2200px) {
   .ReactSwipeButton {
     height: 120px !important;
@@ -91,6 +87,7 @@
   
 }
 
+/* QDHD 4K */
 @media screen and (min-width: 2200px ) and (max-width: 4200px)  {
   .rsbcText {
     top: 22px !important;
@@ -98,6 +95,7 @@
   }
 }
 
+/* FULL HD */
 @media screen and (min-width: 1900px ) and (max-width: 2200px) {
   .ReactSwipeButton {
     height: 120px !important;
@@ -130,6 +128,7 @@
   
 }
 
+/* PORTATILI */
 @media screen and (min-width: 1200px) and (max-width: 1920px) {
   .ReactSwipeButton {
     height: 100px !important;
@@ -160,26 +159,6 @@
     font-size: 30px !important;
   }
   
-}
-
-/* Global box-sizing rule */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-/* Base styles for body and html */
-body {
-  font-family: 'Involve-Medium', sans-serif;
-  overflow-x: hidden;
-  overflow-y: hidden;
-}
-
-html {
-  min-height: 100vh;
-  height: 100%;
-  overflow-x: hidden !important;
 }
 
 /* Carousel styles */
@@ -254,15 +233,6 @@ body {
   scrollbar-color: #FFBF55 black;
 }
 
-/* Keyframes for scrolling animation */
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(calc(-250px * 7));
-  }
-}
 
 /* Slider Partners */
 .slider::after {
@@ -398,4 +368,22 @@ body {
   transform-origin: center;
   z-index: 10;
   display: none !important;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Involve-Medium', sans-serif;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+html {
+  min-height: 100vh;
+  height: 100%;
+  overflow-x: hidden !important;
 }

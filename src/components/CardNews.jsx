@@ -102,7 +102,7 @@ export default function CardNews() {
                   href={post.link}
                   target="_blank"
                   rel="noreferrer"
-                  className="title-animation text-xs 2xl:text-base text-primary hover:underline"
+                  className="title-animation text-xs 2xl:text-base text-primary"
                 >
                   Read more <ArrowRightIcon className="w-4 h-4 inline-block" />
                 </a>
