@@ -22,7 +22,7 @@ export default function Hero() {
       id="hero"
       className="relative h-full flex items-center lg:items-start"
     >
-      <div className="relative z-0 w-full h-[60vh] lg:h-[70vh] fh:h-[75vh] 2xl:h-[75vh] flex justify-center items-center">
+      <div className="relative w-full h-[60vh] lg:h-[70vh] fh:h-[75vh] 2xl:h-[75vh] flex justify-center items-center">
         <div className="container mx-auto fh:mx-32">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 fh:gap-96 items-center">
             <div className="w-full 2xl:my-56">
@@ -44,7 +44,7 @@ export default function Hero() {
               </div>
             </div>
 
-            <div className="hidden md:block w-full relative z-0 justify-center animate-fadeInRight fh:-ms-20 2xl:-ms-40">
+            <div className="hidden md:block w-full z-10 relative justify-center animate-fadeInRight fh:-ms-20 2xl:-ms-40">
             <video
               autoPlay
               loop

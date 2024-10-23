@@ -32,7 +32,7 @@
   }
 
   .bg-info-section {
-    background-size: cover !important;
+    background-image: none !important;
   }
 
   .rsbcText {
