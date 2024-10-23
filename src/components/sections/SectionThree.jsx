@@ -230,9 +230,9 @@ export default function InfoSectionThree() {
   return (
     <section
       id="section_three"
-      className="min-h-screen py-12 mt-20 md:mt-0 fh:py-32 2xl:py-40 px-4 sm:px-20 flex-col relative bg-img bg-trasparent"
+      className="min-h-screen py-12 mt-20 md:mt-0 fh:py-32 2xl:py-40 px-4 flex-col relative bg-img bg-trasparent"
     >
-      <div className="ms-0 md:ms-60 fh:ms-[500px] 2xl:ms-[700px]">
+      <div className="ms-0 md:ms-60 fh:ms-[500px] 2xl:ms-[600px]">
         <p className="text-xl md:text-5xl 2xl:text-6xl font-bold text-dark title-animation">
           Create your favourite rAsset
         </p>
@@ -244,7 +244,7 @@ export default function InfoSectionThree() {
         </p>
       </div>
 
-      <div className="flex flex-col md:grid md:grid-cols-2 justify-center items-start space-y-8 md:space-y-0 md:space-x-8">
+      <div className="flex flex-col md:grid md:grid-cols-2 justify-center items-start space-y-8 md:space-y-0 -space-x-40">
         <div className="flex-1 flex items-center justify-center relative z-10">
           <div className="relative">
             {cardData.map((item, index) => {
@@ -255,7 +255,7 @@ export default function InfoSectionThree() {
                 <div
                   key={item.id}
                   ref={(el) => (cardRefs.current[index] = el)}
-                  className={`absolute right-[-50px] md:right-[100px] 2xl:right-[350px] top-32 md:top-40 2xl:top-80 flex items-center justify-center text-white text-center ${
+                  className={`absolute right-[-50px] md:right-[100px] fh:right-[100px] 2xl:right-[150px] top-32 md:top-40 2xl:top-80 flex items-center justify-center text-white text-center ${
                     isSelected
                       ? "w-72 h-60"
                       : "opacity-50 scale-75 w-72 h-60 blur-[3px]"
@@ -505,7 +505,7 @@ export default function InfoSectionThree() {
         </div>
 
         {/* Button Section for larger screens */}
-        <div className="hidden md:block relative z-10 py-12 md:py-24 2xl:py-60 px-4 md:px-20 fh:px-52 2xl:px-96">
+        <div className="hidden md:block relative z-10 py-12 md:py-24 2xl:py-56 px-4 md:px-20 fh:px-52 2xl:px-96">
           <div className="flex flex-col items-center w-full h-full p-4 xl:p-10 bg-trasparent">
             <div className="flex w-full flex-col gap-6 xl:gap-14">
               {cardData.map((index) => (
@@ -555,7 +555,7 @@ export default function InfoSectionThree() {
         {/* Background Image Section */}
         <div
           ref={backgroundRef}
-          className="animate-fadeInRight z-0 absolute xl:top-[0px] 2xl:top-[-200px] xl:right-[-50px] xl:w-[400px] xl:h-[350px] 2xl:w-[600px] 2xl:h-[700px] bg-cover bg-no-repeat"
+          className="animate-fadeInRight z-0 absolute xl:top-[0px] 2xl:top-[-150px] xl:right-[-50px] xl:w-[400px] xl:h-[350px] 2xl:w-[600px] 2xl:h-[700px] bg-cover bg-no-repeat"
           style={{
             backgroundImage: `url(${backgroundImages[selectedIndex]})`,
           }}
