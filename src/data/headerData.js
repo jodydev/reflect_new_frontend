@@ -1,6 +1,5 @@
 const headerOptions = [
-  { name: "Home", link: "#hero" },
-  { name: "How it works?", link: "#section_three" },
+  { name: "How it works?", link: "#section_one" },
   { name: "News", link: "#card-news" },
   { name: "Partners", link: "#section_six" },
   { name: "Contact", link: "#footer" },

@@ -4,7 +4,7 @@ export default function SectionFive() {
   return (
     <section
       id="section_five"
-      className="flex-col justify-center items-center pt-20 pb-20 md:pt-40 md:pb-40 2xl:md:pb-60"
+      className="flex-col justify-center items-center pt-20 pb-20 md:pt-20 md:pb-40 2xl:md:pb-60"
     >
       <div id="card-news" className="flex flex-col items-center justify-start relative z-10">
         <div className="text-center px-4 my-5 lg:px-10 md:my-20">
@@ -16,7 +16,7 @@ export default function SectionFive() {
           </p>
         </div>
 
-        <div className="flex flex-col md:flex-row mx-10 mt-20 md:mt-0 2xl:mt-20 md:mx-0">
+        <div className="flex flex-col md:flex-row mx-10 mt-20 md:mt-0 md:mx-0">
           <CardNews />
         </div>
       </div>
