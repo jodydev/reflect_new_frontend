@@ -28,7 +28,7 @@
 @media (max-width: 768px) {
   body {
     font-size: 14px;
-    overflow-y: auto;
+    /* overflow-y: auto; */
   }
 
   .bg-info-section {
@@ -172,14 +172,14 @@
 /* Base styles for body and html */
 body {
   font-family: 'Involve-Medium', sans-serif;
-  /* overflow-x: hidden;
-  overflow-y: hidden; */
+  overflow-x: hidden;
+  /* overflow-y: hidden; */
 }
 
 html {
   min-height: 100vh;
   height: 100%;
-  overflow-x: hidden !important;
+  /* overflow-x: hidden !important; */
 }
 
 /* Carousel styles */
@@ -310,7 +310,7 @@ body {
   background: #121212 !important;
   border-radius: 25px !important;
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .rsbcText {
@@ -338,7 +338,7 @@ body {
   width: 150px;
   border-radius: 20px;
   z-index: 10;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .rsbcSliderCircle::before {

@@ -24,7 +24,7 @@ export default function Header() {
     <Navbar
     shadow={false}
     fullWidth
-    className="border-0 z-10 bg-transparent px-20"
+    className="border-0 z-10 bg-transparent px-20 sticky top-0"
   >
       <div className="w-full mx-auto flex items-start justify-between relative my-2">
         {/* Logo */}
@@ -37,7 +37,7 @@ export default function Header() {
 
         {/* Menu per desktop */}
         <Squircle
-          className="hidden md:block bg-white bg-opacity-40 text-dark shadow-lg w-[400px] h-[50px] 2xl:w-[500px] 2xl:h-[70px] animate-fadeInTop"
+          className="hidden md:block bg-gray-100 bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-40 saturate-100 backdrop-contrast-100 text-dark shadow-lg w-[400px] h-[50px] 2xl:w-[500px] 2xl:h-[70px] animate-fadeInTop"
           radius={90}
         >
           <div className="hidden lg:flex w-full items-center justify-center gap-6 py-4 px-8 2xl:py-6">
