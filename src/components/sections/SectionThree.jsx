@@ -505,7 +505,7 @@ export default function InfoSectionThree() {
         </div>
 
         {/* Button Section for larger screens */}
-        <div className="hidden md:block relative z-10 py-12 md:py-24 2xl:py-56 px-4 md:px-20 fh:px-52 2xl:px-96">
+        <div className="hidden md:block relative z-10 py-12 md:py-24 2xl:py-56 px-4 md:px-20 fh:px-72 2xl:px-96">
           <div className="flex flex-col items-center w-full h-full p-4 xl:p-10 bg-trasparent">
             <div className="flex w-full flex-col gap-6 xl:gap-14">
               {cardData.map((index) => (
