@@ -1,5 +1,5 @@
 import { steps } from "../../data/steps";
-import Video from "../../assets/images/video.webm";
+import Video from "../../assets/video/video.webm";
 import ScrollAnimation from "react-animate-on-scroll";
 
 export default function SectionTwo() {
@@ -20,11 +20,6 @@ export default function SectionTwo() {
                 key={index}
                 className="hidden col-start-2 row-start-2 w-full h-full md:flex items-center justify-center"
               >
-                {/* <img
-                  src={step.img}
-                  alt="Image"
-                  className="w-1/3 object-cover rounded-3xl abso</div>lute md:top-[290%] xl:top-[290%] 2xl:top-[260%] left-[30%]"
-                /> */}
                 <video
                   onMouseOver={(e) => e.target.play()}
                   loop

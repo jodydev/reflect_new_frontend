@@ -5,8 +5,7 @@ import Logo from "../assets/images/logo_white.webp";
 import ScrollAnimation from "react-animate-on-scroll";
 
 export default function Footer() {
-  const linkClasses =
-    "text-md flex cursor-pointer text-gray-600 transition-all duration-300 ease-in-out hover:translate-y-0.5 hover:scale-105 hover:text-white";
+  const linkClasses = "text-md flex cursor-pointer text-gray-600 transition-all duration-300 ease-in-out hover:translate-y-0.5 hover:scale-105 hover:text-white";
 
   return (
     <footer id="footer" className="bg-dark text-white h-full py-10 md:py-20 z-50 flex items-center justify-center">
@@ -52,9 +51,8 @@ export default function Footer() {
               </div>
             </ScrollAnimation>
 
-            {/* Social Buttons */}
             <ScrollAnimation duration={2} animateIn="fadeInUp">
-              <div className="flex flex-col space-y-4 items-start md:items-center">
+              <div id="social" className="flex flex-col space-y-4 items-start md:items-center">
                 <h2 className="text-lg md:text-xl 2xl:text-3xl">
                   Social & Community
                 </h2>

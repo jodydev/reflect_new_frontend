@@ -1,5 +1,3 @@
-import Image from "../assets/images/yellow_1.webp";
-
 const steps = [
   {
     id: "1",
@@ -15,10 +13,6 @@ const steps = [
     id: "3",
     title: "Innovation",
     subtitle: "New value creation and development of new investment strategies.",
-  },
-  {
-    id: "4",
-    img: Image,
   },
 ];
 

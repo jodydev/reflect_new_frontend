@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import ReflectLogo from "../../assets/images/logo.webp";
-import EthereumLogo from "../../assets/images/ethereum.png";
+import EthereumLogo from "../../assets/images/ethereum.webp";
 import TaoLogo from "../../assets/images/tao.svg";
 import BitcoinLogo from "../../assets/images/bitcoin.webp";
 import { gsap } from "gsap";

@@ -9,10 +9,7 @@ import SquircleBox from "../assets/images/squircle_box.png";
 export default function CardNews() {
   const isMobile = window.innerWidth < 768;
 
-  const urls = useMemo(() => [
-    "https://medium.com/feed/@RFLOnBase",
-    "https://medium.com/feed/@clearpool"
-  ], []);
+  const urls = useMemo(() => ["https://medium.com/feed/@RFLOnBase", "https://medium.com/feed/@clearpool",],[]);
 
   const { posts, loading, error } = getDataFromMedium(urls);
 
@@ -21,7 +18,10 @@ export default function CardNews() {
   if (error) return <p>Error: {error.message}</p>;
 
   return (
-    <div className="flex flex-col md:flex-row gap-20 xl:gap-32 mx-10 mt-0 md:mt-0 2xl:mt-20 md:mx-0">
+    <div
+      id="card_news"
+      className="flex flex-col md:flex-row gap-20 xl:gap-32 mx-10 mt-0 md:mt-0 2xl:mt-20 md:mx-0"
+    >
       {posts.map((post, index) => (
         <ScrollAnimation
           key={index}

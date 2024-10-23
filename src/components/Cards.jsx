@@ -7,7 +7,7 @@ export default function Cards() {
   const [isSelected, setIsSelected] = useState("1");
 
   return (
-    <div className="flex flex-col items-center relative w-3/4 py-10">
+    <div id="card_section_one" className="flex flex-col items-center relative w-3/4 py-10">
       <div className="flex flex-wrap justify-center items-center space-x-0 md:space-x-10 2xl:space-x-20 space-y-10 md:space-y-0">
         {cardData.map((data, index) => {
           const number = (index + 1).toString();
