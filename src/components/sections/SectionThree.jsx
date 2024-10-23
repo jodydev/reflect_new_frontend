@@ -21,6 +21,7 @@ import ScrollAnimation from "react-animate-on-scroll";
 import { MdOutlineDriveFolderUpload } from "react-icons/md";
 
 export default function InfoSectionThree() {
+  const [inputValueSwapBalace, setInputValueSwapBalace] = useState("0");
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [inputValue, setInputValue] = useState("");
   const [inputValueSwap, setInputValueSwap] = useState("");
@@ -67,12 +68,15 @@ export default function InfoSectionThree() {
                     : `${(currentVal * 3).toFixed(2)} ETH`
                 }`
               );
+              setInputValueSwapBalace(
+                `$${`${(currentVal * 350).toFixed(4)}`}`
+              )
               setInputValueSwap(
                 isStake
                   ? `${(currentVal * 168).toFixed(3)} TAO`
                   : isCreate
                   ? `${(currentVal * 0.1).toFixed(1)} rBTC`
-                  : `${(currentVal * 168).toFixed(3)} TAO`
+                  : `${(currentVal * 132).toFixed(3)} TAO`
               );
 
               setInputValueInitialSupply(
@@ -480,7 +484,7 @@ export default function InfoSectionThree() {
                             ? "12%"
                             : isCreate
                             ? ``
-                            : `${inputValueSwap}`}
+                            : `${inputValueSwapBalace}`}
                         </span>
                         {isStake ? " x Month" : isCreate ? "" : ``}
                       </p>
@@ -531,8 +535,8 @@ export default function InfoSectionThree() {
         </div>
 
         {/* Button Section for mobile devices */}
-        <div className="block md:hidden absolute bottom-40 right-0 left-0 px-5">
-          <div className="flex w-full flex-row gap-6">
+        <div className="block md:hidden absolute bottom-40 right-0 left-[45%]">
+          <div className="flex w-1/2 flex-row gap-6">
             {cardData.map((index) => (
               <div key={index.id} className="w-full">
                 <button

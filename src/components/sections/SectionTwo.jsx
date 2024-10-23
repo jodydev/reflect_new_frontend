@@ -6,7 +6,7 @@ export default function SectionTwo() {
   return (
     <section
       id="section_two"
-      className="flex-col justify-center items-center md:h-screen"
+      className="flex-col justify-center items-center h-full md:h-screen"
     >
       <h2 className="title-animation text-3xl lg:text-5xl xl:text-6xl font-bold text-center  leading-loose text-dark">
         Why Reflect on Base?
@@ -30,7 +30,7 @@ export default function SectionTwo() {
                   loop
                   muted
                   playsInline
-                  className="w-full h-full absolute md:top-[255%] fh:top-[240%] 2xl:top-[220%] md:scale-105 fh:scale-[120%] 2xl:scale-125"
+                  className="hidden lg:block w-full h-full absolute md:top-[255%] fh:top-[240%] 2xl:top-[220%] md:scale-105 fh:scale-[120%] 2xl:scale-125"
                 >
                   <source src={Video} type="video/webm" />
                 </video>
