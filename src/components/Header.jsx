@@ -24,9 +24,9 @@ export default function Header() {
     <Navbar
       shadow={false}
       fullWidth
-      className="border-0 relative z-10 bg-transparent"
+      className="border-0 relative z-10 bg-transparent px-20"
     >
-      <div className="container mx-auto flex items-start justify-between relative my-2">
+      <div className="w-full mx-auto flex items-start justify-between relative my-2">
         {/* Logo */}
         <div className="flex items-center justify-start ml-2 md:ml-0 animate-fadeInLeft">
           <img src={Logo} alt="logo" className="h-10 w-7 md:h-12 md:w-full 2xl:h-14 2xl:w-full" />

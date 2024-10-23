@@ -91,7 +91,14 @@
   
 }
 
-@media screen and (min-width: 1900px) {
+@media screen and (min-width: 2200px ) and (max-width: 4200px)  {
+  .rsbcText {
+    top: 22px !important;
+    left: 250px !important;
+  }
+}
+
+@media screen and (min-width: 1900px ) and (max-width: 2200px) {
   .ReactSwipeButton {
     height: 120px !important;
   }
