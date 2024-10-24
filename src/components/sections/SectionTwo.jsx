@@ -25,7 +25,7 @@ export default function SectionTwo() {
                   loop
                   muted
                   playsInline
-                  className="hidden lg:block w-full h-full absolute md:top-[255%] fh:top-[240%] 2xl:top-[220%] md:scale-105 fh:scale-[120%] 2xl:scale-110"
+                  className="hidden md:block w-full h-full absolute md:top-[255%] fh:top-[240%] 2xl:top-[220%] md:scale-105 fh:scale-[120%] 2xl:scale-110"
                 >
                   <source src={Video} type="video/webm" />
                 </video>
@@ -40,7 +40,7 @@ export default function SectionTwo() {
                 } row-start-${
                   index === 0 ? 1 : index === 1 ? 2 : index === 2 ? 2 : 3
                 }
-                w-full h-32 xl:h-32 2xl:h-40 bg-gray-100 bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-40 saturate-100 backdrop-contrast-100 flex items-center justify-center p-6 2xl:p-10 rounded-3xl border-l-8 rounded-bl-sm border-primary`}
+                w-full h-32 lg:h-24 fh:h-32 2xl:h-40 bg-gray-100 bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-40 saturate-100 backdrop-contrast-100 flex items-center justify-center p-6 2xl:p-10 rounded-3xl border-l-8 rounded-bl-sm border-primary`}
               >
                 <div className="text-center">
                   <h3 className="text-2xl md:text-3xl 2xl:text-4xl font-bold mb-2 2xl:mb-2 text-start title-animation">

@@ -14,6 +14,11 @@ const steps = [
     title: "Innovation",
     subtitle: "New value creation and development of new investment strategies.",
   },
+  {
+    id: "4",
+    title: "Transparency",
+    subtitle: "Transparent and secure transactions, with real-time information and traceability.",
+  },
 ];
 
 export { steps };
