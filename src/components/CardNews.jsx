@@ -2,7 +2,6 @@ import { getDataFromMedium } from "../hooks/getDataFromMedium";
 import { useMemo } from "react";
 import { ArrowRightIcon } from "../utils/icons";
 import { Squircle } from "react-ios-corners";
-import Image from "../assets/images/yellow_1.webp";
 import ScrollAnimation from "react-animate-on-scroll";
 import SquircleBox from "../assets/images/squircle_box.png";
 
@@ -53,7 +52,7 @@ export default function CardNews() {
                   className="text-xs text-primary hover:cursor-pointer p-0 m-0"
                 >
                   <img
-                    src={post.img || Image}
+                    src={post.img}
                     alt="Image Post"
                     className="relative h-1/2 w-full object-cover hover:cursor-pointer hover:scale-110 transition-transform duration-500 ease-in-out"
                   />
