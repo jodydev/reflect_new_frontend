@@ -11,12 +11,12 @@ export default function Footer() {
     <footer id="footer" className="bg-dark text-white h-full py-10 md:py-20 z-50 flex items-center justify-center">
       <div className="w-full px-8 md:px-40 flex flex-col mt-10 md:mt-20">
         <div className="w-full md:w-2/4">
-          <h3 className="title-animation w-full text-3xl md:text-5xl 2xl:text-7xl font-bold">
+          <h3 className="w-full text-3xl md:text-5xl 2xl:text-7xl font-bold">
             Empowering everyone with maximum assets on Base, with Reflect
           </h3>
         </div>
         <div className="flex mt-8 flex-col md:flex-row md:justify-between">
-          <p className="title-animation w-full text-gray-400 text-lg md:text-xl 2xl:text-2xl">
+          <p className="w-full text-gray-400 text-lg md:text-xl 2xl:text-2xl">
             The first decentralized synthetic market built on Base.
           </p>
         </div>

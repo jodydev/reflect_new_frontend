@@ -73,10 +73,10 @@ export default function InfoSectionThree() {
               )
               setInputValueSwap(
                 isStake
-                  ? `${(currentVal * 168).toFixed(3)} TAO`
+                  ? `${(currentVal * 168).toFixed(3)} rTAO`
                   : isCreate
                   ? `${(currentVal * 0.1).toFixed(1)} rBTC`
-                  : `${(currentVal * 132).toFixed(3)} TAO`
+                  : `${(currentVal * 132).toFixed(3)} rTAO`
               );
 
               setInputValueInitialSupply(
@@ -85,7 +85,7 @@ export default function InfoSectionThree() {
             },
           }
         );
-      }, 1000);
+      }, 0);
 
       const intervalId = setInterval(() => {
         // 2. Apro il dropdown
@@ -237,13 +237,13 @@ export default function InfoSectionThree() {
       className="min-h-screen py-12 mt-20 md:mt-0 fh:py-32 2xl:py-40 px-4 flex-col relative bg-img bg-trasparent"
     >
       <div className="ms-0 md:ms-60 fh:ms-[500px] 2xl:ms-[600px]">
-        <p className="text-xl md:text-5xl 2xl:text-6xl font-bold text-dark title-animation">
+        <p className="text-xl md:text-5xl 2xl:text-6xl font-bold text-dark">
           Create your favourite rAsset
         </p>
         <ScrollAnimation duration={2} animateIn="fadeInRight">
           <div className="h-1 rounded-3xl bg-primary mx-32 w-full xl:w-1/2 mt-3 xl:mt-5"></div>
         </ScrollAnimation>
-        <p className="text-xl md:text-5xl 2xl:text-6xl font-bold text-dark ms-32 xl:ms-[300px] 2xl:ms-[700px] mt-3 xl:mt-5 title-animation">
+        <p className="text-xl md:text-5xl 2xl:text-6xl font-bold text-dark ms-32 xl:ms-[300px] 2xl:ms-[700px] mt-3 xl:mt-5">
           in three simple steps
         </p>
       </div>
@@ -271,7 +271,7 @@ export default function InfoSectionThree() {
                 >
                   <Squircle className="bg-white bg-opacity-10 " radius={90}>
                     <div className="cursor-not-allowed flex-col w-full h-full min-h-[340px] md:w-[400px] md:h-[350px] 2xl:w-[500px] 2xl:h-[450px] text-dark">
-                      <div className="title p-4 bg-white bg-opacity-20 rounded-t-[35px] title-animation">
+                      <div className="title p-4 bg-white bg-opacity-20 rounded-t-[35px] ">
                         <h3 className="text-lg md:text-2xl font-semibold flex items-center justify-center pt-3 2xl:mb-2">
                           {item.title}
                         </h3>
@@ -285,7 +285,7 @@ export default function InfoSectionThree() {
                           <div className="flex justify-between">
                             <label
                               htmlFor="priceFrom"
-                              className="title-animation mt-4 block text-xs md:text-base font-medium text-start leading-6 text-dark"
+                              className=" mt-4 block text-xs md:text-base font-medium text-start leading-6 text-dark"
                             >
                               {isStake
                                 ? "Quantity"
@@ -295,7 +295,7 @@ export default function InfoSectionThree() {
                             </label>
                             <label
                               htmlFor="priceTo"
-                              className="title-animation mt-4 block text-xs md:text-base font-medium text-start leading-6 text-dark"
+                              className=" mt-4 block text-xs md:text-base font-medium text-start leading-6 text-dark"
                             >
                               {isStake ? "Duration" : !isCreate ? "To" : ""}
                             </label>
@@ -304,19 +304,19 @@ export default function InfoSectionThree() {
                           <div className="flex justify-between text-start">
                             <label
                               htmlFor="priceFrom"
-                              className="title-animation mt-4 block text-xs md:text-base font-medium text-start leading-6 text-dark"
+                              className=" mt-4 block text-xs md:text-base font-medium text-start leading-6 text-dark"
                             >
                               Collateral
                             </label>
                             <label
                               htmlFor="priceTo"
-                              className="title-animation mt-4 block text-xs md:text-base font-medium text-start leading-6 text-dark"
+                              className=" mt-4 block text-xs md:text-base font-medium text-start leading-6 text-dark"
                             >
                               Minted
                             </label>
                             <label
                               htmlFor="priceTo"
-                              className="title-animation mt-4 block text-xs md:text-base font-medium text-start leading-6 text-dark"
+                              className=" mt-4 block text-xs md:text-base font-medium text-start leading-6 text-dark"
                             >
                               Ratio
                             </label>
@@ -409,7 +409,7 @@ export default function InfoSectionThree() {
                               </div>
 
                               {dropdownOpen && index === selectedIndex && (
-                                <div className="absolute top-[40px] left-[200px] md:top-[50px] md:left-[240px] mt-1 bg-white backdrop-blur-md rounded-lg shadow-lg z-10 title-animation">
+                                <div className="absolute top-[40px] left-[200px] md:top-[50px] md:left-[240px] mt-1 bg-white backdrop-blur-md rounded-lg shadow-lg z-10 ">
                                   {optionsRatio.map((option) => (
                                     <div
                                       key={option.id}
@@ -455,7 +455,7 @@ export default function InfoSectionThree() {
                               </div>
 
                               {dropdownOpen && index === selectedIndex && (
-                                <div className="absolute top-[40px] left-[85px] md:top-[50px] md:left-[170px] mt-1 bg-white backdrop-blur-md rounded-lg shadow-lg z-10 title-animation">
+                                <div className="absolute top-[40px] left-[85px] md:top-[50px] md:left-[170px] mt-1 bg-white backdrop-blur-md rounded-lg shadow-lg z-10 ">
                                   {optionsDate.map((option) => (
                                     <div
                                       key={option.id}
@@ -518,7 +518,7 @@ export default function InfoSectionThree() {
                     id="card_button"
                     aria-label="card button"
                     onClick={() => setSelectedIndex(index.id)}
-                    className={`title-animation w-full 2xl:h-20 rounded-lg shadow-md transition-all duration-300 px-6 py-3 text-base xl:text-2xl font-medium
+                    className={` w-full 2xl:h-20 rounded-lg shadow-md transition-all duration-300 px-6 py-3 text-base xl:text-2xl font-medium
                       ${
                         selectedIndex === index.id
                           ? "bg-white bg-opacity-60 text-primary ring-2 ring-primary ring-opacity-50 scale-105 hover:text-primary"
@@ -547,7 +547,7 @@ export default function InfoSectionThree() {
                     selectedIndex === index.id
                       ? "bg-white bg-opacity-60 border-primary border-2"
                       : "border-white border-opacity-0 border-2 "
-                  } bg-white bg-opacity-20 transition-colors title-animation duration-300 px-6 py-3 rounded-xl text-dark text-base font-base`}
+                  } bg-white bg-opacity-20 transition-colors  duration-300 px-6 py-3 rounded-xl text-dark text-base font-base`}
                 >
                   {index.title}
                 </button>

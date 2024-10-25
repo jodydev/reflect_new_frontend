@@ -37,7 +37,7 @@ const cardData = [
   },
   {
     id: 1,
-    title: "Create",
+    title: "Mint",
     subtitle: "Earn investing in new assets by depositing collateral securely",
   },
   {

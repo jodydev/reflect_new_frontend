@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { SwipeableButton } from "react-swipeable-button";
-import Video from "../assets/video/video2.webm";
+import Video from "../assets/video/video_hero.webm";
 import { Squircle } from "react-ios-corners";
 
 export default function Hero() {
@@ -27,10 +27,8 @@ export default function Hero() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 fh:gap-96 items-center">
             <div className="w-full 2xl:my-56">
               <div className="text-left mx-5">
-                <h1 className="text-5xl md:text-6xl fh:text-7xl 2xl:text-8xl text-dark mt-5 mb-4">
-                  <span className="title-animation">
+                <h1 className="animate-fadeInLeft text-5xl md:text-6xl fh:text-7xl 2xl:text-8xl text-dark mt-5 mb-4">
                     Empowering Base with a whole new crop of assets
-                  </span>
                 </h1>
                 <div className="flex items-start justify-start py-10 xl:mt-10 animate-fadeInLeft">
                   <Squircle className="w-full 2xl:w-[80%]" radius={90}>

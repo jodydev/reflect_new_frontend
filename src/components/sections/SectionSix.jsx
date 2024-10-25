@@ -7,7 +7,7 @@ export default function SectionSix() {
     <section id="section_six">
       <div className="flex flex-col items-center justify-start relative z-10 py-10 2xl:pb-30">
         <div className="text-center px-4 mb-10 lg:px-10 2xl:mb-20">
-          <h2 className="title-animation text-3xl md:text-6xl font-bold md:leading-loose text-dark mb-6">
+          <h2 className="text-3xl md:text-6xl font-bold md:leading-loose text-dark mb-6">
             Partners
           </h2>
           <ScrollAnimation duration={2} animateIn="fadeInRight">

@@ -1,5 +1,5 @@
 import { steps } from "../../data/steps";
-import Video from "../../assets/video/video.webm";
+import Video from "../../assets/video/cube.webm";
 import ScrollAnimation from "react-animate-on-scroll";
 
 export default function SectionTwo() {
@@ -8,7 +8,7 @@ export default function SectionTwo() {
       id="section_two"
       className="flex-col justify-center items-center h-full md:h-screen"
     >
-      <h2 className="title-animation text-3xl lg:text-5xl xl:text-6xl font-bold text-center  leading-loose text-dark">
+      <h2 className=" text-3xl lg:text-5xl xl:text-6xl font-bold text-center  leading-loose text-dark">
         Why Reflect on Base?
       </h2>
 
@@ -43,10 +43,10 @@ export default function SectionTwo() {
                 w-full h-32 lg:h-24 fh:h-32 2xl:h-40 bg-gray-100 bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-40 saturate-100 backdrop-contrast-100 flex items-center justify-center p-6 2xl:p-10 rounded-3xl border-l-8 rounded-bl-sm border-primary`}
               >
                 <div className="text-center">
-                  <h3 className="text-2xl md:text-3xl 2xl:text-4xl font-bold mb-2 2xl:mb-2 text-start title-animation">
+                  <h3 className="text-2xl md:text-3xl 2xl:text-4xl font-bold mb-2 2xl:mb-2 text-start ">
                     {step.title}
                   </h3>
-                  <p className="text-xs md:text-sm 2xl:text-lg text-start title-animation">
+                  <p className="text-xs md:text-sm 2xl:text-lg text-start ">
                     {step.subtitle}
                   </p>
                 </div>

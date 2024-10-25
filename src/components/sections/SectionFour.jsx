@@ -44,8 +44,8 @@ export default function SectionFour() {
             <span className="text-dark">trading</span>
           </h2>
           <div className="flex items-center justify-center w-full mt-5 md:px-40 2xl:px-96">
-            <p className="title-animation text-dark md:text-lg lg:text-xl 2xl:text-2xl md:px-40 2xl:px-96">
-              Leverage diverse assets to ease transactions. Access synthetic
+            <p className="text-dark md:text-lg lg:text-xl 2xl:text-2xl md:px-40 2xl:px-96">
+              Leverage diverse assets to ease transactions. <br /> Access synthetic
               versions of popular blockchain assets from other ecosystems
               without leaving Base.
             </p>
@@ -53,7 +53,7 @@ export default function SectionFour() {
         </div>
 
         <div className="xl:mx-60 mb-10 2xl:mb-16 2xl:mx-72">
-          <PrimaryButton text="Dapp Access" />
+          <PrimaryButton text="dApp Access" />
         </div>
 
         <div className="flex items-center justify-center mx-60">

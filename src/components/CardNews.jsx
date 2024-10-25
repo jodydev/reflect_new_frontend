@@ -1,20 +1,77 @@
 import { getDataFromMedium } from "../hooks/getDataFromMedium";
-import { useMemo } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { ArrowRightIcon } from "../utils/icons";
 import { Squircle } from "react-ios-corners";
 import ScrollAnimation from "react-animate-on-scroll";
 import SquircleBox from "../assets/images/squircle_box.png";
+import axios from "axios";
 
 export default function CardNews() {
   const isMobile = window.innerWidth < 768;
 
-  const urls = useMemo(() => ["https://medium.com/feed/@RFLOnBase", "https://medium.com/feed/@clearpool",],[]);
+  const urls = useMemo(
+    () => [
+      "https://medium.com/feed/@RFLOnBase",
+    ],
+    []
+  );
 
   const { posts, loading, error } = getDataFromMedium(urls);
 
-  if (loading) return <p>Loading...</p>;
+//   const [postMirror, setPostMirror] = useState(null);
+//   const [loadingMirror, setLoadingMirror] = useState(true);
+//   const [errorMirror, setErrorMirror] = useState(null);
+//   const digest = "TpAyBWKURrmafsXjANR1Gjn9Xqs_K2nV69xVT-XvLdA";
 
-  if (error) return <p>Error: {error.message}</p>;
+//   useEffect(() => {
+//     const fetchLatestPost = async () => {
+//         try {
+//             const response = await axios.post('https://arweave.net/graphql', {
+//                 query: `
+//                 query GetMirrorTransactions($digest: String!) {
+//                     transactions(tags: [
+//                         { name: "App-Name", values: ["MirrorXYZ"] },
+//                         { name: "Original-Content-Digest", values: [$digest] }
+//                     ], sort: HEIGHT_DESC, first: 1) {
+//                         edges {
+//                             node {
+//                                 id
+//                             }
+//                         }
+//                     }
+//                 }`,
+//                 variables: {
+//                     digest: digest, // Usa il digest qui
+//                 },
+//             });
+
+//             console.log('Response:', response.data);
+
+//             const latestTransaction = response.data.data.transactions.edges[0]?.node;
+
+//             console.log('Latest transaction:', latestTransaction);  
+
+//             if (latestTransaction) {
+//                 const { id } = latestTransaction;
+//                 const postDataResponse = await axios.get(`https://arweave.net/${id}`);
+//                 console.log('Post data:', postDataResponse.data);
+//                 setPostMirror(postDataResponse.data);
+//             } else {
+//                 setErrorMirror('Nessun post trovato.');
+//             }
+//         } catch (err) {
+//             console.error('Error details:', err.response ? err.response.data : err.message);
+//             setErrorMirror(err.message);
+//         } finally {
+//           setLoadingMirror(false);
+//         }
+//     };
+
+//     fetchLatestPost();
+// }, [digest]);
+
+//   if (loadingMirror) return <div>Loading...</div>;
+//   if (errorMirror) return <div>Errore: {errorMirror}</div>;
 
   return (
     <div
@@ -91,7 +148,7 @@ export default function CardNews() {
                   </div>
                 </div>
 
-                <h3 className="title-animation text-2xl 2xl:text-3xl font-bold text-gray-900 mt-3 2xl:mt-5 line-clamp-1">
+                <h3 className="text-2xl 2xl:text-3xl font-bold text-gray-900 mt-3 2xl:mt-5 line-clamp-1">
                   {post.title}
                 </h3>
                 <p className="text-gray-700 md:my-2 2xl:text-lg line-clamp-3">
@@ -101,7 +158,7 @@ export default function CardNews() {
                   href={post.link}
                   target="_blank"
                   rel="noreferrer"
-                  className="title-animation text-xs 2xl:text-base text-primary"
+                  className="text-xs 2xl:text-base text-primary"
                 >
                   Read more <ArrowRightIcon className="w-4 h-4 inline-block" />
                 </a>
@@ -110,6 +167,10 @@ export default function CardNews() {
           </Squircle>
         </ScrollAnimation>
       ))}
+
+
     </div>
   );
 }
+
+// az43s8PjcZW5tEfhrYOXkVVJQ4uA4GeA7UTFPf5vUn8

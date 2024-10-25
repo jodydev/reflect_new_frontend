@@ -65,7 +65,7 @@ export default function ProgressStepper({
           `;
 
           const titleClasses = `
-            flex flex-col ms-3 title-animation transition-all duration-300 
+            flex flex-col ms-3 transition-all duration-300 
             ${
               isCompleted || isCurrent
                 ? "blur-none opacity-100"
@@ -102,7 +102,7 @@ export default function ProgressStepper({
                 <h4 className="flex items-center space-x-10 mb-2 text-2xl xl:text-3xl 2xl:text-5xl font-bold">
                   {step.title}
                 </h4>
-                <span className="text-sm md:text-xl title-animation">
+                <span className="text-sm md:text-xl">
                   {step.subtitle}
                 </span>
               </div>
