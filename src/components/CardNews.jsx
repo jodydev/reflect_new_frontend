@@ -136,7 +136,7 @@ export default function CardNews() {
   return (
     <div
       id="card_news"
-      className="flex flex-col md:flex-row gap-20 xl:gap-32 mx-10 mt-0 md:mt-0 2xl:mt-20 md:mx-0"
+      className="flex flex-col lf:flex-row gap-20 xl:gap-32 mx-10 mt-0 md:mt-0 2xl:mt-20 md:mx-0"
     >
       {posts.map((post, index) => (
         <ScrollAnimation
@@ -155,7 +155,7 @@ export default function CardNews() {
           }
         >
           <Squircle radius={90}>
-            <div className="w-[320px] h-[420px] md:w-[350px] md:h-[450px] 2xl:w-[500px] 2xl:h-[600px] bg-white bg-opacity-40">
+            <div className="w-[320px] h-[420px] md:w-[350px] md:h-[450px] 2xl:w-[450px] 2xl:h-[600px] bg-white bg-opacity-40">
               <div
                 className="news"
                 style={{
@@ -176,7 +176,7 @@ export default function CardNews() {
                 </a>
               </div>
 
-              <div className="absolute bottom-0 2xl:bottom-[10px] py-5 xl:py-8 px-7 2xl:px-10 w-full">
+              <div className="absolute bottom-[10px] fh:bottom-[-5px] py-5 xl:py-8 px-7 2xl:px-10 w-full">
                 <ScrollAnimation duration={1} animateIn="fadeInRight">
                   <div className="separator h-1 w-1/2 px-20 bg-primary mb-3"></div>
                 </ScrollAnimation>
@@ -186,7 +186,7 @@ export default function CardNews() {
                       className="w-full h-full bg-primary text-white text-xs font-semibold"
                       radius={90}
                     >
-                      <p className="px-1 md:px-3 2xl:text-lg py-1 text-center">
+                      <p className="p-2 md:p-3 2xl:text-lg text-center text-nowrap">
                         {new Date(post.pubDate)
                           .toUTCString()
                           .split(" ")
@@ -201,7 +201,7 @@ export default function CardNews() {
                       className="w-full h-full bg-dark text-xs font-semibold"
                       radius={90}
                     >
-                      <p className="px-3 py-1 2xl:text-lg text-center text-white">
+                      <p className="p-2 md:p-3 2xl:text-lg text-center text-white text-nowrap">
                         {post.categories[0] || "News"}
                       </p>
                     </Squircle>
@@ -211,7 +211,7 @@ export default function CardNews() {
                 <h3 className="text-2xl 2xl:text-3xl font-bold text-gray-900 mt-3 2xl:mt-5 line-clamp-1">
                   {post.title}
                 </h3>
-                <p className="text-gray-700 md:my-2 2xl:text-lg line-clamp-3">
+                <p className="text-gray-700 md:my-2 text-xs 2xl:text-lg line-clamp-3">
                   {post.content}
                 </p>
                 <a
@@ -229,9 +229,9 @@ export default function CardNews() {
       ))}
 
       {postMirror && (
-        <ScrollAnimation duration={2} animateIn="fadeInRight">
+        <ScrollAnimation duration={2} animateIn= {isMobile ? "fadeInLeft" : "fadeInRight"}>
           <Squircle radius={90}>
-            <div className="w-[320px] h-[420px] md:w-[350px] md:h-[450px] 2xl:w-[500px] 2xl:h-[600px] bg-white bg-opacity-40">
+            <div className="w-[320px] h-[420px] md:w-[350px] md:h-[450px] 2xl:w-[450px] 2xl:h-[600px] bg-white bg-opacity-40">
               <div
                 className="news"
                 style={{
@@ -252,7 +252,7 @@ export default function CardNews() {
                 </a>
               </div>
 
-              <div className="absolute bottom-0 2xl:bottom-[10px] py-5 xl:py-8 px-7 2xl:px-10 w-full">
+              <div className="absolute bottom-[10px] fh:bottom-[-5px] py-5 xl:py-8 px-7 2xl:px-10 w-full">
                 <ScrollAnimation duration={1} animateIn="fadeInRight">
                   <div className="separator h-1 w-1/2 px-20 bg-primary mb-3"></div>
                 </ScrollAnimation>
@@ -262,7 +262,7 @@ export default function CardNews() {
                       className="w-full h-full bg-primary text-white text-xs font-semibold"
                       radius={90}
                     >
-                      <p className="px-1 md:px-3 2xl:text-lg py-1 text-center">
+                      <p className="p-2 md:p-3  2xl:text-lg text-center text-nowrap">
                         {new Date(postMirror.content.timestamp * 1000)
                           .toUTCString()
                           .split(" ")
@@ -288,7 +288,7 @@ export default function CardNews() {
                   {postMirror.content.title}
                 </h3>
 
-                <ReactMarkdown className="text-gray-700 md:my-2 2xl:text-lg line-clamp-3">
+                <ReactMarkdown className="text-gray-700 md:my-2 text-xs 2xl:text-lg line-clamp-3">
                   {postMirror.content.body}
                 </ReactMarkdown>
                 <a

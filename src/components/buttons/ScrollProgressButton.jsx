@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { IoMdArrowRoundUp } from "react-icons/io";
+import { IoMdArrowRoundUp } from "../../utils/icons";
 
 const ScrollProgressButton = () => {
   useEffect(() => {

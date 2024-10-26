@@ -11,7 +11,7 @@ export default function SectionOne() {
             <h2 className="text-3xl md:text-6xl md:leading-loose font-bold text-dark mb-5">
               Reflect on Base
             </h2>
-            <p className="text-dark text-lg lg:text-xl 2xl:text-2xl mb-6 xl:mb-10">
+            <p className="text-dark text-lg lg:text-xl 2xl:text-2xl mx-5 mb-6 xl:mb-10">
               Create and trade your favorite crypto assets on Base chain with
               Reflect
             </p>

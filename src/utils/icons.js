@@ -11,6 +11,8 @@ import { IoIosArrowDown } from "react-icons/io";
 import { FaMoneyBillTrendUp } from "react-icons/fa6";
 import { FaVault } from "react-icons/fa6";
 import { VscGraph } from "react-icons/vsc";
+import { IoMdArrowRoundUp } from "react-icons/io";
+
 export {
   FaFacebook,
   FaTwitter,
@@ -29,5 +31,6 @@ export {
   IoIosArrowDown,
   FaVault,
   FaMoneyBillTrendUp,
-  VscGraph
+  VscGraph,
+  IoMdArrowRoundUp,
 };

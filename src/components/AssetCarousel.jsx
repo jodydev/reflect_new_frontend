@@ -1,12 +1,46 @@
 import { useEffect, useState } from "react";
+import axios from "axios";
 import { Squircle } from "react-ios-corners";
-import getDataFromCoinMarketCup from "../hooks/getDataFromCoinMarketCup";
 
 export default function AssetCarousel() {
+  const [assets, setAssets] = useState([]);
   const [scrollPosition, setScrollPosition] = useState(0);
-  const assets = getDataFromCoinMarketCup();
 
   useEffect(() => {
+    //? Function to fetch market data from CoinGecko API
+
+    const fetchMarketData = async () => {
+      try {
+        const url = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=6&page=1";
+        
+        const response = await axios.get(url, {
+          headers: {
+            Accept: "application/json",
+          },
+        });
+
+        const data = response.data;
+
+        const mappedAssets = data.map((asset) => ({
+          name: asset.name,
+          price: `$${asset.current_price} ${
+            asset.price_change_percentage_24h > 0 ? "+" : "-"
+          } ${Math.abs(asset.price_change_percentage_24h).toFixed(2)}%`,
+          trend: asset.price_change_percentage_24h > 0 ? "up" : "down",
+        }));
+
+        setAssets(mappedAssets);
+      } catch (error) {
+        console.error("Errore nel recupero dei dati di mercato:", error);
+      }
+    };
+
+    fetchMarketData();
+  }, []);
+
+  useEffect(() => {
+    //? Function to scroll the carousel
+
     const interval = setInterval(() => {
       setScrollPosition((prevPosition) => prevPosition + 1);
     }, 20);
@@ -15,6 +49,8 @@ export default function AssetCarousel() {
   }, []);
 
   useEffect(() => {
+    //? Function to reset the scroll position when it reaches the end
+
     if (scrollPosition >= assets.length * 200) {
       setScrollPosition(0);
     }
