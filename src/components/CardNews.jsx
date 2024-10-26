@@ -1,4 +1,4 @@
-import { getDataFromMedium } from "../hooks/getDataFromMedium";
+import ReactMarkdown from "react-markdown";
 import { useMemo, useState, useEffect } from "react";
 import { ArrowRightIcon } from "../utils/icons";
 import { Squircle } from "react-ios-corners";
@@ -8,70 +8,130 @@ import axios from "axios";
 
 export default function CardNews() {
   const isMobile = window.innerWidth < 768;
+  const url = useMemo(() => "https://medium.com/feed/@RFLOnBase", []);
 
-  const urls = useMemo(
-    () => [
-      "https://medium.com/feed/@RFLOnBase",
-    ],
-    []
-  );
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  const { posts, loading, error } = getDataFromMedium(urls);
+  const [postMirror, setPostMirror] = useState(null);
+  const [loadingMirror, setLoadingMirror] = useState(true);
+  const [errorMirror, setErrorMirror] = useState(null);
 
-//   const [postMirror, setPostMirror] = useState(null);
-//   const [loadingMirror, setLoadingMirror] = useState(true);
-//   const [errorMirror, setErrorMirror] = useState(null);
-//   const digest = "TpAyBWKURrmafsXjANR1Gjn9Xqs_K2nV69xVT-XvLdA";
+  const digest = "TpAyBWKURrmafsXjANR1Gjn9Xqs_K2nV69xVT-XvLdA";
 
-//   useEffect(() => {
-//     const fetchLatestPost = async () => {
-//         try {
-//             const response = await axios.post('https://arweave.net/graphql', {
-//                 query: `
-//                 query GetMirrorTransactions($digest: String!) {
-//                     transactions(tags: [
-//                         { name: "App-Name", values: ["MirrorXYZ"] },
-//                         { name: "Original-Content-Digest", values: [$digest] }
-//                     ], sort: HEIGHT_DESC, first: 1) {
-//                         edges {
-//                             node {
-//                                 id
-//                             }
-//                         }
-//                     }
-//                 }`,
-//                 variables: {
-//                     digest: digest, // Usa il digest qui
-//                 },
-//             });
+  // Fetch Medium posts
+  useEffect(() => {
+    const fetchPosts = async () => {
+      setLoading(true); 
+      try {
+        const response = await axios.get(
+          `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`
+        );
+        const xmlText = response.data.contents;
 
-//             console.log('Response:', response.data);
+        const xmlDoc = new DOMParser().parseFromString(
+          xmlText,
+          "application/xml"
+        );
+        const items = Array.from(xmlDoc.querySelectorAll("item"));
 
-//             const latestTransaction = response.data.data.transactions.edges[0]?.node;
+        const posts = items.slice(0, 2).map((item) => parsePost(item));
+        setPosts(posts);
+      } catch (err) {
+        setError(err);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-//             console.log('Latest transaction:', latestTransaction);  
+    fetchPosts();
+  }, [url]);
 
-//             if (latestTransaction) {
-//                 const { id } = latestTransaction;
-//                 const postDataResponse = await axios.get(`https://arweave.net/${id}`);
-//                 console.log('Post data:', postDataResponse.data);
-//                 setPostMirror(postDataResponse.data);
-//             } else {
-//                 setErrorMirror('Nessun post trovato.');
-//             }
-//         } catch (err) {
-//             console.error('Error details:', err.response ? err.response.data : err.message);
-//             setErrorMirror(err.message);
-//         } finally {
-//           setLoadingMirror(false);
-//         }
-//     };
+  // Funzione per analizzare un singolo post
+  const parsePost = (item) => {
+    const contentEncoded = item.getElementsByTagNameNS(
+      "http://purl.org/rss/1.0/modules/content/",
+      "encoded"
+    )[0]?.textContent;
+    let imgSrc = null;
+    let content = "";
 
-//     fetchLatestPost();
-// }, [digest]);
+    if (contentEncoded) {
+      const contentDoc = new DOMParser().parseFromString(
+        contentEncoded,
+        "text/html"
+      );
+      const imgElement = contentDoc.querySelector("img");
+      imgSrc = imgElement?.getAttribute("src") || null;
+      const paragraphs = Array.from(contentDoc.querySelectorAll("p"))
+        .map((p) => p.innerText)
+        .join(" ");
+      content = paragraphs;
+    }
 
-//   if (loadingMirror) return <div>Loading...</div>;
-//   if (errorMirror) return <div>Errore: {errorMirror}</div>;
+    return {
+      title: item.querySelector("title").textContent,
+      link: item.querySelector("link").textContent,
+      categories: Array.from(item.querySelectorAll("category")).map(
+        (cat) => cat.textContent
+      ),
+      pubDate: item.querySelector("pubDate").textContent,
+      img: imgSrc,
+      content: content,
+    };
+  };
+
+  // Fetch latest Mirror post
+  useEffect(() => {
+    const fetchLatestPost = async () => {
+      setLoadingMirror(true); 
+      try {
+        const response = await axios.post("https://arweave.net/graphql", {
+          query: `
+            query GetMirrorTransactions($digest: String!) {
+              transactions(tags: [
+                { name: "App-Name", values: ["MirrorXYZ"] },
+                { name: "Original-Content-Digest", values: [$digest] }
+              ], sort: HEIGHT_DESC, first: 1) {
+                edges {
+                  node {
+                    id
+                  }
+                }
+              }
+            }`,
+          variables: { digest },
+        });
+
+        const latestTransaction =
+          response.data.data.transactions.edges[0]?.node;
+
+        if (latestTransaction) {
+          const { id } = latestTransaction;
+          const postDataResponse = await axios.get(`https://arweave.net/${id}`);
+          setPostMirror(postDataResponse.data);
+        } else {
+          setErrorMirror("Nessun post trovato.");
+        }
+      } catch (err) {
+        console.error(
+          "Error details:",
+          err.response ? err.response.data : err.message
+        );
+        setErrorMirror(err.message);
+      } finally {
+        setLoadingMirror(false); 
+      }
+    };
+
+    fetchLatestPost();
+  }, [digest]);
+
+  // Gestione dello stato di caricamento e errore
+  if (loading || loadingMirror) return <div>Loading...</div>;
+  if (error) return <div>Errore: {error}</div>;
+  if (errorMirror) return <div>Errore: {errorMirror}</div>;
 
   return (
     <div
@@ -168,9 +228,82 @@ export default function CardNews() {
         </ScrollAnimation>
       ))}
 
+      {postMirror && (
+        <ScrollAnimation duration={2} animateIn="fadeInRight">
+          <Squircle radius={90}>
+            <div className="w-[320px] h-[420px] md:w-[350px] md:h-[450px] 2xl:w-[500px] 2xl:h-[600px] bg-white bg-opacity-40">
+              <div
+                className="news"
+                style={{
+                  maskImage: `url(${SquircleBox})`,
+                }}
+              >
+                <a
+                  href={`https://base.mirror.xyz/${digest}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-xs text-primary hover:cursor-pointer p-0 m-0"
+                >
+                  <img
+                    src={`https://ipfs.io/ipfs/${postMirror.wnft.imageURI}`}
+                    alt="Image Post"
+                    className="relative h-full w-full object-cover hover:cursor-pointer hover:scale-110 transition-transform duration-500 ease-in-out"
+                  />
+                </a>
+              </div>
 
+              <div className="absolute bottom-0 2xl:bottom-[10px] py-5 xl:py-8 px-7 2xl:px-10 w-full">
+                <ScrollAnimation duration={1} animateIn="fadeInRight">
+                  <div className="separator h-1 w-1/2 px-20 bg-primary mb-3"></div>
+                </ScrollAnimation>
+                <div className="flex justify-between items-center space-x-10">
+                  <div className="w-1/2 text-dark text-xs font-semibold ">
+                    <Squircle
+                      className="w-full h-full bg-primary text-white text-xs font-semibold"
+                      radius={90}
+                    >
+                      <p className="px-1 md:px-3 2xl:text-lg py-1 text-center">
+                        {new Date(postMirror.content.timestamp * 1000)
+                          .toUTCString()
+                          .split(" ")
+                          .slice(0, 4)
+                          .join(" ")}
+                      </p>
+                    </Squircle>
+                  </div>
+
+                  <div className="w-1/2 text-dark text-xs font-semibold ">
+                    <Squircle
+                      className="w-full h-full bg-dark text-xs font-semibold"
+                      radius={90}
+                    >
+                      {/* <p className="px-3 py-1 2xl:text-lg text-center text-white">
+                       {post.categories[0] || "News"}
+                     </p> */}
+                    </Squircle>
+                  </div>
+                </div>
+
+                <h3 className="text-2xl 2xl:text-3xl font-bold text-gray-900 mt-3 2xl:mt-5 line-clamp-1">
+                  {postMirror.content.title}
+                </h3>
+
+                <ReactMarkdown className="text-gray-700 md:my-2 2xl:text-lg line-clamp-3">
+                  {postMirror.content.body}
+                </ReactMarkdown>
+                <a
+                  href={`https://base.mirror.xyz/${digest}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-xs 2xl:text-base text-primary"
+                >
+                  Read more <ArrowRightIcon className="w-4 h-4 inline-block" />
+                </a>
+              </div>
+            </div>
+          </Squircle>
+        </ScrollAnimation>
+      )}
     </div>
   );
 }
-
-// az43s8PjcZW5tEfhrYOXkVVJQ4uA4GeA7UTFPf5vUn8

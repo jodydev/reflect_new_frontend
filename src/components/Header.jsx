@@ -14,48 +14,47 @@ export default function Header() {
     window.location.href = "https://www.google.com";
   };
 
-  // useEffect(() => {
-  //   const handleResize = () => {
-  //     if (window.innerWidth >= 960) {
-  //       setOpen(false);
-  //     }
-  //   };
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 960) {
+        setOpen(false);
+      }
+    };
     
-  //   window.addEventListener("resize", handleResize);
+    window.addEventListener("resize", handleResize);
     
-  //   return () => window.removeEventListener("resize", handleResize);
-  // }, []);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   
-  // const onScrollCallback = () => {
-  //   const nav = document.querySelector("nav");
-  //   const headerOptions = document.querySelector("#header-options");
+  const onScrollCallback = () => {
+    const nav = document.querySelector("nav");
+    const headerOptions = document.querySelector("#header-options");
   
-  //   if (window.scrollY > 400) {
-  //     headerOptions.classList.remove("bg-gray-100", "bg-clip-padding", "backdrop-filter", "backdrop-blur-xl", "bg-opacity-40", "saturate-100", "backdrop-contrast-100");
-  //     nav.classList.add("bg-gray-100", "bg-clip-padding", "backdrop-filter", "backdrop-blur-xl", "bg-opacity-40", "saturate-100", "backdrop-contrast-100");
-  //   } else if (window.scrollY === 0) {
-  //     nav.classList.remove("bg-gray-100", "bg-clip-padding", "backdrop-filter", "backdrop-blur-xl", "bg-opacity-40", "saturate-100", "backdrop-contrast-100");
-  //     headerOptions.classList.add("bg-gray-100", "bg-clip-padding", "backdrop-filter", "backdrop-blur-xl", "bg-opacity-40", "saturate-100", "backdrop-contrast-100");
-  //   } else {
-  //     return;
-  //   }
-  // };
+    if (window.scrollY > 400) {
+      headerOptions.classList.remove("bg-gray-100", "bg-clip-padding", "backdrop-filter", "backdrop-blur-xl", "bg-opacity-40", "saturate-100", "backdrop-contrast-100");
+      nav.classList.add("bg-gray-100", "bg-clip-padding", "backdrop-filter", "backdrop-blur-xl", "bg-opacity-40", "saturate-100", "backdrop-contrast-100");
+    } else if (window.scrollY === 0) {
+      nav.classList.remove("bg-gray-100", "bg-clip-padding", "backdrop-filter", "backdrop-blur-xl", "bg-opacity-40", "saturate-100", "backdrop-contrast-100");
+      headerOptions.classList.add("bg-gray-100", "bg-clip-padding", "backdrop-filter", "backdrop-blur-xl", "bg-opacity-40", "saturate-100", "backdrop-contrast-100");
+    } else {
+      return;
+    }
+  };
 
-  // useEffect(() => {
-  //   window.addEventListener("scroll", onScrollCallback);
+  useEffect(() => {
+    window.addEventListener("scroll", onScrollCallback);
   
-  //   return () => {
-  //     window.removeEventListener("scroll", onScrollCallback);
-  //   };
-  // }, []);
+    return () => {
+      window.removeEventListener("scroll", onScrollCallback);
+    };
+  }, []);
 
   return (
     <Navbar
-    // onScroll={onScrollCallback}
-    shadow={false}
-    fullWidth
-    className="border-0 z-50 bg-transparent md:px-20"
-  >
+      shadow={false}
+      fullWidth
+      className="border-0 z-50 bg-transparent md:px-20"
+    >
       <div className="z-50 w-full mx-auto flex items-start justify-between relative my-2">
         {/* Logo */}
         <div className="flex items-center justify-start ml-2 md:ml-0 animate-fadeInLeft">
@@ -68,7 +67,7 @@ export default function Header() {
         {/* Menu per desktop */}
         <Squircle
           id="header-options"
-          className="hidden md:block bg-gray-100 bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-40 saturate-100 backdrop-contrast-100 text-dark shadow-lg w-[400px] h-[50px] 2xl:w-[500px] fh:ms-[50px] 2xl:ms-[45px] 2xl:h-[70px] animate-fadeInTop"
+          className="hidden lg:block bg-gray-100 bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-40 saturate-100 backdrop-contrast-100 text-dark shadow-lg w-[400px] h-[50px] 2xl:w-[500px] fh:ms-[50px] 2xl:ms-[45px] 2xl:h-[70px] animate-fadeInTop"
           radius={90}
         >
           <div className="hidden lg:flex w-full items-center justify-center gap-6 py-4 px-8 2xl:py-6">

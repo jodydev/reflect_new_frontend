@@ -4,58 +4,82 @@ import ScrollAnimation from "react-animate-on-scroll";
 
 export default function SectionTwo() {
   return (
-    <section
-      id="section_two"
-      className="flex-col justify-center items-center h-full md:h-screen"
-    >
-      <h2 className=" text-3xl lg:text-5xl xl:text-6xl font-bold text-center  leading-loose text-dark">
-        Why Reflect on Base?
-      </h2>
+<section
+  id="section_two"
+  className="relative flex-col justify-center items-center h-full lg:h-screen"
+>
+  <h2 className="text-3xl lg:text-5xl xl:text-6xl font-bold text-center leading-loose text-dark">
+    Why Reflect on Base?
+  </h2>
 
-      <div className="container mx-auto flex items-center justify-center py-0 md:py-10 2xl:py-20 2xl:px-20 fh:px-10 px-5 md:px-0 mt-10">
-        <div className="md:grid md:grid-cols-3 md:grid-rows-3 gap-0 justify-center items-center space-y-10 space--10">
-          {steps.slice(0, 4).map((step, index) =>
-            step.id === "4" ? (
-              <div
-                key={index}
-                className="hidden col-start-2 row-start-2 w-full h-full md:flex items-center justify-center"
-              >
-                <video
-                  onMouseOver={(e) => e.target.play()}
-                  loop
-                  muted
-                  playsInline
-                  className="hidden md:block w-full h-full absolute md:top-[255%] fh:top-[240%] 2xl:top-[220%] md:scale-105 fh:scale-[120%] 2xl:scale-110"
-                >
-                  <source src={Video} type="video/webm" />
-                </video>
-              </div>
-            ) : (
-              <ScrollAnimation
-                animateIn={index === 0 ? "fadeInUp" : index === 1 ? "fadeInLeft" : "fadeInRight"}
-                duration={2}
-                key={index}
-                className={`col-start-${
-                  index === 0 ? 2 : index === 1 ? 1 : index === 2 ? 3 : 2
-                } row-start-${
-                  index === 0 ? 1 : index === 1 ? 2 : index === 2 ? 2 : 3
-                }
-                w-full h-32 lg:h-24 fh:h-32 2xl:h-40 bg-gray-100 bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-40 saturate-100 backdrop-contrast-100 flex items-center justify-center p-6 2xl:p-10 rounded-3xl border-l-8 rounded-bl-sm border-primary`}
-              >
-                <div className="text-center">
-                  <h3 className="text-2xl md:text-3xl 2xl:text-4xl font-bold mb-2 2xl:mb-2 text-start ">
-                    {step.title}
-                  </h3>
-                  <p className="text-xs md:text-sm 2xl:text-lg text-start ">
-                    {step.subtitle}
-                  </p>
-                </div>
-              </ScrollAnimation>
-            )
-          )}
+  <div className="container mx-auto flex flex-col items-center justify-center py-0 md:py-10 2xl:py-20 2xl:px-20 fh:px-10 px-5 md:px-0 mb-40 lg:mb-0">
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 items-center">
+      {/* Card sinistra */}
+      <ScrollAnimation
+        animateIn="fadeInLeft"
+        duration={2}
+        className="lg:col-start-1 lg:row-start-2 w-full h-32 lg:h-24 fh:h-32 2xl:h-40 bg-gray-100 bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-40 saturate-100 flex items-center justify-center p-6 2xl:p-10 rounded-t-3xl border-l-8 border-primary"
+      >
+        <div className="text-center">
+          <h3 className="text-2xl md:text-3xl 2xl:text-4xl font-bold mb-2 text-start">
+            {steps[0].title}
+          </h3>
+          <p className="text-xs md:text-sm 2xl:text-lg text-start">
+            {steps[0].subtitle}
+          </p>
         </div>
-      </div>
-    </section>
+      </ScrollAnimation>
+
+      {/* Card destra */}
+      <ScrollAnimation
+        animateIn="fadeInRight"
+        duration={2}
+        className="lg:col-start-3 lg:row-start-2 w-full h-32 lg:h-24 fh:h-32 2xl:h-40 bg-gray-100 bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-40 saturate-100 flex items-center justify-center p-6 2xl:p-10 rounded-t-3xl border-l-8 border-primary"
+      >
+        <div className="text-center">
+          <h3 className="text-2xl md:text-3xl 2xl:text-4xl font-bold mb-2 text-start">
+            {steps[1].title}
+          </h3>
+          <p className="text-xs md:text-sm 2xl:text-lg text-start">
+            {steps[1].subtitle}
+          </p>
+        </div>
+      </ScrollAnimation>
+
+      {/* Card centrale */}
+      <ScrollAnimation
+        animateIn="fadeInUp"
+        duration={2}
+        className="lg:col-start-2 lg:row-start-1 w-full h-full bg-gray-100 bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-40 saturate-100 flex items-center justify-center p-6 md:p-5 2xl:p-10 rounded-t-3xl border-l-8 border-primary"
+      >
+        <div className="text-center">
+          <h3 className="text-2xl md:text-3xl 2xl:text-4xl font-bold mb-2 text-start">
+            {steps[2].title}
+          </h3>
+          <p className="text-xs md:text-sm 2xl:text-lg text-start">
+            {steps[2].subtitle}
+          </p>
+        </div>
+      </ScrollAnimation>
+    </div>
+
+    {/* Video centrale */}
+    <div className="hidden w-full lg:flex items-center justify-center">
+      <video
+        onMouseOver={(e) => e.target.play()}
+        loop
+        muted
+        playsInline
+        className="w-full h-auto scale-125 animate-fadeInRight"
+      >
+        <source src={Video} type="video/webm" />
+      </video>
+    </div>
+  </div>
+</section>
+
+
+
   );
 }
 

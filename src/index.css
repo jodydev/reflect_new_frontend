@@ -161,6 +161,39 @@
   
 }
 
+/* Tablet */
+@media screen and (min-width: 500px) and (max-width: 1200px) {
+  .ReactSwipeButton {
+    height: 100px !important;
+  }
+
+  .rsbContainer {
+    height: 100px !important;
+  }
+
+  .rsbcSliderCircle {
+    right: -115px !important;
+    top: 20px !important;
+    height: 60px !important;
+    width: 200px !important;
+  }
+  .rsbcSliderArrow {
+    height: 25px !important;
+    width: 25px !important;
+    top: 65% !important;
+    right: 0px !important;
+  }
+
+  .rsbcText {
+    float: left;
+    position: absolute;
+    left: 200px !important;
+    top: 12px !important;
+    font-size: 30px !important;
+  }
+  
+}
+
 /* Carousel styles */
 .carousel-item {
   position: absolute;
@@ -378,8 +411,7 @@ body {
 
 body {
   font-family: 'Involve-Medium', sans-serif;
-  overflow-x: hidden;
-  overflow-y: hidden;
+  overflow-x: hidden !important;
 }
 
 html {

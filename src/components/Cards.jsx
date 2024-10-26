@@ -11,7 +11,7 @@ export default function Cards() {
       id="card_section_one"
       className="flex flex-col items-center relative w-3/4 py-10"
     >
-      <div className="flex flex-wrap justify-center items-center space-x-0 md:space-x-10 2xl:space-x-20 space-y-10 md:space-y-0">
+      <div className="flex flex-col lg:flex-row justify-center items-center space-y-10 lg:space-y-0 lg:space-x-10 fh:space-x-20">
         {cardData.map((data, index) => {
           const number = (index + 1).toString();
           const isHovered = isSelected === number;
@@ -26,9 +26,9 @@ export default function Cards() {
               <div
                 className={`${
                   isHovered
-                    ? " bg-dark text-white md:w-[400px] 2xl:w-[700px]"
+                    ? "bg-dark text-white w-[360px] md:w-[480px] fh:w-[600px] 2xl:w-[700px] transition-all"
                     : "bg-gray-100 bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-40 saturate-100 backdrop-contrast-100"
-                }  relative flex flex-col items-center justify-start px-10 py-16 w-[320px] h-[340px] md:w-[300px] md:h-[350px] 2xl:w-[500px] 2xl:h-[500px] transition-all duration-500 ease-in-out transform hover:cursor-pointer`}
+                } relative flex flex-col items-center justify-start px-8 py-10 w-[300px] h-[320px] md:w-[380px] md:h-[340px] fh:w-[450px] fh:h-[380px] 2xl:w-[500px] 2xl:h-[450px] transition-all duration-500 ease-in-out transform hover:cursor-pointer`}
                 onMouseEnter={() => setIsSelected(number)}
                 onMouseLeave={() => setIsSelected("1")}
                 onClick={() => setIsSelected(number)}

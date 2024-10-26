@@ -7,6 +7,7 @@ import ScrollAnimation from "react-animate-on-scroll";
 
 export default function SectionFour() {
   const isMobile = window.innerWidth < 768;
+  const isMediumDevice = window.innerWidth < 1524;
   const spanRef = useRef(null);
   gsap.registerPlugin(ScrollTrigger);
 
@@ -16,7 +17,7 @@ export default function SectionFour() {
         spanRef.current,
         { width: "0px" },
         {
-          width: isMobile ? "50px" : "500px",
+          width: isMobile ? "50px" : isMediumDevice ? "150px" : "500px",
           duration: 1,
           scrollTrigger: {
             trigger: spanRef.current,
@@ -43,7 +44,7 @@ export default function SectionFour() {
             ></span>
             <span className="text-dark">trading</span>
           </h2>
-          <div className="flex items-center justify-center w-full mt-5 md:px-40 2xl:px-96">
+          <div className="flex items-center justify-center w-full mt-5 lg:px-40 2xl:px-96">
             <p className="text-dark md:text-lg lg:text-xl 2xl:text-2xl md:px-40 2xl:px-96">
               Leverage diverse assets to ease transactions. <br /> Access synthetic
               versions of popular blockchain assets from other ecosystems
