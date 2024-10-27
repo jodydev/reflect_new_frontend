@@ -474,7 +474,7 @@ export default function InfoSectionThree() {
                             isStake
                               ? "Stake"
                               : isCreate
-                              ? "Start Create"
+                              ? "Mint"
                               : "Swap"
                           }
                         />
