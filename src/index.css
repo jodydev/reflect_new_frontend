@@ -52,6 +52,13 @@
     width: 100px !important;
   }
 
+  video {
+    display: none !important;
+  }
+
+  .hidden-button {
+    display: none !important;
+  }
 }
 
 /* FULL HD */

@@ -42,7 +42,7 @@ export default function Hero() {
               </div>
             </div>
 
-            <div className="hidden lg:block w-full z-10 relative justify-center animate-fadeInRight fh:-ms-20 2xl:-ms-40">
+            <div className="flex w-full z-10 relative justify-center animate-fadeInRight fh:-ms-20 2xl:-ms-40">
             <video
               autoPlay
               loop

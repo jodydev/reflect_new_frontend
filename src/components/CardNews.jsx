@@ -136,7 +136,7 @@ export default function CardNews() {
   return (
     <div
       id="card_news"
-      className="flex flex-col lf:flex-row gap-20 xl:gap-32 mx-10 mt-0 md:mt-0 2xl:mt-20 md:mx-0"
+      className="flex flex-col lg:flex-row gap-20 xl:gap-32 mx-10 mt-0 md:mt-0 2xl:mt-20 md:mx-0"
     >
       {posts.map((post, index) => (
         <ScrollAnimation
@@ -176,7 +176,7 @@ export default function CardNews() {
                 </a>
               </div>
 
-              <div className="absolute bottom-[10px] fh:bottom-[-5px] py-5 xl:py-8 px-7 2xl:px-10 w-full">
+              <div className="absolute bottom-[10px] lg:bottom-[-5px] fh:bottom-[-5px] py-5 xl:py-8 px-7 2xl:px-10 w-full">
                 <ScrollAnimation duration={1} animateIn="fadeInRight">
                   <div className="separator h-1 w-1/2 px-20 bg-primary mb-3"></div>
                 </ScrollAnimation>
@@ -252,7 +252,7 @@ export default function CardNews() {
                 </a>
               </div>
 
-              <div className="absolute bottom-[10px] fh:bottom-[-5px] py-5 xl:py-8 px-7 2xl:px-10 w-full">
+              <div className="absolute bottom-[10px] lg:bottom-[-5px] fh:bottom-[-5px] py-5 xl:py-8 px-7 2xl:px-10 w-full">
                 <ScrollAnimation duration={1} animateIn="fadeInRight">
                   <div className="separator h-1 w-1/2 px-20 bg-primary mb-3"></div>
                 </ScrollAnimation>

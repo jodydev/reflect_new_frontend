@@ -64,7 +64,7 @@ export default function SectionTwo() {
         </div>
 
         {/* Video centrale */}
-        <div className="hidden w-full lg:flex items-center justify-center animate-fadeInBottom transition duration-1000">
+        <div className="w-full flex items-center justify-center animate-fadeInBottom transition duration-1000">
           <video
             onMouseOver={(e) => e.target.play()}
             loop
