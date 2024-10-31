@@ -524,7 +524,7 @@ export default function InfoSectionThree() {
       </div>
 
       {/* Button Section for mobile devices */}
-      <div className="lg:hidden flex pt-[150%]">
+      <div className="lg:hidden flex pt-[140%] md:pt-[100%] md:px-[10%] lg:pt-[150%]">
         <div className="flex w-full flex-row gap-6">
           {cardData.map((index) => (
             <div key={index.id} className="w-full">

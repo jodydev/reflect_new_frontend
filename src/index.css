@@ -35,6 +35,16 @@
   src: url('./fonts/Involve-Bold.ttf') format('truetype');
 }
 
+@media (max-width: 1024px) {
+  video {
+    display: none !important;
+  }
+
+  .hidden-button {
+    display: none !important;
+  }
+}
+
 /* MOBILE */
 @media (max-width: 768px) {
 
