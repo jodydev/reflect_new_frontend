@@ -67,10 +67,10 @@ export default function Header() {
         {/* Menu per desktop */}
         <Squircle
           id="header-options"
-          className="hidden lg:block bg-gray-100 bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-40 saturate-100 backdrop-contrast-100 text-dark shadow-lg w-[400px] h-[50px] 2xl:w-[500px] fh:ms-[50px] 2xl:ms-[45px] 2xl:h-[70px] animate-fadeInTop"
+          className="hidden-button lg:block bg-gray-100 bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-40 saturate-100 backdrop-contrast-100 text-dark shadow-lg w-[400px] h-[50px] 2xl:w-[500px] fh:ms-[50px] 2xl:ms-[45px] 2xl:h-[70px] animate-fadeInTop"
           radius={90}
         >
-          <div className="hidden lg:flex w-full items-center justify-center gap-6 py-4 px-8 2xl:py-6">
+          <div className="hidden-button lg:flex w-full items-center justify-center gap-6 py-4 px-8 2xl:py-6">
             <div className="flex space-x-8">
               {headerOptions.map((item) => (
                 <a
@@ -89,7 +89,7 @@ export default function Header() {
         </Squircle>
 
         {/* Button a destra */}
-        <div className="hidden lg:flex items-center relative animate-fadeInRight">
+        <div className="hidden-button lg:flex items-center relative animate-fadeInRight">
           <Squircle className="md:w-[200px] md:h-[50px] 2xl:h-[70px]" radius={90}>
             <button
               onClick={openDapp}
@@ -120,7 +120,7 @@ export default function Header() {
         {/* Menu mobile */}
         <div
           className={`${
-            open ? "block" : "hidden"
+            open ? "block" : "hidden-button"
           } lg:hidden absolute top-full right-0 w-full z-50 my-5`}
         >
           <Squircle radius={60}>
